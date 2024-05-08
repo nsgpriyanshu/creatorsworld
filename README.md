@@ -1,4 +1,4 @@
-<center>
+<div align="center">
 
 # CREATOR'S WORLD
 
@@ -15,7 +15,7 @@
 [![Next.js](https://img.shields.io/badge/Next.js-14.2.3-black.svg?logo=next.js)](https://nextjs.org/)
 
 
-</center>
+</div>
 
 ## About
 
