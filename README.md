@@ -6,7 +6,7 @@
 
 [![Creator's World](https://img.shields.io/badge/Creator's_World-Visit-ef629f.svg)](https://creatorsworld.vercel.app)
 [![GitHub](https://img.shields.io/badge/GitHub-creatorsworld-white.svg?logo=github)](https://github.com/nsgpriyanshu/creatorsworld)
-[![Website Version](https://img.shields.io/badge/Website_Version-1.0.0-brightGreen.svg)](https://github.com/nsgpriyanshu/creatorsworld/releases/latest)
+[![Website Version](https://img.shields.io/badge/Website_Version-1.0.1-brightGreen.svg)](https://github.com/nsgpriyanshu/creatorsworld/releases/latest)
 [![Discord](https://img.shields.io/discord/855781247480496130.svg?color=5865F2&logo=discord&logoColor=white)](https://discord.gg/7SAcEv7MDd)
 [![GitHub contributors](https://img.shields.io/github/contributors/nsgpriyanshu/creatorsworld.svg?color=red)](https://github.com/nsgpriyanshu/creatorsworld/graphs/contributors)
 ![Last Commit](https://img.shields.io/github/last-commit/nsgpriyanshu/creatorsworld.svg)
