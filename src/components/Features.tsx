@@ -11,7 +11,7 @@ const aicontent = [
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
-          src="/categories.jpg"
+          src="./categories.jpg"
           width={300}
           height={300}
           className="h-full w-full object-cover"
@@ -27,7 +27,7 @@ const aicontent = [
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
-          src="/community.jpg"
+          src="./community.jpg"
           width={300}
           height={300}
           className="h-full w-full object-cover"
@@ -43,7 +43,7 @@ const aicontent = [
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
-          src="/importantChannels.jpg"
+          src="./importantChannels.jpg"
           width={300}
           height={300}
           className="h-full w-full object-cover"
@@ -59,7 +59,7 @@ const aicontent = [
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
-          src="/partnersChannels.jpg"
+          src="./partnersChannels.jpg"
           width={300}
           height={300}
           className="h-full w-full object-cover"
@@ -75,7 +75,7 @@ const aicontent = [
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
-          src="/creativeChannels.jpg"
+          src="./creativeChannels.jpg"
           width={300}
           height={300}
           className="h-full w-full object-cover"
@@ -91,7 +91,7 @@ const aicontent = [
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
-          src="/logChannels.jpg"
+          src="./logChannels.jpg"
           width={300}
           height={300}
           className="h-full w-full object-cover"
