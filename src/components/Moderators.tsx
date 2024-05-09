@@ -37,7 +37,7 @@ const creators = [
     id: 6,
     name: 'mnemos_the_ancient',
     designation: 'Cheif Administrator',
-    image: '/images/mnemos.jpg',
+    image: './images/mnemos.jpg',
   },
   {
     id: 7,
