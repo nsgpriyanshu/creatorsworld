@@ -55,7 +55,7 @@ function Moderators() {
           Discover: Creators Council
         </h2>
         <p className="text-base md:text-lg text-white text-center mb-4">
-          Meet with the regents of creators council, the pillar of creatos world
+          Meet with the regents of creators council, the pillar of creator's world
         </p>
         <div className="flex flex-row items-center justify-center mb-10 w-full">
           <AnimatedTooltip items={creators} />
