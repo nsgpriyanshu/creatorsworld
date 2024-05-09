@@ -7,31 +7,31 @@ const creators = [
     id: 1,
     name: 'nsgpriyanshu',
     designation: 'CEO',
-    image: '/images/colourfull-pfp.jpg',
+    image: './images/colourfull-pfp.jpg',
   },
   {
     id: 4,
     name: 'xevientt',
     designation: 'Cheif Administrator',
-    image: '/images/xevy.jpg',
+    image: './images/xevy.jpg',
   },
   {
     id: 2,
     name: 'rejistrado',
     designation: 'COO / Owner of Shadow Fighters',
-    image: '/images/rejistrado.jpg',
+    image: './images/rejistrado.jpg',
   },
   {
     id: 5,
     name: '_azure_931_',
     designation: 'Cheif Administrator',
-    image: '/images/azure.jpg',
+    image: './images/azure.jpg',
   },
   {
     id: 3,
     name: 'mcpepandagaming',
     designation: 'COO / Owner of Nexus',
-    image: '/images/mcpepandagaming.jpg',
+    image: './images/mcpepandagaming.jpg',
   },
   {
     id: 6,
@@ -43,7 +43,7 @@ const creators = [
     id: 7,
     name: 'lordmikey3093',
     designation: 'Cheif Administrator',
-    image: '/images/lordmikey.jpg',
+    image: './images/lordmikey.jpg',
   },
 ]
 
