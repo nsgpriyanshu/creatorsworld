@@ -1,6 +1,6 @@
 {
   "name": "creatorsworld",
-  "version": "1.1.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,6 +8,7 @@
     "format": "npx prettier --write .",
     "start": "next start",
     "final:start": "npm run build && npm run start",
+    "execute": "npm run format && npm run build && npm run start",
     "lint": "next lint"
   },
   "dependencies": {
