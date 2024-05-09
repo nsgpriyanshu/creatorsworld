@@ -11,6 +11,7 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/nsgpriyanshu/creatorsworld.svg?color=red)](https://github.com/nsgpriyanshu/creatorsworld/graphs/contributors)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 ![last commit](https://img.shields.io/github/last-commit/nsgpriyanshu/creatorsworld.svg)
+[![Production Deployment](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/nextjs.yml/badge.svg)](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/nextjs.yml)
 [![CodeQL](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/codeql.yml/badge.svg)](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/codeql.yml)
 [![Dependency review](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/dependency-review.yml)
 [![Next.js](https://img.shields.io/badge/Next.js-14.2.3-black.svg?logo=next.js)](https://nextjs.org/)
