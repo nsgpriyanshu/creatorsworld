@@ -8,7 +8,7 @@
 [![GitHub](https://img.shields.io/badge/GitHub-creatorsworld-white.svg?logo=github)](https://github.com/nsgpriyanshu/creatorsworld)
 [![Website Version](https://img.shields.io/badge/Website_Version-1.0.1-brightGreen.svg)](https://github.com/nsgpriyanshu/creatorsworld/releases/latest)
 [![Discord](https://img.shields.io/discord/855781247480496130.svg?color=5865F2&logo=discord&logoColor=white)](https://discord.gg/7SAcEv7MDd)
-[![GitHub contributors](https://img.shields.io/github/contributors/nsgpriyanshu/creatorsworld.svg?color=red)](https://github.com/nsgpriyanshu/creatorsworld/graphs/contributors)
+[![GitHub contributors](https://img.shields.io/github/contributors/nsgpriyanshu/creatorsworld.svg?color=crimson)](https://github.com/nsgpriyanshu/creatorsworld/graphs/contributors)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 ![last commit](https://img.shields.io/github/last-commit/nsgpriyanshu/creatorsworld.svg)
 [![Production Deployment](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/nextjs.yml/badge.svg)](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/nextjs.yml)
