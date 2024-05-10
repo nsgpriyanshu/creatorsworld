@@ -1,0 +1,20 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "nstypocolors ",
+      "slug": "nstypocolors",
+      "description": "A light weight colors library specially designed for typescript developers",
+      "isFeatured": true,
+      "image": "/projectImages/.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Power Op",
+      "slug": "power-op",
+      "description": "A discord bot, that will make you laugh!",
+      "isFeatured": true,
+      "image": "/projectImages/.jpg"
+    }
+  ]
+}
