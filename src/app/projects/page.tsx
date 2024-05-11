@@ -42,14 +42,14 @@ function ProjectPage() {
                   as="button"
                   className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
                 >
-                  Try Now →
+                  {projects.isAvailable}
                 </CardItem>
                 <CardItem
                   translateZ={20}
                   as="button"
                   className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
                 >
-                  <Link href={'/'}>Read More</Link>
+                  <Link href={projects.link}>Read More</Link>
                 </CardItem>
               </div>
             </CardBody>
