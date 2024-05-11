@@ -6,6 +6,23 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
+## [1.0.4] - 2024-05-11
+
+### Added
+
+- Projects images
+
+### Changed
+
+- Getting started
+- Navbar
+- Project page
+- project.json
+
+### Fixed
+
+- A lot of bugs and some errors
+
 ## [1.0.3] - 2024-05-10
 
 ### Added
