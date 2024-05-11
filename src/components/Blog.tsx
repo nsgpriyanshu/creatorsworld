@@ -21,7 +21,7 @@ function Blog() {
       title: 'WhatsNew',
       value: 'whatsNew',
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900 ">
           <p>Whats New</p>
           <Content />
         </div>
@@ -31,7 +31,7 @@ function Blog() {
       title: 'Updates',
       value: 'updates',
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-[#ce2222] to-[#b71111]">
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-[#ce2222] to-[#b71111] ">
           <p>Updates</p>
           <Content />
         </div>
@@ -41,7 +41,7 @@ function Blog() {
       title: 'Safety & Moderation',
       value: 'safetyMod',
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-[#22ce68] to-[#2c951d]">
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-[#22ce68] to-[#2c951d] ">
           <p>Safety & Moderation</p>
           <Content />
         </div>
@@ -57,7 +57,7 @@ function Blog() {
       <p className="mt-4 font-normal text-base md:text-lg text-neutral-300 max-w-lg mx-auto">
         Explore our blogs from our creators
       </p>
-      <div className="h-[20rem] md:h-[40rem] [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full  items-start justify-start my-40">
+      <div className="h-[20rem] md:h-[40rem] [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto sm:mx-4 w-full  items-start justify-start my-40">
         <Tabs tabs={tabs} />
       </div>
     </div>
@@ -65,3 +65,4 @@ function Blog() {
 }
 
 export default Blog
+
