@@ -6,6 +6,22 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
+## [1.0.5] - 2024-05-12
+
+### Added
+
+- blogs page
+- blog posts page
+
+### Changed
+
+- blog.json
+- Navbar
+
+### Fixed
+
+- A lot of bugs and some errors
+
 ## [1.0.3] - 2024-05-10
 
 ### Added
