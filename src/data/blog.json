@@ -1,0 +1,46 @@
+{
+  "blogs": [
+    {
+      "id": "1",
+      "author": "nsgpriyanshu",
+      "profilePicture": "/images/colourfull-pfp.jpg",
+      "date": "",
+      "title": "",
+      "slug": "",
+      "description": "Lets take a look at our new items",
+      "thumbnai": "",
+      "image": "",
+      "content": "",
+      "section": "Whats new",
+      "link": "/"
+    },
+    {
+      "id": "2",
+      "author": "nsgpriyanshu",
+      "profilePicture": "/images/colourfull-pfp.jpg",
+      "date": "",
+      "title": "",
+      "slug": "",
+      "description": "Take a look of our latest update and stay updated with us",
+      "thumbnai": "",
+      "image": "",
+      "content": "",
+      "section": "Updates",
+      "link": ""
+    },
+    {
+      "id": "3",
+      "author": "nsgpriyanshu",
+      "profilePicture": "/images/colourfull-pfp.jpg",
+      "date": "",
+      "title": "",
+      "slug": "",
+      "description": "Let's learn how to make a safer environment with a good moderation team",
+      "thumbnai": "",
+      "image": "",
+      "content": "",
+      "section": "Safety & Moderation",
+      "link": ""
+    }
+  ]
+}
