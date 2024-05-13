@@ -1,3 +1,4 @@
+
 import Image from 'next/image'
 import React from 'react'
 import Link from 'next/link'
@@ -28,7 +29,7 @@ function BlogPage() {
               >
                 {blogs.description}
               </CardItem>
-              <CardItem translateZ="100" className="w-full h-28 mt-4">
+              <CardItem translateZ="100" className="w-full mt-4">
                 <Image
                   src={blogs.image}
                   height={1000}
