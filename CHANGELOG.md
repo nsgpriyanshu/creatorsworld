@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - blogs page images
+- background beams and grids
 
 ### Changed
 
