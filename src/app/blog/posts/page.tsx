@@ -1,4 +1,3 @@
-
 import { div } from 'three/examples/jsm/nodes/math/OperatorNode.js'
 import blogData from '@/data/blog.json'
 
@@ -18,7 +17,7 @@ function blogPosts() {
           </p>
         </div>
         <div className="w-full mt-16 justify-center items-center mx-auto space-y-16">
-        {blogData.blogs.map(blogs => (
+          {blogData.blogs.map(blogs => (
             <article key={blogs.id} className="flex max-w-xl flex-col items-start justify-between">
               <div className="flex items-center gap-x-4 text-md">
                 <time dateTime={blogs.date} className="text-white-400">
@@ -38,9 +37,7 @@ function blogPosts() {
                     {blogs.title}
                   </a>
                 </h3>
-                <p className="mt-5 text-xl leading-6 text-neutral-400">
-      {blogs.content}
-                </p>
+                <p className="mt-5 text-xl leading-6 text-neutral-400">{blogs.content}</p>
               </div>
               <div className="relative mt-8 flex items-center gap-x-4">
                 <img
