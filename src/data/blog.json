@@ -3,7 +3,7 @@
     {
       "id": "1",
       "author": "nsgpriyanshu",
-      "profilePicture": "./images/colourfull-pfp.jpg",
+      "profilePicture": "../../../../public/images/colourfull-pfp.jpg",
       "role": "CEO",
       "date": "13-05-2024",
       "title": "Elevating Engagement: Exciting Updates in Our Discord Community!",
@@ -18,7 +18,7 @@
     {
       "id": "2",
       "author": "nsgpriyanshu",
-      "profilePicture": "./images/colourfull-pfp.jpg",
+      "profilePicture": "../../../../public/images/colourfull-pfp.jpg",
       "role": "CEO",
       "date": "14-05-2024",
       "title": "Nurturing Safety and Moderation in Discord Communities",
