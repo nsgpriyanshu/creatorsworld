@@ -1,4 +1,3 @@
-
 'use client'
 
 import React, { useState } from 'react'
@@ -14,23 +13,27 @@ function Navbar({ className }: { className?: string }) {
         <Link href={'/'}>
           <MenuItem setActive={setActive} active={active} item="Home"></MenuItem>
         </Link>
-        <Link href={'#getting-started'}>
+        <Link href={'/#getting-started'}>
           <MenuItem setActive={setActive} active={active} item="Getting Started"></MenuItem>
         </Link>
-        <MenuItem setActive={setActive} active={active} item="Projects">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/projects">nstypocolors</HoveredLink>
-            <HoveredLink href="/projects">powerop</HoveredLink>
-            {/* <HoveredLink href="/projects">Soon</HoveredLink> */}
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Blog">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/blog">Whats New</HoveredLink>
-            <HoveredLink href="/blog">Updated</HoveredLink>
-            <HoveredLink href="/blog">Safty & Moderation</HoveredLink>
-          </div>
-        </MenuItem>
+        <Link href={'/projects'}>
+          <MenuItem setActive={setActive} active={active} item="Projects">
+            <div className="flex flex-col space-y-4 text-sm">
+              <HoveredLink href="/projects">nstypocolors</HoveredLink>
+              <HoveredLink href="/projects">powerop</HoveredLink>
+              {/* <HoveredLink href="/projects">Soon</HoveredLink> */}
+            </div>
+          </MenuItem>
+        </Link>
+        <Link href={'/blog'}>
+          <MenuItem setActive={setActive} active={active} item="Blog">
+            <div className="flex flex-col space-y-4 text-sm">
+              <HoveredLink href="/blog/posts">Whats New</HoveredLink>
+              {/* <HoveredLink href="/blog/posts">Updated</HoveredLink> */}
+              <HoveredLink href="/blog/posts">Safety & Moderation</HoveredLink>
+            </div>
+          </MenuItem>
+        </Link>
       </Menu>
     </div>
   )
