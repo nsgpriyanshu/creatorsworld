@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: "Creator's World",
-  description: 'Worlds largest discord bot community',
+  description: 'It's the world's largest Discord app hub also it is the place where creators collab and innovative new ways',
 }
 
 export default function RootLayout({
