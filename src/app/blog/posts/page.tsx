@@ -1,7 +1,6 @@
-
 import { div } from 'three/examples/jsm/nodes/math/OperatorNode.js'
 import blogData from '@/data/blog.json'
-import { BackgroundBeams } from '../../../components/ui/background-beams'
+import { BackgroundBeams } from '@/components/ui/background-beams'
 
 function blogPosts() {
   return (
@@ -48,7 +47,8 @@ function blogPosts() {
                   className="h-14 w-14 rounded-full bg-gray-50"
                 />
                 <div className="text-md leading-6">
-                  <p className="font-semibold text-white-400">
+                  <p className="font-semibold text-neutral-500">Author</p>
+                  <p className="font-semibold text-neutral-400">
                     <a href={blogs.link}>
                       <span className="absolute inset-0" />
                       {blogs.author}
