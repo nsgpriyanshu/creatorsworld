@@ -49,11 +49,21 @@ All notable changes to this project will be documented in this file.
 
 - blogs page
 - blog posts page
+- blog.json
+- Navbar
+
+## [1.0.4] - 2024-05-11
+
+### Added
+
+- Projects images
 
 ### Changed
 
-- blog.json
+- Getting started
 - Navbar
+- Project page
+- project.json
 
 ### Fixed
 

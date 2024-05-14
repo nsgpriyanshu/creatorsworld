@@ -11,6 +11,12 @@
     "execute": "npm run format && npm run build && npm run start",
     "lint": "next lint"
   },
+  "author": "nsgpriyanshu",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nsgpriyanshu/creatorsworld"
+  },
   "dependencies": {
     "@react-three/drei": "^9.105.6",
     "@react-three/fiber": "^8.16.3",
@@ -23,6 +29,7 @@
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
+    "sharp": "^0.33.3",
     "simplex-noise": "^4.0.1",
     "tailwind-merge": "^2.3.0",
     "three": "^0.164.1",

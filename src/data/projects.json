@@ -6,7 +6,9 @@
       "slug": "nstypocolors",
       "description": "A light weight colors library specially designed for typescript developers",
       "isFeatured": true,
-      "image": "./projectImages/.jpg"
+      "image": "./projectImages/nstypocolors.jpg",
+      "isAvailable": "Try Now →",
+      "link": "https://github.com/nsgpriyanshu/nstypocolors"
     },
     {
       "id": 2,
@@ -14,7 +16,9 @@
       "slug": "power-op",
       "description": "A discord bot, that will make you laugh!",
       "isFeatured": true,
-      "image": "./projectImages/.jpg"
+      "image": "./projectImages/powerop.jpg",
+      "isAvailable": "Coming Soon",
+      "link": "/"
     }
   ]
 }
