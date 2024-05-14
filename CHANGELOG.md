@@ -6,6 +6,25 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
+## [1.0.7] - 2024-05-14
+
+### Added
+
+- tab images for blog page
+- New pfp for xevy
+
+### Changed
+
+- blog.json
+- Navbar
+- posts
+- blog
+- layout.tsx
+
+### Fixed
+
+- A lot of bugs and some errors
+
 ## [1.0.6] - 2024-05-13
 
 ### Added
