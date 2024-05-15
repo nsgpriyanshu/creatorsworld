@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
-## [1.0.9] - 2024-05-15
+## [1.0.8] - 2024-05-15
 
 ### Added
 
