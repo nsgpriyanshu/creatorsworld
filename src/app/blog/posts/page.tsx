@@ -56,9 +56,7 @@ function blogPosts() {
                 />
                 <div className="text-md leading-6">
                   <p className="font-semibold text-neutral-500">Author</p>
-                  <p className="font-semibold text-neutral-400">
-                      {blogs.author}
-                  </p>
+                  <p className="font-semibold text-neutral-400">{blogs.author}</p>
                   <p className="text-neutral-300">{blogs.role}</p>
                 </div>
               </div>
