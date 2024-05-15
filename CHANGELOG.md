@@ -11,11 +11,13 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - section images blog post page
+- Contributor pfp in README.md file
 
 ### Changed
 
 - text size for sm and md screens
 - blog tab for sm ( mobile devices )
+- Contributor badge in README.md file
 
 ### Fixed
 
