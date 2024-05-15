@@ -8,7 +8,7 @@ import { div } from 'three/examples/jsm/nodes/math/OperatorNode.js'
 function BlogPage() {
   return (
     <div className="min-h-screen bg-black py-12 pt-36">
-      <h1 className="text-center text-xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+      <h1 className="text-center text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
         All Blogs ({blogData.blogs.length})
       </h1>
       <div className="flex flex-wrap justify-center">
