@@ -6,6 +6,21 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
+## [1.0.9] - 2024-05-15
+
+### Added
+
+- section images blog post page
+
+### Changed
+
+- text size for sm and md screens
+- blog tab for sm ( mobile devices )
+
+### Fixed
+
+- A lot of bugs and some errors
+
 ## [1.0.7] - 2024-05-14
 
 ### Added
