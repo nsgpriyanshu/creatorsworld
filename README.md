@@ -39,7 +39,9 @@ Welcome to the official website of Creator's World! This website serves as the c
 
 ## Contributors
 
-[![nsgpriyanshu](https://img.shields.io/badge/nsgpriyanshu-Developer-red.svg)](https://nsgpriyanshu.github.io)
+<img src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/images/colourfull-pfp.jpg" alt="nsgpriyanshu" width="50" height="50" style="border-radius: 50%;" /> 
+
+[![nsgpriyanshu](https://img.shields.io/badge/nsgpriyanshu-Developer.svg?color=f10a0a)](https://nsgpriyanshu.github.io)
 
 ## Thank You
 
