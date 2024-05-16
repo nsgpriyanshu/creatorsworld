@@ -1,6 +1,6 @@
 {
   "name": "creatorsworld",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -29,7 +29,6 @@
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "sharp": "^0.33.3",
     "simplex-noise": "^4.0.1",
     "tailwind-merge": "^2.3.0",
     "three": "^0.164.1",
@@ -47,3 +46,4 @@
     "typescript": "^5"
   }
 }
+
