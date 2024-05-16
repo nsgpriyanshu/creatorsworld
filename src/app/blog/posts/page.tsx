@@ -20,7 +20,11 @@ function blogPosts() {
         </div>
         <div className="w-full mt-16 justify-center items-center mx-auto space-y-16">
           {blogData.blogs.map(blogs => (
-            <article key={blogs.id} className="flex max-w-4xl flex-col items-start justify-between">
+            <article
+              key={blogs.id}
+              className="flex max-w-4xl flex-col items-start justify-between"
+              id={blogs.slug}
+            >
               <div className="flex items-center gap-x-4 text-md">
                 <time dateTime={blogs.date} className="text-white-400">
                   {blogs.date}
