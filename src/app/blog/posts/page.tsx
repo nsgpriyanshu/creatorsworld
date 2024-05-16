@@ -1,6 +1,7 @@
 import { div } from 'three/examples/jsm/nodes/math/OperatorNode.js'
 import blogData from '@/data/blog.json'
 import { BackgroundBeams } from '@/components/ui/background-beams'
+import Image from 'next/image'
 
 function blogPosts() {
   return (
@@ -8,7 +9,7 @@ function blogPosts() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="h-auto md:h-28 w-full rounded-md flex flex-col items-center justify-center relative overflow-hidden mx-auto py-10 md:py-0">
           <h1
-            className="mt-5 md:mt-0 text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
+            className="mt-5 md:mt-0 text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
             id="getting-started"
           >
             Creator's Blog
@@ -19,7 +20,11 @@ function blogPosts() {
         </div>
         <div className="w-full mt-16 justify-center items-center mx-auto space-y-16">
           {blogData.blogs.map(blogs => (
-            <article key={blogs.id} className="flex max-w-4xl flex-col items-start justify-between">
+            <article
+              key={blogs.id}
+              className="flex max-w-4xl flex-col items-start justify-between"
+              id={blogs.slug}
+            >
               <div className="flex items-center gap-x-4 text-md">
                 <time dateTime={blogs.date} className="text-white-400">
                   {blogs.date}
@@ -38,7 +43,14 @@ function blogPosts() {
                     {blogs.title}
                   </a>
                 </h3>
-                <p className="mt-5 text-xl leading-6 text-neutral-400">{blogs.content}</p>
+                <Image
+                  src={blogs.image}
+                  height={200}
+                  width={400}
+                  className="mt-5 md:h-[300px] md:w-[600px] h-[200px] w-[400px] object-cover rounded-xl group-hover/card:shadow-xl"
+                  alt={blogs.description}
+                />
+                <p className="mt-5 text-lg leading-6 text-neutral-400">{blogs.content}</p>
               </div>
               <div className="relative mt-8 flex items-center gap-x-4">
                 <img
@@ -48,12 +60,7 @@ function blogPosts() {
                 />
                 <div className="text-md leading-6">
                   <p className="font-semibold text-neutral-500">Author</p>
-                  <p className="font-semibold text-neutral-400">
-                    <a href={blogs.link}>
-                      <span className="absolute inset-0" />
-                      {blogs.author}
-                    </a>
-                  </p>
+                  <p className="font-semibold text-neutral-400">{blogs.author}</p>
                   <p className="text-neutral-300">{blogs.role}</p>
                 </div>
               </div>

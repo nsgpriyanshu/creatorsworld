@@ -4,18 +4,16 @@
 
 <img src="src/app/favicon.ico" alt="My Colors Icon" width="300" height="300" />
 
-[![Creator's World](https://img.shields.io/badge/Creator's_World-Visit-ef629f.svg)](https://creatorsworld.vercel.app)
+[![Creator's World](https://img.shields.io/badge/Creator's_World-Visit-ef629f.svg)](https://nsgpriyanshu.github.io/creatorsworld)
 [![GitHub](https://img.shields.io/badge/GitHub-creatorsworld-white.svg?logo=github)](https://github.com/nsgpriyanshu/creatorsworld)
-[![Website Version](https://img.shields.io/badge/Website_Version-1.0.6-brightGreen.svg)](https://github.com/nsgpriyanshu/creatorsworld/releases/latest)
+[![Website Version](https://img.shields.io/badge/Website_Version-1.0.9-brightGreen.svg)](https://github.com/nsgpriyanshu/creatorsworld/releases/latest)
 [![Discord](https://img.shields.io/discord/855781247480496130.svg?color=5865F2&logo=discord&logoColor=white)](https://discord.gg/7SAcEv7MDd)
 [![GitHub contributors](https://img.shields.io/github/contributors/nsgpriyanshu/creatorsworld.svg?color=crimson)](https://github.com/nsgpriyanshu/creatorsworld/graphs/contributors)
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-![last commit](https://img.shields.io/github/last-commit/nsgpriyanshu/creatorsworld.svg)
+![Last Commit](https://img.shields.io/github/last-commit/nsgpriyanshu/creatorsworld.svg)
 [![Production Deployment](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/nextjs.yml/badge.svg)](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/nextjs.yml)
 [![CodeQL](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/codeql.yml/badge.svg)](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/codeql.yml)
 [![Dependency review](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/dependency-review.yml)
 [![Next.js](https://img.shields.io/badge/Next.js-14.2.3-black.svg?logo=next.js)](https://nextjs.org/)
-
 
 </div>
 
@@ -39,7 +37,9 @@ Welcome to the official website of Creator's World! This website serves as the c
 
 ## Contributors
 
-[![nsgpriyanshu](https://img.shields.io/badge/nsgpriyanshu-Developer-red.svg)](https://nsgpriyanshu.github.io)
+<img src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/images/colourfull-pfp.jpg" alt="nsgpriyanshu" width="50" height="50" style="border-radius: 50%;" />
+
+[![nsgpriyanshu](https://img.shields.io/badge/Developer-nsgpriyanshu-author.svg?color=f10a0a)](https://nsgpriyanshu.github.io)
 
 ## Thank You
 
