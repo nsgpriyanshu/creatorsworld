@@ -38,10 +38,8 @@ function blogPosts() {
               </div>
               <div className="group relative">
                 <h3 className="mt-3 text-3xl font-semibold leading-6 text-white-400 group-hover:text-neutra-300">
-                  <a href={blogs.link}>
-                    <span className="absolute inset-0" />
-                    {blogs.title}
-                  </a>
+                  <span className="absolute inset-0" />
+                  {blogs.title}
                 </h3>
                 <Image
                   src={blogs.image}
