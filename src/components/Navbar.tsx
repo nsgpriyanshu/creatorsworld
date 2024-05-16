@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { HoveredLink, Menu, MenuItem, ProductItem } from './ui/navbar-menu'
 import { cn } from '@/utils/cn'
 import Link from 'next/link'
+import blogData from '@/data/blog.json'
 
 function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null)
@@ -28,9 +29,11 @@ function Navbar({ className }: { className?: string }) {
         <Link href={'/blog'}>
           <MenuItem setActive={setActive} active={active} item="Blog">
             <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="/blog/posts">Whats New</HoveredLink>
-              {/* <HoveredLink href="/blog/posts">Updated</HoveredLink> */}
-              <HoveredLink href="/blog/posts">Safety & Moderation</HoveredLink>
+              {blogData.blogs.map(blog => (
+                <HoveredLink key={blog.slug} href={`/blog/posts#${blog.slug}`}>
+                  {blog.section}
+                </HoveredLink>
+              ))}
             </div>
           </MenuItem>
         </Link>
