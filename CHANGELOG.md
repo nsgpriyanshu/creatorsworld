@@ -6,6 +6,23 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
+## [1.0.9] - 2024-05-16
+
+### Added
+
+- None
+
+### Changed
+
+- Image path for author profile
+- slug in data/blog.json
+- Navbar blog section
+- testimonials card h2 conent
+
+### Fixed
+
+- A lot of bugs and some errors
+
 ## [1.0.8] - 2024-05-15
 
 ### Added
