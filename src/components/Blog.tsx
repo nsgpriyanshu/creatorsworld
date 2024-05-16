@@ -6,7 +6,7 @@ import { Tabs } from './ui/tabs'
 const Content = () => {
   return (
     <Image
-      src="/blogImages/tab.png"
+      src="./blogImages/tab.png"
       alt="blogImage"
       width="1000"
       height="1000"
