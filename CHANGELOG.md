@@ -18,6 +18,7 @@ All notable changes to this project will be documented in this file.
 - slug in data/blog.json
 - Navbar blog section
 - testimonials card h2 conent
+- posts page.tsx: remove unwanted links
 
 ### Fixed
 
