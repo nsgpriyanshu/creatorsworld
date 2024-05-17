@@ -6,6 +6,21 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
+## [1.1.0] - 2024-05-17
+
+### Added
+
+- None
+
+### Changed
+
+- blog data
+- updated README.md and CHANGELOG.md
+
+### Fixed
+
+- A lot of bugs and some errors
+
 ## [1.0.9] - 2024-05-16
 
 ### Added

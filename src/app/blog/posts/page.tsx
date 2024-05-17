@@ -14,8 +14,8 @@ function blogPosts() {
           >
             Creator's Blog
           </h1>
-          <p className="mt-4 font-normal text-base md:text-lg text-neutral-300 max-w-lg mx-auto">
-            Read about the blogs written by our creators
+          <p className="mt-4 font-normal text-base text-sm md:text-lg text-neutral-300 mdmax-w-lg max-w-md mx-auto">
+            Read about the latest innovations and visions from our creators
           </p>
         </div>
         <div className="w-full mt-16 justify-center items-center mx-auto space-y-16">
