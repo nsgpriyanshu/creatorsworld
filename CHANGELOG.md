@@ -6,6 +6,95 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
+## [1.1.5] - 2024-07-o2
+
+### Added
+
+- Partner.tsx: added our partners section
+- cw icon svg formate
+
+### Changed
+
+- Getting stareted.tsx
+- page.tsx
+
+### Fixed
+
+- None
+
+## [1.1.4] - 2024-07-o1
+
+### Added
+
+- not-found.tsx
+
+### Changed
+
+- World wide
+- Testimonial cards
+- Moderators
+
+### Fixed
+
+- None
+
+## [1.1.3] - 2024-06-30
+
+### Added
+
+- None
+
+### Changed
+
+- Feature
+- World wide
+
+### Fixed
+
+- None
+
+## [1.1.2] - 2024-06-29
+
+### Added
+
+- github: added github folder
+
+### Changed
+
+- HeroSection
+- Feature
+- layout.tsx: optiminized seo
+
+### Fixed
+
+- None
+
+## [1.1.1] - 2024-06-28
+
+### Added
+
+- Next UI
+- commitlintrc
+- tailwind plugin prettier
+- SECURITY.md
+- .eslintignore
+- providers.tsx
+- new favicon
+- base for magic ui
+
+### Changed
+
+- package.json
+- scripts
+- prettierrc
+- layout.tsx
+- /public: re-arranged and sets all the images
+- readme.md
+
+### Fixed
+
+- None
+
 ## [1.1.0] - 2024-05-17
 
 ### Added
