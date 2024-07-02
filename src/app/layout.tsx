@@ -16,17 +16,21 @@ const ogImage = `${siteUrl}og-image.jpg`
 const twitterImage = `${siteUrl}twitter-image.jpg`
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nsgpriyanshu.github.io/creatorsworld/'),
+  metadataBase: new URL(siteUrl),
   title: {
     default: siteName,
     template: `%s - ${siteName}`,
   },
   description: siteDescription,
-  keywords: 'Discord, app hub, creators, collaboration, innovation',
+  keywords: ['Discord', 'app hub', 'creators', 'collaboration', 'innovation'],
   creator: 'nsgpriyanshu',
   icons: {
     icon: '/favicon.ico',
-    apple: '/logo,svg',
+    apple: '/apple-icon.png',
+    other: {
+      rel: 'apple-touch-icon-precomposed',
+      url: '/apple-touch-icon-precomposed.png',
+    },
   },
   openGraph: {
     title: siteName,
@@ -40,7 +44,7 @@ export const metadata: Metadata = {
         url: ogImage,
         width: 1200,
         height: 630,
-        alt: siteName,
+        alt: `${siteName} Open Graph Image`,
       },
     ],
   },
@@ -51,7 +55,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: twitterImage,
-        alt: siteName,
+        alt: `${siteName} Twitter Image`,
       },
     ],
     site: twitter,
@@ -69,8 +73,8 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charSet="UTF-8" />
-        <meta name="robots" content="noindex, follow, nocache" />
         <link rel="canonical" href={siteUrl} />
+        <meta name="robots" content="noindex, follow, nocache" />
       </head>
       <body className={inter.className}>
         <Providers>
