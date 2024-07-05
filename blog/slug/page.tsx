@@ -29,7 +29,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </div>
-      <div className='justify-center items-center w-96 bg-white'>
+      <div className='justify-center items-center w-96 bg-white border-t-neutral-500 md:border-l-neutarl-500'>
       <div className="flex flex-col items-center justify-center">
           <Image
             as={NextImage}
