@@ -25,7 +25,7 @@ function Partners() {
           isBlurred
           width={300}
           height={300}
-          src="/assets/nexus-brand.png"
+          src="./assets/nexus-brand.png"
           alt="nexus"
         />
         <Image
@@ -33,7 +33,7 @@ function Partners() {
           isBlurred
           width={300}
           height={300}
-          src="/assets/shadow-fight-fanclub-brand.png"
+          src="./assets/shadow-fight-fanclub-brand.png"
           alt="Shadow Fight Fanclub"
         />
       </div>

@@ -15,7 +15,7 @@ function Footer() {
             isBlurred
             width={70}
             height={70}
-            src="/assets/cwlogo.png"
+            src="./assets/cwlogo.png"
             alt="cw"
           />
         </div>
