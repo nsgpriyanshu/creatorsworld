@@ -9,6 +9,8 @@
 
   --pri-gold: #eecda3;
   --pri-pink: #ef629f;
+  --cw-blue: #b27fd2;
+  --cw-gold: #fcd675;
 }
 
 @media (prefers-color-scheme: dark) {

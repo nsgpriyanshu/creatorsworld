@@ -1,58 +1,59 @@
-import Image from 'next/image'
-import React from 'react'
+// src/app/blog/page.tsx
 import Link from 'next/link'
-import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card'
-import blogData from '@/data/blog.json'
-import { div } from 'three/examples/jsm/nodes/math/OperatorNode.js'
+import { getAllPosts } from '@/lib/posts'
+import { Button, Image } from '@nextui-org/react'
+import NextImage from 'next/image'
 
-function BlogPage() {
+const BlogPage = () => {
+  const posts = getAllPosts()
+
   return (
-    <div className="min-h-screen bg-black py-12 pt-36">
-      <h1 className="text-center text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
-        All Blogs ({blogData.blogs.length})
-      </h1>
-      <div className="flex flex-wrap justify-center">
-        {blogData.blogs.map(blogs => (
-          <CardContainer className="inter-var m-4" key={blogs.section}>
-            <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
-              <CardItem
-                translateZ="50"
-                className="text-xl font-bold text-neutral-600 dark:text-white"
-              >
-                {blogs.section}
-              </CardItem>
-              <CardItem
-                as="p"
-                translateZ="60"
-                className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
-              >
-                {blogs.description}
-              </CardItem>
-              <CardItem translateZ="100" className="w-full mt-4">
+    <div className="flex min-h-screen w-auto flex-col justify-center gap-6 bg-black py-12 pt-36">
+      <div className="relative z-10 p-4 text-center">
+        <h2 className="mt-5 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-2xl font-bold text-transparent sm:text-3xl md:mt-0 md:text-4xl lg:text-5xl">
+          Creators Blog
+        </h2>
+        <p className="mx-auto mt-4 max-w-lg text-base font-normal text-neutral-300 sm:text-lg md:text-xl">
+          Explore the Tech secret behind the scenes an upcoming innovation
+        </p>
+      </div>
+      <div className="flex w-auto flex-col items-center justify-center px-5 md:flex-row">
+        <ul>
+          {posts.map(post => (
+            <li
+              key={post.slug}
+              className="mb-6 w-auto rounded-lg bg-neutral-900 p-6 md:max-w-[48rem]"
+            >
+              <Link href={`/blog/${post.slug}`}>
+                {/* <Image
+                  as={NextImage}
+                  width={200}
+                  height={200}
+                  src={post.thumbnail}
+                  alt={post.title}
+                  className="mt-4 rounded-md"
+                /> */}
+                <h3 className="text-xl font-bold text-neutral-50">{post.title}</h3>
+                <p className="mt-2 text-neutral-400">{post.description}</p>
                 <Image
-                  src={blogs.image}
-                  height={1000}
-                  width={1000}
-                  className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                  alt={blogs.description}
+                  as={NextImage}
+                  width={30}
+                  height={30}
+                  src={post.profilePicture}
+                  alt={post.author}
+                  className="mt-4 rounded-md"
                 />
-              </CardItem>
-              <div className="flex justify-between items-center mt-20">
-                <CardItem
-                  translateZ={20}
-                  as="button"
-                  className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-                >
-                  <Link href={blogs.link}>Read More</Link>
-                </CardItem>
-              </div>
-            </CardBody>
-          </CardContainer>
-        ))}
+                <p className="mt-2 text-neutral-50">
+                  {post.author}, {post.role}
+                </p>
+                <p className="mt-2 text-neutral-400">{post.date}</p>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   )
 }
 
 export default BlogPage
-

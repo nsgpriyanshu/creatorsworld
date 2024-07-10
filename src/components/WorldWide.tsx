@@ -10,18 +10,18 @@ const World = dynamic(() => import('./ui/globe').then(m => m.World), {
 function WorldWide() {
   const globeConfig = {
     pointSize: 4,
-    globeColor: '#062056',
+    globeColor: '#000000', // Black color for the globe
     showAtmosphere: true,
-    atmosphereColor: '#FFFFFF',
+    atmosphereColor: '#FFFFFF', // White color for the clouds
     atmosphereAltitude: 0.1,
-    emissive: '#062056',
+    emissive: '#000000', // Black color for the emissive light
     emissiveIntensity: 0.1,
     shininess: 0.9,
-    polygonColor: 'rgba(255,255,255,0.7)',
-    ambientLight: '#38bdf8',
-    directionalLeftLight: '#ffffff',
-    directionalTopLight: '#ffffff',
-    pointLight: '#ffffff',
+    polygonColor: '#fcd675', // Keeping the polygon color white
+    ambientLight: '#fcd675', // Golden color for ambient light
+    directionalLeftLight: '#fcd675', // Golden color for directional light
+    directionalTopLight: '#fcd675', // Golden color for top directional light
+    pointLight: '#fcd675', // Golden color for point light
     arcTime: 1000,
     arcLength: 0.9,
     rings: 1,
@@ -30,7 +30,8 @@ function WorldWide() {
     autoRotate: true,
     autoRotateSpeed: 0.5,
   }
-  const colors = ['#06b6d4', '#3b82f6', '#6366f1']
+
+  const colors = ['#fcd675'] // Golden color for the arcs
   const sampleArcs = [
     {
       order: 1,
@@ -395,36 +396,42 @@ function WorldWide() {
   ]
 
   return (
-    <div className="flex flex-row items-center justify-center py-20 h-screen md:h-auto dark:bg-black bg-white relative w-full">
-      <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 1,
-          }}
-          className="div"
+    <>
+      <div className="relative z-10 p-4 text-center">
+        <h2
+          className="mt-5 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-2xl font-bold text-transparent sm:text-3xl md:mt-0 md:text-4xl lg:text-5xl"
+          id="getting-started"
         >
-          <h2 className="text-center text-xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
-            EarthUnity: Connecting Hearts Across Continents
-          </h2>
-          <p className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
-            Embark on a journey of global connection and understanding in our server, where every
-            Earth inhabitant is valued and celebrated.
-          </p>
-        </motion.div>
-        <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
-        <div className="absolute w-full -bottom-20 h-72 md:h-full z-10">
-          <World data={sampleArcs} globeConfig={globeConfig} />;
+          Earth Unity: Connecting Hearts Across Continents
+        </h2>
+        <p className="mx-auto mt-4 max-w-lg text-base font-normal text-neutral-300 sm:text-lg md:text-xl">
+          Embark on a journey of global connection and understanding in our server, where every
+          Earth inhabitant is valued and celebrated.
+        </p>
+      </div>
+      <div className="relative flex h-[20rem] w-full flex-row items-center justify-center bg-white py-20 dark:bg-black md:h-auto">
+        <div className="relative mx-auto h-[20rem] w-full max-w-7xl overflow-hidden px-4 md:h-[40rem]">
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 1,
+            }}
+            className="div"
+          ></motion.div>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-40 h-40 w-full select-none bg-gradient-to-b from-transparent to-white dark:to-black" />
+          <div className="absolute -bottom-7 z-10 h-72 w-full md:h-full">
+            <World data={sampleArcs} globeConfig={globeConfig} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

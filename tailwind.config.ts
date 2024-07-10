@@ -1,3 +1,4 @@
+import { nextui } from '@nextui-org/react'
 import type { Config } from 'tailwindcss'
 const svgToDataUri = require('mini-svg-data-uri')
 const colors = require('tailwindcss/colors')
@@ -43,11 +44,13 @@ const config: Config = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
   darkMode: 'class',
   theme: {
     extend: {
       animation: {
+        'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
         spotlight: 'spotlight 2s ease .75s 1 forwards',
         scroll:
           'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
@@ -63,6 +66,11 @@ const config: Config = {
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       keyframes: {
+        'border-beam': {
+          '100%': {
+            'offset-distance': '100%',
+          },
+        },
         spotlight: {
           '0%': {
             opacity: '0',
@@ -114,6 +122,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [addVariablesForColors, addSvgPatterns],
+  plugins: [nextui(), addVariablesForColors, addSvgPatterns],
 }
 export default config

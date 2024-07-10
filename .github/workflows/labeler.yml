@@ -1,0 +1,64 @@
+name: Issue and Pull Request Labeler
+
+on:
+  issues:
+    types: [opened, edited]
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Label issues and PRs
+        uses: actions/labeler@v2
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          configuration-path: '.github/label.yml'
+
+labeler:
+  - name: Bug
+    condition: |
+      issue.title =~ /^(bug|error|problem)/i
+      || issue.body =~ /(bug|error|problem)/i
+      || issue.labels =~ /bug/
+
+  - name: Feature
+    condition: |
+      issue.title =~ /^(feature|enhancement)/i
+      || issue.body =~ /(feature|enhancement)/i
+      || issue.labels =~ /feature/
+
+  - name: Documentation
+    condition: |
+      issue.title =~ /^(documentation|docs)/i
+      || issue.body =~ /(documentation|docs)/i
+      || issue.labels =~ /documentation/
+
+  - name: Help Wanted
+    condition: |
+      issue.title =~ /^(help wanted|help needed)/i
+      || issue.body =~ /(help wanted|help needed)/i
+      || issue.labels =~ /help wanted/
+
+  - name: Duplicate
+    condition: |
+      issue.title =~ /^(duplicate)/i
+      || issue.body =~ /(duplicate)/i
+      || issue.labels =~ /duplicate/
+
+  - name: Invalid
+    condition: |
+      issue.title =~ /^(invalid)/i
+      || issue.body =~ /(invalid)/i
+      || issue.labels =~ /invalid/
+
+  - name: Wontfix
+    condition: |
+      issue.title =~ /^(won't fix|wontfix)/i
+      || issue.body =~ /(won't fix|wontfix)/i
+      || issue.labels =~ /wontfix/

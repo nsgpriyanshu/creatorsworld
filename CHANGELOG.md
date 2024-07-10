@@ -6,6 +6,223 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
+## [1.1.13] - 2024-07-10
+
+### Added
+
+- projects/data: added mcpe movie
+- security.md
+
+### Changed
+
+- removed getting started from nav-bar
+- pfp of xevy
+- pfp of azure
+- removed old blog images
+
+### Fixed
+
+- None
+
+## [1.1.12] - 2024-07-o9
+
+### Added
+
+- label.yml and labeller.yml for automation
+
+### Changed
+
+- Navbar.tsx
+- products/page.tsx
+- BlogPost.tsx
+
+### Fixed
+
+- None
+
+## [1.1.11] - 2024-07-o8
+
+### Added
+
+- product: all the base components
+
+### Changed
+
+- BlogPost.tsx
+- Footer.tsx
+- removed blog.json
+
+### Fixed
+
+- Navbar.tsx
+
+## [1.1.10] - 2024-07-o7
+
+### Added
+
+- preview image for seo
+
+### Changed
+
+- BlogPost.tsx
+- layout.tsx: seo optimized
+
+### Fixed
+
+- None
+
+## [1.1.9] - 2024-07-o6
+
+### Added
+
+- safety and moderation preview image
+
+### Changed
+
+- BlogPost.tsx
+- removed post folder from blog from assests
+
+### Fixed
+
+- None
+
+## [1.1.8] - 2024-07-o5
+
+### Added
+
+- projects icon
+- full blog section and its childrean components
+
+### Changed
+
+- project/page.tsx
+- data/projects.json
+
+### Fixed
+
+- None
+
+## [1.1.7] - 2024-07-o4
+
+### Added
+
+- workflows: for github
+
+### Changed
+
+- footer.tsx
+- partners.tsx
+
+### Fixed
+
+- None
+
+## [1.1.6] - 2024-07-o3
+
+### Added
+
+- Partner brand images
+
+### Changed
+
+- Paertner.tsx
+
+### Fixed
+
+- None
+
+## [1.1.5] - 2024-07-o2
+
+### Added
+
+- Partner.tsx: added our partners section
+- cw icon svg formate
+- robot.ts
+- sitemap.ts
+
+### Changed
+
+- Getting stareted.tsx
+- page.tsx
+- layout.tsx
+
+### Fixed
+
+- None
+
+## [1.1.4] - 2024-07-o1
+
+### Added
+
+- not-found.tsx
+
+### Changed
+
+- World wide
+- Testimonial cards
+- Moderators
+
+### Fixed
+
+- None
+
+## [1.1.3] - 2024-06-30
+
+### Added
+
+- None
+
+### Changed
+
+- Feature
+- World wide
+
+### Fixed
+
+- None
+
+## [1.1.2] - 2024-06-29
+
+### Added
+
+- github: added github folder
+
+### Changed
+
+- HeroSection
+- Feature
+- layout.tsx: optiminized seo
+
+### Fixed
+
+- None
+
+## [1.1.1] - 2024-06-28
+
+### Added
+
+- Next UI
+- commitlintrc
+- tailwind plugin prettier
+- SECURITY.md
+- .eslintignore
+- providers.tsx
+- new favicon
+- base for magic ui
+
+### Changed
+
+- package.json
+- scripts
+- prettierrc
+- layout.tsx
+- /public: re-arranged and sets all the images
+- readme.md
+
+### Fixed
+
+- None
+
 ## [1.1.0] - 2024-05-17
 
 ### Added
@@ -99,8 +316,15 @@ All notable changes to this project will be documented in this file.
 
 - blogs page
 - blog posts page
+
+### Changed
+
 - blog.json
 - Navbar
+
+### Fixed
+
+- A lot of bugs and some errors
 
 ## [1.0.4] - 2024-05-11
 
@@ -125,11 +349,12 @@ All notable changes to this project will be documented in this file.
 
 - Projects page
 - projects.json
+- blog.json
 - projectImages folder
 
 ### Changed
 
-- Contriibutors badge
+- Contributors badge
 
 ### Fixed
 
@@ -151,7 +376,7 @@ All notable changes to this project will be documented in this file.
 
 - A lot of bugs and some errors
 
-## [1.1.0] - 2024-05-08
+## [1.0.1] - 2024-05-08
 
 ### Added
 
