@@ -10,7 +10,7 @@
       "isAvailable": "Try Now →",
       "link": "https://discord.gg/VUMVuArkst",
       "thumbnail": "https://media.discordapp.net/attachments/1238724951075192972/1244648997537316954/discotools-xyz-icon_53.png?ex=668de8f5&is=668c9775&hm=0f3f462bdb583326daec59ba5d739b9238f817ef0f783b006164a9075ce6a0c6&=&format=webp&quality=lossless&width=565&height=565",
-      "image": "/assets/productImages/emo-pack.png",
+      "image": "./assets/productImages/emo-pack.png",
       "creator": "nsgpriyanshu"
     }
   ]
