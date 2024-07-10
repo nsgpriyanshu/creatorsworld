@@ -19,46 +19,45 @@ jobs:
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
           configuration-path: '.github/label.yml'
+          labeler-config: |
+            - name: Bug
+              condition: |
+                issue.title =~ /^(bug|error|problem)/i
+                || issue.body =~ /(bug|error|problem)/i
+                || issue.labels =~ /bug/
 
-labeler:
-  - name: Bug
-    condition: |
-      issue.title =~ /^(bug|error|problem)/i
-      || issue.body =~ /(bug|error|problem)/i
-      || issue.labels =~ /bug/
+            - name: Feature
+              condition: |
+                issue.title =~ /^(feature|enhancement)/i
+                || issue.body =~ /(feature|enhancement)/i
+                || issue.labels =~ /feature/
 
-  - name: Feature
-    condition: |
-      issue.title =~ /^(feature|enhancement)/i
-      || issue.body =~ /(feature|enhancement)/i
-      || issue.labels =~ /feature/
+            - name: Documentation
+              condition: |
+                issue.title =~ /^(documentation|docs)/i
+                || issue.body =~ /(documentation|docs)/i
+                || issue.labels =~ /documentation/
 
-  - name: Documentation
-    condition: |
-      issue.title =~ /^(documentation|docs)/i
-      || issue.body =~ /(documentation|docs)/i
-      || issue.labels =~ /documentation/
+            - name: Help Wanted
+              condition: |
+                issue.title =~ /^(help wanted|help needed)/i
+                || issue.body =~ /(help wanted|help needed)/i
+                || issue.labels =~ /help wanted/
 
-  - name: Help Wanted
-    condition: |
-      issue.title =~ /^(help wanted|help needed)/i
-      || issue.body =~ /(help wanted|help needed)/i
-      || issue.labels =~ /help wanted/
+            - name: Duplicate
+              condition: |
+                issue.title =~ /^(duplicate)/i
+                || issue.body =~ /(duplicate)/i
+                || issue.labels =~ /duplicate/
 
-  - name: Duplicate
-    condition: |
-      issue.title =~ /^(duplicate)/i
-      || issue.body =~ /(duplicate)/i
-      || issue.labels =~ /duplicate/
+            - name: Invalid
+              condition: |
+                issue.title =~ /^(invalid)/i
+                || issue.body =~ /(invalid)/i
+                || issue.labels =~ /invalid/
 
-  - name: Invalid
-    condition: |
-      issue.title =~ /^(invalid)/i
-      || issue.body =~ /(invalid)/i
-      || issue.labels =~ /invalid/
-
-  - name: Wontfix
-    condition: |
-      issue.title =~ /^(won't fix|wontfix)/i
-      || issue.body =~ /(won't fix|wontfix)/i
-      || issue.labels =~ /wontfix/
+            - name: Wontfix
+              condition: |
+                issue.title =~ /^(won't fix|wontfix)/i
+                || issue.body =~ /(won't fix)/i
+                || issue.labels =~ /wontfix/
