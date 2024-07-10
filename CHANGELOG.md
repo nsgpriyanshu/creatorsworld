@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - projects/data: added mcpe movie
+- security.md
 
 ### Changed
 
