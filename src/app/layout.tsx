@@ -22,11 +22,11 @@ export const metadata: Metadata = {
     template: `%s - ${siteName}`,
   },
   description: siteDescription,
-  keywords: 'Discord, app hub, creators, collaboration, innovation',
+  keywords: 'Discord, app hub, creators, collaboration, innovation, app',
   creator: 'nsgpriyanshu',
   icons: {
-    icon: '/favicon.ico',
-    apple: '/logo,svg',
+    icon: './favicon.ico',
+    apple: './logo,svg',
   },
   openGraph: {
     title: siteName,
