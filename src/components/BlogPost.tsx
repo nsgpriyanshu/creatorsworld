@@ -12,10 +12,12 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
   return (
     <div className="min-h-screen bg-black py-12 pt-36">
       <div className="h-72 w-full items-center justify-start bg-gradient-to-b from-[#87452e52] p-4 md:h-96 md:w-auto md:pe-[38rem] md:ps-24">
-        <Chip color="warning" variant="flat" size="lg">
-          {post.section}
-        </Chip>
-        <div className="relative z-10 p-4 sm:mt-3 md:mt-3 lg:p-0">
+        <div className="relative z-10 p-3 sm:mt-3 md:mt-3 md:p-4 lg:p-0">
+          <Chip color="warning" variant="flat" size="lg">
+            {post.section}
+          </Chip>
+        </div>
+        <div className="relative z-10 p-3 sm:mt-3 md:mt-3 md:p-4 lg:p-0">
           <h2 className="mt-5 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-2xl font-bold text-transparent sm:text-3xl md:mt-0 md:text-4xl lg:text-5xl">
             {post.title}
           </h2>

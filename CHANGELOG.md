@@ -6,6 +6,24 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
+## [1.1.14] - 2024-07-11
+
+### Added
+
+- DOMPurifier
+- emo thumbnail
+
+### Changed
+
+- blog: add sanitizer to prevent cross site scripting
+
+### Fixed
+
+- labeler issue
+- README.md: image problem with the dev badge
+- image paths for blog
+- alignment problem of blog section
+
 ## [1.1.13] - 2024-07-10
 
 ### Added
