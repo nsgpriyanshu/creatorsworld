@@ -12,8 +12,8 @@ const siteDescription =
   "It's the world's largest Discord app hub. It's also the place where creators collaborate and innovate new ways."
 const twitter = 'https://twitter.com/nsgpriyanshu'
 const siteUrl = 'https://nsgpriyanshu.github.io/creatorsworld/'
-const ogImage = `${siteUrl}preview.png`
-const twitterImage = `${siteUrl}preview.png`
+const ogImage = `${siteUrl}assets/preview.png`
+const twitterImage = `${siteUrl}assets/preview.png`
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://nsgpriyanshu.github.io/creatorsworld/'),
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   creator: 'nsgpriyanshu',
   icons: {
     icon: './favicon.ico',
-    apple: './logo,svg',
+    apple: './logo.svg',
   },
   openGraph: {
     title: siteName,
@@ -70,20 +70,6 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charSet="UTF-8" />
         <meta name="robots" content="index, follow, nocache" />
-        <meta
-          property="og:image"
-          content="https://nsgpriyanshu.github.io/creatorsworld/preview.png"
-        />
-        <meta property="og:site_name" content={siteName} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@nsgpriyanshu" />
-        <meta name="twitter:creator" content="@nsgpriyanshu" />
-        <meta name="twitter:title" content={siteName} />
-        <meta name="twitter:description" content={siteDescription} />
-        <meta
-          name="twitter:image"
-          content="https://nsgpriyanshu.github.io/creatorsworld/preview.png"
-        />
         <link rel="canonical" href={siteUrl} />
       </head>
       <body className={inter.className}>
