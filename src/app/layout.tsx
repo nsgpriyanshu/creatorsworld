@@ -69,7 +69,21 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charSet="UTF-8" />
-        <meta name="robots" content="noindex, follow, nocache" />
+        <meta name="robots" content="index, follow, nocache" />
+        <meta
+          property="og:image"
+          content="https://nsgpriyanshu.github.io/creatorsworld/preview.png"
+        />
+        <meta property="og:site_name" content={siteName} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@nsgpriyanshu" />
+        <meta name="twitter:creator" content="@nsgpriyanshu" />
+        <meta name="twitter:title" content={siteName} />
+        <meta name="twitter:description" content={siteDescription} />
+        <meta
+          name="twitter:image"
+          content="https://nsgpriyanshu.github.io/creatorsworld/preview.png"
+        />
         <link rel="canonical" href={siteUrl} />
       </head>
       <body className={inter.className}>

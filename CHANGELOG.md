@@ -16,6 +16,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - blog: add sanitizer to prevent cross site scripting
+- layout.tsx
 
 ### Fixed
 
