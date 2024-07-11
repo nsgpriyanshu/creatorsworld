@@ -9,8 +9,8 @@
       "isFeatured": true,
       "isAvailable": "Try Now →",
       "link": "https://discord.gg/VUMVuArkst",
-      "thumbnail": "/assets/productImages/emo.png",
-      "image": "/assets/productImages/emo-pack.png",
+      "thumbnail": "./assets/productImages/emo.png",
+      "image": "./assets/productImages/emo-pack.png",
       "creator": "nsgpriyanshu"
     }
   ]
