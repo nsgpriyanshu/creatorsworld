@@ -6,6 +6,22 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
+## [1.1.15] - 2024-07-12
+
+### Added
+
+- dompurify and its necessary packages
+- sharp package for image optimization
+
+### Changed
+
+- blog: add sanitizer to prevent xss
+- README.md: updated the next.js v badge
+
+### Fixed
+
+- XSS Issue
+
 ## [1.1.14] - 2024-07-11
 
 ### Added

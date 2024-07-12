@@ -4,6 +4,8 @@ import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html'
 import { Post } from '@/app/blog/types'
+import { JSDOM } from 'jsdom'
+import DOMPurify from 'dompurify'
 
 const postsDirectory = path.join(process.cwd(), 'src/app/blog/posts')
 
@@ -28,7 +30,9 @@ export function getPostBySlug(slug: string): Post | null {
 
 export async function markdownToHtml(markdown: string) {
   const result = await remark().use(html).process(markdown)
-  return result.toString()
+  const window = new JSDOM('').window
+  const purify = DOMPurify(window as unknown as Window)
+  return purify.sanitize(result.toString())
 }
 
 export function getAllPosts(): Post[] {

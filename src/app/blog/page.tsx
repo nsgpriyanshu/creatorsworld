@@ -1,4 +1,3 @@
-// src/app/blog/page.tsx
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
 import { Button, Image } from '@nextui-org/react'
@@ -24,29 +23,32 @@ const BlogPage = () => {
               key={post.slug}
               className="mb-6 w-auto rounded-lg bg-neutral-900 p-6 md:max-w-[48rem]"
             >
-              <Link href={`/blog/${post.slug}`}>
-                {/* <Image
-                  as={NextImage}
-                  width={200}
-                  height={200}
-                  src={post.thumbnail}
-                  alt={post.title}
-                  className="mt-4 rounded-md"
-                /> */}
-                <h3 className="text-xl font-bold text-neutral-50">{post.title}</h3>
-                <p className="mt-2 text-neutral-400">{post.description}</p>
-                <Image
-                  as={NextImage}
-                  width={30}
-                  height={30}
-                  src={post.profilePicture}
-                  alt={post.author}
-                  className="mt-4 rounded-md"
-                />
-                <p className="mt-2 text-neutral-50">
-                  {post.author}, {post.role}
-                </p>
-                <p className="mt-2 text-neutral-400">{post.date}</p>
+              <Link href={`/blog/${post.slug}`} passHref>
+                <a>
+                  {/* Uncomment the following block if you want to use the thumbnail image */}
+                  {/* <Image
+                    as={NextImage}
+                    width={200}
+                    height={200}
+                    src={post.thumbnail}
+                    alt={post.title}
+                    className="mt-4 rounded-md"
+                  /> */}
+                  <h3 className="text-xl font-bold text-neutral-50">{post.title}</h3>
+                  <p className="mt-2 text-neutral-400">{post.description}</p>
+                  <Image
+                    as={NextImage}
+                    width={30}
+                    height={30}
+                    src={post.profilePicture}
+                    alt={post.author}
+                    className="mt-4 rounded-md"
+                  />
+                  <p className="mt-2 text-neutral-50">
+                    {post.author}, {post.role}
+                  </p>
+                  <p className="mt-2 text-neutral-400">{post.date}</p>
+                </a>
               </Link>
             </li>
           ))}

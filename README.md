@@ -13,7 +13,7 @@
 [![Production Deployment](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/nextjs.yml/badge.svg)](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/nextjs.yml)
 [![CodeQL](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/codeql.yml/badge.svg)](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/codeql.yml)
 [![Dependency review](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/dependency-review.yml)
-[![Next.js](https://img.shields.io/badge/Next.js-14.2.4-black.svg?logo=next.js)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-14.2.5-black.svg?logo=next.js)](https://nextjs.org/)
 
 </div>
 
