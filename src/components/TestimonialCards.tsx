@@ -42,7 +42,7 @@ function Testimonialcards() {
       </div>
       <div className="flex w-full justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-6xl">
-          <InfiniteMovingCards items={testimonial} direction="right" speed="slow" />
+          <InfiniteMovingCards items={testimonial} direction="right" speed="normal" />
         </div>
       </div>
     </div>

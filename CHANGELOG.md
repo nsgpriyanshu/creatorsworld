@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
+- speed of testimonial card is set to normal
 - blog: add sanitizer to prevent xss
 - README.md: updated the next.js v badge
 
