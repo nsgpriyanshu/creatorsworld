@@ -4,7 +4,7 @@ import { InfiniteMovingCards } from './ui/infinite-moving-cards'
 const testimonial = [
   {
     quote: 'Overall the UI looks neat. You may add some more features to make it more interesting.',
-    name: 'Adrash',
+    name: 'Adarsh',
     title: 'Owner of Shadow Fight Fanclub, Youtuber',
   },
   {
