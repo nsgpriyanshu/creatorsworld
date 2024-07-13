@@ -6,6 +6,21 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
+## [1.2.0] - 2024-07-13
+
+### Added
+
+- None
+
+### Changed
+
+- BlogPost.tsx
+- CHANGELOG format: Now, it will written on the basis of angular commits
+
+###  Fixed
+
+- All the bugs
+
 ## [1.1.15] - 2024-07-12
 
 ### Added

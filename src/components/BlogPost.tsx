@@ -37,7 +37,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
             alt={post.title}
             width={800}
             height={450}
-            className="mt-4 rounded-md md:ps-24"
+            className="mt-4 rounded-md md:ps-24 px-5"
           />
           <div
             className="mt-6 max-w-4xl p-5 text-lg text-neutral-300 md:ps-24"
