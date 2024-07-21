@@ -30,7 +30,6 @@
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.3.0",
     "clsx": "^2.1.1",
-    "eslint": "^8.57.0",
     "framer-motion": "^11.3.2",
     "gray-matter": "^4.0.3",
     "mini-svg-data-uri": "^1.4.4",
@@ -55,9 +54,8 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "dompurify": "^3.1.6",
+    "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.5",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
     "jsdom": "^24.1.0",
     "postcss": "^8",
     "prettier": "^3.3.3",
@@ -66,5 +64,3 @@
     "typescript": "^5"
   }
 }
-
-
