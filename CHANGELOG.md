@@ -6,6 +6,21 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
+## [1.2.1] - 2024-07-21
+
+### Added
+
+- Azza's review
+- Auto-merge workflow
+
+### Changed
+
+- None
+
+### Bug Fixes
+
+- None
+
 ## [1.2.0] - 2024-07-13
 
 ### Added

@@ -12,11 +12,11 @@ const testimonial = [
     name: 'Sourav',
     title: 'Admin of Nexus',
   },
-  // {
-  //   quote: 'Testimonial',
-  //   name: 'Name',
-  //   title: 'Title',
-  // },
+  {
+    quote: 'Omg its so cool',
+    name: 'Azza',
+    title: 'Early Supporter',
+  },
   // {
   //   quote: 'Testimonial',
   //   name: 'Name',
