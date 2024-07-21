@@ -24,12 +24,13 @@
   "homepage": "https://nsgpriyanshu.github.io/creatorsworld",
   "dependencies": {
     "@nextui-org/react": "^2.4.2",
-    "@react-three/drei": "^9.108.4",
+    "@react-three/drei": "^9.105.6",
     "@react-three/fiber": "^8.16.3",
     "@tsparticles/engine": "^3.3.0",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.3.0",
     "clsx": "^2.1.1",
+    "eslint": "^8.57.0",
     "framer-motion": "^11.3.2",
     "gray-matter": "^4.0.3",
     "mini-svg-data-uri": "^1.4.4",
@@ -41,7 +42,7 @@
     "sharp": "^0.33.4",
     "simplex-noise": "^4.0.2",
     "tailwind-merge": "^2.3.0",
-    "three": "^0.166.1",
+    "three": "^0.164.1",
     "three-globe": "^2.31.0"
   },
   "devDependencies": {
@@ -54,7 +55,6 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "dompurify": "^3.1.6",
-    "eslint": "^9.7.0",
     "eslint-config-next": "^14.2.5",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -62,8 +62,9 @@
     "postcss": "^8",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.5",
-    "tailwindcss": "^3.4.6",
+    "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
 }
+
 
