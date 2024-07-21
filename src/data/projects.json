@@ -28,7 +28,7 @@
       "slug": "deal-with-terror",
       "description": "A shadow fight movie created by a fellow shadow fighters and Nexus",
       "isFeatured": true,
-      "image": "/assets/projectImages/deal-of-terror.jpg",
+      "image": "./assets/projectImages/deal-of-terror.jpg",
       "isAvailable": "Coming Soon",
       "link": "https://discord.gg/6R58fbXGv8",
       "creator": "mcpepandagaming"
