@@ -23,8 +23,8 @@ function Partners() {
         <Image
           as={NextImage}
           isBlurred
-          width={300}
-          height={300}
+          width={200}
+          height={200}
           src="./assets/nexus-brand.png"
           alt="nexus"
         />
@@ -32,7 +32,7 @@ function Partners() {
           as={NextImage}
           isBlurred
           width={300}
-          height={300}
+          height={100}
           src="./assets/shadow-fight-fanclub-brand.png"
           alt="Shadow Fight Fanclub"
         />

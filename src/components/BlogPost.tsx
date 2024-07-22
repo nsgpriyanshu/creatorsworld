@@ -1,7 +1,6 @@
 import React from 'react'
 import { Post } from '@/app/blog/types'
 import { Image } from '@nextui-org/react'
-import NextImage from 'next/image'
 import { Chip } from '@nextui-org/react'
 
 interface BlogPostProps {
@@ -31,14 +30,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
       <div className="flex w-full flex-col md:flex-row">
         {/* Main Content Area */}
         <div className="w-full flex-1 items-center justify-start border-b-1 border-neutral-700 md:w-4/6 md:border-b-0 md:border-r-1">
-          <Image
-            as={NextImage}
-            src={post.image}
-            alt={post.title}
-            width={800}
-            height={450}
-            className="mt-4 rounded-md md:ps-24 px-5"
-          />
+          <Image src={post.image} alt={post.title} className="mt-4 rounded-md px-5 md:ps-24" />
           <div
             className="mt-6 max-w-4xl p-5 text-lg text-neutral-300 md:ps-24"
             dangerouslySetInnerHTML={{ __html: post.content }}
@@ -49,7 +41,6 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
         <div className="h-auto w-full md:w-2/6">
           <div className="mt-4 flex flex-col items-center justify-center text-center">
             <Image
-              as={NextImage}
               src={post.profilePicture}
               alt={`${post.author} profile picture`}
               width={90}

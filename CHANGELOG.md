@@ -6,6 +6,20 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
+## [1.2.2] - 2024-07-22
+
+### Added
+
+- None
+
+### Changed
+
+- Image of blog post: remove next image
+
+### Bug Fixes
+
+- Workflow bug: fixed the auto merge action
+
 ## [1.2.1] - 2024-07-21
 
 ### Added
