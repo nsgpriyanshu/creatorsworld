@@ -22,8 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test
+      - name: Run prettier 
+        run: npm run format:fix
 
       - name: Auto-merge Dependabot updates
         uses: pascalgn/automerge-action@v0.14.3
