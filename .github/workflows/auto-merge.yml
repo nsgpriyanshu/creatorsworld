@@ -1,4 +1,4 @@
-name: Auto Merge Dependabot PRs
+name: Auto-Merge Dependabot Updates
 
 on:
   pull_request:
@@ -9,35 +9,30 @@ on:
 
 jobs:
   auto-merge:
-    runs-on: ubuntu-latest
-
     if: github.actor == 'dependabot[bot]'
-
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Setup Git
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+      - name: Ensure PR is from Dependabot
+        if: github.actor == 'dependabot[bot]'
+        run: echo "Dependabot PR detected, continuing."
 
       - name: Install dependencies
         run: npm install
 
-      - name: Run Prettier
-        run: npm run format:fix
+      - name: Run tests
+        run: npm test
 
-      - name: Merge Dependabot PR
-        if: success()
-        run: |
-          git checkout ${{ github.event.pull_request.head.ref }}
-          git merge ${{ github.event.pull_request.base.ref }} --no-ff
-          git push origin ${{ github.event.pull_request.head.ref }}
+      - name: Auto-merge Dependabot updates
+        uses: pascalgn/automerge-action@v0.14.3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          merge-method: squash
+          branch: main
+          skip-ci: true
+          commit_message: |
+            {prefix}: {dep} ({version})
+            This PR was automatically merged by GitHub Actions.
