@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.3.1](https://github.com/nsgpriyanshu/creatorsworld/compare/1.3.0...1.3.1) - (2024-08-10)
+
+## Non Code changes
+
+- Add @favware/cliff-jumper for release automation ([e473eb8](https://github.com/nsgpriyanshu/creatorsworld/commit/e473eb8444f6822b1b5f483231d325877088d079))
+
+# [1.3.0](https://github.com/nsgpriyanshu/creatorsworld/tree/1.3.0) - (2024-08-10)
+
+## Bug Fixes
+
+- The xss issue ([e0b20cd](https://github.com/nsgpriyanshu/creatorsworld/commit/e0b20cd61a7bee9896f7171ddfdd0f6c31e2a91e))
+- Image paths, add relative paths ([920b093](https://github.com/nsgpriyanshu/creatorsworld/commit/920b093c3c09ad95efc6fd7919080aecefa8b078))
+- Image paths, add relative paths ([251e2df](https://github.com/nsgpriyanshu/creatorsworld/commit/251e2df1785b6f63253eeb99127d009fa4e265f8))
+
+## Features
+
+- Stable version with remote repo feature ([aabd37b](https://github.com/nsgpriyanshu/creatorsworld/commit/aabd37b9a1146a54dcb02e43bf263be7ebca2e89))
+
+## Non Code changes
+
+- **creatorsworld:** Release creatorsworld@1.3.0 ([afd3491](https://github.com/nsgpriyanshu/creatorsworld/commit/afd3491718d363dcd5fb547a90f185ac2850eff7))
+
 # [1.3.0](https://github.com/nsgpriyanshu/creatorsworld/compare/v1.2.0...1.3.0) - (2024-08-10)
 
 ## Bug Fixes
