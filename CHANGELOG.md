@@ -14,14 +14,6 @@ All notable changes to this project will be documented in this file.
 
 - Stable version with remote repo feature ([aabd37b](https://github.com/nsgpriyanshu/creatorsworld/commit/aabd37b9a1146a54dcb02e43bf263be7ebca2e89))
 
-# Change Log
-
-All notable changes to this project will be documented in this file.
-
-## [Unreleased]
-
-- Initial release of the package
-
 ## [1.2.2] - 2024-07-22
 
 ### Added
