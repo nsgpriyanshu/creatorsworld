@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+
+# Production build output
+out/
+
+# Logs
+logs/
+*.log
+
+# Environment variable files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Miscellaneous
+.DS_Store
+*.pem
+
+# TypeScript build output
+dist/

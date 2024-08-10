@@ -1,0 +1,17 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Emo Pack",
+      "slug": "emo-pack",
+      "description": "Get this exclusive emoji pack created by our creators. These emojis have been used in our nsCore app. Don't miss out on over 40 utility emojis for just $9.99.",
+      "price": "9.99 $",
+      "isFeatured": true,
+      "isAvailable": "Try Now →",
+      "link": "https://discord.gg/VUMVuArkst",
+      "thumbnail": "/assets/productImages/emo.png",
+      "image": "/assets/productImages/emo-pack.png",
+      "creator": "nsgpriyanshu"
+    }
+  ]
+}
