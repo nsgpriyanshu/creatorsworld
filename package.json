@@ -46,7 +46,7 @@
     "three-globe": "^2.31.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
+    "@commitlint/cli": "^19.4.0",
     "@commitlint/config-angular": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@favware/cliff-jumper": "^4.0.3",
