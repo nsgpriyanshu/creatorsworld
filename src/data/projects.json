@@ -6,7 +6,7 @@
       "slug": "nstypocolors",
       "description": "A light weight colors library specially designed for typescript developers",
       "isFeatured": true,
-      "image": "/assets/projectImages/nstypocolors.png",
+      "image": "./assets/projectImages/nstypocolors.png",
       "isAvailable": "Available",
       "link": "https://github.com/nsgpriyanshu/nstypocolors",
       "creator": "nsgpriyanshu"
@@ -17,7 +17,7 @@
       "slug": "power-op",
       "description": "It's an user-friendly, powerfull and safer discord app, with different utilities and commands",
       "isFeatured": true,
-      "image": "/assets/projectImages/powerop.jpg",
+      "image": "./assets/projectImages/powerop.jpg",
       "isAvailable": "Available",
       "link": "https://discord.com/oauth2/authorize?client_id=943458326644150323",
       "creator": "nsgpriyanshu"
@@ -28,7 +28,7 @@
       "slug": "deal-with-terror",
       "description": "A shadow fight movie created by a fellow shadow fighters and Nexus",
       "isFeatured": true,
-      "image": "/assets/projectImages/deal-of-terror.jpg",
+      "image": "./assets/projectImages/deal-of-terror.jpg",
       "isAvailable": "Coming Soon",
       "link": "https://discord.gg/6R58fbXGv8",
       "creator": "mcpepandagaming"

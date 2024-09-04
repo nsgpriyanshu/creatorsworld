@@ -39,12 +39,12 @@ const creators = [
     designation: 'Cheif Administrator',
     image: './icons/mnemos.jpg',
   },
-  {
-    id: 7,
-    name: 'lordmikey3093',
-    designation: 'Cheif Administrator',
-    image: './icons/lordmikey.jpg',
-  },
+  // {
+  //   id: 7,
+  //   name: 'lordmikey3093',
+  //   designation: 'Cheif Administrator',
+  //   image: './icons/lordmikey.jpg',
+  // },
 ]
 
 function Moderators() {
