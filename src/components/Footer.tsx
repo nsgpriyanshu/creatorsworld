@@ -7,8 +7,8 @@ import NextImage from 'next/image'
 
 function Footer() {
   return (
-    <div className=" mt-2 border-t border-neutral-900 relative flex h-auto w-full flex-col items-center justify-center overflow-hidden rounded-md bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)]">
-<div className="absolute top-0 left-1/2 right-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-1.5 bg-foreground rounded-full"></div>
+    <div className="relative mt-2 flex h-auto w-full flex-col items-center justify-center overflow-hidden rounded-md border-t border-neutral-900 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)]">
+      <div className="absolute left-1/2 right-1/2 top-0 h-1.5 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground"></div>
       <footer className="relative z-10 flex flex-col py-12 text-neutral-400">
         <div className="mx-auto my-5 flex justify-start">
           <Image

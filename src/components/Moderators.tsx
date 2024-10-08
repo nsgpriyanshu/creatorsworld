@@ -7,37 +7,43 @@ const creators = [
     id: 1,
     name: 'nsgpriyanshu',
     designation: 'CEO',
-    image: 'https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/icons/colourfull-pfp.jpg',
+    image:
+      'https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/icons/colourfull-pfp.jpg',
   },
   {
     id: 4,
     name: 'xevientt',
     designation: 'Cheif Administrator',
-    image: 'https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/icons/xevy.jpg',
+    image:
+      'https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/icons/xevy.jpg',
   },
   {
     id: 2,
     name: 'rejistrado',
     designation: 'COO / Owner of Shadow Fighters',
-    image: 'https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/icons/rejistrado.jpg',
+    image:
+      'https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/icons/rejistrado.jpg',
   },
   {
     id: 5,
     name: '_azure_931_',
     designation: 'Cheif Administrator',
-    image: 'https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/icons/azure.jpg',
+    image:
+      'https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/icons/azure.jpg',
   },
   {
     id: 3,
     name: 'mcpepandagaming',
     designation: 'COO / Owner of Nexus',
-    image: 'https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/icons/mcpepandagaming.jpg',
+    image:
+      'https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/icons/mcpepandagaming.jpg',
   },
   {
     id: 6,
     name: 'mnemos_the_ancient',
     designation: 'Cheif Administrator',
-    image: 'https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/icons/mnemos.jpg',
+    image:
+      'https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/icons/mnemos.jpg',
   },
 ]
 
