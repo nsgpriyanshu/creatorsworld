@@ -26,7 +26,7 @@
   "dependencies": {
     "@nextui-org/react": "^2.4.8",
     "@react-three/drei": "^9.113.0",
-    "@react-three/fiber": "^8.17.7",
+    "@react-three/fiber": "^8.17.9",
     "@tsparticles/engine": "^3.3.0",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.3.0",
