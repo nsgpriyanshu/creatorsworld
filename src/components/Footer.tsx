@@ -7,15 +7,16 @@ import NextImage from 'next/image'
 
 function Footer() {
   return (
-    <div className="relative flex h-auto w-full flex-col items-center justify-center overflow-hidden rounded-md bg-black">
-      <footer className="relative z-10 flex flex-col bg-black py-12 text-gray-400">
+    <div className="relative mt-2 flex h-auto w-full flex-col items-center justify-center overflow-hidden rounded-md border-t border-neutral-900 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)]">
+      <div className="absolute left-1/2 right-1/2 top-0 h-1.5 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground"></div>
+      <footer className="relative z-10 flex flex-col py-12 text-neutral-400">
         <div className="mx-auto my-5 flex justify-start">
           <Image
             as={NextImage}
             isBlurred
             width={70}
             height={70}
-            src="./assets/cwlogo.png"
+            src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/assets/cwlogo.png"
             alt="cw"
           />
         </div>

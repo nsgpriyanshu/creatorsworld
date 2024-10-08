@@ -32,7 +32,7 @@ function GettingStarted() {
             </div>
             <div className="mt-4 flex w-full flex-1 overflow-hidden rounded-lg bg-gradient-to-br from-green-500 via-teal-500 to-cyan-500">
               <Image
-                src="./icons/colourfull-pfp.jpg"
+                src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/icons/colourfull-pfp.jpg"
                 width={800}
                 height={800}
                 alt="colourfull-pfp"
@@ -56,7 +56,7 @@ function GettingStarted() {
             </div>
             <div className="mt-4 flex w-full flex-1 overflow-hidden rounded-lg bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500">
               <Image
-                src="./demos/shadowfightlogo.jpg"
+                src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/demos/shadowfightlogo.jpg"
                 width={600}
                 height={600}
                 alt="colourfull-pfp"

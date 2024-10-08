@@ -5,7 +5,7 @@ import { BorderBeam } from '@/components/magicui/border-beam'
 
 function HeroSection() {
   return (
-    <div className="relative mx-auto flex h-auto w-full flex-col items-center justify-center overflow-hidden rounded-md py-10 md:h-[40rem] md:py-0 lg:h-[50rem] xl:h-[60rem]">
+    <div className="relative mx-auto flex h-auto w-full flex-col items-center justify-center overflow-hidden rounded-md py-10 bg-grid-white/[0.02] md:h-[40rem] md:py-0 lg:h-[50rem] xl:h-[60rem]">
       <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="white" />
       <div className="relative z-10 p-4 text-center">
         <h1
@@ -33,9 +33,10 @@ function HeroSection() {
             </Button>
           </Link>
         </div>
+
         <div className="relative mt-4 rounded-xl">
           <img
-            src="demos/cwlobby.png"
+            src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/demos/cwlobby.png"
             alt="Hero Image"
             className="hidden w-[700px] rounded-[inherit] border object-contain shadow-lg dark:block"
           />
