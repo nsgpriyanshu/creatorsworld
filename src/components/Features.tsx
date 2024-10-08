@@ -12,7 +12,7 @@ const content = [
     content: (
       <div className="flex h-full w-full items-center justify-center text-white">
         <Image
-          src="./demos/categories.jpg"
+          src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/demos/categories.jpg"
           width={300}
           height={300}
           className="h-full w-full object-cover"
@@ -28,7 +28,7 @@ const content = [
     content: (
       <div className="flex h-full w-full items-center justify-center text-white">
         <Image
-          src="./demos/community.jpg"
+          src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/demos/community.jpg"
           width={300}
           height={300}
           className="h-full w-full object-cover"
@@ -44,7 +44,7 @@ const content = [
     content: (
       <div className="flex h-full w-full items-center justify-center text-white">
         <Image
-          src="./demos/importantChannels.jpg"
+          src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/demos/importantChannels.jpg"
           width={300}
           height={300}
           className="h-full w-full object-cover"
@@ -60,7 +60,7 @@ const content = [
     content: (
       <div className="flex h-full w-full items-center justify-center text-white">
         <Image
-          src="./demos/partnersChannels.jpg"
+          src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/demos/partnersChannels.jpg"
           width={300}
           height={300}
           className="h-full w-full object-cover"
@@ -76,7 +76,7 @@ const content = [
     content: (
       <div className="flex h-full w-full items-center justify-center text-white">
         <Image
-          src="./demos/creativeChannels.jpg"
+          src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/demos/creativeChannels.jpg"
           width={300}
           height={300}
           className="h-full w-full object-cover"
@@ -92,7 +92,7 @@ const content = [
     content: (
       <div className="flex h-full w-full items-center justify-center text-white">
         <Image
-          src="./demos/logChannels.jpg"
+          src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/demos/logChannels.jpg"
           width={300}
           height={300}
           className="h-full w-full object-cover"
