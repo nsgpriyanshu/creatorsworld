@@ -1,61 +1,54 @@
-import type { Metadata } from 'next'
+import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import { Providers } from './providers'
 import Link from 'next/link'
+import { siteConfig } from '@/config/siteconfig'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const siteName = 'Creators World'
-const siteDescription =
-  "It's the world's largest Discord app hub. It's also the place where creators collaborate and innovate new ways."
-const twitter = 'https://twitter.com/nsgpriyanshu'
-const siteUrl = 'https://nsgpriyanshu.github.io/creatorsworld/'
-const ogImage = `${siteUrl}preview.png`
-const twitterImage = `${siteUrl}preview.png`
-
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nsgpriyanshu.github.io/creatorsworld/'),
+  metadataBase: new URL(siteConfig.links.siteUrl), 
   title: {
-    default: siteName,
-    template: `%s - ${siteName}`,
+    default: siteConfig.siteName,  
+    template: `%s - ${siteConfig.siteName}`,  
   },
-  description: siteDescription,
+  description: siteConfig.siteDescription,  
   keywords: 'Discord, app hub, creators, collaboration, innovation',
   creator: 'nsgpriyanshu',
   icons: {
     icon: '/favicon.ico',
-    apple: '/logo,svg',
+    apple: '/logo.svg',
   },
   openGraph: {
-    title: siteName,
-    description: siteDescription,
-    url: siteUrl,
+    title: siteConfig.siteName,  
+    description: siteConfig.siteDescription,  
+    url: siteConfig.links.siteUrl,  
     type: 'website',
     locale: 'en_US',
-    siteName: siteName,
+    siteName: siteConfig.siteName,  
     images: [
       {
-        url: ogImage,
+        url: siteConfig.links.ogImage,  
         width: 1200,
         height: 630,
-        alt: siteName,
+        alt: siteConfig.siteName,  
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteName,
-    description: siteDescription,
+    title: siteConfig.siteName,  
+    description: siteConfig.siteDescription,  
     images: [
       {
-        url: twitterImage,
-        alt: siteName,
+        url: siteConfig.links.twitterImage,  
+        alt: siteConfig.siteName,  
       },
     ],
-    site: twitter,
-    creator: twitter,
+    site: siteConfig.links.twitter,  
+    creator: siteConfig.links.twitter,  
   },
 }
 
@@ -72,19 +65,19 @@ export default function RootLayout({
         <meta name="robots" content="index, follow, nocache" />
         <meta
           property="og:image"
-          content="https://nsgpriyanshu.github.io/creatorsworld/preview.png"
+          content={siteConfig.links.ogImage}  
         />
-        <meta property="og:site_name" content={siteName} />
+        <meta property="og:site_name" content={siteConfig.siteName} />  
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@nsgpriyanshu" />
-        <meta name="twitter:creator" content="@nsgpriyanshu" />
-        <meta name="twitter:title" content={siteName} />
-        <meta name="twitter:description" content={siteDescription} />
+        <meta name="twitter:site" content={siteConfig.links.twitter} />  
+        <meta name="twitter:creator" content={siteConfig.links.twitter} />  
+        <meta name="twitter:title" content={siteConfig.siteName} />  
+        <meta name="twitter:description" content={siteConfig.siteDescription} />  
         <meta
           name="twitter:image"
-          content="https://nsgpriyanshu.github.io/creatorsworld/preview.png"
+          content={siteConfig.links.twitterImage}  
         />
-        <link rel="canonical" href={siteUrl} />
+        <link rel="canonical" href={siteConfig.links.siteUrl} />  
       </head>
       <body className={inter.className}>
         <Providers>

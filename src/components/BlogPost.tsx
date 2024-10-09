@@ -9,7 +9,7 @@ interface BlogPostProps {
 
 const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
   return (
-    <div className="min-h-screen bg-black py-12 pt-36">
+    <div className="min-h-screen bg-black py-12 pt-0">
       <div className="h-72 w-full items-center justify-start bg-gradient-to-b from-[#87452e52] p-4 md:h-96 md:w-auto md:pe-[38rem] md:ps-24">
         <div className="relative z-10 p-3 sm:mt-3 md:mt-3 md:p-4 lg:p-0">
           <Chip color="warning" variant="flat" size="lg">

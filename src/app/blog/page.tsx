@@ -24,7 +24,7 @@ const BlogPage = () => {
               className="mb-6 w-auto rounded-lg bg-neutral-900 p-6 md:max-w-[48rem]"
             >
               <Link href={`/blog/${post.slug}`} passHref>
-                <a>
+          
                   {/* Uncomment the following block if you want to use the thumbnail image */}
                   {/* <Image
                     as={NextImage}
@@ -48,7 +48,7 @@ const BlogPage = () => {
                     {post.author}, {post.role}
                   </p>
                   <p className="mt-2 text-neutral-400">{post.date}</p>
-                </a>
+               
               </Link>
             </li>
           ))}
