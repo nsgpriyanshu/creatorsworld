@@ -1,4 +1,4 @@
-export type SiteConfig = typeof siteConfig;
+export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
   siteName: 'Creators World',
@@ -6,45 +6,45 @@ export const siteConfig = {
     "It's the world's largest Discord app hub. It's also the place where creators collaborate and innovate new ways.",
   navItems: [
     {
-      label: "Home",
-      href: "/",
+      label: 'Home',
+      href: '/',
     },
     {
-      label: "Projects",
-      href: "/projects",
+      label: 'Projects',
+      href: '/projects',
     },
     {
-      label: "Products",
-      href: "/products",
+      label: 'Products',
+      href: '/products',
     },
     {
-      label: "Blog",
-      href: "/blog",
+      label: 'Blog',
+      href: '/blog',
     },
   ],
   navMenuItems: [
     {
-      label: "Home",
-      href: "/",
+      label: 'Home',
+      href: '/',
     },
     {
-      label: "Projects",
-      href: "/projects",
+      label: 'Projects',
+      href: '/projects',
     },
     {
-      label: "Products",
-      href: "/products",  
+      label: 'Products',
+      href: '/products',
     },
     {
-      label: "Blog",
-      href: "/blog",
+      label: 'Blog',
+      href: '/blog',
     },
   ],
   links: {
-    discord: "https://discord.com",
+    discord: 'https://discord.com',
     twitter: 'https://twitter.com/nsgpriyanshu',
     siteUrl: 'https://nsgpriyanshu.github.io/creatorsworld/',
     ogImage: 'https://nsgpriyanshu.github.io/creatorsworld/preview.png', // Predefined paths
-    twitterImage: 'https://nsgpriyanshu.github.io/creatorsworld/preview.png'
+    twitterImage: 'https://nsgpriyanshu.github.io/creatorsworld/preview.png',
   },
-};
+}

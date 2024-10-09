@@ -1,6 +1,7 @@
 'use client'
 import { WavyBackground } from './ui/wavy-background'
 import { AnimatedTooltip } from './ui/animated-tooltip'
+import AnimationContainer from './global/animation-container'
 
 const creators = [
   {
@@ -51,17 +52,21 @@ function Moderators() {
   return (
     <div className="relative flex h-[35rem] items-center justify-center overflow-hidden">
       <WavyBackground className="mx-auto flex h-full w-full max-w-7xl flex-col items-center justify-center">
-        <div className="relative z-10 p-4 text-center">
-          <h2 className="mt-5 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-2xl font-bold text-transparent sm:text-3xl md:mt-0 md:text-4xl lg:text-5xl">
-            Discover: Creators Council
-          </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base font-normal text-neutral-300 sm:text-lg md:text-xl">
-            Meet with the regents of creators council, the pillar of creator's world
-          </p>
-        </div>
-        <div className="mb-10 flex w-full flex-row items-center justify-center">
-          <AnimatedTooltip items={creators} />
-        </div>
+        <AnimationContainer delay={0.2}>
+          <div className="relative z-10 p-4 text-center">
+            <h2 className="mt-5 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-2xl font-bold text-transparent sm:text-3xl md:mt-0 md:text-4xl lg:text-5xl">
+              Discover: Creators Council
+            </h2>
+            <p className="mx-auto mt-4 max-w-lg text-base font-normal text-neutral-300 sm:text-lg md:text-xl">
+              Meet with the regents of creators council, the pillar of creator's world
+            </p>
+          </div>
+        </AnimationContainer>
+        <AnimationContainer delay={0.3}>
+          <div className="mb-10 flex w-full flex-row items-center justify-center">
+            <AnimatedTooltip items={creators} />
+          </div>
+        </AnimationContainer>
       </WavyBackground>
     </div>
   )

@@ -2,6 +2,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
+import AnimationContainer from './global/animation-container'
 
 const World = dynamic(() => import('./ui/globe').then(m => m.World), {
   ssr: false,
@@ -397,40 +398,44 @@ function WorldWide() {
 
   return (
     <>
-      <div className="relative z-10 p-4 text-center">
-        <h2
-          className="mt-5 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-2xl font-bold text-transparent sm:text-3xl md:mt-0 md:text-4xl lg:text-5xl"
-          id="getting-started"
-        >
-          Earth Unity: Connecting Hearts Across Continents
-        </h2>
-        <p className="mx-auto mt-4 max-w-lg text-base font-normal text-neutral-300 sm:text-lg md:text-xl">
-          Embark on a journey of global connection and understanding in our server, where every
-          Earth inhabitant is valued and celebrated.
-        </p>
-      </div>
-      <div className="relative flex h-[20rem] w-full flex-row items-center justify-center bg-white py-20 dark:bg-black md:h-auto">
-        <div className="relative mx-auto h-[20rem] w-full max-w-7xl overflow-hidden px-4 md:h-[40rem]">
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 1,
-            }}
-            className="div"
-          ></motion.div>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-40 h-40 w-full select-none bg-gradient-to-b from-transparent to-white dark:to-black" />
-          <div className="absolute -bottom-7 z-10 h-72 w-full md:h-full">
-            <World data={sampleArcs} globeConfig={globeConfig} />
+      <AnimationContainer delay={0.2}>
+        <div className="relative z-10 p-4 text-center">
+          <h2
+            className="mt-5 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-2xl font-bold text-transparent sm:text-3xl md:mt-0 md:text-4xl lg:text-5xl"
+            id="getting-started"
+          >
+            Earth Unity: Connecting Hearts Across Continents
+          </h2>
+          <p className="mx-auto mt-4 max-w-lg text-base font-normal text-neutral-300 sm:text-lg md:text-xl">
+            Embark on a journey of global connection and understanding in our server, where every
+            Earth inhabitant is valued and celebrated.
+          </p>
+        </div>
+      </AnimationContainer>
+      <AnimationContainer delay={0.3}>
+        <div className="relative flex h-[20rem] w-full flex-row items-center justify-center bg-white py-20 dark:bg-black md:h-auto">
+          <div className="relative mx-auto h-[20rem] w-full max-w-7xl overflow-hidden px-4 md:h-[40rem]">
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 1,
+              }}
+              className="div"
+            ></motion.div>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-40 h-40 w-full select-none bg-gradient-to-b from-transparent to-white dark:to-black" />
+            <div className="absolute -bottom-7 z-10 h-72 w-full md:h-full">
+              <World data={sampleArcs} globeConfig={globeConfig} />
+            </div>
           </div>
         </div>
-      </div>
+      </AnimationContainer>
     </>
   )
 }

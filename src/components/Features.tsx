@@ -3,6 +3,7 @@
 import React from 'react'
 import { StickyScroll } from './ui/sticky-scroll-reveal'
 import Image from 'next/image'
+import AnimationContainer from './global/animation-container'
 
 const content = [
   {
@@ -105,7 +106,7 @@ const content = [
 
 function Features() {
   return (
-    <>
+    <AnimationContainer delay={0.3}>
       <div className="relative mx-auto flex h-auto w-full flex-col items-center justify-center overflow-hidden rounded-md py-10 md:h-[10rem] md:py-0 lg:h-[15rem] xl:h-[20rem]">
         <div className="relative z-10 p-4 text-center">
           <h2 className="mt-5 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-2xl font-bold text-transparent sm:text-3xl md:mt-0 md:text-4xl lg:text-5xl">
@@ -120,7 +121,7 @@ function Features() {
       <div>
         <StickyScroll content={content} />
       </div>
-    </>
+    </AnimationContainer>
   )
 }
 
