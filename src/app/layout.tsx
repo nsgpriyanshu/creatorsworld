@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar'
 import { Providers } from './providers'
 import Link from 'next/link'
 import { siteConfig } from '@/config/siteconfig'
+import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -79,6 +80,7 @@ export default function RootLayout({
             <Navbar />
           </div>
           {children}
+          <Footer/>
           <footer className="flex w-full items-center justify-center py-3">
             <Link
               className="flex items-center gap-1 text-current"

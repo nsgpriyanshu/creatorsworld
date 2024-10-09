@@ -17,7 +17,6 @@ export default function Home() {
       <Partners />
       <Testimonialcards />
       <Moderators />
-      <Footer />
     </main>
   )
 }
