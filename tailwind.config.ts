@@ -60,12 +60,26 @@ const config: Config = {
         third: 'moveInCircle 40s linear infinite',
         fourth: 'moveHorizontal 40s ease infinite',
         fifth: 'moveInCircle 20s ease infinite',
+        'image-glow': 'image-glow 4s ease-out 0.6s forwards',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       keyframes: {
+        'image-glow': {
+          '0%': {
+            opacity: '0',
+            'animation-timing-function': 'cubic-bezier(.74, .25, .76, 1)',
+          },
+          '10%': {
+            opacity: '0.5',
+            'animation-timing-function': 'cubic-bezier(.12, .01, .08, .99)',
+          },
+          '100%': {
+            opacity: '0.7',
+          },
+        },
         'border-beam': {
           '100%': {
             'offset-distance': '100%',

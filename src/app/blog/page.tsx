@@ -20,10 +20,7 @@ const BlogPage = () => {
       <div className="flex w-auto flex-col items-center justify-center px-5 md:flex-row">
         <ul>
           {posts.map(post => (
-            <MagicCard
-              key={post.slug}
-              className="mb-6 w-auto rounded-lg p-6 md:max-w-[48rem]"
-            >
+            <MagicCard key={post.slug} className="mb-6 w-auto rounded-lg p-6 md:max-w-[48rem]">
               <Link href={`/blog/${post.slug}`} passHref>
                 {/* Uncomment the following block if you want to use the thumbnail image */}
                 {/* <Image

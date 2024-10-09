@@ -80,7 +80,7 @@ export default function RootLayout({
             <Navbar />
           </div>
           {children}
-          <Footer/>
+          <Footer />
           <footer className="flex w-full items-center justify-center py-3">
             <Link
               className="flex items-center gap-1 text-current"
