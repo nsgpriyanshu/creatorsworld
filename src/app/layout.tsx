@@ -76,9 +76,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <Providers>
-          <div className="relative flex w-full items-center">
-            <Navbar />
-          </div>
+          <Navbar />
           {children}
           <Footer />
           <footer className="flex w-full items-center justify-center py-3">
