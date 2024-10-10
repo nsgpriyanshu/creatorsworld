@@ -6,18 +6,16 @@ import AnimationContainer from './global/animation-container'
 
 function HeroSection() {
   return (
-    <div className="relative mx-auto flex h-auto w-full flex-col items-center justify-center overflow-hidden py-10 bg-grid-white/[0.02] md:h-[50rem] md:py-0 lg:h-[60rem] xl:h-[70rem]">
-      <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="white" />
+    <div className="relative mx-auto flex h-auto w-full flex-col items-center justify-center overflow-hidden py-10 md:h-[60rem] md:py-0 lg:h-[70rem] xl:h-[80rem]">
+      {/* <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="white" /> */}
       <div className="relative z-10 p-4 text-center">
-        <h1
-          className="mt-20 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl md:mt-0 md:text-6xl lg:text-7xl"
-          style={{
-            backgroundImage: 'linear-gradient(to bottom, #fcd675, #b27fd2)',
-          }}
-        >
-          Creator's World
+        <h1 className="font-heading w-full max-w-[900px] text-balance py-6 text-center text-4xl font-semibold !leading-[1.15] tracking-normal text-foreground sm:text-6xl md:text-6xl lg:text-7xl">
+          You have steped into the{' '}
+          <span className="inline-block bg-gradient-to-r from-[#fcd675] to-[#b27fd2] bg-clip-text font-bold text-transparent">
+            Creator&apos;s Worlds
+          </span>
         </h1>
-        <p className="mx-auto mt-4 max-w-lg text-base font-normal text-neutral-300 sm:text-lg md:text-xl">
+        <p className="mx-auto mt-4 max-w-lg text-base font-normal text-neutral-400 sm:text-lg md:text-xl">
           Creator's world's largest Discord's app hub, where creators of all kinds come together in
           a friendly and supportive environment. Whether you're a seasoned content creator or just
           starting out, our server welcomes everyone with open arms. Click the button below to join
@@ -26,7 +24,7 @@ function HeroSection() {
         <div className="mt-4">
           <Link href={'https://discord.gg/7SAcEv7MDd'}>
             <Button
-              color="success"
+              color="default"
               variant="flat"
               className="px-6 py-3 text-sm sm:px-8 sm:py-4 sm:text-base md:px-10 md:py-5 md:text-lg"
             >
@@ -55,7 +53,7 @@ function HeroSection() {
             <Image
               src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/demos/cwlobby.png"
               alt="Hero Image"
-              className="ring-border w-[700px] rounded-md bg-foreground/10 ring-1 lg:rounded-xl"
+              className="ring-border w-[900px] rounded-md bg-foreground/10 ring-1 lg:rounded-xl"
             />
             <div className="absolute inset-x-0 -bottom-4 z-40 h-1/2 w-full bg-gradient-to-t from-background"></div>
             <div className="absolute inset-x-0 bottom-0 z-50 h-1/4 w-full bg-gradient-to-t from-background md:-bottom-8"></div>
