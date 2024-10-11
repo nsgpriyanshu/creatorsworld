@@ -5,6 +5,7 @@ import { Image } from '@nextui-org/react'
 import NextImage from 'next/image'
 import { Button } from '@nextui-org/react'
 import AnimationContainer from './global/animation-container'
+import { HeartFilledIcon } from './global/icons'
 
 function Partners() {
   return (
@@ -26,25 +27,25 @@ function Partners() {
         <div className="flex items-center justify-center px-5 py-5">
           <Image
             as={NextImage}
-            isBlurred
-            width={200}
-            height={200}
+            isBlurred={true}
+            width={250}
+            height={250}
             src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/assets/nexus-brand.png"
             alt="nexus"
           />
           <Image
             as={NextImage}
-            isBlurred
-            width={300}
-            height={100}
+            isBlurred={true}
+            width={350}
+            height={150}
             src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/assets/shadow-fight-fanclub-brand.png"
             alt="Shadow Fight Fanclub"
           />
         </div>
       </AnimationContainer>
       <AnimationContainer delay={0.4}>
-        <Button color="danger" variant="bordered">
-          Your Community ❤️
+        <Button color="danger" variant="flat">
+          Your Community <HeartFilledIcon />
         </Button>
       </AnimationContainer>
     </div>

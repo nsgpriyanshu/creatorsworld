@@ -1,8 +1,6 @@
 import React from 'react'
 import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from '@nextui-org/react'
 import { Button } from '@nextui-org/react'
-import { Chip } from '@nextui-org/react'
-import { Accordion, AccordionItem } from '@nextui-org/react'
 import productData from '@/data/products.json'
 
 function productPage() {
@@ -38,7 +36,7 @@ function productPage() {
             <Divider />
             <CardBody>
               <p className="mb-3">{product.description}</p>
-              <Image alt={product.title} height={500} radius="sm" src={product.image} width={500} />
+              <Image alt={product.title} height={300} radius="sm" src={product.image} width={500} />
             </CardBody>
             <Divider />
             <CardFooter className="flex items-center justify-between">

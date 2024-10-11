@@ -20,13 +20,13 @@ function GettingStarted() {
         </div>
       </AnimationContainer>
       <AnimationContainer delay={0.2}>
-        <div className="flex flex-wrap items-center justify-center py-10">
+        <div className="flex flex-wrap items-center justify-center gap-20 py-10 md:gap-2">
           <PinContainer title="/nsgpriyanshu" href="https://nsgpriyanshu.github.io">
             <a
               href="https://nsgpriyanshu.github.io"
-              className="flex h-[20rem] w-[20rem] basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2"
+              className="flex h-[20rem] w-[20rem] basis-full flex-col p-4 tracking-tight text-neutral-400 sm:basis-1/2"
             >
-              <h3 className="!m-0 max-w-xs !pb-2 text-base font-bold text-slate-100">
+              <h3 className="!m-0 max-w-xs !pb-2 text-base font-bold text-neutral-100">
                 Educational Contents
               </h3>
               <div className="!m-0 !p-0 text-base font-normal">
@@ -48,9 +48,9 @@ function GettingStarted() {
           <PinContainer title="/shadowfighters" href="https://www.youtube.com/@shadow_fighters_3">
             <a
               href="https://www.youtube.com/@shadow_fighters_3"
-              className="flex h-[20rem] w-[20rem] basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2"
+              className="flex h-[20rem] w-[20rem] basis-full flex-col p-4 tracking-tight text-neutral-400 sm:basis-1/2"
             >
-              <h3 className="!m-0 max-w-xs !pb-2 text-base font-bold text-slate-100">
+              <h3 className="!m-0 max-w-xs !pb-2 text-base font-bold text-neutral-100">
                 Gaming Contents
               </h3>
               <div className="!m-0 !p-0 text-base font-normal">
