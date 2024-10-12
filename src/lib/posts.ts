@@ -21,9 +21,11 @@ export function getPostBySlug(slug: string): Post | null {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
 
+  const window = new JSDOM('').window
+  const purify = DOMPurify(window as unknown as Window)
   return {
     ...data,
-    slug: realSlug,
+    slug: purify.sanitize(realSlug),
     content,
   } as Post
 }
