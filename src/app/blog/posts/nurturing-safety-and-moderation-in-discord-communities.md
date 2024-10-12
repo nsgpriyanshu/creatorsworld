@@ -10,7 +10,9 @@ description: 'Creating a thriving Discord server goes beyond attracting members 
 overview: 'A little overview about the safety guide from our chief executive officer'
 thumbnail: 'https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/assets/blogImages/safety&mod.png'
 image: 'https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/assets/blogImages/safety&mod.png'
-section: 'Security'
+section: 'Safety $ Security'
+chip: 'primary'
+color: 'blue'
 link: 'blog/posts'
 ---
 

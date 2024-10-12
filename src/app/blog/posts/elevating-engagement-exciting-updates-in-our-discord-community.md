@@ -11,6 +11,8 @@ overview: 'A little overview about our server and the changes that we made'
 thumbnail: 'https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/assets/blogImages/whatsnew.jpg'
 image: 'https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/assets/blogImages/whatsnew.jpg'
 section: 'Community Updates'
+chip: 'warning'
+color: 'orange'
 link: 'blog/posts'
 ---
 

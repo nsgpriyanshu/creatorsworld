@@ -12,5 +12,7 @@ export interface Post {
   image: string
   content: string
   section: string
+  chip: string
+  color: string
   link: string
 }
