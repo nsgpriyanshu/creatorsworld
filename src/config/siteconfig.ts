@@ -44,7 +44,7 @@ export const siteConfig = {
     discord: 'https://discord.gg/VUMVuArkst',
     twitter: 'https://twitter.com/nsgpriyanshu',
     siteUrl: 'https://nsgpriyanshu.github.io/creatorsworld/',
-    ogImage: 'https://nsgpriyanshu.github.io/creatorsworld/preview.png',
-    twitterImage: 'https://nsgpriyanshu.github.io/creatorsworld/preview.png',
+    ogImage: 'https://nsgpriyanshu.github.io/creatorsworld/previewv2.png',
+    twitterImage: 'https://nsgpriyanshu.github.io/creatorsworld/previewv2.png',
   },
 }

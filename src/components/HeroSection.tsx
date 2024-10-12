@@ -10,7 +10,7 @@ function HeroSection() {
       {/* <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="white" /> */}
       <div className="relative z-10 p-4 text-center">
         <h1 className="font-heading w-full max-w-[900px] text-balance py-6 text-center text-4xl font-semibold !leading-[1.15] tracking-normal text-foreground sm:text-6xl md:text-6xl lg:text-7xl">
-          You have steped into the{' '}
+          You have stepped into the{' '}
           <span className="inline-block bg-gradient-to-r from-[#fcd675] to-[#b27fd2] bg-clip-text font-bold text-transparent">
             Creator&apos;s Worlds
           </span>
