@@ -2,6 +2,98 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.4.1](https://github.com/nsgpriyanshu/creatorsworld/compare/1.4.0...1.4.1) - (2024-10-12)
+
+## Bug Fixes
+
+- Typo ([c2ba661](https://github.com/nsgpriyanshu/creatorsworld/commit/c2ba6619d8fc068eacc5c706116b8606a613fe70))
+
+# [1.4.0](https://github.com/nsgpriyanshu/creatorsworld/compare/1.3.4...1.4.0) - (2024-10-12)
+
+## Bug Fixes
+
+- A lill typo ([6a93733](https://github.com/nsgpriyanshu/creatorsworld/commit/6a93733d605720812e1e467be230f78a3f452a87))
+- All the bugs ([7156259](https://github.com/nsgpriyanshu/creatorsworld/commit/7156259503300094b956544b208c470005967500))
+- Navbar sticky problem ([61d3b87](https://github.com/nsgpriyanshu/creatorsworld/commit/61d3b8736499451b2411dcb99dd820f5d937d033))
+- Adjust some components ([bf903d8](https://github.com/nsgpriyanshu/creatorsworld/commit/bf903d80344bf1fe4e601ac8f99869a19f29ad27))
+- Some minor bugs ([65e5fef](https://github.com/nsgpriyanshu/creatorsworld/commit/65e5fefacc181906586d6e2b2842d71896e52ce7))
+- Some minor bugs ([bd092a8](https://github.com/nsgpriyanshu/creatorsworld/commit/bd092a8e7287625844e88c3b42f6636a331de0ee))
+
+## Features
+
+- **blog:** Enhanced the ui ([1e691e5](https://github.com/nsgpriyanshu/creatorsworld/commit/1e691e53ad87112e3957f7355323c2e05bd32820))
+- Enhance the hero, add new glowing effect ([5ee6ff0](https://github.com/nsgpriyanshu/creatorsworld/commit/5ee6ff00dda3d75e04b2a80a5731014cb2c03e04))
+- Enhanced the hreo look ([62259c1](https://github.com/nsgpriyanshu/creatorsworld/commit/62259c13bb704dd42bf397c591830baa630ee92a))
+- Add animations on every home components for better visualing look ([940dbc8](https://github.com/nsgpriyanshu/creatorsworld/commit/940dbc89b7ab413d8650aaa0ef42f98f3ed418d9))
+- Fully redesigned ([2aab337](https://github.com/nsgpriyanshu/creatorsworld/commit/2aab33731277eaeafe7c28053a18272223418998))
+- Add new styles ([eaff733](https://github.com/nsgpriyanshu/creatorsworld/commit/eaff7333a8f037868f11b228da4beeb02c342fb6))
+- **components:** Enhance the look and update the footer ([0c51c0c](https://github.com/nsgpriyanshu/creatorsworld/commit/0c51c0c1397bd0f0ae7bef18b07764248a31e209))
+
+## Non Code changes
+
+- **creatorsworld:** Release creatorsworld@1.4.0 ([95f69a6](https://github.com/nsgpriyanshu/creatorsworld/commit/95f69a659722e191709189500b11ec66571cd68d))
+- Create new branch ([342d341](https://github.com/nsgpriyanshu/creatorsworld/commit/342d3411bddf51749ef3369dc08c6d2df571ac4f))
+
+## Styling
+
+- Add a glow effect on blog post homr ([07d3877](https://github.com/nsgpriyanshu/creatorsworld/commit/07d3877889117bb2fd57c172794cb4b5fc941038))
+
+# [1.3.4](https://github.com/nsgpriyanshu/creatorsworld/compare/1.3.3...1.3.4) - (2024-09-22)
+
+## Bug Fixes
+
+- Major next cache issue ([7371f9e](https://github.com/nsgpriyanshu/creatorsworld/commit/7371f9eb302f175e6ba8213a10b8bb2787bba0f4))
+
+## Non Code changes
+
+- **creatorsworld:** Release creatorsworld@1.3.4 ([4b489d1](https://github.com/nsgpriyanshu/creatorsworld/commit/4b489d1fdf0702cfb81337c62aa34f59c376b3b3))
+- V1.3.3 ([5613b0b](https://github.com/nsgpriyanshu/creatorsworld/commit/5613b0bd588ac2eee29e61e7ee220f4427107e8d))
+
+# [1.3.3](https://github.com/nsgpriyanshu/creatorsworld/compare/1.3.2...1.3.3) - (2024-09-04)
+
+## Bug Fixes
+
+- Some bugs with some modification ([f041025](https://github.com/nsgpriyanshu/creatorsworld/commit/f0410255f7dafad0fe005e16a5649b435734594c))
+
+## Non Code changes
+
+- **creatorsworld:** Release creatorsworld@1.3.3 ([5826a9b](https://github.com/nsgpriyanshu/creatorsworld/commit/5826a9bdb705038c1a4363e1d9ae0713c05ee850))
+- Deps update ([db4cbb2](https://github.com/nsgpriyanshu/creatorsworld/commit/db4cbb238c9c0e4cd2aa7c334cd5f6e5b609bd3c))
+
+# [1.3.2](https://github.com/nsgpriyanshu/creatorsworld/compare/v1.3.1...1.3.2) - (2024-08-10)
+
+## Bug Fixes
+
+- Xss issue ([b75253d](https://github.com/nsgpriyanshu/creatorsworld/commit/b75253db98ef993fd4873bf54d6b8a1f2c708939))
+- Xss issue ([274344b](https://github.com/nsgpriyanshu/creatorsworld/commit/274344b392bae78d0c0f4a7a709cf877506a4218))
+
+## Non Code changes
+
+- **creatorsworld:** Release creatorsworld@1.3.2 ([603f952](https://github.com/nsgpriyanshu/creatorsworld/commit/603f952ee28f9e6ae160ac7fa5af88407c348597))
+
+# [1.3.1](https://github.com/nsgpriyanshu/creatorsworld/compare/1.3.0...v1.3.1) - (2024-08-10)
+
+## Non Code changes
+
+- **creatorsworld:** Release creatorsworld@1.3.1 ([5d5ed8d](https://github.com/nsgpriyanshu/creatorsworld/commit/5d5ed8d02a2fd5fd80e3a3da88beee20c4fa4ab3))
+- Add @favware/cliff-jumper for release automation ([e473eb8](https://github.com/nsgpriyanshu/creatorsworld/commit/e473eb8444f6822b1b5f483231d325877088d079))
+
+# [1.3.0](https://github.com/nsgpriyanshu/creatorsworld/tree/1.3.0) - (2024-08-10)
+
+## Bug Fixes
+
+- The xss issue ([e0b20cd](https://github.com/nsgpriyanshu/creatorsworld/commit/e0b20cd61a7bee9896f7171ddfdd0f6c31e2a91e))
+- Image paths, add relative paths ([920b093](https://github.com/nsgpriyanshu/creatorsworld/commit/920b093c3c09ad95efc6fd7919080aecefa8b078))
+- Image paths, add relative paths ([251e2df](https://github.com/nsgpriyanshu/creatorsworld/commit/251e2df1785b6f63253eeb99127d009fa4e265f8))
+
+## Features
+
+- Stable version with remote repo feature ([aabd37b](https://github.com/nsgpriyanshu/creatorsworld/commit/aabd37b9a1146a54dcb02e43bf263be7ebca2e89))
+
+## Non Code changes
+
+- **creatorsworld:** Release creatorsworld@1.3.0 ([afd3491](https://github.com/nsgpriyanshu/creatorsworld/commit/afd3491718d363dcd5fb547a90f185ac2850eff7))
+
 # [1.4.0](https://github.com/nsgpriyanshu/creatorsworld/compare/1.3.4...1.4.0) - (2024-10-12)
 
 ## Bug Fixes
