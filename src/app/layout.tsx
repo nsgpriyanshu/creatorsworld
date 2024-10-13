@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.siteName,
     images: [
       {
-        url: siteConfig.links.ogImage,
+        url: "https://nsgpriyanshu.github.io/creatorsworld/previewv2.png",
         width: 1200,
         height: 630,
         alt: siteConfig.siteName,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     description: siteConfig.siteDescription,
     images: [
       {
-        url: siteConfig.links.twitterImage,
+        url: "https://nsgpriyanshu.github.io/creatorsworld/previewv2.png",
         alt: siteConfig.siteName,
       },
     ],
