@@ -6,10 +6,11 @@ import DOMPurify from 'dompurify'
 
 export async function generateStaticParams() {
   const slugs = getPostSlugs()
-  return slugs.map(slug => ({ slug: slug.replace(/\.md$/, '') }))
+  return slugs.map(slug => ({ slug: slug.replace(/\.md$/, '') }));
 }
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const post = getPostBySlug(params.slug)
   if (!post) {
     return notFound()
