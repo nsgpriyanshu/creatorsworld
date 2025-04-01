@@ -43,7 +43,7 @@
     "sharp": "^0.33.4",
     "simplex-noise": "^4.0.2",
     "tailwind-merge": "^2.5.2",
-    "three": "^0.168.0",
+    "three": "^0.175.0",
     "three-globe": "^2.31.0"
   },
   "devDependencies": {
