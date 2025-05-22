@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils'
 // import { cn } from '@/lib'
 import '@/styles/globals.css'
 import { generateMetadata } from '@/utils'
+import { ThemeProvider } from 'next-themes'
 import { Toaster } from 'sonner'
 // import { ClerkProvider } from '@clerk/nextjs'
 
@@ -20,7 +21,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       >
         {/* <ClerkProvider> */}
         <Toaster richColors theme="dark" position="bottom-center" />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
         {/* </ClerkProvider> */}
       </body>
     </html>
