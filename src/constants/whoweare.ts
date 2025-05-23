@@ -1,30 +1,29 @@
-export const WHO_WE_ARE = [
+export interface wwaItem {
+  title: string
+  description: string
+  icon: string
+}
+
+export const WHO_WE_ARE: wwaItem[] = [
   {
-    title: '#1 World’s Largest Discord App Server',
+    title: 'Largest Discord App Server',
     description:
-      'With over 1,000 active bots and a vibrant community, we proudly host the largest and most dynamic Discord app server on the planet.',
-    image: '/images/f1.png',
-    size: 'large',
+      'Over 1,000 active bots and a thriving community make us the largest Discord app server.',
+    icon: '/icons/perk_one.svg',
   },
   {
     title: 'Open Source Powerhouse',
-    description:
-      'We maintain and contribute to numerous open-source projects, empowering developers and fostering innovation across the Discord ecosystem.',
-    image: '/images/f2.png',
-    size: 'small',
+    description: 'We build and support open-source projects that drive innovation on Discord.',
+    icon: '/icons/perk_two.svg',
   },
   {
     title: 'Thriving Creator Community',
-    description:
-      'Join a diverse and welcoming community of creators, developers, artists, and enthusiasts collaborating and learning together.',
-    image: '/images/f3.png',
-    size: 'large',
+    description: 'Creators, developers, and artists unite here to collaborate and grow.',
+    icon: '/icons/perk_three.svg',
   },
   {
-    title: 'Leading Discord Bot Developers',
-    description:
-      'From utility bots to complex AI integrations, we specialize in building powerful and innovative Discord bots that serve thousands of users.',
-    image: '/images/f4.png',
-    size: 'small',
+    title: 'And more',
+    description: 'Explore more features and opportunities in our vibrant community.',
+    icon: '/icons/perk_four.svg',
   },
-];
+]
