@@ -11,6 +11,7 @@ import { RefObject, useRef, useState } from 'react'
 import AnimationContainer from './global/animation-container'
 import Wrapper from './global/wrapper'
 import { cn } from '@/lib/utils'
+import { ModeToggle } from './global/theme-toggle'
 
 const Navbar = () => {
   /* const { user } = useClerk() */
@@ -88,6 +89,7 @@ const Navbar = () => {
 
           <AnimationContainer animation="fadeLeft" delay={0.1}>
             <div className="flex items-center gap-x-4">
+              <ModeToggle />
               {/* {user ? (
                                 <Link href="/dashboard">
                                     <Button>Dashboard</Button>
@@ -203,6 +205,9 @@ const Navbar = () => {
                   </Button>
                 </Link>
                 {/* )} */}
+                <div className="mt-4 flex justify-center">
+                  <ModeToggle />
+                </div>
               </AnimationContainer>
             </motion.div>
           )}

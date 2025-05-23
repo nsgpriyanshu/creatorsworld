@@ -1,21 +1,15 @@
-import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react'
-import Image from 'next/image'
+// src/components/global/Footer.tsx
 import Link from 'next/link'
 import AnimationContainer from './global/animation-container'
 import Wrapper from './global/wrapper'
+import { FaDiscord, FaGithub } from 'react-icons/fa' // Replaced lucide-react with react-icons
 
-const PRODUCT_LINKS = [{ label: 'Notes', href: 'dashboard/notes' }]
+const PRODUCT_LINKS = [{ label: 'NSTC', href: '#' }]
 
-const RESOURCES_LINKS = [
-  { label: 'DSA & Algorithms', href: 'https://www.geeksforgeeks.org/data-structures/' },
-  { label: 'Operating Systems', href: 'https://cs50.harvard.edu/' },
-  { label: 'Computer Networks', href: 'https://www.studytonight.com/computer-networks/' },
-  { label: 'DBMS (Database Systems)', href: 'https://www.javatpoint.com/dbms-tutorial' },
-  { label: 'System Design', href: 'https://roadmap.sh/system-design' },
-  {
-    label: 'Machine Learning',
-    href: 'https://www.coursera.org/specializations/machine-learning-introduction',
-  },
+const PARTNER_LINKS = [
+  { label: 'Shadow fight fanclub', href: 'https://discord.gg/CEgXHFZSM9' },
+  { label: "Shadow Fighter's", href: '#' }, // Placeholder; replace with actual link if available
+  { label: 'Nexus', href: 'https://discord.gg/M24WCrSbkg' },
 ]
 
 const COMPANY_LINKS = [
@@ -26,11 +20,8 @@ const COMPANY_LINKS = [
 ]
 
 const SOCIAL_LINKS = [
-  { icon: Facebook, href: '#' },
-  { icon: Twitter, href: '#' },
-  { icon: Instagram, href: '#' },
-  { icon: Linkedin, href: '#' },
-  { icon: Youtube, href: '#' },
+  { icon: FaDiscord, href: 'https://discord.gg/7SAcEv7MDd' },
+  { icon: FaGithub, href: 'https://github.com/nsgpriyanshu' },
 ]
 
 const Footer = () => {
@@ -49,22 +40,28 @@ const Footer = () => {
           <AnimationContainer animation="fadeRight" delay={0.4}>
             <div className="flex flex-col items-start justify-start md:max-w-[300px]">
               <div className="flex items-center gap-2">
-                <img src="icons/cwicon_dark.png" alt="cwicon" className="-mt-1 h-7 w-max" />
+                <img
+                  src="icons/cwicon_dark.png"
+                  alt="cwicon"
+                  className="light:hidden -mt-1 h-7 w-max dark:block"
+                />
+                {/* <img src="icons/cwicon_light.png" alt="cwicon" className="-mt-1 h-7 w-max dark:hidden light:block" /> */}
                 <span className="text-lg font-medium lg:text-xl">Creator's World</span>
               </div>
               <p className="text-muted-foreground mt-4 text-sm">India</p>
-              {/* <div className="mt-6 flex items-center gap-4">
+              <div className="mt-6 flex items-center gap-4">
                 {SOCIAL_LINKS.map((social, index) => (
                   <AnimationContainer key={index} animation="fadeUp" delay={0.6 + index * 0.1}>
                     <Link
                       href={social.href}
-                      className="text-muted-foreground transition-colors hover:text-primary"
+                      className="text-muted-foreground transition-colors hover:text-[#f10a0a] dark:hover:text-[#f10a0a]"
+                      target="_blank"
                     >
                       <social.icon className="size-5" />
                     </Link>
                   </AnimationContainer>
                 ))}
-              </div> */}
+              </div>
             </div>
           </AnimationContainer>
 
@@ -72,7 +69,7 @@ const Footer = () => {
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <AnimationContainer animation="fadeUp" delay={0.5}>
                 <div>
-                  <h3 className="text-base font-medium">Product</h3>
+                  <h3 className="text-base font-medium text-[#f10a0a]">Product</h3>
                   <ul className="text-muted-foreground mt-4 space-y-2 text-sm">
                     {PRODUCT_LINKS.map((link, index) => (
                       <AnimationContainer
@@ -83,7 +80,7 @@ const Footer = () => {
                         <li>
                           <Link
                             href={link.href}
-                            className="hover:text-foreground transition-colors"
+                            className="transition-colors hover:text-[#f10a0a] dark:hover:text-[#f10a0a]"
                           >
                             {link.label}
                           </Link>
@@ -96,9 +93,9 @@ const Footer = () => {
 
               <AnimationContainer animation="fadeUp" delay={0.5}>
                 <div className="mt-10 md:mt-0">
-                  <h3 className="text-base font-medium">Resources</h3>
+                  <h3 className="text-base font-medium text-[#f10a0a]">Partners</h3>
                   <ul className="text-muted-foreground mt-4 space-y-2 text-sm">
-                    {RESOURCES_LINKS.map((link, index) => (
+                    {PARTNER_LINKS.map((link, index) => (
                       <AnimationContainer
                         key={index}
                         animation="fadeLeft"
@@ -107,8 +104,8 @@ const Footer = () => {
                         <li>
                           <Link
                             href={link.href}
-                            className="hover:text-foreground transition-colors"
-                            target="_blank" // Opens in new tab
+                            className="transition-colors hover:text-[#f10a0a] dark:hover:text-[#f10a0a]"
+                            target="_blank"
                           >
                             {link.label}
                           </Link>
@@ -122,12 +119,16 @@ const Footer = () => {
 
             <AnimationContainer animation="fadeUp" delay={0.5}>
               <div>
-                <h3 className="text-base font-medium">Company</h3>
+                <h3 className="text-base font-medium text-[#f10a0a]">Company</h3>
                 <ul className="text-muted-foreground mt-4 space-y-2 text-sm">
                   {COMPANY_LINKS.map((link, index) => (
                     <AnimationContainer key={index} animation="fadeLeft" delay={0.8 + index * 0.1}>
                       <li>
-                        <Link href={link.href} className="hover:text-foreground transition-colors">
+                        <Link
+                          href={link.href}
+                          className="transition-colors hover:text-[#f10a0a] dark:hover:text-[#f10a0a]"
+                          target={link.href.startsWith('http') ? '_blank' : undefined}
+                        >
                           {link.label}
                         </Link>
                       </li>

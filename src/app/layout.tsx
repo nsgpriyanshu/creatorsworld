@@ -20,20 +20,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          `${geistMono.variable} dark text-foreground min-h-screen overflow-x-hidden bg-[#000000] font-mono antialiased`,
+          `${geistMono.variable} text-foreground min-h-screen overflow-x-hidden font-mono antialiased dark:bg-[#000000]`,
         )}
       >
-        {/* <ClerkProvider> */}
-        <Toaster richColors theme="dark" position="bottom-center" />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+          {/* <ClerkProvider> */}
+          <Toaster richColors theme="dark" position="bottom-center" />
+
           {children}
+
+          {/* </ClerkProvider> */}
         </ThemeProvider>
-        {/* </ClerkProvider> */}
       </body>
     </html>
   )
