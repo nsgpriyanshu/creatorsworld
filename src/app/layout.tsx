@@ -5,7 +5,13 @@ import '@/styles/globals.css'
 import { generateMetadata } from '@/utils'
 import { ThemeProvider } from 'next-themes'
 import { Toaster } from 'sonner'
+import { Geist_Mono } from 'next/font/google'
 // import { ClerkProvider } from '@clerk/nextjs'
+
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+})
 
 export const metadata = generateMetadata()
 
@@ -14,9 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          'font-base dark text-foreground min-h-screen overflow-x-hidden bg-[#000000] antialiased',
-          // base.variable,
-          // heading.variable,
+          `${geistMono.variable} dark text-foreground min-h-screen overflow-x-hidden bg-[#000000] font-mono antialiased`,
         )}
       >
         {/* <ClerkProvider> */}
