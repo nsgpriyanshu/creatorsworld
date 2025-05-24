@@ -1,3 +1,4 @@
+import Features from '@/components/main/features'
 import Hero from '@/components/main/hero'
 import WWA from '@/components/main/who_we_are'
 
@@ -9,6 +10,9 @@ const HomePage = () => {
       </section>
       <section className="w-full">
         <WWA />
+      </section>
+      <section className="w-full">
+        <Features />
       </section>
     </div>
   )

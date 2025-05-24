@@ -147,3 +147,26 @@
 .animate-marquee-vertical {
   animation: marquee-vertical var(--duration) linear infinite;
 }
+
+@theme inline {
+  --animate-ripple: ripple var(--duration, 2s) ease calc(var(--i, 0) * 0.2s) infinite;
+
+  @keyframes ripple {
+    0%,
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+::selection {
+  background-color: var(--primary);
+  color: #f10a0a;
+}
