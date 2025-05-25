@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import AnimationContainer from './global/animation-container'
 import Wrapper from './global/wrapper'
-import { FaDiscord, FaGithub } from 'react-icons/fa' // Replaced lucide-react with react-icons
+import { FaDiscord, FaGithub } from 'react-icons/fa' 
 
 const PRODUCT_LINKS = [{ label: 'NSTC', href: '#' }]
 
@@ -20,7 +20,7 @@ const COMPANY_LINKS = [
 ]
 
 const SOCIAL_LINKS = [
-  { icon: FaDiscord, href: 'https://discord.gg/7SAcEv7MDd' },
+  { icon: FaDiscord, href: 'https://discord.gg/VUMVuArkst' },
   { icon: FaGithub, href: 'https://github.com/nsgpriyanshu' },
 ]
 

@@ -84,7 +84,7 @@ const TermsOfService = () => {
 
           <AnimationContainer animation="fadeUp" delay={0.6}>
             <p className="text-muted-foreground text-sm md:text-base lg:text-lg">
-              Welcome to NotEase! These rules help keep our platform safe and fun for everyone.
+              Welcome to Creator&apos;s World! These rules help keep our platform safe and fun for everyone.
             </p>
           </AnimationContainer>
         </div>

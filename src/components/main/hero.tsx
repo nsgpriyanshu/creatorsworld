@@ -12,13 +12,10 @@ import { useTheme } from 'next-themes'
 const Hero = () => {
   const { resolvedTheme } = useTheme()
   const companies = [
-    Images.comp1,
-    Images.comp2,
-    Images.comp3,
-    Images.comp4,
-    Images.comp5,
-    Images.comp6,
+    '/assets/partner_one.webp',
+    '/assets/partner_two.webp',
   ]
+
 
   // Select image based on theme
   const serverImageSrc =
@@ -66,7 +63,7 @@ const Hero = () => {
 
           <AnimationContainer animation="fadeUp" delay={0.8}>
             <div className="w-full">
-              <Link href="#">
+              <Link href="https://discord.gg/VUMVuArkst">
                 <Button size="lg" className="w-full md:w-auto">
                   Explore More
                 </Button>
@@ -84,7 +81,13 @@ const Hero = () => {
                       key={index}
                       className="text-muted-foreground flex h-16 items-center justify-center"
                     >
-                      {companies[index % companies.length]({ className: 'w-auto h-5' })}
+                      <Image
+                        src={companies[index % companies.length]}
+                        alt={`Partner ${index + 1}`}
+                        width={100}
+                        height={40}
+                        className="h-20 w-auto object-contain"
+                      />
                     </div>
                   ))}
                 </Marquee>
@@ -93,6 +96,7 @@ const Hero = () => {
               </div>
             </div>
           </AnimationContainer>
+
         </div>
 
         <AnimationContainer animation="fadeRight" delay={0.4}>
@@ -110,7 +114,7 @@ const Hero = () => {
                   width={1024}
                   height={1024}
                   className="relative z-20 h-auto min-w-full rounded-xl object-contain lg:rounded-2xl"
-                  /* Theme-responsive image: server_preview.png for dark mode, server_preview_light.png for light mode */
+                /* Theme-responsive image: server_preview.png for dark mode, server_preview_light.png for light mode */
                 />
               </div>
             </div>
