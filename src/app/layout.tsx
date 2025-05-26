@@ -31,7 +31,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           {/* <ClerkProvider> */}
           <Toaster richColors theme="dark" position="bottom-center" />
-
           {children}
 
           {/* </ClerkProvider> */}

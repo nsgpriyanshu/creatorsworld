@@ -4,7 +4,7 @@ import Link from 'next/link'
 import AnimationContainer from '../global/animation-container'
 import Wrapper from '../global/wrapper'
 import { Button } from '../ui/button'
-import Marquee from '../ui/marquee'
+import { Marquee } from '../ui/marquee'
 import SectionBadge from '../ui/section-badge'
 import { useTheme } from 'next-themes'
 

@@ -1,4 +1,3 @@
-'use client'
 import { cn } from '@/lib/utils'
 import { ComponentPropsWithoutRef } from 'react'
 
@@ -33,7 +32,7 @@ interface MarqueeProps extends ComponentPropsWithoutRef<'div'> {
   repeat?: number
 }
 
-export default function Marquee({
+export function Marquee({
   className,
   reverse = false,
   pauseOnHover = false,
