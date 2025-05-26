@@ -22,8 +22,8 @@ export default function WhoWeAre() {
 
         <AnimationContainer animation="fadeUp" delay={0.4}>
           <p className="text-muted-foreground mx-auto max-w-2xl text-sm md:text-base lg:text-lg">
-            We're a passionate team building a global platform to connect and empower creators with
-            innovative tools and resources.
+            We&apos;re a passionate team building a global platform to connect and empower creators
+            with innovative tools and resources.
           </p>
         </AnimationContainer>
       </div>

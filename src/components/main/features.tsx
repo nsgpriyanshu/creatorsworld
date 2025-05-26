@@ -1,13 +1,11 @@
 'use client'
 
 import { FEATURES } from '@/constants'
-import Image from 'next/image'
 import AnimationContainer from '../global/animation-container'
 import Wrapper from '../global/wrapper'
 import SectionBadge from '../ui/section-badge'
 import { MagicCard } from '../ui/magic-card'
 import { Ripple } from '../ui/ripple'
-import { color } from 'framer-motion'
 import { Particles } from '../ui/particles'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'

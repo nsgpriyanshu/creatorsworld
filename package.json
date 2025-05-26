@@ -1,6 +1,6 @@
 {
   "name": "cw",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -11,6 +11,16 @@
     "format:fix": "npx prettier --write .",
     "prepare": "husky"
   },
+  "author": "nsgpriyanshu",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nsgpriyanshu/creatorsworld"
+  },
+  "bugs": {
+    "url": "https://github.com/nsgpriyanshu/creatorsworld/issues"
+  },
+  "homepage": "https://nsgpriyanshu.github.io/creatorsworld",
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.15",
     "@radix-ui/react-slot": "^1.2.3",

@@ -12,6 +12,7 @@ import AnimationContainer from './global/animation-container'
 import Wrapper from './global/wrapper'
 import { cn } from '@/lib/utils'
 import { ModeToggle } from './global/theme-toggle'
+import Image from 'next/image'
 
 const Navbar = () => {
   /* const { user } = useClerk() */
@@ -66,7 +67,13 @@ const Navbar = () => {
             transition={{ duration: 0.2 }}
           >
             <Link href="/" className="flex items-center gap-2">
-              <img src="icons/cwicon_dark.png" alt="cwicon" className="-mt-1 h-7 w-max" />
+              <Image
+                src="/icons/cwicon_dark.png"
+                alt="cwicon"
+                width={28}
+                height={28}
+                className="-mt-1"
+              />
             </Link>
           </motion.div>
 
@@ -128,7 +135,13 @@ const Navbar = () => {
           <div className="flex w-full items-center justify-between gap-x-4">
             <AnimationContainer animation="fadeRight" delay={0.1}>
               <Link href="/">
-                <img src="icons/cwicon_dark.png" alt="cwicon" className="-mt-1 h-7 w-max" />
+                <Image
+                  src="/icons/cwicon_dark.png"
+                  alt="cwicon"
+                  width={28}
+                  height={28}
+                  className="-mt-1"
+                />
               </Link>
             </AnimationContainer>
 

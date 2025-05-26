@@ -1,8 +1,8 @@
-// src/components/global/Footer.tsx
 import Link from 'next/link'
 import AnimationContainer from './global/animation-container'
 import Wrapper from './global/wrapper'
-import { FaDiscord, FaGithub } from 'react-icons/fa' 
+import { FaDiscord, FaGithub } from 'react-icons/fa'
+import Image from 'next/image'
 
 const PRODUCT_LINKS = [{ label: 'NSTC', href: '#' }]
 
@@ -40,13 +40,15 @@ const Footer = () => {
           <AnimationContainer animation="fadeRight" delay={0.4}>
             <div className="flex flex-col items-start justify-start md:max-w-[300px]">
               <div className="flex items-center gap-2">
-                <img
-                  src="icons/cwicon_dark.png"
+                <Image
+                  src="/icons/cwicon_dark.png"
                   alt="cwicon"
+                  width={28}
+                  height={28}
                   className="light:hidden -mt-1 h-7 w-max dark:block"
                 />
                 {/* <img src="icons/cwicon_light.png" alt="cwicon" className="-mt-1 h-7 w-max dark:hidden light:block" /> */}
-                <span className="text-lg font-medium lg:text-xl">Creator's World</span>
+                <span className="text-lg font-medium lg:text-xl">Creator&apos;s World</span>
               </div>
               <p className="text-muted-foreground mt-4 text-sm">India</p>
               <div className="mt-6 flex items-center gap-4">
@@ -143,7 +145,7 @@ const Footer = () => {
         <AnimationContainer animation="fadeUp" delay={1}>
           <div className="border-border/40 mt-16 flex flex-col items-center justify-center border-t py-8 md:flex-row">
             <p className="text-muted-foreground text-sm">
-              © {new Date().getFullYear()} Creator's World. All rights reserved.
+              © {new Date().getFullYear()} Creator&apos;s World. All rights reserved.
             </p>
           </div>
         </AnimationContainer>

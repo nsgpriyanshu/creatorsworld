@@ -1,5 +1,4 @@
 'use client'
-import Images from '../global/images'
 import Image from 'next/image'
 import Link from 'next/link'
 import AnimationContainer from '../global/animation-container'
@@ -11,11 +10,7 @@ import { useTheme } from 'next-themes'
 
 const Hero = () => {
   const { resolvedTheme } = useTheme()
-  const companies = [
-    '/assets/partner_one.webp',
-    '/assets/partner_two.webp',
-  ]
-
+  const companies = ['/assets/partner_one.webp', '/assets/partner_two.webp']
 
   // Select image based on theme
   const serverImageSrc =
@@ -44,7 +39,7 @@ const Hero = () => {
                 <span className="bg-[#f10a0a] bg-clip-text text-5xl !leading-tight font-medium text-transparent lg:text-6xl">
                   C
                 </span>
-                reator's{' '}
+                reator&apos;s{' '}
                 <span className="bg-[#f10a0a] bg-clip-text text-5xl !leading-tight font-medium text-transparent lg:text-6xl">
                   W
                 </span>
@@ -96,7 +91,6 @@ const Hero = () => {
               </div>
             </div>
           </AnimationContainer>
-
         </div>
 
         <AnimationContainer animation="fadeRight" delay={0.4}>
@@ -114,7 +108,7 @@ const Hero = () => {
                   width={1024}
                   height={1024}
                   className="relative z-20 h-auto min-w-full rounded-xl object-contain lg:rounded-2xl"
-                /* Theme-responsive image: server_preview.png for dark mode, server_preview_light.png for light mode */
+                  /* Theme-responsive image: server_preview.png for dark mode, server_preview_light.png for light mode */
                 />
               </div>
             </div>
