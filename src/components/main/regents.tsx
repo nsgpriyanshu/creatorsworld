@@ -1,11 +1,7 @@
 'use client'
 
-import { ArrowRightIcon } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
 import AnimationContainer from '../global/animation-container'
 import Wrapper from '../global/wrapper'
-import { Button } from '../ui/button'
 import SectionBadge from '../ui/section-badge'
 import { FlickeringGrid } from '../ui/flickering-grid'
 import { AnimatedTooltip } from '../ui/animated-tooltip'
@@ -43,7 +39,7 @@ const Regents = () => {
           </AnimationContainer>
 
           <AnimationContainer animation="fadeUp" delay={0.4}>
-            <h2 className="from-foreground bg-gradient-to-b to-neutral-400 bg-clip-text text-3xl !leading-tight font-medium text-transparent md:text-5xl lg:text-6xl">
+            <h2 className="from-foreground bg-gradient-to-b to-neutral-400 bg-clip-text text-2xl !leading-tight font-medium text-transparent md:text-4xl lg:text-5xl">
               The Creator&apos;s Council
             </h2>
           </AnimationContainer>
