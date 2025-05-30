@@ -1,5 +1,6 @@
 import Features from '@/components/main/features'
 import Hero from '@/components/main/hero'
+import PlatformMetrics from '@/components/main/platform-metrics'
 import Regents from '@/components/main/regents'
 import Reviews from '@/components/main/reviews'
 import WWA from '@/components/main/who_we_are'
@@ -15,6 +16,9 @@ const HomePage = () => {
       </section>
       <section className="w-full">
         <Features />
+      </section>
+      <section className="w-full">
+        <PlatformMetrics />
       </section>
       <section className="w-full">
         <Reviews />
