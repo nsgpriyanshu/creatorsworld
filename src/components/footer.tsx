@@ -4,7 +4,7 @@ import Wrapper from './global/wrapper'
 import { FaDiscord, FaGithub } from 'react-icons/fa'
 import Image from 'next/image'
 
-const PRODUCT_LINKS = [{ label: 'NSTC', href: '#' }]
+const PRODUCT_LINKS = [{ label: 'Emo Pack', href: '/products' }]
 
 const PARTNER_LINKS = [
   { label: 'Shadow fight fanclub', href: 'https://discord.gg/CEgXHFZSM9' },

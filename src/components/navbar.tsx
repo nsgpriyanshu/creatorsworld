@@ -102,8 +102,8 @@ const Navbar = () => {
                                     <Button>Dashboard</Button>
                                 </Link>
                             ) : ( */}
-              <Link href="/signup">
-                <Button size="sm">Get started</Button>
+              <Link href="https://discord.gg/VUMVuArkst">
+                <Button size="sm">Join Now</Button>
               </Link>
               {/* )} */}
             </div>
@@ -148,8 +148,8 @@ const Navbar = () => {
             <AnimationContainer animation="fadeLeft" delay={0.1}>
               <div className="flex items-center justify-center gap-x-4">
                 <Button size="sm">
-                  <Link href="/signup" className="flex items-center">
-                    Get started
+                  <Link href="https://discord.gg/VUMVuArkst" className="flex items-center">
+                    Join Now
                   </Link>
                 </Button>
                 {open ? (

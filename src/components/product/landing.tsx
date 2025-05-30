@@ -8,15 +8,15 @@ import { Marquee } from '../ui/marquee'
 import SectionBadge from '../ui/section-badge'
 import { useTheme } from 'next-themes'
 
-const Hero = () => {
+const LandingPage = () => {
   const { resolvedTheme } = useTheme()
-  const companies = ['/assets/partner_one.webp', '/assets/partner_two.webp']
+  const companies = ['/assets/pay_one.svg', '/assets/pay_two.svg', '/assets/pay_three.svg']
 
   // Select image based on theme
-  const serverImageSrc =
-    resolvedTheme === 'light' ? '/assets/server_preview_light.png' : '/assets/server_preview.png'
-  const serverImageAlt =
-    resolvedTheme === 'light' ? 'CW Server Preview (Light)' : 'CW Server Preview (Dark)'
+  const productImageSrc =
+    resolvedTheme === 'light' ? '/assets/product_one.webp' : '/assets/product_one.webp'
+  const productImageAlt =
+    resolvedTheme === 'light' ? 'Emo Pack Preview (Light)' : 'Emo Pack Preview (Dark)'
 
   return (
     <Wrapper className="relative h-full min-h-screen w-full flex-1 pt-20 lg:pt-32">
@@ -24,34 +24,23 @@ const Hero = () => {
         <div className="flex w-full flex-col items-start gap-10 py-8">
           <div className="flex flex-col items-start gap-4">
             <AnimationContainer animation="fadeUp" delay={0.2}>
-              <SectionBadge title="Worlds largest app hub" />
+              <SectionBadge title="Products" />
             </AnimationContainer>
 
             <AnimationContainer animation="fadeUp" delay={0.4}>
-              {/* <h1 className="from-foreground bg-gradient-to-r to-neutral-500 bg-clip-text text-5xl !leading-tight font-medium text-transparent lg:text-6xl">
-                You have stepped into the{' '}
-                <span className="from-[#f10a0a] bg-gradient-to-r to-bg-primary bg-clip-text text-5xl !leading-tight font-medium text-transparent lg:text-6xl">
-                  Creator's Worlds
-                </span>
-              </h1> */}
               <h1 className="from-foreground bg-gradient-to-r to-neutral-500 bg-clip-text text-5xl !leading-tight font-medium text-transparent lg:text-6xl">
-                You have stepped into the{' '}
+                Express Yourself with{' '}
                 <span className="bg-[#f10a0a] bg-clip-text text-5xl !leading-tight font-medium text-transparent lg:text-6xl">
-                  C
+                  Emo Pack
                 </span>
-                reator&apos;s{' '}
-                <span className="bg-[#f10a0a] bg-clip-text text-5xl !leading-tight font-medium text-transparent lg:text-6xl">
-                  W
-                </span>
-                orlds
               </h1>
             </AnimationContainer>
 
             <AnimationContainer animation="fadeUp" delay={0.6}>
               <p className="text-muted-foreground text-sm md:text-base lg:text-lg">
-                The ultimate destination for creators to showcase their work, connect with
-                like-minded individuals, and explore a world of creativity. Join us today and
-                unleash your creative potential!
+                Get the exclusive Emo Pack with over 40 utility emojis crafted for nsCore. Enhance
+                your Discord server for only{' '}
+                <span className="text-foreground font-bold">₹ 899</span>.
               </p>
             </AnimationContainer>
           </div>
@@ -60,7 +49,7 @@ const Hero = () => {
             <div className="w-full">
               <Link href="https://discord.gg/VUMVuArkst">
                 <Button size="lg" className="w-full md:w-auto">
-                  Explore More
+                  Oredr Now
                 </Button>
               </Link>
             </div>
@@ -68,7 +57,7 @@ const Hero = () => {
 
           <AnimationContainer animation="fadeUp" delay={1}>
             <div className="flex flex-col items-start gap-4 py-4">
-              <p className="text-muted-foreground text-sm md:text-base">Our Partners</p>
+              <p className="text-muted-foreground text-sm md:text-base">Payment Methods</p>
               <div className="relative w-full max-w-[calc(100vw-2rem)] lg:max-w-lg">
                 <Marquee className="select-none [--duration:40s] [--gap:2rem]">
                   {[...Array(10)].map((_, index) => (
@@ -79,7 +68,7 @@ const Hero = () => {
                       <Image
                         src={companies[index % companies.length]}
                         alt={`Partner ${index + 1}`}
-                        width={100}
+                        width={80}
                         height={40}
                         className="h-20 w-auto object-contain"
                       />
@@ -94,21 +83,18 @@ const Hero = () => {
         </div>
 
         <AnimationContainer animation="fadeRight" delay={0.4}>
-          <div className="relative flex h-min w-full flex-col items-start justify-start overflow-visible">
-            <div className="relative w-full lg:aspect-[1.3884514435695539/1] lg:h-[auto,720px] lg:w-[1000px]">
-              <div className="light:from-white pointer-events-none absolute inset-y-0 right-1/4 z-50 hidden h-full w-1/3 bg-gradient-to-l from-[#000000] lg:block dark:from-[#000000]"></div>
+          <div className="relative flex h-min w-full flex-col items-center justify-center overflow-visible">
+            <div className="relative w-full lg:aspect-[1.3884514435695539/1] lg:h-[auto,720px] lg:w-[450px]">
               <div className="lg:absolute lg:inset-0">
-                <div className="light:bg-white/10 absolute -top-4 -right-4 -bottom-4 -left-4 z-10 m-1 rounded-2xl border border-white/20 bg-black/10 backdrop-blur-md lg:m-0 lg:h-[400px] lg:rounded-2xl dark:bg-black/10">
+                <div className="light:bg-white/10 absolute -top-4 -right-4 -bottom-4 -left-4 z-10 m-1 rounded-2xl border border-white/20 bg-black/10 backdrop-blur-lg lg:m-0 lg:h-[450px] lg:rounded-2xl dark:bg-black/10">
                   {/* Glassmorphism effect: semi-transparent [#000000] with blur, theme-responsive */}
                 </div>
                 <Image
-                  src={serverImageSrc}
-                  alt={serverImageAlt}
-                  sizes="1000px"
-                  width={1024}
-                  height={1024}
-                  className="relative z-20 h-auto min-w-full rounded-xl object-contain lg:rounded-2xl"
-                  /* Theme-responsive image: server_preview.png for dark mode, server_preview_light.png for light mode */
+                  src={productImageSrc}
+                  alt={productImageAlt}
+                  width={400}
+                  height={400}
+                  className="relative z-20 rounded-xl object-contain lg:rounded-2xl"
                 />
               </div>
             </div>
@@ -118,18 +104,18 @@ const Hero = () => {
       <AnimationContainer
         animation="scaleUp"
         delay={1.2}
-        className="absolute -top-[8%] left-1/4 -z-10 h-auto w-2/3"
+        className="absolute -top-[8%] left-2/5 -z-10 h-auto w-1/1"
       >
         <Image
           src="/assets/hero_gradient.png"
-          alt="CW Gradient Background"
+          alt="Emo Pack Gradient Background"
           width={1024}
           height={1024}
-          className="h-auto w-full object-cover"
+          className="h-auto w-full object-cover opacity-75"
         />
       </AnimationContainer>
     </Wrapper>
   )
 }
 
-export default Hero
+export default LandingPage
