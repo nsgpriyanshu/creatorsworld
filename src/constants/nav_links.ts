@@ -5,7 +5,7 @@ export const NAV_LINKS = [
   },
   {
     name: 'Blog',
-    link: '/',
+    link: '/blog',
   },
   {
     name: 'Contact',
