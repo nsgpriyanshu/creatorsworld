@@ -7,9 +7,9 @@ const siteConfig = {
   links: {
     discord: 'https://discord.gg/VUMVuArkst',
     twitter: '@nsgpriyanshu',
-    siteUrl: 'https://nsgpriyanshu.github.io/creatorsworld/',
-    ogImage: 'https://nsgpriyanshu.github.io/creatorsworld/assets/previewv.png',
-    twitterImage: 'https://nsgpriyanshu.github.io/creatorsworld/assets/previewv.png',
+    siteUrl: '',
+    ogImage: '/assets/og-main.png',
+    twitterImage: '/assets/og-main.png',
   },
 }
 
