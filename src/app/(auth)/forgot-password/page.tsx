@@ -79,7 +79,7 @@ export default function ForgotPassword() {
               <p className="text-muted-foreground text-center text-sm">
                 Remember your password?{' '}
                 <Link href="/sign-in" className="text-foreground underline hover:opacity-80">
-                  Log in
+                  Sign in
                 </Link>
               </p>
             </form>

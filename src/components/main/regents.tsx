@@ -46,7 +46,7 @@ const Regents = () => {
 
           <AnimationContainer animation="fadeUp" delay={0.5}>
             <p className="text-muted-foreground mx-auto mt-2 max-w-lg text-sm md:text-base lg:text-lg">
-              Meet with the regents of creators council, the pillar of creator's world
+              Meet with the regents of creators council, the pillar of creator&apos;s world
             </p>
           </AnimationContainer>
 

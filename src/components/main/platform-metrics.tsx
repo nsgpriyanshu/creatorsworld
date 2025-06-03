@@ -31,9 +31,9 @@ const PlatformMetrics = () => {
           </AnimationContainer>
 
           <AnimationContainer animation="fadeUp" delay={0.5}>
-            <Link href="/signup">
+            <Link href="https://discord.gg/VUMVuArkst">
               <Button size="lg" className="mt-4 w-full md:w-auto">
-                Start Exploring Now
+                Click Now
               </Button>
             </Link>
           </AnimationContainer>
