@@ -57,8 +57,11 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
         <div className="space-y-4">
           <h1 className="text-4xl leading-tight font-bold">{blog.title}</h1>
           <p className="text-muted-foreground text-sm">
-            By <span className="font-medium">{blog.authors?.name}</span> on{' '}
-            {format(new Date(blog.publish_date), 'MMMM dd, yyyy')}
+            By{' '}
+            <span className="font-medium">
+              {blog.authors?.name}, {blog.authors?.role}
+            </span>{' '}
+            on {format(new Date(blog.publish_date), 'MMMM dd, yyyy')}
           </p>
 
           {blog.tags && blog.tags.length > 0 && (
