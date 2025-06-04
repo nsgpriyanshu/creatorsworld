@@ -11,7 +11,7 @@ export interface Blog {
   id: string
   title: string
   slug: string
-  content: any // Tiptap JSON content stored as JSON in supabase
+  content: any
   author_id: string
   tags?: string[]
   publish_date: string

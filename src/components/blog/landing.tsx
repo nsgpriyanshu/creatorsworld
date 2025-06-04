@@ -1,3 +1,4 @@
+// components/BlogPage.tsx or pages/blog/index.tsx (your blog listing page)
 'use client'
 
 import AnimationContainer from '@/components/global/animation-container'
@@ -32,12 +33,14 @@ const BlogPage: React.FC = () => {
     const fetchBlogs = async () => {
       const { data, error } = await supabase
         .from('blogs')
-        .select('*, authors:author_id(*)')
+        .select('*, author:author_id(*)') // alias here is 'author', singular
         .order('publish_date', { ascending: false })
 
       if (!error && data) {
         setBlogs(data)
         setFilteredBlogs(data)
+      } else {
+        console.error('Error fetching blogs:', error)
       }
     }
 
@@ -50,7 +53,7 @@ const BlogPage: React.FC = () => {
       results = results.filter(
         b =>
           b.title.toLowerCase().includes(search.toLowerCase()) ||
-          b.content.toLowerCase().includes(search.toLowerCase()),
+          JSON.stringify(b.content).toLowerCase().includes(search.toLowerCase()),
       )
     }
     if (activeTag) {
@@ -132,11 +135,32 @@ const BlogPage: React.FC = () => {
                 </div>
                 <h3 className="mb-2 line-clamp-2 text-xl font-medium md:text-2xl">{blog.title}</h3>
                 <p className="text-muted-foreground line-clamp-3 text-sm md:text-base">
-                  {blog.content.replace(/<[^>]*>?/gm, '').slice(0, 150)}...
+                  {/* Strip HTML tags if content is stored as JSON string */}
+                  {typeof blog.content === 'string'
+                    ? blog.content.replace(/<[^>]*>?/gm, '').slice(0, 150) + '...'
+                    : JSON.stringify(blog.content).slice(0, 150) + '...'}
                 </p>
-                <p className="text-foreground mt-auto text-xs opacity-70 md:text-sm">
-                  {new Date(blog.publish_date).toLocaleDateString()}
-                </p>
+                {/* Author Info */}
+                <div className="mt-4 flex items-center gap-3">
+                  <Image
+                    src={blog.author?.profile_picture || '/assets/default-avatar.png'}
+                    alt={blog.author?.name || 'Author'}
+                    width={40}
+                    height={40}
+                    className="h-10 w-10 rounded-full object-cover"
+                  />
+                  <div className="flex flex-col">
+                    <span className="text-foreground text-sm font-semibold">
+                      {blog.author?.name || 'Unknown Author'}
+                    </span>
+                    {blog.author?.role && (
+                      <span className="text-muted-foreground text-xs">{blog.author.role}</span>
+                    )}
+                    <p className="text-muted-foreground text-xs">
+                      {new Date(blog.publish_date).toLocaleDateString()}
+                    </p>
+                  </div>
+                </div>
               </Link>
             </MagicCard>
           </AnimationContainer>

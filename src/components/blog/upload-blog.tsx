@@ -11,11 +11,14 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import Wrapper from '@/components/global/wrapper'
 import AnimationContainer from '@/components/global/animation-container'
+import SectionBadge from '@/components/ui/section-badge'
+import { useTheme } from 'next-themes'
 
 // Dynamically import TiptapEditor
 const TiptapEditor = dynamic(() => import('@/components/blog/editor'), { ssr: false })
 
 function UploadBlogPage() {
+  const { resolvedTheme } = useTheme()
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [tags, setTags] = useState('')
@@ -71,7 +74,7 @@ function UploadBlogPage() {
       imageUrl = `${projectUrl}/storage/v1/object/public/blog-images/${filePath}`
     }
 
-    // --- START: Check if author exists and insert if not ---
+    // Check if author exists and insert if not
     let { data: author, error: authorError } = await supabase
       .from('authors')
       .select('*')
@@ -79,7 +82,7 @@ function UploadBlogPage() {
       .single()
 
     if (authorError && authorError.code === 'PGRST116') {
-      // no author found, insert new author
+      // No author found, insert new author
       const { data: newAuthor, error: insertAuthorError } = await supabase
         .from('authors')
         .insert({
@@ -102,7 +105,6 @@ function UploadBlogPage() {
       setLoading(false)
       return
     }
-    // --- END ---
 
     const { error } = await supabase.from('blogs').insert({
       title,
@@ -129,29 +131,58 @@ function UploadBlogPage() {
   }
 
   return (
-    <Wrapper className="py-12">
-      <AnimationContainer animation="fadeUp">
-        <h1 className="mb-6 text-3xl font-bold">Upload a Blog</h1>
-        <form onSubmit={handleSubmit} className="space-y-6">
+    <Wrapper className="min-h-screen py-20 lg:py-32">
+      {/* Header Section */}
+      <div className="mb-16 flex flex-col items-center gap-4 text-center">
+        <AnimationContainer animation="fadeUp" delay={0.2}>
+          <SectionBadge title="Share Your Story" />
+        </AnimationContainer>
+        <AnimationContainer animation="fadeUp" delay={0.3}>
+          <h1 className="from-foreground bg-gradient-to-b to-neutral-400 bg-clip-text text-3xl !leading-tight font-medium text-transparent md:text-4xl lg:text-5xl">
+            Craft Your Creator’s Tale
+          </h1>
+        </AnimationContainer>
+        <AnimationContainer animation="fadeUp" delay={0.4}>
+          <p className="text-muted-foreground mx-auto max-w-2xl text-sm md:text-base lg:text-lg">
+            Unleash your creativity and share your unique story with the Creator’s Worlds community.
+            Write, inspire, and connect through your blog post today!
+          </p>
+        </AnimationContainer>
+      </div>
+
+      {/* Form Section */}
+      <AnimationContainer animation="fadeUp" delay={0.5}>
+        <form
+          onSubmit={handleSubmit}
+          className="mx-auto max-w-3xl space-y-6 rounded-2xl border border-white/20 bg-black/10 p-6 backdrop-blur-md md:p-8"
+        >
           <Input
             placeholder="Blog Title"
             value={title}
             onChange={e => setTitle(e.target.value)}
             required
+            className="rounded-lg border border-white/20 bg-black/10 p-3 text-sm backdrop-blur-md md:text-base"
           />
           <Input
-            placeholder="Tags (comma separated)"
+            placeholder="Tags (comma separated, e.g., tech, art, design)"
             value={tags}
             onChange={e => setTags(e.target.value)}
+            className="rounded-lg border border-white/20 bg-black/10 p-3 text-sm backdrop-blur-md md:text-base"
           />
           <Input
             type="file"
             accept="image/*"
             onChange={e => setImage(e.target.files?.[0] ?? null)}
+            className="rounded-lg border border-white/20 bg-black/10 p-3 text-sm backdrop-blur-md md:text-base"
           />
           <TiptapEditor content={content} setContent={setContent} />
-          <Button type="submit" className="w-full" disabled={loading}>
-            {loading ? 'Uploading...' : 'Submit Blog'}
+          <Button
+            type="submit"
+            size="lg"
+            className="w-full bg-[#f10a0a] text-white transition-all duration-200 hover:bg-[#d10909] md:w-auto"
+            disabled={loading}
+          >
+            {loading ? 'Uploading...' : 'Publish Your Blog'}
           </Button>
         </form>
       </AnimationContainer>

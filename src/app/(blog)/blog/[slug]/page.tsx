@@ -1,4 +1,3 @@
-// app/blog/[slug]/page.tsx
 import { notFound } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { Metadata } from 'next'
@@ -7,6 +6,9 @@ import AnimationContainer from '@/components/global/animation-container'
 import Image from 'next/image'
 import { format } from 'date-fns'
 import { Blog } from '@/types/blog'
+import { MagicCard } from '@/components/ui/magic-card' // Added import for MagicCard
+import { ArrowLeft } from 'lucide-react'
+import Link from 'next/link'
 
 export async function generateMetadata({
   params,
@@ -52,49 +54,90 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
   if (!blog) return notFound()
 
   return (
-    <Wrapper className="py-16">
-      <AnimationContainer animation="fadeUp" className="mx-auto max-w-4xl">
-        <div className="space-y-4">
-          <h1 className="text-4xl leading-tight font-bold">{blog.title}</h1>
-          <p className="text-muted-foreground text-sm">
-            By{' '}
-            <span className="font-medium">
-              {blog.authors?.name}, {blog.authors?.role}
-            </span>{' '}
-            on {format(new Date(blog.publish_date), 'MMMM dd, yyyy')}
-          </p>
+    <Wrapper className="py-20">
+      <MagicCard className="mt-10 rounded-xl p-6 md:p-8">
+        {/* Top Header - Always full width */}
+        <Link
+          href="/blog"
+          className="text-muted-foreground mb-6 inline-flex items-center gap-2 text-sm font-medium transition hover:text-[#f10a0a]"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Return to Blogs
+        </Link>
+        <AnimationContainer animation="fadeUp" className="mx-auto max-w-4xl">
+          <div className="space-y-4">
+            <h1 className="text-4xl leading-tight font-bold">{blog.title}</h1>
+            <p className="text-muted-foreground text-sm">
+              Published on {format(new Date(blog.publish_date), 'MMMM dd, yyyy')}
+            </p>
+            {blog.tags && blog.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2 pt-2">
+                {blog.tags.map((tag: string) => (
+                  <span
+                    key={tag}
+                    className="bg-primary/10 text-primary rounded-full px-3 py-1 text-sm"
+                  >
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </AnimationContainer>
 
-          {blog.tags && blog.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 pt-2">
-              {blog.tags.map((tag: string) => (
-                <span
-                  key={tag}
-                  className="bg-primary/10 text-primary rounded-full px-3 py-1 text-sm"
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
-          )}
+        {/* Responsive flex layout for article & author */}
+        <div className="mx-auto mt-4 flex max-w-6xl flex-col gap-8 md:flex-row">
+          {/* Blog Content - 70% on desktop */}
+          <AnimationContainer animation="fadeUp" className="w-full md:w-[70%] lg:px-24">
+            <div>
+              {blog.image_url && (
+                <div className="my-6">
+                  <Image
+                    src={blog.image_url}
+                    alt={blog.title}
+                    width={900}
+                    height={500}
+                    className="w-full rounded-xl object-cover"
+                    priority
+                  />
+                </div>
+              )}
 
-          {blog.image_url && (
-            <div className="my-6">
-              <Image
-                src={blog.image_url}
-                alt={blog.title}
-                width={900}
-                height={500}
-                className="rounded-xl object-cover"
+              <article
+                className="prose dark:prose-invert prose-lg max-w-none leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: blog.content }}
               />
             </div>
-          )}
+          </AnimationContainer>
 
-          <article
-            className="prose dark:prose-invert max-w-none"
-            dangerouslySetInnerHTML={{ __html: blog.content }}
-          />
+          {/* Author Info - 30% on desktop, full below on mobile */}
+          <div className="border-border w-full border-t md:w-[30%] md:border-t-0 md:border-l md:pl-6">
+            <AnimationContainer animation="fadeUp">
+              <div className="flex flex-col items-center space-y-3 text-center">
+                {blog.authors?.profile_picture && (
+                  <Image
+                    src={blog.authors.profile_picture}
+                    alt={blog.authors.name}
+                    width={96} // Standard blog avatar size
+                    height={96}
+                    className="mt-4 rounded-full"
+                  />
+                )}
+                <div>
+                  <p className="text-muted-foreground text-sm">
+                    By <span className="text-foreground font-semibold">{blog.authors?.name}</span>
+                    {blog.authors?.role && (
+                      <>
+                        , <span className="text-muted-foreground">{blog.authors.role}</span>
+                      </>
+                    )}
+                  </p>
+                </div>
+              </div>
+            </AnimationContainer>
+          </div>
         </div>
-      </AnimationContainer>
+      </MagicCard>
     </Wrapper>
   )
 }
