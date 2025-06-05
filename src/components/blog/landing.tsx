@@ -1,4 +1,3 @@
-// components/BlogPage.tsx or pages/blog/index.tsx (your blog listing page)
 'use client'
 
 import AnimationContainer from '@/components/global/animation-container'
@@ -170,7 +169,7 @@ const BlogPage: React.FC = () => {
       {/* CTA Button */}
       <AnimationContainer animation="fadeUp" delay={0.6}>
         <div className="mt-12 text-center">
-          <Link href="/blog/submit">
+          <Link href="/blog/upload">
             <Button
               size="lg"
               className="w-full bg-[#f10a0a] text-white transition-all duration-200 hover:bg-[#d10909] md:w-auto"

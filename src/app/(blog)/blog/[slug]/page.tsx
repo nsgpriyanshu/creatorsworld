@@ -1,3 +1,4 @@
+// blog/[slug]/page.tsx
 import { notFound } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { Metadata } from 'next'
@@ -6,9 +7,11 @@ import AnimationContainer from '@/components/global/animation-container'
 import Image from 'next/image'
 import { format } from 'date-fns'
 import { Blog } from '@/types/blog'
-import { MagicCard } from '@/components/ui/magic-card' // Added import for MagicCard
+import { MagicCard } from '@/components/ui/magic-card'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import DOMPurify from 'isomorphic-dompurify'
+import parse from 'html-react-parser'
 
 export async function generateMetadata({
   params,
@@ -24,12 +27,16 @@ export async function generateMetadata({
 
   if (!blog) return {}
 
+  // Sanitize content for description to avoid XSS in metadata
+  const sanitizedContent = DOMPurify.sanitize(blog.content || '', { ALLOWED_TAGS: [] })
+  const description = sanitizedContent.slice(0, 150) || 'Read our latest blog post.'
+
   return {
     title: `${blog.title} | Blog - ${process.env.NEXT_PUBLIC_APP_NAME}`,
-    description: blog.content?.slice(0, 150) || 'Read our latest blog post.',
+    description,
     openGraph: {
       title: blog.title,
-      description: blog.content?.slice(0, 150) || '',
+      description,
       images: [
         {
           url: '/assets/og_blog.png',
@@ -53,10 +60,37 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
 
   if (!blog) return notFound()
 
+  // Sanitize and parse content
+  const sanitizedContent = DOMPurify.sanitize(blog.content || '', {
+    ALLOWED_TAGS: [
+      'h1',
+      'h2',
+      'h3',
+      'h4',
+      'h5',
+      'h6',
+      'p',
+      'a',
+      'img',
+      'ul',
+      'ol',
+      'li',
+      'strong',
+      'em',
+      'blockquote',
+      'code',
+      'pre',
+      'span',
+      'div',
+      'br',
+    ],
+    ALLOWED_ATTR: ['href', 'src', 'alt', 'class', 'style'],
+  })
+  const parsedContent = parse(sanitizedContent)
+
   return (
     <Wrapper className="py-20">
       <MagicCard className="mt-10 rounded-xl p-6 md:p-8">
-        {/* Top Header - Always full width */}
         <Link
           href="/blog"
           className="text-muted-foreground mb-6 inline-flex items-center gap-2 text-sm font-medium transition hover:text-[#f10a0a]"
@@ -85,9 +119,7 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
           </div>
         </AnimationContainer>
 
-        {/* Responsive flex layout for article & author */}
         <div className="mx-auto mt-4 flex max-w-6xl flex-col gap-8 md:flex-row">
-          {/* Blog Content - 70% on desktop */}
           <AnimationContainer animation="fadeUp" className="w-full md:w-[70%] lg:px-24">
             <div>
               {blog.image_url && (
@@ -103,14 +135,12 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
                 </div>
               )}
 
-              <article
-                className="prose dark:prose-invert prose-lg max-w-none leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: blog.content }}
-              />
+              <article className="prose dark:prose-invert prose-lg max-w-none leading-relaxed">
+                {parsedContent}
+              </article>
             </div>
           </AnimationContainer>
 
-          {/* Author Info - 30% on desktop, full below on mobile */}
           <div className="border-border w-full border-t md:w-[30%] md:border-t-0 md:border-l md:pl-6">
             <AnimationContainer animation="fadeUp">
               <div className="flex flex-col items-center space-y-3 text-center">
@@ -118,7 +148,7 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
                   <Image
                     src={blog.authors.profile_picture}
                     alt={blog.authors.name}
-                    width={96} // Standard blog avatar size
+                    width={96}
                     height={96}
                     className="mt-4 rounded-full"
                   />

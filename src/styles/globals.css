@@ -163,3 +163,40 @@
   background-color: var(--primary);
   color: #f10a0a;
 }
+
+.prose {
+  /* Ensure headings have appropriate sizes */
+  --tw-prose-headings: theme('colors.foreground');
+}
+.prose h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+.prose h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+.prose h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+.prose h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+.prose.dark\:prose-invert h1,
+.prose.dark\:prose-invert h2,
+.prose.dark\:prose-invert h3,
+.prose.dark\:prose-invert h4 {
+  color: theme('colors.foreground');
+}
