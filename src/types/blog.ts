@@ -18,4 +18,5 @@ export interface Blog {
   created_at?: string
   updated_at?: string
   author?: Author
+  image_url?: string
 }

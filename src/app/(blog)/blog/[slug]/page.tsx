@@ -1,4 +1,3 @@
-// blog/[slug]/page.tsx
 import { notFound } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { Metadata } from 'next'
@@ -13,21 +12,21 @@ import Link from 'next/link'
 import DOMPurify from 'isomorphic-dompurify'
 import parse from 'html-react-parser'
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string }
-}): Promise<Metadata> {
+// Define types for params
+type Params = Promise<{ slug: string }>
+
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const { slug } = await params // <-- await the params
   const supabase = await createClient()
+
   const { data: blog } = await supabase
     .from('blogs')
     .select('title, content')
-    .eq('slug', params.slug)
+    .eq('slug', slug)
     .single()
 
   if (!blog) return {}
 
-  // Sanitize content for description to avoid XSS in metadata
   const sanitizedContent = DOMPurify.sanitize(blog.content || '', { ALLOWED_TAGS: [] })
   const description = sanitizedContent.slice(0, 150) || 'Read our latest blog post.'
 
@@ -49,18 +48,19 @@ export async function generateMetadata({
   }
 }
 
-export default async function BlogDetailPage({ params }: { params: { slug: string } }) {
+export default async function BlogDetailPage({ params }: { params: Params }) {
+  const { slug } = await params // <-- await the params
+
   const supabase = await createClient()
 
   const { data: blog } = await supabase
     .from('blogs')
     .select('*, authors(*)')
-    .eq('slug', params.slug)
+    .eq('slug', slug)
     .single()
 
   if (!blog) return notFound()
 
-  // Sanitize and parse content
   const sanitizedContent = DOMPurify.sanitize(blog.content || '', {
     ALLOWED_TAGS: [
       'h1',
@@ -86,6 +86,7 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
     ],
     ALLOWED_ATTR: ['href', 'src', 'alt', 'class', 'style'],
   })
+
   const parsedContent = parse(sanitizedContent)
 
   return (

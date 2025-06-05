@@ -124,7 +124,7 @@ const BlogPage: React.FC = () => {
               >
                 <div className="mb-4 h-48 w-full overflow-hidden rounded-xl">
                   <Image
-                    src={`/storage/v1/object/public/blog-images/covers/${blog.slug}.png`}
+                    src={`${blog.image_url}`}
                     alt={blog.title}
                     width={400}
                     height={200}

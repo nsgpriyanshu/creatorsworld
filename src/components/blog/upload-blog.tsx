@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 import dynamic from 'next/dynamic'
-import { v4 as uuidv4 } from 'uuid'
 
 import { createClient } from '@/lib/supabase/client'
 import { Input } from '@/components/ui/input'
@@ -33,7 +32,7 @@ function UploadBlogPage() {
     const fetchUser = async () => {
       const { data } = await supabase.auth.getUser()
       if (!data.user) {
-        router.push('/sign-in') // redirect if not authenticated
+        router.push('/sign-in')
       } else {
         setUser(data.user)
       }
@@ -59,7 +58,8 @@ function UploadBlogPage() {
     let imageUrl = ''
 
     if (image) {
-      const filePath = `covers/${uuidv4()}-${image.name}`
+      const fileExt = image.name.split('.').pop()
+      const filePath = `covers/${slug}.${fileExt}`
 
       const { data, error } = await supabase.storage.from('blog-images').upload(filePath, image)
 
@@ -74,7 +74,6 @@ function UploadBlogPage() {
       imageUrl = `${projectUrl}/storage/v1/object/public/blog-images/${filePath}`
     }
 
-    // Check if author exists and insert if not
     let { data: author, error: authorError } = await supabase
       .from('authors')
       .select('*')
@@ -82,7 +81,6 @@ function UploadBlogPage() {
       .single()
 
     if (authorError && authorError.code === 'PGRST116') {
-      // No author found, insert new author
       const { data: newAuthor, error: insertAuthorError } = await supabase
         .from('authors')
         .insert({
@@ -106,7 +104,7 @@ function UploadBlogPage() {
       return
     }
 
-    const { error } = await supabase.from('blogs').insert({
+    const { error: blogError } = await supabase.from('blogs').insert({
       title,
       slug,
       content,
@@ -119,8 +117,8 @@ function UploadBlogPage() {
       image_url: imageUrl || null,
     })
 
-    if (error) {
-      toast.error(error.message)
+    if (blogError) {
+      toast.error(blogError.message)
       setLoading(false)
       return
     }
