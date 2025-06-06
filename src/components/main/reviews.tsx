@@ -24,7 +24,7 @@ const ReviewCard = ({
   return (
     <div
       className={cn(
-        'relative h-full w-64 overflow-hidden rounded-xl border border-white/30 bg-[#191919]/20 p-4 shadow-xl backdrop-blur-lg',
+        'relative h-full w-64 overflow-hidden rounded-xl border p-4 backdrop-blur-lg dark:border-white/30 dark:bg-[#191919]/20',
       )}
     >
       <div className="flex flex-col gap-2">

@@ -13,10 +13,11 @@ const PARTNER_LINKS = [
 ]
 
 const COMPANY_LINKS = [
-  { label: 'About Us', href: '/about' },
+  { label: 'About Us', href: '/about-us' },
   { label: 'Contact', href: 'https://contact-priyanshu-ps.vercel.app/' },
   { label: 'Privacy Policy', href: '/privacy-policy' },
   { label: 'Terms of Service', href: '/terms' },
+  { label: 'Branding Guidelines', href: '/brand' },
 ]
 
 const SOCIAL_LINKS = [

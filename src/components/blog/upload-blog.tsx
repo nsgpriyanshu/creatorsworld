@@ -137,13 +137,13 @@ function UploadBlogPage() {
         </AnimationContainer>
         <AnimationContainer animation="fadeUp" delay={0.3}>
           <h1 className="from-foreground bg-gradient-to-b to-neutral-400 bg-clip-text text-3xl !leading-tight font-medium text-transparent md:text-4xl lg:text-5xl">
-            Craft Your Creator’s Tale
+            Craft Your Creator&apos;s Tale
           </h1>
         </AnimationContainer>
         <AnimationContainer animation="fadeUp" delay={0.4}>
           <p className="text-muted-foreground mx-auto max-w-2xl text-sm md:text-base lg:text-lg">
-            Unleash your creativity and share your unique story with the Creator’s Worlds community.
-            Write, inspire, and connect through your blog post today!
+            Unleash your creativity and share your unique story with the Creator&apos;s Worlds
+            community. Write, inspire, and connect through your blog post today!
           </p>
         </AnimationContainer>
       </div>
