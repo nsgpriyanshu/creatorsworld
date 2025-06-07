@@ -4,7 +4,7 @@ import React from 'react'
 import Wrapper from '@/components/global/wrapper'
 import SectionBadge from '@/components/ui/section-badge'
 import AnimationContainer from '@/components/global/animation-container'
-import { cn } from '@/lib/utils'
+import { MagicCard } from '@/components/ui/magic-card'
 
 type Section = {
   title: string
@@ -24,12 +24,6 @@ const brandGuidelines: Section[] = [
       'Our primary colors are #f10a0a (highlight red), #000000 (dark base), and #ffffff (light base). Please use these when referencing or integrating our brand.',
     list: ['Primary Red: #f10a0a', 'Black: #000000', 'White: #ffffff'],
   },
-  //   {
-  //     title: '3. Typography',
-  //     description:
-  //       'Our preferred typeface for digital assets is Inter. You are encouraged to use system fonts or clean sans-serif fonts when referencing us in UI/UX.',
-  //     list: ['Primary Font: Geist-Mono', 'Fallbacks: system-ui, sans-serif'],
-  //   },
   {
     title: '3. Do’s and Don’ts',
     description: 'To maintain consistency, follow these basic brand rules.',
@@ -69,37 +63,34 @@ const Brand = () => {
 
           <AnimationContainer animation="fadeUp" delay={0.4}>
             <h1 className="from-foreground bg-gradient-to-b to-neutral-400 bg-clip-text text-2xl !leading-tight font-medium text-transparent md:text-4xl lg:text-5xl">
-              Brand Guidelines
+              Creator&apos;s World Brand Guidelines
             </h1>
           </AnimationContainer>
 
           <AnimationContainer animation="fadeUp" delay={0.6}>
             <p className="text-muted-foreground text-sm md:text-base lg:text-lg">
-              This page provides the official assets and guidelines for referencing Creator’s World
-              in media, community content, apps, or collaborations. Please use them responsibly.
+              These guidelines outline the proper use of Creator&apos;s World&apos;s brand assets,
+              including logos, colors, and typography, to ensure consistency and professionalism
+              across all media, community content, applications, and collaborations. Adhere to these
+              standards to represent our brand accurately.
             </p>
           </AnimationContainer>
         </div>
 
-        {/* Guidelines Cards */}
-        <div className="flex flex-col gap-6 px-1 md:px-0">
-          {brandGuidelines.map((section, index) => (
-            <AnimationContainer key={section.title} animation="fadeUp" delay={0.8 + index * 0.1}>
-              <div
-                className={cn(
-                  'relative h-auto overflow-hidden rounded-2xl border bg-white/10 backdrop-blur-md dark:border-white/20',
-                  'dark:bg-black/10',
-                )}
-              >
-                <div className="flex flex-col p-6">
+        {/* Single Magic Card */}
+        <MagicCard className="mt-10 rounded-xl p-6 md:p-8">
+          <AnimationContainer animation="fadeUp" delay={0.6}>
+            <div className="flex flex-col gap-8">
+              {brandGuidelines.map((section, index) => (
+                <div key={section.title} className="flex flex-col gap-4">
                   <h2 className="text-xl font-medium text-[#f10a0a] md:text-2xl dark:text-[#f10a0a]">
                     {section.title}
                   </h2>
-                  <p className="text-muted-foreground mt-4 text-sm md:text-base lg:text-lg">
+                  <p className="text-muted-foreground text-sm md:text-base lg:text-lg">
                     {section.description}
                   </p>
                   {section.list && (
-                    <ul className="text-muted-foreground mt-4 list-inside list-disc text-sm md:text-base lg:text-lg">
+                    <ul className="text-muted-foreground list-inside list-disc text-sm md:text-base lg:text-lg">
                       {section.list.map((item, i) => (
                         <li key={i}>
                           {item.startsWith('[') ? (
@@ -119,10 +110,10 @@ const Brand = () => {
                     </ul>
                   )}
                 </div>
-              </div>
-            </AnimationContainer>
-          ))}
-        </div>
+              ))}
+            </div>
+          </AnimationContainer>
+        </MagicCard>
       </div>
     </Wrapper>
   )

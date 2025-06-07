@@ -5,6 +5,7 @@ import Wrapper from '@/components/global/wrapper'
 import SectionBadge from '@/components/ui/section-badge'
 import AnimationContainer from '@/components/global/animation-container'
 import { cn } from '@/lib/utils'
+import { MagicCard } from '../ui/magic-card'
 
 const policies = [
   {
@@ -52,7 +53,7 @@ const policies = [
   {
     title: '10. Contact Us',
     description:
-      'If you have any questions or concerns about your data or this privacy policy, please contact us at support@creatorsworld.com or via Discord.',
+      'If you have any questions or concerns about your data or this privacy policy, please contact us at https://contact-priyanshu-ps.vercel.app/  via Discord.',
   },
 ]
 
@@ -84,12 +85,7 @@ const PrivacyPolicy = () => {
         <div className="flex flex-col gap-6 px-1 md:px-0">
           {policies.map((policy, index) => (
             <AnimationContainer key={policy.title} animation="fadeUp" delay={0.8 + index * 0.1}>
-              <div
-                className={cn(
-                  'relative h-auto overflow-hidden rounded-2xl border bg-white/10 backdrop-blur-md dark:border-white/20',
-                  'dark:bg-black/10',
-                )}
-              >
+              <MagicCard className="mt-10 rounded-xl p-2 md:p-4">
                 <div className="flex flex-col p-6">
                   <h2 className="light:text-[#d10909] text-xl font-medium text-[#f10a0a] md:text-2xl dark:text-[#f10a0a]">
                     {policy.title}
@@ -98,7 +94,7 @@ const PrivacyPolicy = () => {
                     {policy.description}
                   </p>
                 </div>
-              </div>
+              </MagicCard>
             </AnimationContainer>
           ))}
         </div>

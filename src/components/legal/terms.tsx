@@ -5,6 +5,7 @@ import Wrapper from '@/components/global/wrapper'
 import SectionBadge from '@/components/ui/section-badge'
 import AnimationContainer from '@/components/global/animation-container'
 import { cn } from '@/lib/utils'
+import { MagicCard } from '../ui/magic-card'
 
 type Term = {
   title: string
@@ -62,7 +63,7 @@ const terms: Term[] = [
   {
     title: '10. Contact Us',
     description:
-      'If you have questions about these Terms, please reach out via email at support@creatorsworld.com or contact us on Discord.',
+      'If you have questions about these Terms, please reach out via https://contact-priyanshu-ps.vercel.app/ or contact us on Discord.',
   },
 ]
 
@@ -94,12 +95,13 @@ const TermsOfService = () => {
         <div className="flex flex-col gap-6 px-1 md:px-0">
           {terms.map((term, index) => (
             <AnimationContainer key={term.title} animation="fadeUp" delay={0.8 + index * 0.1}>
-              <div
+              {/* <div
                 className={cn(
                   'relative h-auto overflow-hidden rounded-2xl border bg-white/10 backdrop-blur-md dark:border-white/20',
                   'dark:bg-black/10',
                 )}
-              >
+              > */}
+              <MagicCard className="mt-10 rounded-xl p-2 md:p-4">
                 <div className="flex flex-col p-6">
                   <h2 className="light:text-[#d10909] text-xl font-medium text-[#f10a0a] md:text-2xl dark:text-[#f10a0a]">
                     {term.title}
@@ -120,7 +122,8 @@ const TermsOfService = () => {
                     </p>
                   )}
                 </div>
-              </div>
+              </MagicCard>
+              {/* </div> */}
             </AnimationContainer>
           ))}
         </div>
