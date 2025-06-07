@@ -9,6 +9,6 @@ export const NAV_LINKS = [
   },
   {
     name: 'Contact',
-    link: 'https://contact-priyanshu-ps.vercel.app/',
+    link: '/contact',
   },
 ]

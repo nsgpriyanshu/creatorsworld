@@ -8,13 +8,13 @@ const PRODUCT_LINKS = [{ label: 'Emo Pack', href: '/products' }]
 
 const PARTNER_LINKS = [
   { label: 'Shadow fight fanclub', href: 'https://discord.gg/CEgXHFZSM9' },
-  { label: "Shadow Fighter's", href: '#' }, // Placeholder; replace with actual link if available
+  { label: "Shadow Fighter's", href: 'https://www.youtube.com/@shadow_fighters_3' }, 
   { label: 'Nexus', href: 'https://discord.gg/M24WCrSbkg' },
 ]
 
 const COMPANY_LINKS = [
   { label: 'About Us', href: '/about-us' },
-  { label: 'Contact', href: 'https://contact-priyanshu-ps.vercel.app/' },
+  { label: 'Contact', href: '/contact' },
   { label: 'Privacy Policy', href: '/privacy-policy' },
   { label: 'Terms of Service', href: '/terms' },
   { label: 'Branding Guidelines', href: '/brand' },
