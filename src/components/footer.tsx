@@ -8,7 +8,7 @@ const PRODUCT_LINKS = [{ label: 'Emo Pack', href: '/products' }]
 
 const PARTNER_LINKS = [
   { label: 'Shadow fight fanclub', href: 'https://discord.gg/CEgXHFZSM9' },
-  { label: "Shadow Fighter's", href: 'https://www.youtube.com/@shadow_fighters_3' }, 
+  { label: "Shadow Fighter's", href: 'https://www.youtube.com/@shadow_fighters_3' },
   { label: 'Nexus', href: 'https://discord.gg/M24WCrSbkg' },
 ]
 

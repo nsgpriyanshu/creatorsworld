@@ -3,7 +3,6 @@
 import { Button } from '@/components/ui/button'
 import { NAV_LINKS } from '@/constants'
 import { useClickOutside } from '@/hooks'
-/* import { useClerk } from '@clerk/nextjs' */
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { MenuIcon, XIcon } from 'lucide-react'
 import Link from 'next/link'
@@ -15,8 +14,6 @@ import { ModeToggle } from './global/theme-toggle'
 import Image from 'next/image'
 
 const Navbar = () => {
-  /* const { user } = useClerk() */
-
   const ref = useRef<HTMLDivElement | null>(null)
   const [open, setOpen] = useState(false)
   const [visible, setVisible] = useState<boolean>(false)
@@ -97,15 +94,9 @@ const Navbar = () => {
           <AnimationContainer animation="fadeLeft" delay={0.1}>
             <div className="flex items-center gap-x-4">
               <ModeToggle />
-              {/* {user ? (
-                                <Link href="/dashboard">
-                                    <Button>Dashboard</Button>
-                                </Link>
-                            ) : ( */}
               <Link href="https://discord.gg/VUMVuArkst">
                 <Button size="sm">Join Now</Button>
               </Link>
-              {/* )} */}
             </div>
           </AnimationContainer>
         </Wrapper>
@@ -115,10 +106,10 @@ const Navbar = () => {
       <motion.div
         animate={{
           y: visible ? 20 : 0,
-          borderTopLeftRadius: open ? '0.75rem' : '2rem',
-          borderTopRightRadius: open ? '0.75rem' : '2rem',
-          borderBottomLeftRadius: open ? '0' : '2rem',
-          borderBottomRightRadius: open ? '0' : '2rem',
+          borderTopLeftRadius: open ? '0.75rem' : '1.5rem',
+          borderTopRightRadius: open ? '0.75rem' : '1.5rem',
+          borderBottomLeftRadius: open ? '0' : '1.5rem',
+          borderBottomRightRadius: open ? '0' : '1.5rem',
         }}
         transition={{
           type: 'spring',
@@ -126,9 +117,10 @@ const Navbar = () => {
           damping: 50,
         }}
         className={cn(
-          'relative z-50 mx-auto flex w-full flex-col items-center justify-between py-4 lg:hidden',
-          visible && 'w-11/12 border dark:bg-neutral-950',
-          open && 'border-transparent',
+          'relative z-[60] mx-auto my-4 flex w-11/12 flex-col items-center justify-between py-4 lg:hidden',
+          open
+            ? 'bg-background dark:bg-background rounded-[0.75rem] border border-white/20' // Solid color when open
+            : 'rounded-[1.5rem] border border-white/20 bg-white/10 backdrop-blur-md dark:bg-neutral-950/10', // Glassmorphism when closed
         )}
       >
         <Wrapper className="flex items-center justify-between lg:px-4">
@@ -166,10 +158,11 @@ const Navbar = () => {
           {open && (
             <motion.div
               ref={mobileMenuRef}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-2 rounded-b-xl bg-neutral-950 px-4 py-8 shadow-xl shadow-neutral-950"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="absolute inset-x-0 top-[4.5rem] z-[50] flex w-full flex-col items-start justify-start gap-2 rounded-b-xl border border-white/20 bg-white/10 px-4 py-8 shadow-xl shadow-neutral-950/50 backdrop-blur-md dark:bg-neutral-950/10" // Glassmorphism for dropdown
             >
               {NAV_LINKS.map((navItem: any, idx: number) => (
                 <AnimationContainer
@@ -181,43 +174,13 @@ const Navbar = () => {
                   <Link
                     href={navItem.link}
                     onClick={() => setOpen(false)}
-                    className="relative w-full gap-y-2 rounded-lg px-4 py-2 text-neutral-300 hover:bg-neutral-800"
+                    className="relative w-full gap-y-2 rounded-lg px-4 py-2 hover:bg-white/10 dark:text-neutral-300 dark:hover:bg-neutral-800/50"
                   >
                     <motion.span>{navItem.name}</motion.span>
                   </Link>
                 </AnimationContainer>
               ))}
               <AnimationContainer animation="fadeUp" delay={0.5} className="w-full">
-                {/* {user ? (
-                                    <Link href="/dashboard" className="w-full">
-                                        <Button
-                                            onClick={() => setOpen(false)}
-                                            variant="default"
-                                            className="mt-2 block w-full md:hidden"
-                                        >
-                                            Dashboard
-                                        </Button>
-                                    </Link>
-                                ) : ( */}
-                <Link href="/signin" className="w-full">
-                  <Button
-                    onClick={() => setOpen(false)}
-                    variant="secondary"
-                    className="mb-2 block w-full md:hidden"
-                  >
-                    Login
-                  </Button>
-                </Link>
-                <Link href="/signup" className="w-full">
-                  <Button
-                    onClick={() => setOpen(false)}
-                    variant="default"
-                    className="block w-full md:hidden"
-                  >
-                    Start for free
-                  </Button>
-                </Link>
-                {/* )} */}
                 <div className="mt-4 flex justify-center">
                   <ModeToggle />
                 </div>
