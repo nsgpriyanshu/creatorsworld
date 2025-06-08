@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: "Brand guidelines and assets for Creator's World",
     images: [
       {
-        url: '/assets/og_bp.png',
+        url: '/assets/og_bg.png',
         width: 1200,
         height: 630,
         alt: 'Open Graph Image',

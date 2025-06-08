@@ -10,6 +10,8 @@ type Section = {
   title: string
   description: string
   list?: string[]
+  colors?: { name: string; hex: string }[]
+  downloads?: { name: string; url: string; preview: string }[] // Added for image previews
 }
 
 const brandGuidelines: Section[] = [
@@ -21,8 +23,13 @@ const brandGuidelines: Section[] = [
   {
     title: '2. Color Palette',
     description:
-      'Our primary colors are #f10a0a (highlight red), #000000 (dark base), and #ffffff (light base). Please use these when referencing or integrating our brand.',
-    list: ['Primary Red: #f10a0a', 'Black: #000000', 'White: #ffffff'],
+      'Our primary colors are shown below. Please use these when referencing or integrating our brand.',
+    colors: [
+      { name: 'Primary Red', hex: '#f10a0a' },
+      { name: 'Primary Black', hex: '#000000' },
+      { name: 'Primary White', hex: '#ffffff' },
+      { name: 'Secondary Black', hex: '#191919' },
+    ],
   },
   {
     title: '3. Do’s and Don’ts',
@@ -37,11 +44,19 @@ const brandGuidelines: Section[] = [
   {
     title: '4. Downloads',
     description: 'You can download high-quality assets for light and dark use cases below:',
-    list: [
-      '[Download Logo - Light Version](/icons/cwicon_light.png)',
-      '[Download Logo - Dark Version](/icons/cwicon_dark.png)',
-      '[Pure PNG without Background](/icons/cw2025.png)',
-      '[Download SVG Pack](/icons/)',
+    downloads: [
+      {
+        name: 'Logo - Light Version',
+        url: '/icons/cwicon_light.png',
+        preview: '/icons/cwicon_light.png',
+      },
+      {
+        name: 'Logo - Dark Version',
+        url: '/icons/cwicon_dark.png',
+        preview: '/icons/cwicon_dark.png',
+      },
+      { name: 'PNG', url: '/icons/cw2025.png', preview: '/icons/cw2025.png' },
+      { name: 'SVG', url: '/icons/cw2025.svg', preview: '/icons/cw2025.svg' },
     ],
   },
   {
@@ -63,16 +78,16 @@ const Brand = () => {
 
           <AnimationContainer animation="fadeUp" delay={0.4}>
             <h1 className="from-foreground bg-gradient-to-b to-neutral-400 bg-clip-text text-2xl !leading-tight font-medium text-transparent md:text-4xl lg:text-5xl">
-              Creator&apos;s World Brand Guidelines
+              Creator's World Brand Guidelines
             </h1>
           </AnimationContainer>
 
           <AnimationContainer animation="fadeUp" delay={0.6}>
             <p className="text-muted-foreground text-sm md:text-base lg:text-lg">
-              These guidelines outline the proper use of Creator&apos;s World&apos;s brand assets,
-              including logos, colors, and typography, to ensure consistency and professionalism
-              across all media, community content, applications, and collaborations. Adhere to these
-              standards to represent our brand accurately.
+              These guidelines outline the proper use of Creator's World's brand assets, including
+              logos, colors, and typography, to ensure consistency and professionalism across all
+              media, community content, applications, and collaborations. Adhere to these standards
+              to represent our brand accurately.
             </p>
           </AnimationContainer>
         </div>
@@ -108,6 +123,42 @@ const Brand = () => {
                         </li>
                       ))}
                     </ul>
+                  )}
+                  {section.colors && (
+                    <div className="flex flex-wrap gap-4">
+                      {section.colors.map((color, i) => (
+                        <div key={i} className="flex items-center gap-3">
+                          <div
+                            className="h-10 w-10 rounded-md border border-neutral-200 dark:border-neutral-700"
+                            style={{ backgroundColor: color.hex }}
+                          ></div>
+                          <span className="text-primary text-sm md:text-base lg:text-lg">
+                            {color.name} ({color.hex})
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {section.downloads && (
+                    <div className="flex flex-wrap gap-4">
+                      {section.downloads.map((download, i) => (
+                        <div key={i} className="flex flex-col items-start gap-2">
+                          <a
+                            href={download.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-primary text-sm md:text-base lg:text-lg"
+                          >
+                            {download.name}
+                          </a>
+                          <img
+                            src={download.preview}
+                            alt={download.name}
+                            className="h-16 w-16 rounded-md object-contain"
+                          />
+                        </div>
+                      ))}
+                    </div>
                   )}
                 </div>
               ))}

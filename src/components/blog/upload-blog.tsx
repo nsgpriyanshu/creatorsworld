@@ -162,7 +162,7 @@ function UploadBlogPage() {
             className="rounded-lg border border-white/20 bg-black/10 p-3 text-sm backdrop-blur-md md:text-base"
           />
           <Input
-            placeholder="Tags (comma separated, e.g., tech, art, design)"
+            placeholder="Tags (comma separated, e.g., Tech, Art, WhatsNew)"
             value={tags}
             onChange={e => setTags(e.target.value)}
             className="rounded-lg border border-white/20 bg-black/10 p-3 text-sm backdrop-blur-md md:text-base"
