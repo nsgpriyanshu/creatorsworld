@@ -1,4 +1,4 @@
-name: 'CodeQL'
+name: CodeQL
 
 on:
   push:
@@ -10,23 +10,21 @@ on:
 
 jobs:
   analyze:
-    name: Analyze (${{ matrix.language }})
-    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
-    timeout-minutes: ${{ (matrix.language == 'swift' && 120) || 360 }}
+    name: Analyze (javascript-typescript)
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
     permissions:
       security-events: write
-
-      packages: read
-
-      actions: read
       contents: read
+      actions: read
+      packages: read
+      pull-requests: write  # Add if PR comments are desired
 
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - language: javascript-typescript
-            build-mode: none
+        language: ['javascript-typescript']
+        build-mode: ['none']  # Change to 'autobuild' if TypeScript compilation is needed
 
     steps:
       - name: Checkout repository
@@ -40,14 +38,10 @@ jobs:
 
       - if: matrix.build-mode == 'manual'
         run: |
-          echo 'If you are using a "manual" build mode for one or more of the' \
-            'languages you are analyzing, replace this with the commands to build' \
-            'your code, for example:'
-          echo '  make bootstrap'
-          echo '  make release'
-          exit 1
+          npm install
+          npm run build  # Replace with your build commands if needed
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
         with:
-          category: '/language:${{matrix.language}}'
+          category: "language:${{ matrix.language }}"

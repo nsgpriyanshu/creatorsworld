@@ -7,12 +7,12 @@
 <br>
 
 [![Join Creator's World](https://custom-icon-badges.demolab.com/badge/Creators%20World-000000.svg?logo=creators_world&logoColor=white)](https://discord.gg/7SAcEv7MDd)
-[![Next.js](https://img.shields.io/badge/Next.js-14.2.5-black?logo=next.js)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/github/package-json/dependency-version/nsgpriyanshu/creatorsworld/next?color=black&logo=next.js)](https://nextjs.org/)
 [![Version](https://img.shields.io/github/package-json/v/nsgpriyanshu/creatorsworld?color=ff3b30)](https://github.com/nsgpriyanshu/creatorsworld)
 [![Discord](https://img.shields.io/discord/855781247480496130?color=5865F2&logo=discord&logoColor=white)](https://discord.gg/7SAcEv7MDd)
 [![Contributors](https://img.shields.io/github/contributors/nsgpriyanshu/creatorsworld?color=crimson)](https://github.com/nsgpriyanshu/creatorsworld/graphs/contributors)
 [![Last Commit](https://img.shields.io/github/last-commit/nsgpriyanshu/creatorsworld)](https://github.com/nsgpriyanshu/creatorsworld)
-[![Production Deployment](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/nextjs.yml/badge.svg)](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/nextjs.yml)
+[![Vercel Preview](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://creatorsworld.vercel.app)
 [![CodeQL](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/codeql.yml/badge.svg)](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/codeql.yml)
 [![Dependency Review](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/dependency-review.yml)
 
@@ -64,7 +64,7 @@ Have ideas or questions? Join our [Discord community](https://discord.gg/7SAcEv7
 Thank you for being part of Creator's World! We’re excited to see you in our community, where creativity knows no limits.
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/icons/colourfull-pfp.jpg" alt="nsgpriyanshu" width="50" height="50" style="border-radius: 50%;" />
+  <img src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/main/public/icons/owner_one.png" alt="nsgpriyanshu" width="50" height="50" style="border-radius: 50%;" />
   <br>
   <a href="https://nsgpriyanshu.github.io">
     <img src="https://img.shields.io/badge/Developer-nsgpriyanshu-author.svg?color=f10a0a" alt="nsgpriyanshu" />
