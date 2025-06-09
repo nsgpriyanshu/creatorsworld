@@ -9,6 +9,7 @@
     "lint": "next lint",
     "format:check": "npx prettier --check .",
     "format:fix": "npx prettier --write .",
+    "release": "cliff-jumper",
     "prepare": "husky"
   },
   "author": "nsgpriyanshu",
