@@ -1,0 +1,80 @@
+labels:
+  - name: bug
+    color: f98181
+    description: Something isn't working
+    condition: |
+      issue.title =~ /^(bug|error|problem)/i
+      || issue.body =~ /(bug|error|problem)/i
+      || issue.labels =~ /bug/
+
+  - name: enhancement
+    color: 79b8ff
+    description: Improvement to existing feature
+    condition: |
+      issue.title =~ /^(enhancement)/i
+      || issue.body =~ /(enhancement)/i
+      || issue.labels =~ /enhancement/
+
+  - name: documentation
+    color: 7cb342
+    description: Improvements or additions to documentation
+    condition: |
+      issue.title =~ /^(documentation|docs)/i
+      || issue.body =~ /(documentation|docs)/i
+      || issue.labels =~ /documentation/
+
+  - name: help wanted
+    color: ffffff
+    description: Need some help with this issue
+    condition: |
+      issue.title =~ /^(help wanted|help needed)/i
+      || issue.body =~ /(help wanted|help needed)/i
+      || issue.labels =~ /help wanted/
+
+  - name: good first issue
+    color: b39ddb
+    description: Good for newcomers
+    condition: |
+      issue.title =~ /^(good first issue|beginner|easy)/i
+      || issue.body =~ /(good first issue|beginner|easy)/i
+      || issue.labels =~ /good first issue/
+
+  - name: duplicate
+    color: ffcc80
+    description: This issue or pull request already exists
+    condition: |
+      issue.title =~ /^(duplicate)/i
+      || issue.body =~ /(duplicate)/i
+      || issue.labels =~ /duplicate/
+
+  - name: invalid
+    color: e57373
+    description: This doesn't seem right
+    condition: |
+      issue.title =~ /^(invalid)/i
+      || issue.body =~ /(invalid)/i
+      || issue.labels =~ /invalid/
+
+  - name: wontfix
+    color: 000000
+    description: This will not be worked on
+    condition: |
+      issue.title =~ /^(won't fix|wontfix)/i
+      || issue.body =~ /(won't fix|wontfix)/i
+      || issue.labels =~ /wontfix/
+
+  - name: question
+    color: d4c5f9
+    description: Further information is requested
+    condition: |
+      issue.title =~ /^(question|inquiry|query)/i
+      || issue.body =~ /(question|inquiry|query)/i
+      || issue.labels =~ /question/
+
+  - name: security
+    color: e11d21
+    description: Security issue
+    condition: |
+      issue.title =~ /^(security|vulnerability|threat)/i
+      || issue.body =~ /(security|vulnerability|threat)/i
+      || issue.labels =~ /security/
