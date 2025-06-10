@@ -14,7 +14,8 @@
 [![Last Commit](https://img.shields.io/github/last-commit/nsgpriyanshu/creatorsworld)](https://github.com/nsgpriyanshu/creatorsworld)
 [![Vercel Preview](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://creatorsworld.vercel.app)
 [![CodeQL](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/codeql.yml/badge.svg)](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/codeql.yml)
-[![Dependency Review](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/dependency-review.yml)
+
+<!-- [![Dependency Review](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/nsgpriyanshu/creatorsworld/actions/workflows/dependency-review.yml) -->
 
 </div>
 
