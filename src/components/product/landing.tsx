@@ -20,7 +20,7 @@ const LandingPage = () => {
     resolvedTheme === 'light' ? 'Emo Pack Preview (Light)' : 'Emo Pack Preview (Dark)'
 
   return (
-    <Wrapper className="relative h-full min-h-screen w-[100vw] max-w-[100vw] flex-1 overflow-x-hidden pt-16 sm:pt-20 md:w-full lg:pt-32">
+    <Wrapper className="relative h-full min-h-screen w-[100vw] max-w-[100vw] flex-1 overflow-x-hidden pt-16 pb-16 sm:pt-20 sm:pb-20 md:w-full lg:pt-32">
       <div className="flex h-full w-full flex-col lg:flex-row lg:gap-16">
         <div className="flex w-full flex-col items-start gap-10 py-8">
           <div className="flex flex-col items-start gap-4">
