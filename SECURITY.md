@@ -5,11 +5,11 @@
 We actively maintain and support the following versions of Creator's World. Please ensure you are using one of these versions to receive security updates.
 
 | Version | Supported          |
-|---------|--------------------|
+| ------- | ------------------ |
 | 2.0     | :white_check_mark: |
 | < 2.0   | :x:                |
 
-*Last updated: June 09, 2025*
+_Last updated: June 09, 2025_
 
 ## Reporting a Vulnerability
 
@@ -26,4 +26,4 @@ We aim to acknowledge your email within **48 hours** and provide an initial resp
 
 Thank you for contributing to the security of Creator's World! Your responsible disclosure helps us maintain a safe and trustworthy environment for all creators. If you have any questions or need further assistance, feel free to reach out via our [Discord community](https://discord.gg/7SAcEv7MDd).
 
-*This policy was established on June 09, 2025, at 08:46 PM IST.*
+_This policy was established on June 09, 2025, at 08:46 PM IST._

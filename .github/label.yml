@@ -1,32 +1,32 @@
 # .github/label.yml
 bug:
-  - "bug*"
-  - "error*"
-  - "problem*"
+  - 'bug*'
+  - 'error*'
+  - 'problem*'
 enhancement:
-  - "enhancement*"
+  - 'enhancement*'
 documentation:
-  - "documentation*"
-  - "docs*"
+  - 'documentation*'
+  - 'docs*'
 help-wanted:
-  - "help wanted*"
-  - "help needed*"
+  - 'help wanted*'
+  - 'help needed*'
 good-first-issue:
-  - "good first issue*"
-  - "beginner*"
-  - "easy*"
+  - 'good first issue*'
+  - 'beginner*'
+  - 'easy*'
 duplicate:
-  - "duplicate*"
+  - 'duplicate*'
 invalid:
-  - "invalid*"
+  - 'invalid*'
 wontfix:
   - "won't fix*"
-  - "wontfix*"
+  - 'wontfix*'
 question:
-  - "question*"
-  - "inquiry*"
-  - "query*"
+  - 'question*'
+  - 'inquiry*'
+  - 'query*'
 security:
-  - "security*"
-  - "vulnerability*"
-  - "threat*"
+  - 'security*'
+  - 'vulnerability*'
+  - 'threat*'

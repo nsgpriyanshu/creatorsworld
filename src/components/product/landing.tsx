@@ -1,4 +1,5 @@
 'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import AnimationContainer from '../global/animation-container'
@@ -19,7 +20,7 @@ const LandingPage = () => {
     resolvedTheme === 'light' ? 'Emo Pack Preview (Light)' : 'Emo Pack Preview (Dark)'
 
   return (
-    <Wrapper className="relative h-full min-h-screen w-full flex-1 pt-20 lg:pt-32">
+    <Wrapper className="relative h-full min-h-screen w-[100vw] max-w-[100vw] flex-1 overflow-x-hidden pt-16 sm:pt-20 md:w-full lg:pt-32">
       <div className="flex h-full w-full flex-col lg:flex-row lg:gap-16">
         <div className="flex w-full flex-col items-start gap-10 py-8">
           <div className="flex flex-col items-start gap-4">
@@ -49,7 +50,7 @@ const LandingPage = () => {
             <div className="w-full">
               <Link href="https://discord.gg/VUMVuArkst">
                 <Button size="lg" className="w-full md:w-auto">
-                  Oredr Now
+                  Order Now
                 </Button>
               </Link>
             </div>
@@ -58,7 +59,7 @@ const LandingPage = () => {
           <AnimationContainer animation="fadeUp" delay={1}>
             <div className="flex flex-col items-start gap-4 py-4">
               <p className="text-muted-foreground text-sm md:text-base">Payment Methods</p>
-              <div className="relative w-full max-w-[calc(100vw-2rem)] lg:max-w-lg">
+              <div className="relative w-full max-w-[calc(100vw-2rem)] overflow-hidden md:max-w-lg">
                 <Marquee className="select-none [--duration:40s] [--gap:2rem]">
                   {[...Array(10)].map((_, index) => (
                     <div
@@ -83,7 +84,7 @@ const LandingPage = () => {
         </div>
 
         <AnimationContainer animation="fadeRight" delay={0.4}>
-          <div className="relative flex h-min w-full flex-col items-center justify-center overflow-visible">
+          <div className="relative flex h-min w-full flex-col items-start justify-start overflow-visible">
             <div className="relative w-full lg:aspect-[1.3884514435695539/1] lg:h-[auto,720px] lg:w-[450px]">
               <div className="lg:absolute lg:inset-0">
                 <div className="light:bg-white/10 absolute -top-4 -right-4 -bottom-4 -left-4 z-10 m-1 rounded-2xl border border-white/20 bg-black/10 backdrop-blur-lg lg:m-0 lg:h-[450px] lg:rounded-2xl dark:bg-black/10">
@@ -92,9 +93,10 @@ const LandingPage = () => {
                 <Image
                   src={productImageSrc}
                   alt={productImageAlt}
+                  sizes="(max-width: 768px) 100vw, 450px"
                   width={400}
                   height={400}
-                  className="relative z-20 rounded-xl object-contain lg:rounded-2xl"
+                  className="relative z-20 h-auto min-w-full rounded-xl object-contain lg:rounded-2xl"
                 />
               </div>
             </div>
@@ -104,7 +106,7 @@ const LandingPage = () => {
       <AnimationContainer
         animation="scaleUp"
         delay={1.2}
-        className="absolute -top-[8%] left-2/5 -z-10 h-auto w-1/1"
+        className="absolute -top-[8%] left-2/5 -z-10 h-auto w-full md:w-2/3"
       >
         <Image
           src="/assets/hero_gradient.png"

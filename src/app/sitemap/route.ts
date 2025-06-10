@@ -3,9 +3,9 @@ import { createClient } from '@/lib/supabase/server'
 
 // Base URL from environment variable with strict validation
 const SITE_URL = (() => {
-  const url = process.env.NEXT_PUBLIC_BASE_URL?.replace(/\/$/, '')
+  const url = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '')
   if (!url || !/^https?:\/\//.test(url)) {
-    throw new Error('Missing or invalid NEXT_PUBLIC_BASE_URL')
+    throw new Error('Missing or invalid NEXT_PUBLIC_SITE_URL')
   }
   return url
 })()

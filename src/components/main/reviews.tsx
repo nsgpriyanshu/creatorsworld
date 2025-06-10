@@ -29,7 +29,7 @@ const ReviewCard = ({
     >
       <div className="flex flex-col gap-2">
         <div className="flex flex-row items-center gap-2">
-          <img className="rounded-full" width="32" height="32" alt="" src={img} />
+          <img className="rounded-full" width="32" height="32" alt={name} src={img} />
           <div className="flex flex-col">
             <h4 className="text-foreground text-sm font-medium">{name}</h4>
             <p className="text-muted-foreground text-xs font-medium">{userrole}</p>

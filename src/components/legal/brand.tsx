@@ -62,7 +62,7 @@ const brandGuidelines: Section[] = [
   {
     title: '5. Contact',
     description:
-      'For partnerships, press kits, or questions about brand usage, contact us at https://contact-priyanshu-ps.vercel.app/ or via Discord.',
+      'For partnerships, press kits, or questions about brand usage, contact us at https://creatorsworld.vercel.app/contact or via Discord.',
   },
 ]
 

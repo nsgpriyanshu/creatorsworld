@@ -19,7 +19,7 @@ All notable changes to this project will be documented in this file.
 
 ## Features
 
-- **ui:** Import artifacts  from original main ([b5af1c4](https://github.com/nsgpriyanshu/creatorsworld/commit/b5af1c439988ac57be0001a03d8aeb0349d2f87b))
+- **ui:** Import artifacts from original main ([b5af1c4](https://github.com/nsgpriyanshu/creatorsworld/commit/b5af1c439988ac57be0001a03d8aeb0349d2f87b))
 - Add readme file ([5df5c59](https://github.com/nsgpriyanshu/creatorsworld/commit/5df5c59be969fe80de325e837b9dc73a9350d543))
 - Enhanced seo, and imporove ui ([a936b9b](https://github.com/nsgpriyanshu/creatorsworld/commit/a936b9b75811ba7c7b8687376eb592b05244c227))
 - **legal:** Add about and brand page, fix some bugs ([4e0c911](https://github.com/nsgpriyanshu/creatorsworld/commit/4e0c9117259321b42b16f8e4d6335c789be04692))
@@ -48,10 +48,6 @@ All notable changes to this project will be documented in this file.
 - **ui:** Add not found page ([8b56f32](https://github.com/nsgpriyanshu/creatorsworld/commit/8b56f328a6f019af2cc3cce90a840c83df907a84))
 - **blog:** Enhance blog ui only ([2e7880a](https://github.com/nsgpriyanshu/creatorsworld/commit/2e7880a4411156123a32db8d83f6964a85880790))
 - Update seo functionalities ([c0f111d](https://github.com/nsgpriyanshu/creatorsworld/commit/c0f111d9e07b6b3eb241af7be0473e064de09195))
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
 
 # [1.4.1](https://github.com/nsgpriyanshu/creatorsworld/compare/1.4.0...1.4.1) - (2024-10-12)
 

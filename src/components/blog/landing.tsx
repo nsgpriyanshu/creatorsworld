@@ -68,7 +68,7 @@ const BlogPage: React.FC = () => {
   const uniqueTags = Array.from(new Set(blogs.flatMap(b => b.tags || [])))
 
   return (
-    <Wrapper className="relative min-h-screen py-20 lg:py-32">
+    <Wrapper className="relative min-h-screen py-25 lg:py-32">
       {/* Header Section */}
       <div className="mb-16 flex flex-col items-center gap-4 text-center">
         <AnimationContainer animation="fadeUp" delay={0.2}>

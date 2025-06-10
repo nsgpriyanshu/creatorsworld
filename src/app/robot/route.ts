@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 
 // Base URL from environment variable with validation
 const SITE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL?.replace(/\/$/, '') || 'https://creatorsworld.vercel.app/'
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || 'https://creatorsworld.vercel.app/'
 
 export async function GET() {
   try {

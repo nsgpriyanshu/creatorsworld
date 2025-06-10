@@ -53,7 +53,7 @@ const policies = [
   {
     title: '10. Contact Us',
     description:
-      'If you have any questions or concerns about your data or this privacy policy, please contact us at https://contact-priyanshu-ps.vercel.app/  via Discord.',
+      'If you have any questions or concerns about your data or this privacy policy, please contact us at https://creatorsworld.vercel.app/contact via Discord.',
   },
 ]
 

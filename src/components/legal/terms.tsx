@@ -63,7 +63,7 @@ const terms: Term[] = [
   {
     title: '10. Contact Us',
     description:
-      'If you have questions about these Terms, please reach out via https://contact-priyanshu-ps.vercel.app/ or contact us on Discord.',
+      'If you have questions about these Terms, please reach out via https://creatorsworld.vercel.app/contact or contact us on Discord.',
   },
 ]
 

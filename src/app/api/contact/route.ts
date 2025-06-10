@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
     const validatedData = await formSchema.parseAsync(rawData)
 
     const discordMessage = {
-      content: `**New Contact Form Submission**\n\n**Name:** ${validatedData.name}\n**Email:** ${validatedData.email}\n**Message:** ${validatedData.message}`,
+      content: `-------------------------------\n\n**New Contact Form Submission**\n\n**Name:** ${validatedData.name}\n**Email:** ${validatedData.email}\n**Message:** ${validatedData.message}\n\n-------------------------------`,
     }
 
     const response = await fetch(webhookUrl, {

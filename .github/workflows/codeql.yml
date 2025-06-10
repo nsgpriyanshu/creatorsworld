@@ -18,13 +18,13 @@ jobs:
       contents: read
       actions: read
       packages: read
-      pull-requests: write  # Add if PR comments are desired
+      pull-requests: write # Add if PR comments are desired
 
     strategy:
       fail-fast: false
       matrix:
         language: ['javascript-typescript']
-        build-mode: ['none']  # Change to 'autobuild' if TypeScript compilation is needed
+        build-mode: ['none'] # Change to 'autobuild' if TypeScript compilation is needed
 
     steps:
       - name: Checkout repository
@@ -44,4 +44,4 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
         with:
-          category: "language:${{ matrix.language }}"
+          category: 'language:${{ matrix.language }}'
