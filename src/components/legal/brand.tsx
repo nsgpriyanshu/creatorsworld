@@ -11,7 +11,7 @@ type Section = {
   description: string
   list?: string[]
   colors?: { name: string; hex: string }[]
-  downloads?: { name: string; url: string; preview: string }[] // Added for image previews
+  downloads?: { name: string; url: string; preview: string }[]
 }
 
 const brandGuidelines: Section[] = [
@@ -71,7 +71,7 @@ const Brand = () => {
     <Wrapper className="relative h-full min-h-screen w-full flex-1 pt-20 lg:pt-32">
       <div className="flex h-full w-full flex-col items-start gap-10 py-8">
         {/* Section Header */}
-        <div className="flex flex-col items-start gap-4">
+        <div className="flex flex-col items-start gap-4 px-4 sm:px-6 md:px-0">
           <AnimationContainer animation="fadeUp" delay={0.2}>
             <SectionBadge title="Last Updated: 6 June 2025" />
           </AnimationContainer>
@@ -93,78 +93,80 @@ const Brand = () => {
         </div>
 
         {/* Single Magic Card */}
-        <MagicCard className="mt-10 rounded-xl p-6 md:p-8">
-          <AnimationContainer animation="fadeUp" delay={0.6}>
-            <div className="flex flex-col gap-8">
-              {brandGuidelines.map((section, index) => (
-                <div key={section.title} className="flex flex-col gap-4">
-                  <h2 className="text-xl font-medium text-[#f10a0a] md:text-2xl dark:text-[#f10a0a]">
-                    {section.title}
-                  </h2>
-                  <p className="text-muted-foreground text-sm md:text-base lg:text-lg">
-                    {section.description}
-                  </p>
-                  {section.list && (
-                    <ul className="text-muted-foreground list-inside list-disc text-sm md:text-base lg:text-lg">
-                      {section.list.map((item, i) => (
-                        <li key={i}>
-                          {item.startsWith('[') ? (
+        <div className="flex w-full flex-col gap-6 px-4 sm:px-6 md:px-0">
+          <MagicCard className="mt-10 rounded-xl p-6 sm:p-8 md:p-8">
+            <AnimationContainer animation="fadeUp" delay={0.6}>
+              <div className="flex flex-col gap-8">
+                {brandGuidelines.map((section, index) => (
+                  <div key={section.title} className="flex flex-col gap-4">
+                    <h2 className="text-xl font-medium text-[#f10a0a] md:text-2xl dark:text-[#f10a0a]">
+                      {section.title}
+                    </h2>
+                    <p className="text-muted-foreground text-sm sm:text-base md:text-base lg:text-lg">
+                      {section.description}
+                    </p>
+                    {section.list && (
+                      <ul className="text-muted-foreground list-inside list-disc text-sm sm:text-base md:text-base lg:text-lg">
+                        {section.list.map((item, i) => (
+                          <li key={i}>
+                            {item.startsWith('[') ? (
+                              <a
+                                href={item.match(/\((.*?)\)/)?.[1] || '#'}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline"
+                              >
+                                {item.match(/\[(.*?)\]/)?.[1]}
+                              </a>
+                            ) : (
+                              item
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {section.colors && (
+                      <div className="flex flex-wrap gap-4">
+                        {section.colors.map((color, i) => (
+                          <div key={i} className="flex items-center gap-3">
+                            <div
+                              className="h-10 w-10 rounded-md border border-neutral-200 dark:border-neutral-700"
+                              style={{ backgroundColor: color.hex }}
+                            ></div>
+                            <span className="text-primary text-sm sm:text-base md:text-base lg:text-lg">
+                              {color.name} ({color.hex})
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    {section.downloads && (
+                      <div className="flex flex-wrap gap-4">
+                        {section.downloads.map((download, i) => (
+                          <div key={i} className="flex flex-col items-start gap-2">
                             <a
-                              href={item.match(/\((.*?)\)/)?.[1] || '#'}
+                              href={download.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="underline"
+                              className="text-primary text-sm sm:text-base md:text-base lg:text-lg"
                             >
-                              {item.match(/\[(.*?)\]/)?.[1]}
+                              {download.name}
                             </a>
-                          ) : (
-                            item
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  {section.colors && (
-                    <div className="flex flex-wrap gap-4">
-                      {section.colors.map((color, i) => (
-                        <div key={i} className="flex items-center gap-3">
-                          <div
-                            className="h-10 w-10 rounded-md border border-neutral-200 dark:border-neutral-700"
-                            style={{ backgroundColor: color.hex }}
-                          ></div>
-                          <span className="text-primary text-sm md:text-base lg:text-lg">
-                            {color.name} ({color.hex})
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  {section.downloads && (
-                    <div className="flex flex-wrap gap-4">
-                      {section.downloads.map((download, i) => (
-                        <div key={i} className="flex flex-col items-start gap-2">
-                          <a
-                            href={download.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-primary text-sm md:text-base lg:text-lg"
-                          >
-                            {download.name}
-                          </a>
-                          <img
-                            src={download.preview}
-                            alt={download.name}
-                            className="h-16 w-16 rounded-md object-contain"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </AnimationContainer>
-        </MagicCard>
+                            <img
+                              src={download.preview}
+                              alt={download.name}
+                              className="h-16 w-16 rounded-md object-contain"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </AnimationContainer>
+          </MagicCard>
+        </div>
       </div>
     </Wrapper>
   )

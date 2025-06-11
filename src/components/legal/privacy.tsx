@@ -62,7 +62,7 @@ const PrivacyPolicy = () => {
     <Wrapper className="relative h-full min-h-screen w-full flex-1 pt-20 lg:pt-32">
       <div className="flex h-full w-full flex-col items-start gap-10 py-8">
         {/* Section Header */}
-        <div className="flex flex-col items-start gap-4">
+        <div className="flex flex-col items-start gap-4 px-4 sm:px-6 md:px-0">
           <AnimationContainer animation="fadeUp" delay={0.2}>
             <SectionBadge title="Last Updated: 1 June 2025" />
           </AnimationContainer>
@@ -82,15 +82,15 @@ const PrivacyPolicy = () => {
         </div>
 
         {/* Glassmorphic Cards */}
-        <div className="flex flex-col gap-6 px-1 md:px-0">
+        <div className="flex w-full flex-col gap-6 px-4 sm:px-6 md:px-0">
           {policies.map((policy, index) => (
             <AnimationContainer key={policy.title} animation="fadeUp" delay={0.8 + index * 0.1}>
-              <MagicCard className="mt-10 rounded-xl p-2 md:p-4">
+              <MagicCard className="mt-10 rounded-xl p-4 sm:p-6 md:p-4">
                 <div className="flex flex-col p-6">
                   <h2 className="light:text-[#d10909] text-xl font-medium text-[#f10a0a] md:text-2xl dark:text-[#f10a0a]">
                     {policy.title}
                   </h2>
-                  <p className="text-muted-foreground mt-4 text-sm md:text-base lg:text-lg">
+                  <p className="text-muted-foreground mt-4 text-sm sm:text-base md:text-base lg:text-lg">
                     {policy.description}
                   </p>
                 </div>

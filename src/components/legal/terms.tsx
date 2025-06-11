@@ -72,7 +72,7 @@ const TermsOfService = () => {
     <Wrapper className="relative h-full min-h-screen w-full flex-1 pt-20 lg:pt-32">
       <div className="flex h-full w-full flex-col items-start gap-10 py-8">
         {/* Section Header */}
-        <div className="flex flex-col items-start gap-4">
+        <div className="flex flex-col items-start gap-4 px-4 sm:px-6 md:px-0">
           <AnimationContainer animation="fadeUp" delay={0.2}>
             <SectionBadge title="Effective Date: 1 June 2025" />
           </AnimationContainer>
@@ -85,45 +85,38 @@ const TermsOfService = () => {
 
           <AnimationContainer animation="fadeUp" delay={0.6}>
             <p className="text-muted-foreground text-sm md:text-base lg:text-lg">
-              Welcome to Creator&apos;s World! These rules help keep our platform safe and fun for
+              Welcome to Creator's World! These rules help keep our platform safe and fun for
               everyone.
             </p>
           </AnimationContainer>
         </div>
 
         {/* Glassmorphic Cards */}
-        <div className="flex flex-col gap-6 px-1 md:px-0">
+        <div className="flex w-full flex-col gap-6 px-4 sm:px-6 md:px-0">
           {terms.map((term, index) => (
             <AnimationContainer key={term.title} animation="fadeUp" delay={0.8 + index * 0.1}>
-              {/* <div
-                className={cn(
-                  'relative h-auto overflow-hidden rounded-2xl border bg-white/10 backdrop-blur-md dark:border-white/20',
-                  'dark:bg-black/10',
-                )}
-              > */}
-              <MagicCard className="mt-10 rounded-xl p-2 md:p-4">
+              <MagicCard className="mt-10 rounded-xl p-4 sm:p-6 md:p-4">
                 <div className="flex flex-col p-6">
                   <h2 className="light:text-[#d10909] text-xl font-medium text-[#f10a0a] md:text-2xl dark:text-[#f10a0a]">
                     {term.title}
                   </h2>
-                  <p className="text-muted-foreground mt-4 text-sm md:text-base lg:text-lg">
+                  <p className="text-muted-foreground mt-4 text-sm sm:text-base md:text-base lg:text-lg">
                     {term.description}
                   </p>
                   {term.list && (
-                    <ul className="text-muted-foreground mt-2 list-inside list-disc text-sm md:text-base lg:text-lg">
+                    <ul className="text-muted-foreground mt-2 list-inside list-disc text-sm sm:text-base md:text-base lg:text-lg">
                       {term.list.map((item, i) => (
                         <li key={i}>{item}</li>
                       ))}
                     </ul>
                   )}
                   {term.extra && (
-                    <p className="text-muted-foreground mt-2 text-sm md:text-base lg:text-lg">
+                    <p className="text-muted-foreground mt-2 text-sm sm:text-base md:text-base lg:text-lg">
                       {term.extra}
                     </p>
                   )}
                 </div>
               </MagicCard>
-              {/* </div> */}
             </AnimationContainer>
           ))}
         </div>
