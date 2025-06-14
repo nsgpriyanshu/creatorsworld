@@ -46,7 +46,7 @@ All notable changes to this project will be documented in this file.
 
 ## Features
 
-- **ui:** Import artifacts  from original main ([b5af1c4](https://github.com/nsgpriyanshu/creatorsworld/commit/b5af1c439988ac57be0001a03d8aeb0349d2f87b))
+- **ui:** Import artifacts from original main ([b5af1c4](https://github.com/nsgpriyanshu/creatorsworld/commit/b5af1c439988ac57be0001a03d8aeb0349d2f87b))
 - Add readme file ([5df5c59](https://github.com/nsgpriyanshu/creatorsworld/commit/5df5c59be969fe80de325e837b9dc73a9350d543))
 - Enhanced seo, and imporove ui ([a936b9b](https://github.com/nsgpriyanshu/creatorsworld/commit/a936b9b75811ba7c7b8687376eb592b05244c227))
 - **legal:** Add about and brand page, fix some bugs ([4e0c911](https://github.com/nsgpriyanshu/creatorsworld/commit/4e0c9117259321b42b16f8e4d6335c789be04692))

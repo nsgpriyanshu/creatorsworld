@@ -1,4 +1,3 @@
-
 import ProfilePage from '@/components/blog/profile'
 import { Metadata } from 'next'
 
