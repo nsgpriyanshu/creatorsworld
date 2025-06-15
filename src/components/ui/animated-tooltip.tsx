@@ -70,6 +70,10 @@ export const AnimatedTooltip = ({
             src={item.image}
             alt={item.name}
             className="relative !m-0 h-10 w-10 rounded-full border-2 border-white object-cover object-top !p-0 grayscale filter transition duration-500 group-hover:z-30 group-hover:scale-105 group-hover:grayscale-0"
+            onError={e => {
+              ;(e.currentTarget as HTMLImageElement).src =
+                'https://ui-avatars.com/api/?name=' + encodeURIComponent(item.name)
+            }}
           />
         </div>
       ))}

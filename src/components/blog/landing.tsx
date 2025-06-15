@@ -4,7 +4,7 @@ import AnimationContainer from '@/components/global/animation-container'
 import Wrapper from '@/components/global/wrapper'
 import { Input } from '@/components/ui/input'
 import { Blog } from '@/types/blog'
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@/lib/supabase/client' // Updated import to match client-side usage
 import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -14,20 +14,31 @@ import SectionBadge from '@/components/ui/section-badge'
 import { MagicCard } from '@/components/ui/magic-card'
 import { Particles } from '@/components/ui/particles'
 import { useTheme } from 'next-themes'
+import { NotebookPenIcon, PenBoxIcon, User2Icon, UserRoundPenIcon } from 'lucide-react'
 
 const BlogPage: React.FC = () => {
   const { resolvedTheme } = useTheme()
   const [particleColor, setParticleColor] = useState('#ffffff')
 
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL as string,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string,
-  )
+  const supabase = createClient()
   const [blogs, setBlogs] = useState<Blog[]>([])
   const [filteredBlogs, setFilteredBlogs] = useState<Blog[]>([])
   const [search, setSearch] = useState('')
   const [activeTag, setActiveTag] = useState<string | null>(null)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
 
+  // Check authentication status
+  useEffect(() => {
+    const checkAuth = async () => {
+      const { data: userData, error } = await supabase.auth.getUser()
+      if (!error && userData.user) {
+        setIsAuthenticated(true)
+      }
+    }
+    checkAuth()
+  }, [supabase])
+
+  // Fetch blogs
   useEffect(() => {
     const fetchBlogs = async () => {
       const { data, error } = await supabase
@@ -44,8 +55,9 @@ const BlogPage: React.FC = () => {
     }
 
     fetchBlogs()
-  }, [])
+  }, [supabase])
 
+  // Filter blogs based on search and tags
   useEffect(() => {
     let results = blogs
     if (search) {
@@ -61,6 +73,7 @@ const BlogPage: React.FC = () => {
     setFilteredBlogs(results)
   }, [search, activeTag, blogs])
 
+  // Update particle color based on theme
   useEffect(() => {
     setParticleColor(resolvedTheme === 'dark' ? '#ffffff' : '#333333')
   }, [resolvedTheme])
@@ -124,17 +137,20 @@ const BlogPage: React.FC = () => {
               >
                 <div className="mb-4 h-48 w-full overflow-hidden rounded-xl">
                   <Image
-                    src={`${blog.image_url}`}
+                    src={blog.image_url || '/assets/default_blog_fallback.png'}
                     alt={blog.title}
                     width={400}
                     height={200}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    onError={e => {
+                      const target = e.target as HTMLImageElement
+                      target.src = '/assets/default_blog_fallback.png'
+                    }}
                   />
                 </div>
                 <h3 className="mb-2 line-clamp-2 text-xl font-medium md:text-2xl">{blog.title}</h3>
                 <p className="text-muted-foreground line-clamp-3 text-sm md:text-base">
-                  {/* Strip HTML tags if content is stored as JSON string */}
                   {typeof blog.content === 'string'
                     ? blog.content.replace(/<[^>]*>?/gm, '').slice(0, 150) + '...'
                     : JSON.stringify(blog.content).slice(0, 150) + '...'}
@@ -166,17 +182,28 @@ const BlogPage: React.FC = () => {
         ))}
       </div>
 
-      {/* CTA Button */}
+      {/* CTA Buttons */}
       <AnimationContainer animation="fadeUp" delay={0.6}>
-        <div className="mt-12 text-center">
+        <div className="mt-12 flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-center">
           <Link href="/blog/upload">
             <Button
               size="lg"
               className="w-full bg-[#f10a0a] text-white transition-all duration-200 hover:bg-[#d10909] md:w-auto"
             >
-              Share Your Story
+              <NotebookPenIcon className="mr-2 h-5 w-5" /> Share Your Story
             </Button>
           </Link>
+          {isAuthenticated && (
+            <Link href="/blog/profile">
+              <Button
+                size="lg"
+                variant="default"
+                className="bg-primary hover:bg-primary/90 text-[#f10a0a] transition-colors md:w-auto"
+              >
+                <UserRoundPenIcon className="mr-2 h-5 w-5" /> View Your Profile
+              </Button>
+            </Link>
+          )}
         </div>
       </AnimationContainer>
 

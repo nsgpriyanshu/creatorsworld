@@ -6,6 +6,7 @@ import AnimationContainer from '../global/animation-container'
 import Wrapper from '../global/wrapper'
 import SectionBadge from '../ui/section-badge'
 import { Marquee } from '../ui/marquee'
+import Image from 'next/image'
 
 const firstRow = REVIEWS.slice(0, REVIEWS.length / 2)
 const secondRow = REVIEWS.slice(REVIEWS.length / 2)
@@ -29,7 +30,19 @@ const ReviewCard = ({
     >
       <div className="flex flex-col gap-2">
         <div className="flex flex-row items-center gap-2">
-          <img className="rounded-full" width="32" height="32" alt={name} src={img} />
+          <div className="relative h-8 w-8">
+            <Image
+              className="rounded-full object-cover"
+              width={32}
+              height={32}
+              alt={name}
+              src={img}
+              onError={e => {
+                ;(e.currentTarget as HTMLImageElement).src =
+                  'https://ui-avatars.com/api/?name=' + encodeURIComponent(name)
+              }}
+            />
+          </div>
           <div className="flex flex-col">
             <h4 className="text-foreground text-sm font-medium">{name}</h4>
             <p className="text-muted-foreground text-xs font-medium">{userrole}</p>
