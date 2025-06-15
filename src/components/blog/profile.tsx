@@ -358,7 +358,7 @@ const ProfilePage = () => {
         toast.error('Failed to sign out: ' + error.message)
       } else {
         toast.success('Logged out successfully!')
-        router.push('/sign-in')
+        router.push('/blog')
       }
     } catch (err) {
       console.error('Logout error:', err)
@@ -371,7 +371,7 @@ const ProfilePage = () => {
   return (
     <Wrapper className="flex min-h-screen flex-col items-center justify-center py-16">
       {/* Profile Card */}
-      <AnimationContainer animation="fadeUp" delay={0.2} className="w-auto max-w-4xl">
+      <AnimationContainer animation="fadeUp" delay={0.2} className="mt-8 w-auto max-w-4xl">
         <div className="relative grid grid-cols-1 overflow-hidden rounded-[40px] bg-black/10 backdrop-blur-md lg:grid-cols-2 dark:bg-white/5">
           {/* Left Panel */}
           <div className="from-bg-[#000000] via-bg-[#000000] to-background text-primary flex flex-col items-center justify-center bg-gradient-to-b px-10 py-16">

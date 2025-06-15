@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: 'Upload your blog posts to share with the community.',
     images: [
       {
-        url: '/assets/og_blog.png',
+        url: '/assets/og_bu.png',
         width: 1200,
         height: 630,
         alt: `${process.env.NEXT_PUBLIC_APP_NAME} Blog Open Graph Image`,

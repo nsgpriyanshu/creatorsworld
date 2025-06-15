@@ -40,24 +40,26 @@ const MenuBar = ({ editor }: MenuBarProps) => {
     const currentLevel = editor.isActive('paragraph')
       ? 0
       : levels.find(level => editor.isActive('heading', { level })) || 0
-    const currentLabel = currentLevel === 0 ? 'Paragraph' : `Heading ${currentLevel}`
+    const currentLabel = currentLevel === 0 ? 'Paragraph' : `H${currentLevel}`
 
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
             variant="outline"
+            size="sm"
             className={cn(
-              'h-8 rounded-lg px-3 text-xs backdrop-blur-md transition-all duration-200',
+              'h-8 rounded-lg px-2 text-xs backdrop-blur-md transition-all duration-200',
               resolvedTheme === 'dark'
-                ? 'border-white/20 bg-black/10 text-white hover:bg-[#f10a0a] hover:text-white'
-                : 'border-white/20 bg-white/10 text-gray-900 hover:bg-[#f10a0a] hover:text-white',
+                ? 'border-white/20 bg-black/30 text-white hover:bg-[#f10a0a] hover:text-white'
+                : 'border-gray-300 bg-white/30 text-gray-900 hover:bg-[#f10a0a] hover:text-white',
             )}
+            aria-label="Select heading level"
           >
             {currentLabel}
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-[150px] p-1 text-xs">
+        <DropdownMenuContent className="w-[120px] p-1 text-xs">
           <DropdownMenuItem
             onClick={() => editor.chain().focus().setParagraph().run()}
             className={currentLevel === 0 ? 'bg-[#f10a0a] text-white' : ''}
@@ -92,20 +94,22 @@ const MenuBar = ({ editor }: MenuBarProps) => {
         <DropdownMenuTrigger asChild>
           <Button
             variant="outline"
+            size="sm"
             className={cn(
-              'h-8 rounded-lg px-3 text-xs backdrop-blur-md transition-all duration-200',
+              'h-8 rounded-lg px-2 text-xs backdrop-blur-md transition-all duration-200',
               resolvedTheme === 'dark'
-                ? 'border-white/20 bg-black/10 text-white hover:bg-[#f10a0a] hover:text-white'
-                : 'border-white/20 bg-white/10 text-gray-900 hover:bg-[#f10a0a] hover:text-white',
+                ? 'border-white/20 bg-black/30 text-white hover:bg-[#f10a0a] hover:text-white'
+                : 'border-gray-300 bg-white/30 text-gray-900 hover:bg-[#f10a0a] hover:text-white',
             )}
+            aria-label="Select highlight color"
           >
             {currentColor === 'No Highlight' ? 'Highlight' : currentColor}
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-[160px] p-1 text-xs">
+        <DropdownMenuContent className="w-[140px] p-1 text-xs">
           <DropdownMenuItem
             onClick={() => editor.chain().focus().unsetHighlight().run()}
-            className={currentColor === '' ? 'bg-[#f10a0a] text-white' : ''}
+            className={currentColor === 'No Highlight' ? 'bg-[#f10a0a] text-white' : ''}
           >
             No Highlight
           </DropdownMenuItem>
@@ -145,14 +149,14 @@ const MenuBar = ({ editor }: MenuBarProps) => {
         input.click()
       }}
       className={cn(
-        'rounded-lg text-xs transition-all duration-200 md:text-sm',
+        'h-8 rounded-lg px-2 text-xs transition-all duration-200',
         resolvedTheme === 'dark'
-          ? 'text-foreground border-white/20 bg-black/10 hover:bg-[#f10a0a] hover:text-white'
-          : 'text-foreground border-white/20 bg-white/10 hover:bg-[#f10a0a] hover:text-white',
+          ? 'border-white/20 bg-black/30 text-white hover:bg-[#f10a0a] hover:text-white'
+          : 'border-gray-300 bg-white/30 text-gray-900 hover:bg-[#f10a0a] hover:text-white',
       )}
       aria-label="Upload image"
     >
-      Add Image
+      Image
     </Button>
   )
 
@@ -162,51 +166,59 @@ const MenuBar = ({ editor }: MenuBarProps) => {
       action: () => editor.chain().focus().toggleBold().run(),
       disabled: !editor.can().chain().focus().toggleBold().run(),
       isActive: editor.isActive('bold'),
+      ariaLabel: 'Toggle bold',
     },
     {
       label: 'Italic',
       action: () => editor.chain().focus().toggleItalic().run(),
       disabled: !editor.can().chain().focus().toggleItalic().run(),
       isActive: editor.isActive('italic'),
+      ariaLabel: 'Toggle italic',
     },
     {
       label: 'Underline',
       action: () => editor.chain().focus().toggleUnderline().run(),
       disabled: !editor.can().chain().focus().toggleUnderline().run(),
       isActive: editor.isActive('underline'),
+      ariaLabel: 'Toggle underline',
     },
     {
       label: 'Strike',
       action: () => editor.chain().focus().toggleStrike().run(),
       disabled: !editor.can().chain().focus().toggleStrike().run(),
       isActive: editor.isActive('strike'),
+      ariaLabel: 'Toggle strikethrough',
     },
     {
-      label: 'Bullet List',
+      label: 'Bullet',
       action: () => editor.chain().focus().toggleBulletList().run(),
       disabled: !editor.can().chain().focus().toggleBulletList().run(),
       isActive: editor.isActive('bulletList'),
+      ariaLabel: 'Toggle bullet list',
     },
     {
-      label: 'Ordered List',
+      label: 'Numbered',
       action: () => editor.chain().focus().toggleOrderedList().run(),
       disabled: !editor.can().chain().focus().toggleOrderedList().run(),
       isActive: editor.isActive('orderedList'),
+      ariaLabel: 'Toggle numbered list',
     },
     {
-      label: 'Blockquote',
+      label: 'Quote',
       action: () => editor.chain().focus().toggleBlockquote().run(),
       disabled: !editor.can().chain().focus().toggleBlockquote().run(),
       isActive: editor.isActive('blockquote'),
+      ariaLabel: 'Toggle blockquote',
     },
     {
-      label: 'Code Block',
+      label: 'Code',
       action: () => editor.chain().focus().toggleCodeBlock().run(),
       disabled: !editor.can().chain().focus().toggleCodeBlock().run(),
       isActive: editor.isActive('codeBlock'),
+      ariaLabel: 'Toggle code block',
     },
     {
-      label: 'Add Link',
+      label: 'Link',
       action: () => {
         const url = window.prompt('Enter URL')
         if (url) {
@@ -214,19 +226,26 @@ const MenuBar = ({ editor }: MenuBarProps) => {
         }
       },
       disabled: false,
-      isActive: false,
+      isActive: editor.isActive('link'),
+      ariaLabel: 'Add link',
     },
     {
-      label: 'Remove Link',
+      label: 'Unlink',
       action: () => editor.chain().focus().unsetLink().run(),
       disabled: !editor.isActive('link'),
       isActive: false,
+      ariaLabel: 'Remove link',
     },
   ]
 
   return (
     <AnimationContainer animation="fadeUp" delay={0.2}>
-      <div className="mb-4 flex flex-wrap gap-2 border-b border-white/20 pb-3">
+      <div
+        className={cn(
+          'sticky bottom-0 z-10 mt-3 flex flex-wrap gap-1 rounded-lg border border-white/20 bg-black/50 p-2 shadow-lg backdrop-blur-md',
+          resolvedTheme === 'light' && 'border-gray-300 bg-white/50',
+        )}
+      >
         <HeadingDropdown />
         {buttons.map((button, index) => (
           <Button
@@ -236,13 +255,14 @@ const MenuBar = ({ editor }: MenuBarProps) => {
             size="sm"
             variant={button.isActive ? 'default' : 'outline'}
             className={cn(
-              'rounded-lg text-xs transition-all duration-200 md:text-sm',
+              'h-8 rounded-lg px-2 text-xs transition-all duration-200',
               button.isActive
                 ? 'bg-[#f10a0a] text-white hover:bg-[#d10909]'
                 : resolvedTheme === 'dark'
-                  ? 'text-foreground border-white/20 bg-black/10 hover:bg-[#f10a0a] hover:text-white'
-                  : 'text-foreground border-white/20 bg-white/10 hover:bg-[#f10a0a] hover:text-white',
+                  ? 'border-white/20 bg-black/30 text-white hover:bg-[#f10a0a] hover:text-white'
+                  : 'border-gray-300 bg-white/30 text-gray-900 hover:bg-[#f10a0a] hover:text-white',
             )}
+            aria-label={button.ariaLabel}
           >
             {button.label}
           </Button>
@@ -290,11 +310,10 @@ export default function TiptapEditor({ content, setContent }: EditorProps) {
     <AnimationContainer animation="fadeUp" delay={0.3}>
       <div
         className={cn(
-          'rounded-2xl border p-4 backdrop-blur-md',
-          resolvedTheme === 'dark' ? 'border-white/20 bg-black/10' : 'border-white/20 bg-white/10',
+          'relative rounded-2xl border p-4 backdrop-blur-md',
+          resolvedTheme === 'dark' ? 'border-white/20 bg-black/10' : 'border-gray-300 bg-white/10',
         )}
       >
-        <MenuBar editor={editor} />
         <EditorContent
           editor={editor}
           className={cn(
@@ -302,6 +321,7 @@ export default function TiptapEditor({ content, setContent }: EditorProps) {
             resolvedTheme === 'dark' ? 'text-foreground' : 'text-foreground',
           )}
         />
+        <MenuBar editor={editor} />
       </div>
     </AnimationContainer>
   )
