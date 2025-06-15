@@ -17,7 +17,7 @@ import { Particles } from '@/components/ui/particles'
 import { Blog } from '@/types/blog'
 import { Edit2, Lock, PenIcon, TrashIcon, LogOutIcon } from 'lucide-react'
 
-export default function ProfilePage() {
+const ProfilePage = () => {
   const { resolvedTheme } = useTheme()
   const [particleColor, setParticleColor] = useState('#ffffff')
   const router = useRouter()
@@ -383,12 +383,12 @@ export default function ProfilePage() {
                 width={120}
                 height={120}
                 className="h-40 w-40 rounded-full border-4 border-white/20 object-cover shadow-lg transition-transform duration-300 hover:scale-105 md:h-80 md:w-80"
-                onError={e => {
-                  const target = e.target as HTMLImageElement
-                  if (target.src !== '/assets/default_avatar.png') {
-                    target.src = '/assets/default_avatar.png'
-                  }
-                }}
+                // onError={e => {
+                //   const target = e.target as HTMLImageElement
+                //   if (target.src !== '/assets/default_avatar.png') {
+                //     target.src = '/assets/default_avatar.png'
+                //   }
+                // }}
               />
               {isEditing && (
                 <div className="absolute right-0 bottom-0 flex space-x-2">
@@ -618,3 +618,5 @@ export default function ProfilePage() {
     </Wrapper>
   )
 }
+
+export default ProfilePage
