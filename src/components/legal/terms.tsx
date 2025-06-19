@@ -11,7 +11,6 @@ type Term = {
   title: string
   description: string
   list?: string[]
-  extra?: string
 }
 
 const terms: Term[] = [
@@ -63,7 +62,7 @@ const terms: Term[] = [
   {
     title: '10. Contact Us',
     description:
-      'If you have questions about these Terms, please reach out via https://creatorsworld.vercel.app/contact or contact us on Discord.',
+      'If you have questions about these Terms, please reach out via our contact page at https://creatorsworld.vercel.app/contact or contact us on Discord.',
   },
 ]
 
@@ -95,13 +94,33 @@ const TermsOfService = () => {
         <div className="flex w-full flex-col gap-6 px-4 sm:px-6 md:px-0">
           {terms.map((term, index) => (
             <AnimationContainer key={term.title} animation="fadeUp" delay={0.8 + index * 0.1}>
-              <MagicCard className="mt-10 rounded-xl p-4 sm:p-6 md:p-4">
+              <MagicCard className="mt-10 w-full rounded-xl p-4 sm:p-6 md:p-4">
                 <div className="flex flex-col p-6">
                   <h2 className="light:text-[#d10909] text-xl font-medium text-[#f10a0a] md:text-2xl dark:text-[#f10a0a]">
                     {term.title}
                   </h2>
-                  <p className="text-muted-foreground mt-4 text-sm sm:text-base md:text-base lg:text-lg">
-                    {term.description}
+                  <p
+                    className={cn(
+                      'text-muted-foreground mt-4 text-sm sm:text-base md:text-base lg:text-lg',
+                      'break-all sm:break-words',
+                    )}
+                  >
+                    {term.title === '10. Contact Us' ? (
+                      <>
+                        {term.description.split('https://creatorsworld.vercel.app/contact')[0]}
+                        <a
+                          href="https://creatorsworld.vercel.app/contact"
+                          className="text-primary hover:underline"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          https://creatorsworld.vercel.app/contact
+                        </a>
+                        {term.description.split('https://creatorsworld.vercel.app/contact')[1]}
+                      </>
+                    ) : (
+                      term.description
+                    )}
                   </p>
                   {term.list && (
                     <ul className="text-muted-foreground mt-2 list-inside list-disc text-sm sm:text-base md:text-base lg:text-lg">
@@ -109,11 +128,6 @@ const TermsOfService = () => {
                         <li key={i}>{item}</li>
                       ))}
                     </ul>
-                  )}
-                  {term.extra && (
-                    <p className="text-muted-foreground mt-2 text-sm sm:text-base md:text-base lg:text-lg">
-                      {term.extra}
-                    </p>
                   )}
                 </div>
               </MagicCard>

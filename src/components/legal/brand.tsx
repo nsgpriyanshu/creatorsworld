@@ -4,6 +4,7 @@ import React from 'react'
 import Wrapper from '@/components/global/wrapper'
 import SectionBadge from '@/components/ui/section-badge'
 import AnimationContainer from '@/components/global/animation-container'
+import { cn } from '@/lib/utils'
 import { MagicCard } from '@/components/ui/magic-card'
 
 type Section = {
@@ -94,7 +95,7 @@ const Brand = () => {
 
         {/* Single Magic Card */}
         <div className="flex w-full flex-col gap-6 px-4 sm:px-6 md:px-0">
-          <MagicCard className="mt-10 rounded-xl p-6 sm:p-8 md:p-8">
+          <MagicCard className="mt-10 w-full rounded-xl p-6 sm:p-8 md:p-8">
             <AnimationContainer animation="fadeUp" delay={0.6}>
               <div className="flex flex-col gap-8">
                 {brandGuidelines.map((section, index) => (
@@ -102,8 +103,28 @@ const Brand = () => {
                     <h2 className="text-xl font-medium text-[#f10a0a] md:text-2xl dark:text-[#f10a0a]">
                       {section.title}
                     </h2>
-                    <p className="text-muted-foreground text-sm sm:text-base md:text-base lg:text-lg">
-                      {section.description}
+                    <p
+                      className={cn(
+                        'text-muted-foreground text-sm sm:text-base md:text-base lg:text-lg',
+                        'break-all sm:break-words',
+                      )}
+                    >
+                      {section.title === '5. Contact' ? (
+                        <>
+                          {section.description.split('https://creatorsworld.vercel.app/contact')[0]}
+                          <a
+                            href="https://creatorsworld.vercel.app/contact"
+                            className="text-primary hover:underline"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            https://creatorsworld.vercel.app/contact
+                          </a>
+                          {section.description.split('https://creatorsworld.vercel.app/contact')[1]}
+                        </>
+                      ) : (
+                        section.description
+                      )}
                     </p>
                     {section.list && (
                       <ul className="text-muted-foreground list-inside list-disc text-sm sm:text-base md:text-base lg:text-lg">

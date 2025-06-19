@@ -1,15 +1,23 @@
-import type { NextConfig } from 'next'
-
+/** @type {import('next').NextConfig} */
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
   ? new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).hostname
   : ''
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: supabaseUrl ? [supabaseUrl] : [],
+    remotePatterns: supabaseUrl
+      ? [
+          {
+            protocol: 'https',
+            hostname: supabaseUrl,
+            port: '',
+            pathname: '/**',
+          },
+        ]
+      : [],
   },
 }
 

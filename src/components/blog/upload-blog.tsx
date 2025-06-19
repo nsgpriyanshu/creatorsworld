@@ -131,7 +131,7 @@ function UploadBlogPage() {
   return (
     <Wrapper className="min-h-screen py-20 lg:py-32">
       {/* Header Section */}
-      <div className="mb-16 flex flex-col items-center gap-4 text-center">
+      <div className="mt-8 mb-8 flex flex-col items-center gap-4 text-center">
         <AnimationContainer animation="fadeUp" delay={0.2}>
           <SectionBadge title="Share Your Story" />
         </AnimationContainer>
