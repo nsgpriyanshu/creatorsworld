@@ -2,6 +2,114 @@
 
 All notable changes to this project will be documented in this file.
 
+# [2.1.6](https://github.com/nsgpriyanshu/creatorsworld/compare/2.1.5...2.1.6) - (2025-06-19)
+
+## Bug Fixes
+
+- Url overflow bugs in legal section ([611e70a](https://github.com/nsgpriyanshu/creatorsworld/commit/611e70a2625b869a38eeab091559469c683685b5))
+
+# [2.1.5](https://github.com/nsgpriyanshu/creatorsworld/compare/2.1.4...2.1.5) - (2025-06-15)
+
+## Bug Fixes
+
+- Blog ui, add separate profile page ([353cbe9](https://github.com/nsgpriyanshu/creatorsworld/commit/353cbe909b89f58a23bca8bc790729c4ed233f85))
+
+## Non Code changes
+
+- **creatorsworld:** Release creatorsworld@2.1.5 ([810cad2](https://github.com/nsgpriyanshu/creatorsworld/commit/810cad2b59d5590b8c9b6f6b5699b1e51629214b))
+
+# [2.1.4](https://github.com/nsgpriyanshu/creatorsworld/compare/2.1.3...2.1.4) - (2025-06-15)
+
+## Bug Fixes
+
+- **profile:** Ui and bugs ([547277d](https://github.com/nsgpriyanshu/creatorsworld/commit/547277df67451261453766961ce8d9d8d49c99be))
+- **blog:** Fix some bugs ([e3e5e37](https://github.com/nsgpriyanshu/creatorsworld/commit/e3e5e370488ea39b346800401365d8ece84b716d))
+- **ui:** Blog ui bugs, and add profile settings page ([8e40622](https://github.com/nsgpriyanshu/creatorsworld/commit/8e40622f7a78b012c3bb939ddab45c287c8bcbc5))
+- **ui:** Blog ui ([f4aad77](https://github.com/nsgpriyanshu/creatorsworld/commit/f4aad7748285e75e0720a45048b9c6453626a7d3))
+
+## Non Code changes
+
+- **creatorsworld:** Release creatorsworld@2.1.4 ([d6f7b5e](https://github.com/nsgpriyanshu/creatorsworld/commit/d6f7b5e7a3ffd41c29624d662046ebc26f45af01))
+
+# [2.1.3](https://github.com/nsgpriyanshu/creatorsworld/compare/2.1.2...2.1.3) - (2025-06-11)
+
+## Bug Fixes
+
+- Legal section layout issue ([5087e50](https://github.com/nsgpriyanshu/creatorsworld/commit/5087e508444ccb00c2578dfcde6a30e58396227e))
+
+## Non Code changes
+
+- **creatorsworld:** Release creatorsworld@2.1.3 ([523308f](https://github.com/nsgpriyanshu/creatorsworld/commit/523308f89971357f22aed5a61d5d26eeee458c1f))
+
+# [2.1.2](https://github.com/nsgpriyanshu/creatorsworld/compare/2.1.1...2.1.2) - (2025-06-10)
+
+## Bug Fixes
+
+- **products:** Fix sm device issue ([5c76bc1](https://github.com/nsgpriyanshu/creatorsworld/commit/5c76bc1bf255027c28741558bbf0b64f24e9a55c))
+- **ui:** Add some small effects and some minor changes ([53c70d4](https://github.com/nsgpriyanshu/creatorsworld/commit/53c70d4e6e7340df181ae88c0330375b37831815))
+
+## Non Code changes
+
+- **creatorsworld:** Release creatorsworld@2.1.2 ([c34d0ba](https://github.com/nsgpriyanshu/creatorsworld/commit/c34d0bad2224c6a13b5ac6aeb384078fd0508812))
+
+# [2.1.1](https://github.com/nsgpriyanshu/creatorsworld/compare/2.1.0...2.1.1) - (2025-06-10)
+
+## Bug Fixes
+
+- **ui:** Seo, ui, bugs ([93cee71](https://github.com/nsgpriyanshu/creatorsworld/commit/93cee710c09c99a55e4de4b301b3bfb7c5284b4c))
+
+## Non Code changes
+
+- **creatorsworld:** Release creatorsworld@2.1.1 ([96990d5](https://github.com/nsgpriyanshu/creatorsworld/commit/96990d50f070d43f207b8ea296a5a6435b58f184))
+
+# [2.1.0](https://github.com/nsgpriyanshu/creatorsworld/tree/2.1.0) - (2025-06-09)
+
+## Bug Fixes
+
+- **ui:** Some small changes ([373962b](https://github.com/nsgpriyanshu/creatorsworld/commit/373962be81a756d03da27d1f688a0033195f1790))
+- **ui:** Navbar and footer ([4003c1c](https://github.com/nsgpriyanshu/creatorsworld/commit/4003c1c5b2d9a3125476f6e9c9a328b4f172292b))
+- **ui:** Privacy, about, tos, and brand page got a new look ([26513f9](https://github.com/nsgpriyanshu/creatorsworld/commit/26513f91b61134445954e8728af9a9549aea930c))
+- Blog ui issues ([ba1401d](https://github.com/nsgpriyanshu/creatorsworld/commit/ba1401d18d3bf9e777b4007ef93ee180ae69ebc5))
+- **blog:** Some minor directory shifts ([05335f7](https://github.com/nsgpriyanshu/creatorsworld/commit/05335f76d84d3a66c6287a72795594fab8e40c4c))
+- Bugs ([5b23132](https://github.com/nsgpriyanshu/creatorsworld/commit/5b231329508dc6b96275497a1abe95b9e4dbfdf5))
+- **ui:** Add and update the profile pictures ([f967bfa](https://github.com/nsgpriyanshu/creatorsworld/commit/f967bfab5371dad5a15b47c89a42a77f241ec99d))
+- Ui releated bugs ([563556c](https://github.com/nsgpriyanshu/creatorsworld/commit/563556c42e2778eb53fb86afe221058447c01fb2))
+- **ui:** Fix minor bugs ([ae16df5](https://github.com/nsgpriyanshu/creatorsworld/commit/ae16df559764e257592ee6794491c6f27214c877))
+- **ui:** Bugs causing major issues ([223351e](https://github.com/nsgpriyanshu/creatorsworld/commit/223351ec55f626beb9c5a3a45f8515d75bf0178a))
+
+## Features
+
+- **ui:** Import artifacts  from original main ([b5af1c4](https://github.com/nsgpriyanshu/creatorsworld/commit/b5af1c439988ac57be0001a03d8aeb0349d2f87b))
+- Add readme file ([5df5c59](https://github.com/nsgpriyanshu/creatorsworld/commit/5df5c59be969fe80de325e837b9dc73a9350d543))
+- Enhanced seo, and imporove ui ([a936b9b](https://github.com/nsgpriyanshu/creatorsworld/commit/a936b9b75811ba7c7b8687376eb592b05244c227))
+- **legal:** Add about and brand page, fix some bugs ([4e0c911](https://github.com/nsgpriyanshu/creatorsworld/commit/4e0c9117259321b42b16f8e4d6335c789be04692))
+- **ui:** Blog page final release ([4a86496](https://github.com/nsgpriyanshu/creatorsworld/commit/4a86496a8b42e088f711f7a726e76673e186a1af))
+- **ui:** Enhanced the full blog ui and optimisied it ([7017126](https://github.com/nsgpriyanshu/creatorsworld/commit/7017126b57b42a1bc23aa6182cffbe63396f6750))
+- **ui:** Add blog page with full functionality ([ca31c7b](https://github.com/nsgpriyanshu/creatorsworld/commit/ca31c7be607439ee5d38ad11427d7d73744c9634))
+- **blog:** Enhance metadata with concise and SEO-friendly descriptions ([b4ffaff](https://github.com/nsgpriyanshu/creatorsworld/commit/b4ffaff84743f5f66b23b7f1fd01e44f2c01f8df))
+- **ui:** Add platform metrices ([d81c021](https://github.com/nsgpriyanshu/creatorsworld/commit/d81c021b4a671c17245371d0dd8d319c825afa71))
+- **ui:** Add product page, and fix some bugs ([c21e07e](https://github.com/nsgpriyanshu/creatorsworld/commit/c21e07e646336132f8453cdd5ff041d68007149b))
+- **ui:** Add review and regent pages ([12ea9e3](https://github.com/nsgpriyanshu/creatorsworld/commit/12ea9e3c2768a0777c7c80e5a9e55c67f43790f9))
+- **ui:** Update the features section ([b958670](https://github.com/nsgpriyanshu/creatorsworld/commit/b95867079d4ea4feb3de9cbf300dfe134fdde0bd))
+- **ui:** Add legal sections ([e5cfa5e](https://github.com/nsgpriyanshu/creatorsworld/commit/e5cfa5e3f9f5ee25415dd8eeead3d9e37dedcf47))
+- **ui:** Add who-we-are section ([bd39772](https://github.com/nsgpriyanshu/creatorsworld/commit/bd39772d4fb69e63a3c2b60940c4d08e0f3aa896))
+- **ui:** Update the main landing page, fix some bugs ([6ffd100](https://github.com/nsgpriyanshu/creatorsworld/commit/6ffd10020b51eb8c3d42bfa2f14ea1c79c5d6d2d))
+- **ui:** Add hero section and updated the ui font styles ([c3a2a64](https://github.com/nsgpriyanshu/creatorsworld/commit/c3a2a645642388c8e682c30b6029933106c99c20))
+- **ui:** Add navbar and footer ([e44f7b3](https://github.com/nsgpriyanshu/creatorsworld/commit/e44f7b3ec00ab80b61d665367319e45fe2c991de))
+- **ui:** Add theming options ([36522ac](https://github.com/nsgpriyanshu/creatorsworld/commit/36522ac51f3c370c4928cff48e6b0765a526637b))
+- **metadata:** Add generateMetadata for Creators World ([fd9c135](https://github.com/nsgpriyanshu/creatorsworld/commit/fd9c13557fc0064a35adc497b570345d0a81e888))
+- Add new icons and ci tools ([67fd0b6](https://github.com/nsgpriyanshu/creatorsworld/commit/67fd0b6f379b7dba3f1ccb720f4ce66c305a51fe))
+- Init the new creatorsworld repo as v2 ([3e0e1fa](https://github.com/nsgpriyanshu/creatorsworld/commit/3e0e1faa75aa1c3c13b692552aa91f874d66168f))
+
+## Non Code changes
+
+- **creatorsworld:** Release creatorsworld@2.1.0 ([277623d](https://github.com/nsgpriyanshu/creatorsworld/commit/277623d22198ccc00891a37b1d33919cc047024f))
+- Some bugs ([a292948](https://github.com/nsgpriyanshu/creatorsworld/commit/a29294852fe51da1d65a194c684546068cf098fb))
+- Add readme.md ([2b9c99e](https://github.com/nsgpriyanshu/creatorsworld/commit/2b9c99eff1ef2c9b27159a3fb8831230b2d5fb73))
+- **ui:** Add not found page ([8b56f32](https://github.com/nsgpriyanshu/creatorsworld/commit/8b56f328a6f019af2cc3cce90a840c83df907a84))
+- **blog:** Enhance blog ui only ([2e7880a](https://github.com/nsgpriyanshu/creatorsworld/commit/2e7880a4411156123a32db8d83f6964a85880790))
+- Update seo functionalities ([c0f111d](https://github.com/nsgpriyanshu/creatorsworld/commit/c0f111d9e07b6b3eb241af7be0473e064de09195))
+
 # [2.1.5](https://github.com/nsgpriyanshu/creatorsworld/compare/2.1.4...2.1.5) - (2025-06-15)
 
 ## Bug Fixes
