@@ -4,7 +4,7 @@ import AnimationContainer from '@/components/global/animation-container'
 import Wrapper from '@/components/global/wrapper'
 import { Input } from '@/components/ui/input'
 import { Blog } from '@/types/blog'
-import { createClient } from '@/lib/supabase/client' // Updated import to match client-side usage
+import { createClient } from '@/lib/supabase/client'
 import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -14,7 +14,8 @@ import SectionBadge from '@/components/ui/section-badge'
 import { MagicCard } from '@/components/ui/magic-card'
 import { Particles } from '@/components/ui/particles'
 import { useTheme } from 'next-themes'
-import { NotebookPenIcon, PenBoxIcon, User2Icon, UserRoundPenIcon } from 'lucide-react'
+import { NotebookPenIcon, UserRoundPenIcon } from 'lucide-react'
+import DOMPurify from 'dompurify' // Add this import
 
 const BlogPage: React.FC = () => {
   const { resolvedTheme } = useTheme()
@@ -43,7 +44,7 @@ const BlogPage: React.FC = () => {
     const fetchBlogs = async () => {
       const { data, error } = await supabase
         .from('blogs')
-        .select('*, author:author_id(*)') // alias here is 'author', singular
+        .select('*, author:author_id(*)')
         .order('publish_date', { ascending: false })
 
       if (!error && data) {
@@ -89,14 +90,14 @@ const BlogPage: React.FC = () => {
         </AnimationContainer>
         <AnimationContainer animation="fadeUp" delay={0.3}>
           <h1 className="from-foreground bg-gradient-to-b to-neutral-400 bg-clip-text text-3xl !leading-tight font-medium text-transparent md:text-4xl lg:text-5xl">
-            Explore the Creator&apos;s Universe
+            Explore the Creator's Universe
           </h1>
         </AnimationContainer>
         <AnimationContainer animation="fadeUp" delay={0.4}>
           <p className="text-muted-foreground mx-auto max-w-2xl text-sm md:text-base lg:text-lg">
             Dive into a vibrant collection of articles, tips, and stories crafted by our community
             of creators. Discover inspiration, learn new techniques, and stay updated with the
-            latest trends in the Creator&apos;s Worlds.
+            latest trends in the Creator's Worlds.
           </p>
         </AnimationContainer>
       </div>
@@ -152,7 +153,7 @@ const BlogPage: React.FC = () => {
                 <h3 className="mb-2 line-clamp-2 text-xl font-medium md:text-2xl">{blog.title}</h3>
                 <p className="text-muted-foreground line-clamp-3 text-sm md:text-base">
                   {typeof blog.content === 'string'
-                    ? blog.content.replace(/<[^>]*>?/gm, '').slice(0, 150) + '...'
+                    ? DOMPurify.sanitize(blog.content, { ALLOWED_TAGS: [] }).slice(0, 150) + '...'
                     : JSON.stringify(blog.content).slice(0, 150) + '...'}
                 </p>
                 {/* Author Info */}
