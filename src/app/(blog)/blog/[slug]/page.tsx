@@ -146,13 +146,15 @@ export default async function BlogDetailPage({ params }: { params: Params }) {
             <AnimationContainer animation="fadeUp">
               <div className="flex flex-col items-center space-y-3 text-center">
                 {blog.authors?.profile_picture && (
-                  <Image
-                    src={blog.authors.profile_picture}
-                    alt={blog.authors.name}
-                    width={96}
-                    height={96}
-                    className="mt-4 rounded-full"
-                  />
+                  <div className="bg-muted mt-4 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full">
+                    <Image
+                      src={blog.authors.profile_picture}
+                      alt={blog.authors.name}
+                      width={96}
+                      height={96}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                 )}
                 <div>
                   <p className="text-muted-foreground text-sm">
