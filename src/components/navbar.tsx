@@ -22,10 +22,7 @@ const Navbar = () => {
     if (open) setOpen(false)
   })
 
-  const { scrollY } = useScroll({
-    target: ref as RefObject<HTMLDivElement>,
-    offset: ['start start', 'end start'],
-  })
+  const { scrollY } = useScroll()
 
   useMotionValueEvent(scrollY, 'change', latest => {
     if (latest > 100) {
