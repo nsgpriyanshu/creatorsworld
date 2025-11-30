@@ -1,10 +1,10 @@
 export const REGENTS = [
-  {
-    id: 3,
-    name: '@mcpepandagaming',
-    designation: 'Board of Director',
-    image: '/icons/director_one.webp',
-  },
+  // {
+  //   id: 3,
+  //   name: '@mcpepandagaming',
+  //   designation: 'Board of Director',
+  //   image: '/icons/director_one.webp',
+  // },
   {
     id: 2,
     name: '@iwontstop2853',
@@ -23,17 +23,17 @@ export const REGENTS = [
     designation: 'Cheif Administrator',
     image: '/icons/admin_three.webp',
   },
-  {
-    id: 4,
-    name: '@xevientt',
-    designation: 'Cheif Administrator',
-    image: '/icons/admin_one.webp',
-  },
+  // {
+  //   id: 4,
+  //   name: '@xevientt',
+  //   designation: 'Cheif Administrator',
+  //   image: '/icons/admin_one.webp',
+  // },
 
-  {
-    id: 5,
-    name: '@_azure_931_',
-    designation: 'Cheif Administrator',
-    image: '/icons/admin_two.webp',
-  },
+  // {
+  //   id: 5,
+  //   name: '@_azure_931_',
+  //   designation: 'Cheif Administrator',
+  //   image: '/icons/admin_two.webp',
+  // },
 ]

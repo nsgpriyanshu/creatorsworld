@@ -21,7 +21,7 @@ export const generateMetadata = ({
     {
       rel: 'apple-touch-icon',
       sizes: '32x32',
-      url: '/icons/cwfavicon_dark.ico',
+      url: '/icons/apple-touch-icon.ico',
     },
     {
       rel: 'icon',
