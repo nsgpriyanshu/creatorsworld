@@ -29,7 +29,7 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.49.8",
-    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/typography": "^0.5.19",
     "@tiptap/extension-highlight": "^2.13.0",
     "@tiptap/extension-image": "^2.13.0",
     "@tiptap/extension-link": "^2.13.0",
