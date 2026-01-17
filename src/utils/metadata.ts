@@ -26,7 +26,7 @@ export const generateMetadata = ({
     {
       rel: 'icon',
       sizes: '32x32',
-      url: '/icons/cwfavicon_dark.ico',
+      url: '/icons/favicon.ico',
     },
   ],
   noIndex = false,

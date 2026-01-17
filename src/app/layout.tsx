@@ -3,7 +3,12 @@ import '@/styles/globals.css'
 import { generateMetadata } from '@/utils'
 import { ThemeProvider } from 'next-themes'
 import { Toaster } from 'sonner'
-import { Geist_Mono } from 'next/font/google'
+import { Geist, Geist_Mono } from 'next/font/google'
+
+const geist = Geist({
+  variable: '--font-geist',
+  subsets: ['latin'],
+})
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
@@ -17,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          `${geistMono.variable} text-foreground min-h-screen overflow-x-hidden font-mono antialiased dark:bg-[#000000]`,
+          `${geist.variable} ${geistMono.variable} text-foreground min-h-screen overflow-x-hidden antialiased dark:bg-[#000000]`,
         )}
       >
         <ThemeProvider

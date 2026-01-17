@@ -78,7 +78,7 @@ const Navbar = () => {
                   <div className="relative">
                     <Link
                       href={link.link}
-                      className="hover:bg-accent hover:text-foreground rounded-md px-4 py-2 transition-all duration-500"
+                      className="'relative text-primary font-medium px-2 py-1 transition-all after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-[#f10a0a] after:transition-all hover:text-[#f10a0a] hover:after:w-full'"
                     >
                       {link.name}
                     </Link>
@@ -136,6 +136,7 @@ const Navbar = () => {
 
             <AnimationContainer animation="fadeLeft" delay={0.1}>
               <div className="flex items-center justify-center gap-x-4">
+                <ModeToggle/>
                 <Button size="sm">
                   <Link href="https://discord.gg/VUMVuArkst" className="flex items-center">
                     Join Now
@@ -177,11 +178,6 @@ const Navbar = () => {
                   </Link>
                 </AnimationContainer>
               ))}
-              <AnimationContainer animation="fadeUp" delay={0.5} className="w-full">
-                <div className="mt-4 flex justify-center">
-                  <ModeToggle />
-                </div>
-              </AnimationContainer>
             </motion.div>
           )}
         </AnimatePresence>

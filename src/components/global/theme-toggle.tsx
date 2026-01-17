@@ -1,10 +1,8 @@
 'use client'
 
 import * as React from 'react'
-import { Moon, Sun, Laptop } from 'lucide-react'
+import { MoonStar, SunMedium, Laptop } from 'lucide-react'
 import { useTheme } from 'next-themes'
-
-import { Button } from '@/components/ui/button'
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme()
@@ -12,22 +10,27 @@ export function ModeToggle() {
   const cycleTheme = () => {
     if (theme === 'light') setTheme('dark')
     else if (theme === 'dark') setTheme('system')
-    else setTheme('light') // system → light
+    else setTheme('light')
   }
 
-  const icon =
-    theme === 'light' ? (
-      <Sun className="h-[1.2rem] w-[1.2rem] transition-all" />
-    ) : theme === 'dark' ? (
-      <Moon className="h-[1.2rem] w-[1.2rem] transition-all" />
-    ) : (
-      <Laptop className="h-[1.2rem] w-[1.2rem] transition-all" />
-    )
-
   return (
-    <Button variant="outline" size="icon" onClick={cycleTheme} className="relative">
-      {icon}
-      <span className="sr-only">Toggle theme</span>
-    </Button>
+    <div
+      onClick={cycleTheme}
+      role="button"
+      aria-label="Toggle theme"
+      className="cursor-pointer rounded-md p-2 transition-all hover:bg-muted focus:outline-none focus:ring-2 focus:ring-ring"
+    >
+      {theme === 'light' && (
+        <SunMedium className="h-5 w-5 transition-transform duration-300 hover:rotate-90" />
+      )}
+
+      {theme === 'dark' && (
+        <MoonStar className="h-5 w-5 transition-transform duration-300 hover:-rotate-12" />
+      )}
+
+      {theme === 'system' && (
+        <Laptop className="h-5 w-5 transition-transform duration-300 hover:scale-110" />
+      )}
+    </div>
   )
 }
