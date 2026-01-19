@@ -115,7 +115,7 @@ const Hero = () => {
           </div>
         </AnimationContainer>
       </div>
-      <AnimationContainer
+      {/* <AnimationContainer
         animation="scaleUp"
         delay={1.2}
         className="absolute -top-[8%] left-1/4 -z-10 h-auto w-2/3"
@@ -127,7 +127,7 @@ const Hero = () => {
           height={1024}
           className="h-auto w-full object-cover"
         />
-      </AnimationContainer>
+      </AnimationContainer> */}
     </Wrapper>
   )
 }
