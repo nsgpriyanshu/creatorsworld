@@ -1,5 +1,9 @@
 export const NAV_LINKS = [
   {
+    name: 'Services',
+    link: '/services',
+  },
+  {
     name: 'Products',
     link: '/products',
   },
