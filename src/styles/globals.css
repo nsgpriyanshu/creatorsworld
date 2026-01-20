@@ -10,7 +10,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* ✅ FIXED FONT MAPPING */
+  /* FIXED FONT MAPPING */
   --font-sans: var(--font-geist);
   --font-mono: var(--font-geist-mono);
 
@@ -165,7 +165,7 @@
   h4,
   h5,
   h6 {
-    @apply font-mono;
+    @apply font-sans;
   }
 
   /* Paragraphs → Geist */

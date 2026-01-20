@@ -47,10 +47,10 @@ export default function SignInPage() {
       <AnimationContainer animation="fadeUp" delay={0.2} className="w-auto max-w-4xl">
         <div className="relative grid grid-cols-1 overflow-hidden rounded-[40px] bg-black/10 backdrop-blur-md lg:grid-cols-2 dark:bg-white/5">
           {/* Left Panel */}
-          <div className="from-bg-[#000000] via-bg-[#000000] to-background text-primary hidden h-full flex-col justify-center bg-linear-to-b px-10 py-16 lg:flex">
+          <div className="from-[#000000] via-[#000000] to-background hidden h-full flex-col justify-center bg-gradient-to-b px-10 py-16 lg:flex">
             <SectionBadge title="Creator's World" />
-            <h2 className="mt-4 text-4xl font-extrabold">Welcome back</h2>
-            <p className="mt-4 text-base opacity-90">Sign in to access your account.</p>
+            <h2 className="mt-4 text-4xl font-extrabold text-foreground">Welcome back</h2>
+            <p className="mt-4 text-base text-muted-foreground">Sign in to access your account.</p>
             {/* <Image
               src={resolvedTheme === 'light' ? '/icons/cwicon_light.png' : '/icons/cwicon_dark.png'}
               alt="CW Icon"
@@ -97,7 +97,7 @@ export default function SignInPage() {
 
               <Button
                 type="submit"
-                className="bg-primary hover:bg-primary/90 h-12 w-full text-[#f10a0a] transition-colors"
+                className="h-12 w-full text-primary-foreground"
               >
                 <LogIn className="mr-2 h-5 w-5" />
                 Sign In

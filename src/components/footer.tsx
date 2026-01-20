@@ -46,10 +46,9 @@ const Footer = () => {
                   alt="cwicon"
                   width={28}
                   height={28}
-                  className="light:hidden -mt-1 h-7 w-max dark:block"
+                  className="hidden dark:block -mt-1 h-7 w-max"
                 />
-                {/* <img src="icons/cwicon_light.png" alt="cwicon" className="-mt-1 h-7 w-max dark:hidden light:block" /> */}
-                <span className="text-lg font-medium lg:text-xl">Creator&apos;s World</span>
+                <span className="text-lg font-medium lg:text-xl text-foreground">Creator&apos;s World</span>
               </div>
               <p className="text-muted-foreground mt-4 text-sm">India</p>
               <div className="mt-6 flex items-center gap-4">
@@ -57,8 +56,9 @@ const Footer = () => {
                   <AnimationContainer key={index} animation="fadeUp" delay={0.6 + index * 0.1}>
                     <Link
                       href={social.href}
-                      className="text-muted-foreground transition-colors hover:text-[#f10a0a] dark:hover:text-[#f10a0a]"
+                      className="text-muted-foreground transition-colors hover:text-[#f10a0a]"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <social.icon className="size-5" />
                     </Link>
@@ -83,7 +83,7 @@ const Footer = () => {
                         <li>
                           <Link
                             href={link.href}
-                            className="transition-colors hover:text-[#f10a0a] dark:hover:text-[#f10a0a]"
+                            className="text-muted-foreground transition-colors hover:text-[#f10a0a]"
                           >
                             {link.label}
                           </Link>
@@ -107,8 +107,9 @@ const Footer = () => {
                         <li>
                           <Link
                             href={link.href}
-                            className="transition-colors hover:text-[#f10a0a] dark:hover:text-[#f10a0a]"
+                            className="text-muted-foreground transition-colors hover:text-[#f10a0a]"
                             target="_blank"
+                            rel="noopener noreferrer"
                           >
                             {link.label}
                           </Link>
@@ -129,8 +130,9 @@ const Footer = () => {
                       <li>
                         <Link
                           href={link.href}
-                          className="transition-colors hover:text-[#f10a0a] dark:hover:text-[#f10a0a]"
+                          className="text-muted-foreground transition-colors hover:text-[#f10a0a]"
                           target={link.href.startsWith('http') ? '_blank' : undefined}
+                          rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                         >
                           {link.label}
                         </Link>

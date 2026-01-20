@@ -150,20 +150,18 @@ export default function Terminal({
   return (
     <div
       className={cn(
-        'border-border overflow-hidden rounded-xl border shadow-lg',
-        'light:bg-gray-200 dark:bg-[#1a1a1a]', // Header background
+        'border-border overflow-hidden rounded-xl border shadow-lg bg-muted',
         className,
       )}
     >
       {/* Terminal Header */}
       <div
         className={cn(
-          'flex items-center justify-between px-4 py-2',
-          'light:bg-gray-200 dark:bg-[#1a1a1a]',
+          'flex items-center justify-between px-4 py-2 bg-muted',
         )}
       >
         <div className="flex items-center space-x-2">
-          <div className="light:bg-[#d10909] h-3 w-3 rounded-full bg-[#f10a0a] dark:bg-[#f10a0a]"></div>
+          <div className="h-3 w-3 rounded-full bg-[#f10a0a]"></div>
           <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
           <div className="h-3 w-3 rounded-full bg-green-500"></div>
         </div>
@@ -187,10 +185,10 @@ export default function Terminal({
           commands.slice(0, currentCommandIndex).map((item, index) => (
             <div key={index} className="mb-4">
               <div className="flex">
-                <span className="light:text-[#d10909] mr-2 text-[#f10a0a] dark:text-[#f10a0a]">
+                <span className="mr-2 text-[#f10a0a]">
                   $
                 </span>
-                <span>{item.command}</span>
+                <span className="text-gray-100">{item.command}</span>
               </div>
               {item.response && (
                 <div className="mt-1 whitespace-pre-line text-gray-300">{item.response}</div>
@@ -202,10 +200,10 @@ export default function Terminal({
         {!isComplete && (
           <div>
             <div className="flex">
-              <span className="light:text-[#d10909] mr-2 text-[#f10a0a] dark:text-[#f10a0a]">
+              <span className="mr-2 text-[#f10a0a]">
                 $
               </span>
-              <span>{displayedCommand}</span>
+              <span className="text-gray-100">{displayedCommand}</span>
               {isTypingCommand && showCursor && <span className="animate-pulse">▋</span>}
             </div>
             {displayedResponse && (
@@ -223,7 +221,7 @@ export default function Terminal({
             <span className="mr-2 text-yellow-400">Animation complete.</span>
             <button
               onClick={restart}
-              className="light:text-[#d10909] light:hover:text-[#e63939] text-xs text-[#f10a0a] underline hover:text-[#ff4040] dark:text-[#f10a0a] dark:hover:text-[#ff4040]"
+              className="text-xs text-[#f10a0a] underline hover:text-red-400 transition-colors"
             >
               Restart
             </button>

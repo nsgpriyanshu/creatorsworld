@@ -157,15 +157,15 @@ const Navbar = () => {
             <AnimationContainer animation="fadeLeft" delay={0.1}>
               <div className="flex items-center justify-center gap-x-4">
                 <ModeToggle/>
-                <Button size="sm" className='rounded-full px-5'>
-                  <Link href="https://discord.gg/VUMVuArkst" className="flex items-center">
+                <Link href="https://discord.gg/VUMVuArkst" target="_blank" rel="noopener noreferrer">
+                  <Button size="sm" className='rounded-full px-5'>
                     Join Now
-                  </Link>
-                </Button>
+                  </Button>
+                </Link>
                 {open ? (
-                  <XIcon className="text-neutral-950 dark:text-neutral-100" onClick={() => setOpen(!open)} />
+                  <XIcon className="text-foreground cursor-pointer" onClick={() => setOpen(!open)} />
                 ) : (
-                  <MenuIcon className="text-neutral-950 dark:text-neutral-100" onClick={() => setOpen(!open)} />
+                  <MenuIcon className="text-foreground cursor-pointer" onClick={() => setOpen(!open)} />
                 )}
               </div>
             </AnimationContainer>
@@ -180,13 +180,13 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="absolute inset-x-0 top-18 z-50 flex w-full flex-col items-start justify-start gap-2 rounded-b-xl bg-neutral-100/10 px-4 py-8 shadow-xl shadow-neutral-950/50 backdrop-blur-md dark:bg-neutral-950/10" // Glassmorphism for dropdown
+              className="absolute inset-x-0 top-18 z-50 flex w-full flex-col items-start justify-start gap-2 rounded-b-xl bg-background/10 backdrop-blur-md border border-border/50 px-4 py-8 shadow-xl"
             >
-              {NAV_LINKS.map((navItem: any, idx: number) => {
+              {NAV_LINKS.map((navItem: { link: string; name: string }, idx: number) => {
                 const isActive = pathname === navItem.link
                 return (
                   <AnimationContainer
-                    key={`link=${idx}`}
+                    key={`link-${idx}`}
                     animation="fadeRight"
                     delay={0.1 * (idx + 1)}
                     className="w-full"
@@ -197,8 +197,8 @@ const Navbar = () => {
                       className={cn(
                         'relative block w-full rounded-lg px-4 py-2 font-medium transition-all duration-300',
                         isActive
-                          ? ' text-[#f10a0a] underline underline-offset-2'
-                          : 'text-foreground hover:bg-neutral-100/10 hover:text-[#f10a0a] dark:hover:bg-neutral-800/50'
+                          ? 'text-[#f10a0a] underline underline-offset-2'
+                          : 'text-muted-foreground hover:text-foreground'
                       )}
                     >
                       <motion.span>{navItem.name}</motion.span>

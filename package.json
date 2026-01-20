@@ -1,7 +1,7 @@
 {
   "name": "creatorsworld",
   "description": "Official codebase repository of Creator's World Website",
-  "version": "3.0.0",
+  "version": "2.1.10",
   "private": true,
   "scripts": {
     "dev": "next dev",

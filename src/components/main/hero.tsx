@@ -36,14 +36,9 @@ const Hero = () => {
               </h1> */}
               <h1 className="from-foreground bg-gradient-to-r to-neutral-500 bg-clip-text text-5xl !leading-tight font-medium text-transparent lg:text-6xl">
                 You have stepped into the{' '}
-                <span className="bg-[#f10a0a] bg-clip-text text-5xl !leading-tight font-medium text-transparent lg:text-6xl">
-                  C
+                <span className="from-[#f10a0a] bg-gradient-to-r to-red-600 bg-clip-text text-5xl !leading-tight font-medium text-transparent lg:text-6xl">
+                  Creator&apos;s Worlds
                 </span>
-                reator&apos;s{' '}
-                <span className="bg-[#f10a0a] bg-clip-text text-5xl !leading-tight font-medium text-transparent lg:text-6xl">
-                  W
-                </span>
-                orlds
               </h1>
             </AnimationContainer>
 
@@ -96,10 +91,10 @@ const Hero = () => {
         <AnimationContainer animation="fadeRight" delay={0.4}>
           <div className="relative flex h-min w-full flex-col items-start justify-start overflow-visible">
             <div className="relative w-full lg:aspect-[1.3884514435695539/1] lg:h-[auto,720px] lg:w-[1000px]">
-              <div className="light:from-white pointer-events-none absolute inset-y-0 right-1/4 z-50 hidden h-full w-1/3 bg-gradient-to-l from-[#000000] lg:block dark:from-[#000000]"></div>
+              <div className="pointer-events-none absolute inset-y-0 right-1/4 z-50 hidden h-full w-1/3 bg-gradient-to-l from-[#000000] lg:block dark:from-[#000000]"></div>
               <div className="lg:absolute lg:inset-0">
-                <div className="light:bg-white/10 absolute -top-4 -right-4 -bottom-4 -left-4 z-10 m-1 rounded-2xl border border-white/20 bg-black/10 backdrop-blur-md lg:m-0 lg:h-[400px] lg:rounded-2xl dark:bg-black/10">
-                  {/* Glassmorphism effect: semi-transparent [#000000] with blur, theme-responsive */}
+                <div className="absolute -top-4 -right-4 -bottom-4 -left-4 z-10 m-1 rounded-2xl border border-white/20 bg-black/10 backdrop-blur-md lg:m-0 lg:h-[400px] lg:rounded-2xl">
+                  {/* Glassmorphism effect: semi-transparent background with blur */}
                 </div>
                 <Image
                   src={serverImageSrc}
