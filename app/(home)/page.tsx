@@ -1,5 +1,11 @@
-import { ComponentExample } from "@/components/component-example";
+import React from 'react'
 
-export default function Page() {
-return <ComponentExample />;
+function Home() {
+  return (
+    <div>
+      <h1>HI PRAKRITIlisaa</h1>
+    </div>
+  )
 }
+
+export default Home
