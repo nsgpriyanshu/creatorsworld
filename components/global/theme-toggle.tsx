@@ -17,7 +17,7 @@ export function ModeToggle() {
       onClick={cycleTheme}
       role="button"
       aria-label="Toggle theme"
-      className="cursor-pointer rounded-md p-2 transition-all hover:bg-muted focus:outline-none focus:ring-2 focus:ring-ring"
+      className="hover:bg-muted focus:ring-ring cursor-pointer rounded-md p-2 transition-all focus:ring-2 focus:outline-none"
     >
       {theme === 'light' && (
         <SunMedium className="h-5 w-5 transition-transform duration-300 hover:rotate-90" />

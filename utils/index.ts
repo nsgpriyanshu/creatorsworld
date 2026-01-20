@@ -1,5 +1,3 @@
-import {
-    generateMetadata
-} from "./metadata";
+import { generateMetadata } from './metadata'
 
 export const metadata = generateMetadata()
