@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { NAV_LINKS } from '@/constants'
 import { useClickOutside } from '@/hooks'
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
-import { MenuIcon, XIcon } from 'lucide-react'
+import { MenuIcon, XIcon, Package, Cog, BookMarked, Mail } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useRef, useState } from 'react'
@@ -13,6 +13,13 @@ import Wrapper from './global/wrapper'
 import { cn } from '@/lib/utils'
 import { ModeToggle } from './global/theme-toggle'
 import Image from 'next/image'
+
+const ICON_MAP: Record<string, React.ComponentType<{ size: number }>> = {
+  Package,
+  Cog,
+  BookMarked,
+  Mail,
+}
 
 const Navbar = () => {
   const pathname = usePathname()
@@ -71,18 +78,20 @@ const Navbar = () => {
             <AnimatePresence>
               {NAV_LINKS.map((link, index) => {
                 const isActive = pathname === link.link
+                const IconComponent = ICON_MAP[link.icon]
 
                 return (
                   <AnimationContainer key={index} animation="fadeDown" delay={0.1 * index}>
                     <Link
                       href={link.link}
                       className={cn(
-                        'text-foreground relative px-2 py-1 font-medium',
+                        'text-foreground relative flex items-center gap-2 px-2 py-1 font-medium',
                         'after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-[#f10a0a] after:transition-transform after:duration-300',
                         'hover:after:scale-x-100',
                         isActive && 'after:scale-x-100',
                       )}
                     >
+                      {IconComponent && <IconComponent size={16} />}
                       {link.name}
                     </Link>
                   </AnimationContainer>
@@ -158,6 +167,7 @@ const Navbar = () => {
             >
               {NAV_LINKS.map((link, idx) => {
                 const isActive = pathname === link.link
+                const IconComponent = ICON_MAP[link.icon]
 
                 return (
                   <Link
@@ -165,11 +175,12 @@ const Navbar = () => {
                     href={link.link}
                     onClick={() => setOpen(false)}
                     className={cn(
-                      'text-muted-foreground relative px-4 py-2',
+                      'text-muted-foreground relative flex items-center gap-2 px-4 py-2',
                       'after:absolute after:-bottom-0.5 after:left-4 after:h-0.5 after:w-[calc(100%-2rem)] after:origin-left after:scale-x-0 after:bg-[#f10a0a] after:transition-transform after:duration-300',
                       isActive && 'after:scale-x-100',
                     )}
                   >
+                    {IconComponent && <IconComponent size={16} />}
                     {link.name}
                   </Link>
                 )
