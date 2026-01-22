@@ -9,8 +9,7 @@
     "lint": "eslint",
     "format:check": "npx prettier --check .",
     "format:fix": "npx prettier --write .",
-    "release": "cliff-jumper",
-    "prepare": "husky"
+    "release": "cliff-jumper"
   },
   "author": "nsgpriyanshu",
   "license": "Apache-2.0",
