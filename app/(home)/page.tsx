@@ -1,10 +1,14 @@
-import Hero from "@/components/home/hero"
+import Hero from '@/components/home/hero'
+import Partners from '@/components/home/partners'
 
 const HomePage = () => {
   return (
     <div className="relative flex w-full flex-col">
       <section className="w-full">
         <Hero />
+      </section>
+      <section className="w-full">
+        <Partners />
       </section>
       {/* <section className="w-full">
         <WWA />

@@ -41,9 +41,5 @@ export const metadata: Metadata = {
 }
 
 export default function HomeLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <main className="relative w-full">
-      {children}
-    </main>
-  )
+  return <main className="relative w-full">{children}</main>
 }
