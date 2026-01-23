@@ -55,7 +55,7 @@ const HamburgerButton = ({
       <motion.span
         animate={open ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
         transition={{ duration: 0.25 }}
-        className="absolute top-5 left-0 h-[2px] w-full rounded-full bg-current"
+        className="absolute top-5 left-0 h-0.5 w-full rounded-full bg-current"
       />
     </button>
   )
@@ -77,63 +77,60 @@ const Navbar = () => {
   })
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      {/* ---------------- DESKTOP ---------------- */}
+    <header className="fixed inset-x-0 top-0 z-50 w-full">
+      {/* Desktop */}
       <motion.div
         animate={{
-          width: visible ? '42%' : '100%',
-          y: visible ? 16 : 0,
+          width: visible ? '40%' : '100%',
+          y: visible ? 20 : 0,
         }}
-        transition={{ type: 'spring', stiffness: 200, damping: 30 }}
-        style={{ minWidth: '900px' }}
+        transition={{
+          type: 'spring',
+          stiffness: 200,
+          damping: 40,
+        }}
+        style={{ minWidth: '800px' }}
         className={cn(
-          'mx-auto hidden lg:flex',
-          'rounded-full border border-white/10',
-          'bg-background/40 backdrop-blur-xl'
+          'relative z-50 mx-auto hidden w-full items-center justify-between rounded-full py-4 backdrop-blur-xl lg:flex',
+          visible && 'bg-background/40 py-2',
         )}
       >
-        <Wrapper className="flex items-center justify-between px-6 py-3">
-          {/* Logo */}
+        <Wrapper className="flex items-center justify-between lg:px-4">
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/icons/dark/android-chrome-512x512.png"
               alt="CW Icon"
               width={28}
               height={28}
-              className="dark:hidden"
+              className="-mt-1 dark:hidden"
             />
             <Image
               src="/icons/light/android-chrome-512x512.png"
               alt="CW Icon"
               width={28}
               height={28}
-              className="hidden dark:block"
+              className="-mt-1 hidden dark:block"
             />
           </Link>
 
-          {/* Links */}
-          <div className="absolute inset-0 mx-auto flex w-max items-center gap-x-2 text-sm font-medium">
+          <div className="text-muted-foreground absolute inset-0 mx-auto hidden w-max items-center justify-center gap-x-2 text-sm font-medium lg:flex">
             <AnimatePresence>
               {NAV_LINKS.map((link, index) => {
                 const isActive = pathname === link.link
-                const Icon = ICON_MAP[link.icon]
+                const IconComponent = ICON_MAP[link.icon]
 
                 return (
-                  <AnimationContainer
-                    key={index}
-                    animation="fadeDown"
-                    delay={0.05 * index}
-                  >
+                  <AnimationContainer key={index} animation="fadeDown" delay={0.1 * index}>
                     <Link
                       href={link.link}
                       className={cn(
-                        'relative flex items-center gap-2 px-3 py-1 text-foreground',
-                        'after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-full after:scale-x-0 after:bg-[#f10a0a] after:transition-transform',
+                        'text-foreground relative flex items-center gap-2 px-2 py-1 font-medium',
+                        'after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-[#f10a0a] after:transition-transform after:duration-300',
                         'hover:after:scale-x-100',
-                        isActive && 'after:scale-x-100'
+                        isActive && 'after:scale-x-100',
                       )}
                     >
-                      {Icon && <Icon size={16} />}
+                      {IconComponent && <IconComponent size={16} />}
                       {link.name}
                     </Link>
                   </AnimationContainer>
@@ -142,7 +139,6 @@ const Navbar = () => {
             </AnimatePresence>
           </div>
 
-          {/* Actions */}
           <div className="flex items-center gap-x-4">
             <ModeToggle />
             <Link href="https://discord.gg/VUMVuArkst">
@@ -160,7 +156,7 @@ const Navbar = () => {
         transition={{ type: 'spring', stiffness: 220, damping: 28 }}
         className={cn(
           'lg:hidden mx-auto mt-4 w-[92%]',
-          'rounded-full border border-white/10',
+          'rounded-2xl',
           'bg-background/40 backdrop-blur-xl overflow-hidden'
         )}
       >

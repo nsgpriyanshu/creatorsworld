@@ -79,19 +79,21 @@ const Hero: React.FC = () => {
 
           {/* Server Preview */}
           <AnimationContainer animation="fadeUp" delay={0.65} className="w-full">
-            <div className="relative mx-auto mt-12 max-w-7xl rounded-2xl border border-neutral-200/50 bg-neutral-100 p-2 backdrop-blur-lg md:mt-16 md:rounded-[32px] dark:border-neutral-700 dark:bg-neutral-800/50">
-              <div className="rounded-lg border border-neutral-200 bg-white md:rounded-[24px] dark:border-neutral-700 dark:bg-black">
+            <div className="relative mx-auto mt-12 max-w-7xl rounded-[32px] border border-neutral-200/50 bg-neutral-100 p-2 backdrop-blur-lg md:mt-16 dark:border-neutral-700 dark:bg-neutral-800/50">
+              <div className="rounded-[24px] border border-neutral-200 bg-white dark:border-neutral-700 dark:bg-black">
                 <Image
                   src={heroImageSrc}
                   alt="Server Preview"
                   priority
                   width={2932}
                   height={1664}
-                  className="rounded-3xl md:rounded-[26px]"
+                  className="rounded-[24px]"
                 />
               </div>
             </div>
           </AnimationContainer>
+
+
         </div>
       </Wrapper>
     </div>

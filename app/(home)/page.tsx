@@ -9,8 +9,8 @@ const HomePage = () => {
       </section>
       <section className="w-full">
         <LogosMarquee
-        heading="Our Trusted Partners"
-        headingLevel="h3"
+        heading="OUR PARTNERS"
+        headingLevel="h4"
         images={[
           {
             src: '/assets/partner-1-logo.svg',
