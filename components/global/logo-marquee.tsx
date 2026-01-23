@@ -4,7 +4,7 @@ import React from 'react'
 import Image from 'next/image'
 
 import { Marquee } from '../ui/marquee'
-import Wrapper from '../global/wrapper'
+import Wrapper from './wrapper'
 import AnimationContainer from './animation-container'
 
 
@@ -30,7 +30,7 @@ const LogosMarquee: React.FC<LogosMarqueeProps> = ({
     <div className="flex flex-col items-center justify-center w-full py-16 lg:py-24">
       <Wrapper>
         {/* Heading */}
-        <AnimationContainer animation="fadeUp" delay={0}>
+        <AnimationContainer animation="fadeUp" delay={0.5}>
           <div className="flex justify-center px-2 md:px-0">
             <HeadingTag className="text-xl lg:text-2xl font-semibold text-center tracking-tight">
               {heading}
@@ -39,7 +39,7 @@ const LogosMarquee: React.FC<LogosMarqueeProps> = ({
         </AnimationContainer>
 
         {/* Marquee */}
-        <AnimationContainer animation="fadeUp" delay={0.2}>
+        <AnimationContainer animation="fadeUp" delay={1}>
           <div className="mt-10 w-full relative overflow-hidden">
             <Marquee pauseOnHover className="[--duration:30s]">
               <div className="flex items-center gap-10 md:gap-14">
@@ -51,12 +51,8 @@ const LogosMarquee: React.FC<LogosMarqueeProps> = ({
                     width={1024}
                     height={1024}
                     className="
-                      w-32 md:w-40 lg:w-44
-                      h-auto
-                      opacity-80
-                      transition-opacity
-                      dark:invert
-                      hover:opacity-100
+                      w-24
+                      h-12
                     "
                   />
                 ))}
@@ -64,8 +60,8 @@ const LogosMarquee: React.FC<LogosMarqueeProps> = ({
             </Marquee>
 
             {/* Fade edges */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r from-background to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l from-background to-transparent" />
           </div>
         </AnimationContainer>
       </Wrapper>

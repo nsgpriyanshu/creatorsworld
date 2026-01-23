@@ -1,5 +1,5 @@
 import Hero from '@/components/home/hero'
-import LogosMarquee from '@/components/global/partners'
+import LogosMarquee from '@/components/global/logo-marquee'
 
 const HomePage = () => {
   return (
