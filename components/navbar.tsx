@@ -142,7 +142,7 @@ const Navbar = () => {
           <div className="flex items-center gap-x-4">
             <ModeToggle />
             <Link href="https://discord.gg/VUMVuArkst">
-              <Button size="sm">Join Now</Button>
+              <Button size="sm">Join</Button>
             </Link>
           </div>
         </Wrapper>
@@ -210,7 +210,7 @@ const Navbar = () => {
                       className={cn(
                         'flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium',
                         'text-foreground/80 hover:bg-white/5',
-                        isActive && 'text-foreground'
+                        isActive && 'text-[#f10a0a]'
                       )}
                     >
                       {Icon && <Icon size={16} />}
