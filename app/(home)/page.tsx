@@ -1,5 +1,5 @@
 import Hero from '@/components/home/hero'
-import Partners from '@/components/home/partners'
+import LogosMarquee from '@/components/global/partners'
 
 const HomePage = () => {
   return (
@@ -8,7 +8,20 @@ const HomePage = () => {
         <Hero />
       </section>
       <section className="w-full">
-        <Partners />
+        <LogosMarquee
+        heading="Our Trusted Partners"
+        headingLevel="h3"
+        images={[
+          {
+            src: '/assets/partner-1-logo.svg',
+            alt: 'Partner 1',
+          },
+          {
+            src: '/assets/partner-2-logo.svg',
+            alt: 'Partner 2',
+          },
+        ]}
+      />
       </section>
       {/* <section className="w-full">
         <WWA />
