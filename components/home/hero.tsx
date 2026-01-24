@@ -92,8 +92,6 @@ const Hero: React.FC = () => {
               </div>
             </div>
           </AnimationContainer>
-
-
         </div>
       </Wrapper>
     </div>

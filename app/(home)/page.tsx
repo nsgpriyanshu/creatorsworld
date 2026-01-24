@@ -1,6 +1,7 @@
 import Hero from '@/components/home/hero'
 import LogosMarquee from '@/components/global/logo-marquee'
 import WhoWeAre from '@/components/home/who_we_are'
+import Features from '@/components/home/features'
 
 const HomePage = () => {
   return (
@@ -10,27 +11,27 @@ const HomePage = () => {
       </section>
       <section className="w-full">
         <LogosMarquee
-        heading="OUR PARTNERS"
-        headingLevel="h4"
-        images={[
-          {
-            src: '/assets/partner-1-logo.svg',
-            alt: 'Partner 1',
-          },
-          {
-            src: '/assets/partner-2-logo.svg',
-            alt: 'Partner 2',
-          },
-        ]}
-      />
+          heading="OUR PARTNERS"
+          headingLevel="h4"
+          images={[
+            {
+              src: '/assets/partner-1-logo.svg',
+              alt: 'Partner 1',
+            },
+            {
+              src: '/assets/partner-2-logo.svg',
+              alt: 'Partner 2',
+            },
+          ]}
+        />
       </section>
       <section className="w-full">
         <WhoWeAre />
       </section>
-      {/*
       <section className="w-full">
         <Features />
       </section>
+      {/*
       <section className="w-full">
         <PlatformMetrics />
       </section>

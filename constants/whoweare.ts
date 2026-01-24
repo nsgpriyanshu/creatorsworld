@@ -13,20 +13,17 @@ export const WHO_WE_ARE: readonly WhoWeAreItem[] = [
   },
   {
     title: 'Open Source Powerhouse',
-    description:
-      'We build and support open-source projects that drive innovation on Discord.',
+    description: 'We build and support open-source projects that drive innovation on Discord.',
     icon: 'growth',
   },
   {
     title: 'Thriving Creator Community',
-    description:
-      'Creators, developers, and artists unite here to collaborate and grow.',
+    description: 'Creators, developers, and artists unite here to collaborate and grow.',
     icon: 'global',
   },
   {
     title: 'And more',
-    description:
-      'Explore more features and opportunities in our vibrant community.',
+    description: 'Explore more features and opportunities in our vibrant community.',
     icon: 'trust',
   },
 ] as const

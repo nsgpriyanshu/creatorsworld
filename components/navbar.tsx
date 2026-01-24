@@ -3,12 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { NAV_LINKS } from '@/constants'
 import { useClickOutside } from '@/hooks'
-import {
-  AnimatePresence,
-  motion,
-  useMotionValueEvent,
-  useScroll,
-} from 'framer-motion'
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { Package, Cog, BookMarked, Mail } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -29,19 +24,9 @@ const ICON_MAP: Record<string, React.ComponentType<{ size: number }>> = {
 /* ---------------------------------------------
    Animated Hamburger (Mobile)
 ---------------------------------------------- */
-const HamburgerButton = ({
-  open,
-  onClick,
-}: {
-  open: boolean
-  onClick: () => void
-}) => {
+const HamburgerButton = ({ open, onClick }: { open: boolean; onClick: () => void }) => {
   return (
-    <button
-      onClick={onClick}
-      aria-label="Toggle menu"
-      className="relative h-6 w-6 text-foreground"
-    >
+    <button onClick={onClick} aria-label="Toggle menu" className="text-foreground relative h-6 w-6">
       <motion.span
         animate={open ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
         transition={{ duration: 0.25 }}
@@ -155,9 +140,9 @@ const Navbar = () => {
         }}
         transition={{ type: 'spring', stiffness: 220, damping: 28 }}
         className={cn(
-          'lg:hidden mx-auto mt-4 w-[92%]',
+          'mx-auto mt-4 w-[92%] lg:hidden',
           'rounded-2xl',
-          'bg-background/40 backdrop-blur-xl overflow-hidden'
+          'bg-background/40 overflow-hidden backdrop-blur-xl',
         )}
       >
         <Wrapper className="flex items-center justify-between px-4 py-3">
@@ -210,7 +195,7 @@ const Navbar = () => {
                       className={cn(
                         'flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium',
                         'text-foreground/80 hover:bg-white/5',
-                        isActive && 'text-[#f10a0a]'
+                        isActive && 'text-[#f10a0a]',
                       )}
                     >
                       {Icon && <Icon size={16} />}
