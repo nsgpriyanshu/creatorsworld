@@ -1,5 +1,6 @@
 import Hero from '@/components/home/hero'
 import LogosMarquee from '@/components/global/logo-marquee'
+import WhoWeAre from '@/components/home/who_we_are'
 
 const HomePage = () => {
   return (
@@ -23,9 +24,10 @@ const HomePage = () => {
         ]}
       />
       </section>
-      {/* <section className="w-full">
-        <WWA />
+      <section className="w-full">
+        <WhoWeAre />
       </section>
+      {/*
       <section className="w-full">
         <Features />
       </section>

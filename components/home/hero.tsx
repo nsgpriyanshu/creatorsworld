@@ -24,14 +24,14 @@ const Hero: React.FC = () => {
       <div className="absolute inset-x-0 -top-16 -z-10 mx-auto h-32 w-3/4 rounded-full bg-[radial-gradient(86.02%_172.05%_at_50%_-40%,rgba(241,10,10,1)_0%,rgba(5,5,5,0)_80%)] blur-[5rem] lg:h-40" />
 
       {/* Background SVG */}
-      <Image
-        src="/images/hero.svg"
+      {/* <Image
+        src="/background/hero.svg"
         alt="Hero Background"
         width={1024}
         height={1024}
         priority
         className="absolute inset-x-0 -top-16 z-10 w-full min-w-full"
-      />
+      /> */}
 
       <Wrapper className="pt-24">
         <div className="relative z-20 flex flex-col items-center text-center">
