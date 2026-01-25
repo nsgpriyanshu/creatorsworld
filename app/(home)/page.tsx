@@ -1,6 +1,6 @@
 import Hero from '@/components/home/hero'
 import LogosMarquee from '@/components/global/logo-marquee'
-import WhoWeAre from '@/components/home/who_we_are'
+import WhoWeAre from '@/components/home/about'
 import Features from '@/components/home/features'
 
 const HomePage = () => {

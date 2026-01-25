@@ -3,7 +3,7 @@
 import { History, Users, Rocket, Globe, ShieldCheck, Sparkles } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
-import { WHO_WE_ARE } from '@/constants/whoweare'
+import { WHO_WE_ARE } from '@/constants/about'
 import Wrapper from '../global/wrapper'
 import AnimationContainer from '../global/animation-container'
 import { Badge } from '../ui/badge'
@@ -61,7 +61,7 @@ export default function WhoWeAre() {
               >
                 <AnimationContainer
                   animation={index % 2 === 0 ? 'fadeRight' : 'fadeLeft'}
-                  delay={2 * (index + 1)}
+                  delay={1* (index + 1)}
                 >
                   <div className="group flex flex-col items-center gap-4 text-center transition-transform duration-300 ease-out hover:-translate-y-1">
                     <div className="flex size-14 items-center justify-center rounded-2xl border border-neutral-200/50 bg-neutral-100 transition-all duration-300 group-hover:scale-105 lg:size-16 dark:border-neutral-800 dark:bg-neutral-900">
