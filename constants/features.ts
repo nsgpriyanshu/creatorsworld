@@ -1,32 +1,24 @@
 export const FEATURES = [
   {
-    title: 'Stay Informed with Important Updates',
+    title: 'Active Community',
     description:
-      'This is our main necessary category where all the necessary announcements, giveaways, and event-related announcements are made. Stay updated on all the latest happenings and never miss out on important information. Join us in this central hub of activity!',
-    image: '/assets/',
+      'Our discord server is home to a vibrant and active community of creators, developers, and enthusiasts. Join discussions, share ideas, and collaborate with like-minded individuals!',
+    image: '/backgrounds/hero-dark.png',
     size: 'large',
   },
   {
-    title: 'Connect with Partner Networks',
+    title: 'Open Source Projects',
     description:
-      'These are our partner hubs where other servers important announcements are logged. Collaborate with our partners and stay connected with the wider community. Explore new opportunities and expand your network!',
-    image: '/assets/',
+      'We believe in the power of open source. Explore our collection of open-source projects, contribute to them, and be a part of the innovation happening in the Discord ecosystem.',
+    image: '/backgrounds/hero-dark.png',
     size: 'small',
   },
   {
-    title: 'Express Your Creativity',
+    title: 'Solutions for Creators',
     description:
-      'These are our creative zones where different types of creators come and share their creativity. Here, you can find various channels dedicated to art, cooking, sports, and more. Unleash your creativity and express yourself!',
+      'We provide services and tools tailored for creators to help them grow in their journey.',
 
-    image: '/assets/',
+    image: '/backgrounds/hero-dark.png',
     size: 'large',
   },
-  {
-    title: 'Ensure Secure and Transparent Logging',
-    description:
-      'This is the logging zone of our server where all the logs are maintained for better security, feedback, and service. Rest assured that your interactions are logged securely and transparently. Your privacy and security are our top priorities!',
-
-    image: '/assets/',
-    size: 'small',
-  },
-]
+] 
