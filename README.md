@@ -1,6 +1,6 @@
 # Legacy Version 
  
->[!ERROR]
+>[!CAUTION]
 > New version is under deployment! 
 
 <div align="center">
