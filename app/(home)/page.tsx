@@ -2,6 +2,8 @@ import Hero from '@/components/home/hero'
 import LogosMarquee from '@/components/global/logo-marquee'
 import WhoWeAre from '@/components/home/about'
 import Features from '@/components/home/features'
+import Milestones from '@/components/home/milestones'
+import Reviews from '@/components/home/reviews'
 
 const HomePage = () => {
   return (
@@ -31,13 +33,13 @@ const HomePage = () => {
       <section className="w-full">
         <Features />
       </section>
-      {/*
       <section className="w-full">
-        <PlatformMetrics />
+        <Milestones />
       </section>
       <section className="w-full">
         <Reviews />
       </section>
+      {/*
       <section className="w-full">
         <Regents />
       </section> */}

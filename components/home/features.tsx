@@ -1,34 +1,47 @@
-'use client';
+'use client'
 
-import { FEATURES } from '@/constants';
-import Image from 'next/image';
-import AnimationContainer from '../global/animation-container';
-import Wrapper from '../global/wrapper';
-import { Badge } from '../ui/badge';
-import { History, StarsIcon } from 'lucide-react';
+import { FEATURES } from '@/constants'
+import Image from 'next/image'
+import { useTheme } from 'next-themes'
+import AnimationContainer from '../global/animation-container'
+import Wrapper from '../global/wrapper'
+import { Badge } from '../ui/badge'
+import { StarsIcon } from 'lucide-react'
 
 /**
  * Feature type (DO NOT change the FEATURES constant itself)
  */
 type Feature = {
-  title: string;
-  description: string;
-  image: string;
-};
+  title: string
+  description: string
+  image: string
+}
 
 /**
  * Type-safe accessor to avoid runtime crashes
  */
 const getFeature = (index: number): Feature | null => {
-  const feature = FEATURES[index] as Feature | undefined;
-  return feature ?? null;
-};
+  const feature = FEATURES[index] as Feature | undefined
+  return feature ?? null
+}
+
+/**
+ * Resolve image based on theme
+ */
+const getThemedImage = (image: string, theme?: string) => {
+  if (theme === 'light') {
+    return image.replace('-dark.png', '-light.png')
+  }
+  return image
+}
 
 const Features = () => {
-  const feature0 = getFeature(0);
-  const feature1 = getFeature(1);
-  const feature2 = getFeature(2);
-  const feature3 = getFeature(3);
+  const { theme } = useTheme()
+
+  const feature0 = getFeature(0)
+  const feature1 = getFeature(1)
+  const feature2 = getFeature(2)
+  const feature3 = getFeature(3)
 
   return (
     <Wrapper className="py-20 lg:py-32">
@@ -63,59 +76,13 @@ const Features = () => {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_.65fr] gap-6">
           {feature0 && (
             <AnimationContainer animation="fadeRight" delay={0.5}>
-              <div className="relative rounded-3xl rounded-2xl border border-neutral-200/50 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900 overflow-hidden min-h-[400px]">
-                <div className="absolute inset-0 p-8 flex flex-col justify-between">
-                  <AnimationContainer animation="fadeUp" delay={0.6}>
-                    <div className="space-y-4">
-                      <h3 className="text-xl md:text-2xl font-medium">
-                        {feature0.title}
-                      </h3>
-                      <p className="text-sm md:text-base text-muted-foreground max-w-md">
-                        {feature0.description}
-                      </p>
-                    </div>
-                  </AnimationContainer>
-                  <AnimationContainer animation="fadeUp" delay={0.7}>
-                    <div className="relative h-60">
-                      <Image
-                        src={feature0.image}
-                        alt={feature0.title}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                  </AnimationContainer>
-                </div>
-              </div>
+              <FeatureCard feature={feature0} theme={theme} imageHeight="h-60" />
             </AnimationContainer>
           )}
 
           {feature1 && (
             <AnimationContainer animation="fadeLeft" delay={0.6}>
-              <div className="relative rounded-3xl rounded-2xl border border-neutral-200/50 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900 overflow-hidden min-h-[400px]">
-                <div className="absolute inset-0 p-8 flex flex-col justify-between">
-                  <AnimationContainer animation="fadeUp" delay={0.7}>
-                    <div className="space-y-4">
-                      <h3 className="text-xl md:text-2xl font-medium">
-                        {feature1.title}
-                      </h3>
-                      <p className="text-sm md:text-base text-muted-foreground max-w-md">
-                        {feature1.description}
-                      </p>
-                    </div>
-                  </AnimationContainer>
-                  <AnimationContainer animation="fadeUp" delay={0.8}>
-                    <div className="relative h-48">
-                      <Image
-                        src={feature1.image}
-                        alt={feature1.title}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                  </AnimationContainer>
-                </div>
-              </div>
+              <FeatureCard feature={feature1} theme={theme} imageHeight="h-48" />
             </AnimationContainer>
           )}
         </div>
@@ -124,65 +91,64 @@ const Features = () => {
         <div className="grid grid-cols-1 lg:grid-cols-[.65fr_1fr] gap-6">
           {feature2 && (
             <AnimationContainer animation="fadeRight" delay={0.7}>
-              <div className="relative rounded-3xl rounded-2xl border border-neutral-200/50 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900 overflow-hidden min-h-[350px]">
-                <div className="absolute inset-0 p-8 flex flex-col justify-between">
-                  <AnimationContainer animation="fadeUp" delay={0.8}>
-                    <div className="space-y-4">
-                      <h3 className="text-xl md:text-2xl font-medium">
-                        {feature2.title}
-                      </h3>
-                      <p className="text-sm md:text-base text-muted-foreground max-w-md">
-                        {feature2.description}
-                      </p>
-                    </div>
-                  </AnimationContainer>
-                  <AnimationContainer animation="fadeUp" delay={0.9}>
-                    <div className="relative h-48">
-                      <Image
-                        src={feature2.image}
-                        alt={feature2.title}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                  </AnimationContainer>
-                </div>
-              </div>
+              <FeatureCard feature={feature2} theme={theme} imageHeight="h-48" />
             </AnimationContainer>
           )}
 
           {feature3 && (
             <AnimationContainer animation="fadeLeft" delay={0.8}>
-              <div className="relative rounded-3xl rounded-2xl border border-neutral-200/50 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900 overflow-hidden min-h-[350px]">
-                <div className="absolute inset-0 p-8 flex flex-col justify-between">
-                  <AnimationContainer animation="fadeUp" delay={0.9}>
-                    <div className="space-y-4">
-                      <h3 className="text-xl md:text-2xl font-medium">
-                        {feature3.title}
-                      </h3>
-                      <p className="text-sm md:text-base text-muted-foreground max-w-md">
-                        {feature3.description}
-                      </p>
-                    </div>
-                  </AnimationContainer>
-                  <AnimationContainer animation="fadeUp" delay={1}>
-                    <div className="relative h-48">
-                      <Image
-                        src={feature3.image}
-                        alt={feature3.title}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                  </AnimationContainer>
-                </div>
-              </div>
+              <FeatureCard feature={feature3} theme={theme} imageHeight="h-48" />
             </AnimationContainer>
           )}
         </div>
       </div>
     </Wrapper>
-  );
-};
+  )
+}
 
-export default Features;
+export default Features
+
+/* ------------------------------------------------------------------ */
+/* Feature Card                                                        */
+/* ------------------------------------------------------------------ */
+
+interface FeatureCardProps {
+  feature: Feature
+  theme?: string
+  imageHeight: string
+}
+
+const FeatureCard = ({ feature, theme, imageHeight }: FeatureCardProps) => {
+  const imageSrc = getThemedImage(feature.image, theme)
+
+  return (
+    <div className="relative min-h-[350px] overflow-hidden rounded-3xl border border-neutral-200/50 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900">
+      <div className="absolute inset-0 flex flex-col justify-between p-8">
+        <AnimationContainer animation="fadeUp" delay={0.6}>
+          <div className="space-y-4">
+            <h3 className="text-[#f10a0a] text-xl font-medium md:text-2xl">
+              {feature.title}
+            </h3>
+            <p className="max-w-md text-sm text-muted-foreground md:text-base">
+              {feature.description}
+            </p>
+          </div>
+        </AnimationContainer>
+
+        <AnimationContainer animation="fadeUp" delay={0.7}>
+          <div className={`relative ${imageHeight}`}>
+            <Image
+              src={imageSrc}
+              alt={feature.title}
+              fill
+              className="object-contain"
+            />
+          </div>
+        </AnimationContainer>
+      </div>
+
+      {/* Smooth bottom blending */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-neutral-100 to-transparent dark:from-neutral-900" />
+    </div>
+  )
+}
