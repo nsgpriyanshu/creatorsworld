@@ -8,6 +8,16 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"
   },
+  "author": "nsgpriyanshu",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nsgpriyanshu/creatorsworld"
+  },
+  "bugs": {
+    "url": "https://github.com/nsgpriyanshu/creatorsworld/issues"
+  },
+  "homepage": "https://nsgpriyanshu.github.io/creatorsworld",
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.18",
     "autoprefixer": "^10.4.23",
