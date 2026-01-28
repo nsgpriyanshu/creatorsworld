@@ -1,10 +1,13 @@
-import { Button } from "@repo/ui/components/ui/button";
+import Hero from "../../components/home/hero"
 
-export default function Page() {
+const HomePage = () => {
   return (
-    <main className="h-screen w-full justify-center items-center">
-      <h1 className="text-4xl">Hi Prakriti Lisaa</h1>
-      <Button>Click me</Button>
-    </main>
-  );
+    <div className="relative flex w-full flex-col">
+      <section className="w-full">
+        <Hero />
+      </section>
+    </div>
+  )
 }
+
+export default HomePage
