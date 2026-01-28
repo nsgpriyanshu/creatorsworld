@@ -13,12 +13,12 @@ export const FEATURES = [
     image: "/assets/f2-dark.png",
     size: "small",
   },
-  // {
-  //   title: 'Solutions for Creators',
-  //   description:
-  //     'We provide services and tools tailored for creators to help them grow in their journey.',
+  {
+    title: 'Solutions for Creators',
+    description:
+      'We provide services and tools tailored for creators to help them grow in their journey.',
 
-  //   image: '/backgrounds/hero-dark.png',
-  //   size: 'large',
-  // },
+    image: '/backgrounds/hero-dark.png',
+    size: 'large',
+  },
 ];

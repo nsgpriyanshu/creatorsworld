@@ -1,10 +1,10 @@
-export type WhoWeAreItem = {
+export type AboutItem = {
   title: string;
   description: string;
   icon: "community" | "growth" | "global" | "trust";
 };
 
-export const WHO_WE_ARE: readonly WhoWeAreItem[] = [
+export const ABOUT: readonly AboutItem[] = [
   {
     title: "Largest Discord App Server",
     description:
