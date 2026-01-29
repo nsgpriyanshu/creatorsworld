@@ -1,32 +1,32 @@
-'use client'
+"use client";
 
-import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useTheme } from 'next-themes'
-import { Sparkles } from 'lucide-react'
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useTheme } from "next-themes";
+import { Sparkles } from "lucide-react";
 
-import Wrapper from '../global/wrapper'
-import AnimationContainer from '../global/animation-container'
+import Wrapper from "../global/wrapper";
+import AnimationContainer from "../global/animation-container";
 
-import { Button } from '@repo/ui/components/ui/button'
-import { Badge } from '@repo/ui/components/ui/badge'
-import { Skeleton } from '@repo/ui/components/ui/skeleton'
+import { Button } from "@repo/ui/components/ui/button";
+import { Badge } from "@repo/ui/components/ui/badge";
+import { Skeleton } from "@repo/ui/components/ui/skeleton";
 
 const Hero: React.FC = () => {
-  const { resolvedTheme } = useTheme()
-  const [isLoading, setIsLoading] = React.useState(true)
+  const { resolvedTheme } = useTheme();
+  const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
     // Simulate loading (replace with real data readiness)
-    const timer = setTimeout(() => setIsLoading(false), 700)
-    return () => clearTimeout(timer)
-  }, [])
+    const timer = setTimeout(() => setIsLoading(false), 700);
+    return () => clearTimeout(timer);
+  }, []);
 
   const heroImageSrc =
-    resolvedTheme === 'light'
-      ? '/backgrounds/hero-light.png'
-      : '/backgrounds/hero-dark.png'
+    resolvedTheme === "light"
+      ? "/backgrounds/hero-light.png"
+      : "/backgrounds/hero-dark.png";
 
   /* -------------------------------------------------------------------------- */
   /*                                  SKELETON                                   */
@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
           <Skeleton className="mt-16 h-55 w-full max-w-5xl rounded-3xl md:h-90" />
         </div>
       </Wrapper>
-    )
+    );
   }
 
   /* -------------------------------------------------------------------------- */
@@ -83,9 +83,9 @@ const Hero: React.FC = () => {
         {/* Heading */}
         <AnimationContainer animation="fadeUp" delay={0.15}>
           <h1 className="mt-8 max-w-4xl text-balance text-5xl font-semibold leading-tight tracking-tight text-foreground md:text-6xl">
-            You have stepped into the{' '}
+            You have stepped into the{" "}
             <span>
-              <span className="text-[#f10a0a]">C</span>reator&apos;s{' '}
+              <span className="text-[#f10a0a]">C</span>reator&apos;s{" "}
               <span className="text-[#f10a0a]">W</span>orld
             </span>
           </h1>
@@ -94,9 +94,9 @@ const Hero: React.FC = () => {
         {/* Description */}
         <AnimationContainer animation="fadeUp" delay={0.3}>
           <p className="mt-6 max-w-3xl text-balance text-base leading-relaxed text-muted-foreground md:text-lg">
-            The ultimate destination for creators to showcase their work, connect with
-            like-minded individuals, and explore a world of creativity. Join us and
-            unleash your creative potential.
+            The ultimate destination for creators to showcase their work,
+            connect with like-minded individuals, and explore a world of
+            creativity. Join us and unleash your creative potential.
           </p>
         </AnimationContainer>
 
@@ -132,7 +132,7 @@ const Hero: React.FC = () => {
         </AnimationContainer>
       </div>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

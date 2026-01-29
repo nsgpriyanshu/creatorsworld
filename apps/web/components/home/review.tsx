@@ -1,31 +1,31 @@
-'use client'
+"use client";
 
-import { REVIEWS } from '../../constants'
-import { cn } from '@repo/ui/lib/utils'
-import AnimationContainer from '../global/animation-container'
-import Wrapper from '../global/wrapper'
-import { Marquee } from '@repo/ui/components/ui/marquee'
-import Image from 'next/image'
-import { HeartHandshake } from 'lucide-react'
-import { Badge } from '@repo/ui/components/ui/badge'
+import { REVIEWS } from "../../constants";
+import { cn } from "@repo/ui/lib/utils";
+import AnimationContainer from "../global/animation-container";
+import Wrapper from "../global/wrapper";
+import { Marquee } from "@repo/ui/components/ui/marquee";
+import Image from "next/image";
+import { HeartHandshake } from "lucide-react";
+import { Badge } from "@repo/ui/components/ui/badge";
 
-const firstRow = REVIEWS.slice(0, Math.ceil(REVIEWS.length / 2))
-const secondRow = REVIEWS.slice(Math.ceil(REVIEWS.length / 2))
+const firstRow = REVIEWS.slice(0, Math.ceil(REVIEWS.length / 2));
+const secondRow = REVIEWS.slice(Math.ceil(REVIEWS.length / 2));
 
 type ReviewCardProps = {
-  img: string
-  name: string
-  userrole: string
-  body: string
-}
+  img: string;
+  name: string;
+  userrole: string;
+  body: string;
+};
 
 const ReviewCard = ({ img, name, userrole, body }: ReviewCardProps) => {
   return (
     <div
       className={cn(
-        'relative h-full w-64 overflow-hidden rounded-2xl border p-4 transition-colors',
-        'bg-neutral-50/80 backdrop-blur-md',
-        'dark:border-neutral-800 dark:bg-neutral-900/60',
+        "relative h-full w-64 overflow-hidden rounded-2xl border p-4 transition-colors",
+        "bg-neutral-50/80 backdrop-blur-md",
+        "dark:border-neutral-800 dark:bg-neutral-900/60",
       )}
     >
       <div className="flex flex-col gap-3">
@@ -37,9 +37,10 @@ const ReviewCard = ({ img, name, userrole, body }: ReviewCardProps) => {
               alt={name}
               fill
               className="rounded-full object-cover"
-              onError={e => {
-                ;(e.currentTarget as HTMLImageElement).src =
-                  'https://ui-avatars.com/api/?name=' + encodeURIComponent(name)
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src =
+                  "https://ui-avatars.com/api/?name=" +
+                  encodeURIComponent(name);
               }}
             />
           </div>
@@ -54,8 +55,8 @@ const ReviewCard = ({ img, name, userrole, body }: ReviewCardProps) => {
         <p className="text-sm leading-relaxed text-muted-foreground">{body}</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const Reviews = () => {
   return (
@@ -80,8 +81,8 @@ const Reviews = () => {
 
         <AnimationContainer animation="fadeUp" delay={0.4}>
           <p className="mt-5 max-w-3xl text-base text-muted-foreground text-balance md:text-lg">
-            Hear from our community about their experiences with Creator&apos;s World — how it&apos;s
-            helped them connect, create, and grow.
+            Hear from our community about their experiences with Creator&apos;s
+            World — how it&apos;s helped them connect, create, and grow.
           </p>
         </AnimationContainer>
       </div>
@@ -105,7 +106,7 @@ const Reviews = () => {
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background to-transparent" />
       </div>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Reviews
+export default Reviews;

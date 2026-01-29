@@ -1,34 +1,38 @@
-'use client'
+"use client";
 
-import Wrapper from '../global/wrapper'
-import AnimationContainer from '../global/animation-container'
-import { Badge } from '@repo/ui/components/ui/badge'
+import Wrapper from "../global/wrapper";
+import AnimationContainer from "../global/animation-container";
+import { Badge } from "@repo/ui/components/ui/badge";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@repo/ui/components/ui/tooltip'
-import { Avatar, AvatarFallback, AvatarImage } from '@repo/ui/components/ui/avatar'
-import { ShieldCheck, Crown } from 'lucide-react'
-import { cn } from '@repo/ui/lib/utils'
-import { REGENTS } from '../../constants'
+} from "@repo/ui/components/ui/tooltip";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@repo/ui/components/ui/avatar";
+import { ShieldCheck, Crown } from "lucide-react";
+import { cn } from "@repo/ui/lib/utils";
+import { REGENTS } from "../../constants";
 
 /* ---------------------------------------------
  * Types
  * -------------------------------------------*/
 type Regent = {
-  id: number
-  name: string
-  designation: string
-  image: string
-}
+  id: number;
+  name: string;
+  designation: string;
+  image: string;
+};
 
 /* ---------------------------------------------
  * Component
  * -------------------------------------------*/
 const Regents = () => {
-  const regents = REGENTS as Regent[]
+  const regents = REGENTS as Regent[];
 
   return (
     <Wrapper className="relative overflow-hidden py-20 lg:py-32">
@@ -39,7 +43,7 @@ const Regents = () => {
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(circle_at_center,black_45%,transparent_75%)]"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[32px_32px] mask-[radial-gradient(circle_at_center,black_45%,transparent_75%)]"
       />
 
       {/* Header */}
@@ -74,7 +78,7 @@ const Regents = () => {
           {regents.map((regent, index) => {
             const isCEO = regent.designation
               .toLowerCase()
-              .includes('chief executive')
+              .includes("chief executive");
 
             return (
               <AnimationContainer
@@ -83,31 +87,29 @@ const Regents = () => {
                 delay={0.2 + index * 0.08}
               >
                 <Tooltip>
-                  <TooltipTrigger asChild>
+                  <TooltipTrigger>
                     <div
                       className={cn(
-                        'group relative cursor-default rounded-full p-1',
-                        isCEO && 'ring-2 ring-[#f10a0a]/40',
+                        "group relative cursor-default rounded-full p-1",
+                        isCEO && "ring-2 ring-[#f10a0a]/40",
                       )}
                     >
                       {/* Hover glow */}
                       <div
                         aria-hidden
                         className={cn(
-                          'absolute inset-0 -z-10 rounded-full opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100',
-                          isCEO
-                            ? 'bg-[#f10a0a]/40'
-                            : 'bg-[#f10a0a]/25',
+                          "absolute inset-0 -z-10 rounded-full opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100",
+                          isCEO ? "bg-[#f10a0a]/40" : "bg-[#f10a0a]/25",
                         )}
                       />
 
                       <Avatar className="size-16 transition-transform duration-300 group-hover:scale-105 md:size-20">
-                        <AvatarImage
-                          src={regent.image}
-                          alt={regent.name}
-                        />
+                        <AvatarImage src={regent.image} alt={regent.name} />
                         <AvatarFallback>
-                          {regent.name.replace('@', '').slice(0, 2).toUpperCase()}
+                          {regent.name
+                            .replace("@", "")
+                            .slice(0, 2)
+                            .toUpperCase()}
                         </AvatarFallback>
                       </Avatar>
 
@@ -133,7 +135,7 @@ const Regents = () => {
                   </TooltipContent>
                 </Tooltip>
               </AnimationContainer>
-            )
+            );
           })}
         </div>
       </TooltipProvider>
@@ -146,7 +148,7 @@ const Regents = () => {
         </p>
       </AnimationContainer>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Regents
+export default Regents;

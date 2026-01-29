@@ -1,26 +1,26 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import { useTheme } from 'next-themes'
-import { Sparkles, Users, Rocket, Globe } from 'lucide-react'
+import Image from "next/image";
+import { useTheme } from "next-themes";
+import { Sparkles, Users, Rocket, Globe } from "lucide-react";
 
-import Wrapper from '../global/wrapper'
-import AnimationContainer from '../global/animation-container'
-import { Badge } from '@repo/ui/components/ui/badge'
-import { cn } from '@repo/ui/lib/utils'
+import Wrapper from "../global/wrapper";
+import AnimationContainer from "../global/animation-container";
+import { Badge } from "@repo/ui/components/ui/badge";
+import { cn } from "@repo/ui/lib/utils";
 
-import { FEATURES } from '../../constants/features'
+import { FEATURES } from "../../constants/features";
 
-type FeatureIcon = 'community' | 'growth' | 'global'
+type FeatureIcon = "community" | "growth" | "global";
 
 const ICON_MAP: Record<FeatureIcon, React.FC<{ className?: string }>> = {
   community: Users,
   growth: Rocket,
   global: Globe,
-}
+};
 
 export default function Features() {
-  const { resolvedTheme } = useTheme()
+  const { resolvedTheme } = useTheme();
 
   return (
     <Wrapper className="relative w-full overflow-hidden py-24 lg:py-36">
@@ -52,22 +52,28 @@ export default function Features() {
       {/* Hybrid Layout */}
       <div className="relative mt-24 flex flex-col gap-24">
         {FEATURES.map((feature, index) => {
-          const isLarge = feature.size === 'large'
-          const Icon = ICON_MAP[feature.icon]
+          const isLarge = feature.size === "large";
+          const Icon = ICON_MAP[feature.icon];
           const imageSrc =
-            resolvedTheme === 'dark' ? feature.image.dark : feature.image.light
+            resolvedTheme === "dark" ? feature.image.dark : feature.image.light;
 
           return (
             <AnimationContainer
               key={feature.title}
-              animation={isLarge ? (index % 2 === 0 ? 'fadeRight' : 'fadeLeft') : 'fadeUp'}
+              animation={
+                isLarge
+                  ? index % 2 === 0
+                    ? "fadeRight"
+                    : "fadeLeft"
+                  : "fadeUp"
+              }
               delay={0.15 * (index + 1)}
             >
               <div
                 className={cn(
-                  'mx-auto flex max-w-6xl flex-col items-center gap-10 px-4',
-                  isLarge && 'md:flex-row md:gap-16',
-                  isLarge && index % 2 === 0 && 'md:flex-row-reverse',
+                  "mx-auto flex max-w-6xl flex-col items-center gap-10 px-4",
+                  isLarge && "md:flex-row md:gap-16",
+                  isLarge && index % 2 === 0 && "md:flex-row-reverse",
                 )}
               >
                 {/* Image */}
@@ -98,9 +104,9 @@ export default function Features() {
                 </div>
               </div>
             </AnimationContainer>
-          )
+          );
         })}
       </div>
     </Wrapper>
-  )
+  );
 }

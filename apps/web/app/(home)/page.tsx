@@ -1,9 +1,10 @@
-import About from "../../components/home/about"
-import Feature from "../../components/home/features"
-import Hero from "../../components/home/hero"
-import Milestones from "../../components/home/milestone"
-import Regents from "../../components/home/regents"
-import Reviews from "../../components/home/review"
+import About from "../../components/home/about";
+import Feature from "../../components/home/features";
+import Hero from "../../components/home/hero";
+import Milestones from "../../components/home/milestone";
+import Regents from "../../components/home/regents";
+import Reviews from "../../components/home/review";
+import ServicesCta from "../../components/home/services-cta";
 
 const HomePage = () => {
   return (
@@ -26,8 +27,11 @@ const HomePage = () => {
       <section className="w-full">
         <Regents />
       </section>
+      <section className="w-full">
+        <ServicesCta />
+      </section>
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
