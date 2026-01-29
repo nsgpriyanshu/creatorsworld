@@ -1,36 +1,32 @@
 'use client'
 
-import React from 'react'
 import Image from 'next/image'
+import { useTheme } from 'next-themes'
+import { Sparkles, Users, Rocket, Globe } from 'lucide-react'
+
 import Wrapper from '../global/wrapper'
 import AnimationContainer from '../global/animation-container'
 import { Badge } from '@repo/ui/components/ui/badge'
-import { Sparkles, Users, Rocket, Globe } from 'lucide-react'
 import { cn } from '@repo/ui/lib/utils'
 
 import { FEATURES } from '../../constants/features'
 
-interface Feature {
-  title: string
-  description: string
-  image: string
-  size: 'large' | 'small'
-  icon?: 'community' | 'growth' | 'global'
-}
+type FeatureIcon = 'community' | 'growth' | 'global'
 
-// Icon map for features
-const ICON_MAP: Record<'community' | 'growth' | 'global', React.ComponentType<{ className?: string }>> = {
+const ICON_MAP: Record<FeatureIcon, React.FC<{ className?: string }>> = {
   community: Users,
   growth: Rocket,
   global: Globe,
 }
 
-export default function Feature() {
+export default function Features() {
+  const { resolvedTheme } = useTheme()
+
   return (
     <Wrapper className="relative w-full overflow-hidden py-24 lg:py-36">
-      {/* Section Header */}
+      {/* Header */}
       <div className="relative z-10 flex w-full flex-col items-center text-center">
-        <AnimationContainer animation="fadeDown" delay={0.1}>
+        <AnimationContainer animation="fadeDown">
           <Badge
             variant="outline"
             className="flex items-center gap-2 border-border bg-background px-4 py-1.5 text-secondary-foreground"
@@ -40,26 +36,26 @@ export default function Feature() {
           </Badge>
         </AnimationContainer>
 
-        <AnimationContainer animation="fadeUp" delay={0.2}>
+        <AnimationContainer animation="fadeUp" delay={0.1}>
           <h2 className="mt-6 max-w-3xl text-balance text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-6xl">
             Built for creators. Backed by community.
           </h2>
         </AnimationContainer>
 
-        <AnimationContainer animation="fadeUp" delay={0.3}>
+        <AnimationContainer animation="fadeUp" delay={0.2}>
           <p className="mt-6 max-w-3xl text-balance text-base text-muted-foreground md:text-lg">
-            Explore our key offerings that empower creators, build community, and drive innovation.
+            Everything you need to build, collaborate, and grow — together.
           </p>
         </AnimationContainer>
       </div>
 
-      {/* Features Grid */}
-      <div className="relative mt-24 grid grid-cols-1 gap-y-16 lg:gap-y-28">
+      {/* Hybrid Layout */}
+      <div className="relative mt-24 flex flex-col gap-24">
         {FEATURES.map((feature, index) => {
           const isLarge = feature.size === 'large'
-          const lightImage = feature.image.replace('.png', '-light.png')
-          const darkImage = feature.image.replace('.png', '-dark.png')
-          const FeatureIcon = feature.icon ? ICON_MAP[feature.icon] : null
+          const Icon = ICON_MAP[feature.icon]
+          const imageSrc =
+            resolvedTheme === 'dark' ? feature.image.dark : feature.image.light
 
           return (
             <AnimationContainer
@@ -69,46 +65,34 @@ export default function Feature() {
             >
               <div
                 className={cn(
-                  'flex flex-col items-center gap-6 px-4 md:px-16',
-                  isLarge
-                    ? 'md:flex-row md:items-center md:gap-16'
-                    : 'md:flex-col md:items-center',
-                  index % 2 === 0 && isLarge ? 'md:flex-row-reverse' : ''
+                  'mx-auto flex max-w-6xl flex-col items-center gap-10 px-4',
+                  isLarge && 'md:flex-row md:gap-16',
+                  isLarge && index % 2 === 0 && 'md:flex-row-reverse',
                 )}
               >
                 {/* Image */}
-                {isLarge && (
-                  <div className="relative w-full max-w-md flex-shrink-0 md:max-w-lg">
-                    <Image
-                      src={lightImage}
-                      alt={feature.title}
-                      width={600}
-                      height={400}
-                      className="rounded-2xl border border-border bg-card dark:hidden"
-                    />
-                    <Image
-                      src={darkImage}
-                      alt={feature.title}
-                      width={600}
-                      height={400}
-                      className="hidden rounded-2xl border border-border bg-card dark:block"
-                    />
-                  </div>
-                )}
+                <div className="relative w-full max-w-lg">
+                  <Image
+                    src={imageSrc}
+                    alt={feature.title}
+                    width={900}
+                    height={600}
+                    className="rounded-3xl border border-border bg-card"
+                  />
+                </div>
 
-                {/* Text */}
-                <div className="flex flex-col items-center text-center md:items-start md:text-left max-w-xl">
+                {/* Content */}
+                <div className="flex max-w-xl flex-col items-center text-center md:items-start md:text-left ">
                   {/* Icon */}
-                  {FeatureIcon && (
-                    <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-2xl bg-card text-[#f10a0a] md:mb-4">
-                      <FeatureIcon className="h-6 w-6" />
-                    </div>
-                  )}
+                  <div className="mb-4 flex size-14 items-center justify-center rounded-2xl border border-border bg-card ">
+                    <Icon className="h-6 w-6 text-[#f10a0a]" />
+                  </div>
 
-                  <h3 className="text-lg font-semibold tracking-tight text-foreground md:text-xl lg:text-2xl">
+                  <h3 className="text-xl font-semibold tracking-tight text-foreground md:text-2xl">
                     {feature.title}
                   </h3>
-                  <p className="mt-2 text-base text-muted-foreground md:text-lg leading-relaxed">
+
+                  <p className="mt-3 text-base leading-relaxed text-muted-foreground md:text-lg">
                     {feature.description}
                   </p>
                 </div>

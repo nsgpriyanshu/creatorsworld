@@ -1,24 +1,35 @@
 export const FEATURES = [
   {
-    title: "Active Community",
+    title: 'Active Community',
     description:
-      "Our discord server is home to a vibrant and active community of creators, developers, and enthusiasts. Join discussions, share ideas, and collaborate with like-minded individuals!",
-    image: "/assets/f1-dark.png",
-    size: "large",
+      'Our Discord server is home to a vibrant and active community of creators, developers, and enthusiasts. Join discussions, share ideas, and collaborate with like-minded individuals.',
+    icon: 'community',
+    size: 'large',
+    image: {
+      light: '/assets/f2-light.png',
+      dark: '/assets/f2-dark.png',
+    },
   },
   {
-    title: "Open Source Projects",
+    title: 'Open Source Projects',
     description:
-      "We believe in the power of open source. Explore our collection of open-source projects, contribute to them, and be a part of the innovation happening in the Discord ecosystem.",
-    image: "/assets/f2-dark.png",
-    size: "small",
+      'Explore and contribute to open-source projects that power innovation across the creator ecosystem.',
+    icon: 'growth',
+    size: 'small',
+    image: {
+      light: '/assets/f2-light.png',
+      dark: '/assets/f2-dark.png',
+    },
   },
   {
     title: 'Solutions for Creators',
     description:
-      'We provide services and tools tailored for creators to help them grow in their journey.',
-
-    image: '/backgrounds/hero-dark.png',
+      'We provide tools, services, and guidance tailored for creators to grow, scale, and succeed.',
+    icon: 'global',
     size: 'large',
+    image: {
+      light: '/assets/f2-light.png',
+      dark: '/assets/f2-light.png',
+    },
   },
-];
+] as const
