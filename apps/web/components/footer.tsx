@@ -32,7 +32,7 @@ type FooterLink = {
 /* ================= QUICK LINKS ================= */
 
 const QUICK_LINKS: FooterLink[] = [
-  { label: "Products", href: "/products", icon: Package },
+  { label: "Products", href: "/product", icon: Package },
   { label: "Services", href: "/services", icon: Cog },
   { label: "Blog", href: "/blog", icon: BookMarked },
   { label: "Contact", href: "/contact", icon: Mail },
