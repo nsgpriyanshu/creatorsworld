@@ -21,8 +21,8 @@ export const products: Record<string, Product> = {
       "A premium utility emoji pack crafted for nsCore. Designed to enhance Discord communities with expressive, clean, and modern emojis.",
     price: 899,
     image: {
-      light: "/assets/product_one.webp",
-      dark: "/assets/product_one.webp",
+      light: "/product/emo-pack.png",
+      dark: "/product/emo-pack.png",
       alt: "Emo Pack Preview",
     },
     discordLink: "https://discord.gg/your-server",

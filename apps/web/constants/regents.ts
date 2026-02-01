@@ -9,19 +9,19 @@ export const REGENTS = [
     id: 2,
     name: "@iwontstop2853",
     designation: "Chief   Operating Officer",
-    image: "/icons/owner_two.webp",
+    image: "/icons/coo.webp",
   },
   {
     id: 1,
     name: "@nsgpriyanshu",
     designation: "Chief Executive Officer",
-    image: "/icons/owner_one.png",
+    image: "/icons/ceo.png",
   },
   {
     id: 6,
     name: "@bloodystare",
     designation: "Cheif Administrator",
-    image: "/icons/admin_three.webp",
+    image: "/icons/ca.png",
   },
   // {
   //   id: 4,
