@@ -125,7 +125,7 @@ const ItemDetails = ({
 
         {/* Right preview */}
         <AnimationContainer animation="fadeRight" delay={0.3}>
-          <div className="relative mx-auto max-w-md rounded-3xl border border-[#f10a0a]/30 p-4">
+          <div className="relative mx-auto max-w-md rounded-3xl border border-primary/50 p-4">
             <Image
               src={productImage}
               alt={image.alt}
