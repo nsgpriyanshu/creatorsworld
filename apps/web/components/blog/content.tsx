@@ -1,4 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@repo/ui/components/ui/button";
 import { BlogBlock } from "../../lib/db/types";
 
 type Props = {
@@ -7,7 +10,14 @@ type Props = {
 
 const BlogContent = ({ blocks }: Props) => {
   return (
-    <div className="prose prose-neutral dark:prose-invert mx-auto max-w-3xl px-4 md:px-0">
+    <>
+      <Link href="/blog" className="mb-8 mt-2 inline-block">
+        <Button variant="ghost" size="sm">
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back to Blog
+        </Button>
+      </Link>
+      <div className="prose prose-neutral dark:prose-invert mx-auto max-w-3xl px-4 md:px-0">
       {blocks.map((block, index) => {
         switch (block.type) {
           case "heading": {
@@ -112,7 +122,8 @@ const BlogContent = ({ blocks }: Props) => {
             return null;
         }
       })}
-    </div>
+      </div>
+    </>
   );
 };
 

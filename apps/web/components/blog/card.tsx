@@ -3,8 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@repo/ui/components/ui/badge";
+import { Button } from "@repo/ui/components/ui/button";
 import { BlogPost } from "../../lib/db/types";
-import { Calendar, Clock2 } from "lucide-react";
+import { Calendar, Clock2, ArrowRight } from "lucide-react";
 import AnimationContainer from "../global/animation-container";
 
 type Props = {
@@ -80,6 +81,14 @@ const BlogCard = ({ post }: Props) => {
                 <Clock2 className="h-3 w-3" />
                 <span>{post.reading_time} min</span>
               </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="mt-4 pt-4 border-t border-border">
+              <Button className="group w-full">
+                Read Blog
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
             </div>
           </div>
         </article>
