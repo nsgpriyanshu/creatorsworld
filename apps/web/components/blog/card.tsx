@@ -6,7 +6,6 @@ import { Badge } from "@repo/ui/components/ui/badge";
 import { BlogPost } from "../../lib/db/types";
 import { Calendar, Clock2 } from "lucide-react";
 import AnimationContainer from "../global/animation-container";
-import Wrapper from "../global/wrapper";
 
 type Props = {
   post: BlogPost;
@@ -43,7 +42,7 @@ const BlogCard = ({ post }: Props) => {
                 ))}
               </div>
 
-              <h3 className="text-base font-semibold text-primary transition-colors duration-300 group-hover:text-secondary line-clamp-2">
+              <h3 className="text-base font-semibold text-primary transition-colors duration-300 group-hover:text-accent line-clamp-2">
                 {post.title}
               </h3>
 

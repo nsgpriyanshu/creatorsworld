@@ -10,20 +10,59 @@ const BlogContent = ({ blocks }: Props) => {
     <div className="prose prose-neutral dark:prose-invert mx-auto max-w-3xl px-4 md:px-0">
       {blocks.map((block, index) => {
         switch (block.type) {
-          case "heading":
-            return block.level === 2 ? (
-              <h2 key={index} className="mt-12 scroll-mt-24 text-primary">
-                {block.text}
-              </h2>
-            ) : (
-              <h3 key={index} className="mt-8 scroll-mt-24 text-secondary">
-                {block.text}
-              </h3>
-            );
+          case "heading": {
+            switch (block.level) {
+              case 1:
+                return (
+                  <h1
+                    key={index}
+                    className="mt-10 text-foreground text-balance text-4xl font-semibold leading-tight tracking-tight md:text-5xl"
+                  >
+                    {block.text}
+                  </h1>
+                );
+
+              case 2:
+                return (
+                  <h2
+                    key={index}
+                    className="mt-10 text-foreground text-balance text-3xl font-semibold leading-snug tracking-tight md:text-4xl"
+                  >
+                    {block.text}
+                  </h2>
+                );
+
+              case 3:
+                return (
+                  <h3
+                    key={index}
+                    className="mt-8 text-foreground text-balance text-2xl font-semibold leading-snug md:text-3xl"
+                  >
+                    {block.text}
+                  </h3>
+                );
+
+              case 4:
+                return (
+                  <h4
+                    key={index}
+                    className="mt-6 text-foreground text-xl font-semibold leading-snug md:text-2xl"
+                  >
+                    {block.text}
+                  </h4>
+                );
+
+              default:
+                return null;
+            }
+          }
 
           case "paragraph":
             return (
-              <p key={index} className="mt-6 leading-relaxed">
+              <p
+                key={index}
+                className="mt-6 text-muted-foreground text-base leading-relaxed md:text-lg"
+              >
                 {block.text}
               </p>
             );
@@ -50,6 +89,7 @@ const BlogContent = ({ blocks }: Props) => {
                     className="object-cover"
                   />
                 </div>
+
                 {block.alt && (
                   <figcaption className="mt-3 text-center text-sm text-muted-foreground">
                     {block.alt}
@@ -62,7 +102,7 @@ const BlogContent = ({ blocks }: Props) => {
             return (
               <pre
                 key={index}
-                className="my-8 overflow-x-auto rounded-2xl bg-muted p-5 text-sm"
+                className="my-8 overflow-x-auto rounded-2xl bg-muted p-5 text-sm leading-relaxed"
               >
                 <code>{block.code}</code>
               </pre>

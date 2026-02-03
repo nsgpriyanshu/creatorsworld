@@ -116,7 +116,7 @@ const Navbar = () => {
           <div className="text-muted-foreground absolute inset-0 mx-auto hidden w-max items-center justify-center gap-x-2 text-sm font-medium lg:flex">
             <AnimatePresence>
               {NAV_LINKS.map((link, index) => {
-                const isActive = pathname === link.link;
+                const isActive = pathname === link.link || pathname.startsWith(`${link.link}/`);
                 const IconComponent = ICON_MAP[link.icon];
 
                 return (
@@ -203,7 +203,7 @@ const Navbar = () => {
             >
               <div className="mt-4 flex flex-col gap-2">
                 {NAV_LINKS.map((link, idx) => {
-                  const isActive = pathname === link.link;
+                  const isActive = pathname === link.link || pathname.startsWith(`${link.link}/`);
                   const Icon = ICON_MAP[link.icon];
 
                   return (

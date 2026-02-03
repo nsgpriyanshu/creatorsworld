@@ -7,7 +7,7 @@ export type Author = {
 
 export type BlogBlock =
   | { type: "paragraph"; text: string }
-  | { type: "heading"; level: 2 | 3; text: string }
+  | { type: "heading"; level: 1 | 2 | 3 | 4; text: string }
   | { type: "image"; src: string; alt?: string }
   | { type: "code"; language: string; code: string }
   | { type: "quote"; text: string };
