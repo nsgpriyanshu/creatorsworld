@@ -1,5 +1,5 @@
-import { createSupabaseServer } from '../supabase/server'
-import { BlogPost } from './types'
+import { createSupabaseServer } from "../supabase/server";
+import { BlogPost } from "./types";
 
 const BLOG_SELECT = `
   id,
@@ -22,42 +22,40 @@ const BLOG_SELECT = `
     role,
     avatar_url
   )
-`
+`;
 
 export async function getAllPosts(): Promise<BlogPost[]> {
-  const supabase = await createSupabaseServer()
+  const supabase = await createSupabaseServer();
 
   const { data, error } = await supabase
-    .from('blogs')
+    .from("blogs")
     .select(BLOG_SELECT)
-    .order('published_at', { ascending: false })
+    .order("published_at", { ascending: false });
 
-  if (error) throw error
-  return data as unknown as BlogPost[]
+  if (error) throw error;
+  return data as unknown as BlogPost[];
 }
 
 export async function getFeaturedPost(): Promise<BlogPost | null> {
-  const supabase = await createSupabaseServer()
+  const supabase = await createSupabaseServer();
 
   const { data } = await supabase
-    .from('blogs')
+    .from("blogs")
     .select(BLOG_SELECT)
-    .eq('is_featured', true)
-    .single()
+    .eq("is_featured", true)
+    .single();
 
-  return (data as unknown as BlogPost) ?? null
+  return (data as unknown as BlogPost) ?? null;
 }
 
-export async function getPostBySlug(
-  slug: string
-): Promise<BlogPost | null> {
-  const supabase = await createSupabaseServer()
+export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
+  const supabase = await createSupabaseServer();
 
   const { data } = await supabase
-    .from('blogs')
+    .from("blogs")
     .select(BLOG_SELECT)
-    .eq('slug', slug)
-    .single()
+    .eq("slug", slug)
+    .single();
 
-  return (data as unknown as BlogPost) ?? null
+  return (data as unknown as BlogPost) ?? null;
 }

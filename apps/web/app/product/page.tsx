@@ -25,13 +25,13 @@ export default function ProductPage() {
         </AnimationContainer>
 
         <AnimationContainer animation="fadeUp" delay={0.2}>
-          <h1 className="text-balance text-4xl font-semibold tracking-tight md:text-5xl">
+          <h1 className="mt-8 max-w-4xl text-balance text-5xl font-semibold leading-tight tracking-tight text-foreground md:text-6xl">
             Explore Our Products
           </h1>
         </AnimationContainer>
 
         <AnimationContainer animation="fadeUp" delay={0.3}>
-          <p className="mt-4 text-muted-foreground md:text-lg">
+          <p className="mt-6 max-w-3xl text-balance text-base leading-relaxed text-muted-foreground md:text-lg">
             Carefully crafted digital products built for creators, communities,
             and modern Discord ecosystems.
           </p>
