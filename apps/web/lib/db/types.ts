@@ -13,7 +13,11 @@ export type BlogBlock =
   | { type: "quote"; text: string }
   | { type: "link"; text: string; href: string }
   | { type: "list"; items: string[]; ordered?: boolean }
-  | { type: "callout"; text: string; variant: "info" | "warning" | "success" | "error" };
+  | {
+      type: "callout";
+      text: string;
+      variant: "info" | "warning" | "success" | "error";
+    };
 
 export type BlogPost = {
   id: string;

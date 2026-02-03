@@ -47,13 +47,11 @@ const TableOfContents = ({ blocks }: TableOfContentsProps) => {
           }
         });
       },
-      { rootMargin: "-100px 0px -66%" }
+      { rootMargin: "-100px 0px -66%" },
     );
 
     // Observe all headings in the content
-    const headingElements = document.querySelectorAll(
-      "h1, h2, h3, h4"
-    );
+    const headingElements = document.querySelectorAll("h1, h2, h3, h4");
     headingElements.forEach((el) => observer.observe(el));
 
     return () => {
@@ -79,8 +77,8 @@ const TableOfContents = ({ blocks }: TableOfContentsProps) => {
             <a
               href={`#${heading.id}`}
               className={cn(
-                "inline-block text-muted-foreground transition-colors duration-200 hover:text-foreground",
-                activeId === heading.id && "text-[#f10a0a] font-medium"
+                "inline-block text-muted-foreground transition-colors duration-200 hover:text-foreground break-words max-w-full",
+                activeId === heading.id && "text-[#f10a0a] font-medium",
               )}
             >
               {heading.text}

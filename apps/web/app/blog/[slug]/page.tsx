@@ -4,7 +4,11 @@ import BlogContent from "../../../components/blog/content";
 import BlogPostHeader from "../../../components/blog/post-header";
 import TableOfContents from "../../../components/blog/table-of-contents";
 import ArticleNav from "../../../components/blog/article-nav";
-import { getPostBySlug, getPreviousPost, getNextPost } from "../../../lib/db/queries";
+import {
+  getPostBySlug,
+  getPreviousPost,
+  getNextPost,
+} from "../../../lib/db/queries";
 import Wrapper from "../../../components/global/wrapper";
 import { Separator } from "@repo/ui/components/ui/separator";
 import Link from "next/link";
@@ -75,13 +79,16 @@ export default async function BlogPostPage({ params }: PageProps) {
   return (
     <>
       {/* Breadcrumb */}
-      <Wrapper className="py-6">
+      <Wrapper className="pt-24 lg:pt-24">
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <Link href="/" className="hover:text-foreground transition-colors">
             Home
           </Link>
           <ChevronRight className="h-4 w-4" />
-          <Link href="/blog" className="hover:text-foreground transition-colors">
+          <Link
+            href="/blog"
+            className="hover:text-foreground transition-colors"
+          >
             Blog
           </Link>
           <ChevronRight className="h-4 w-4" />
@@ -89,23 +96,40 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       </Wrapper>
 
-      <Wrapper className="relative py-8 lg:py-12">
+      <Wrapper className="relative py-8 lg:py-12 px-0">
         {/* Header */}
         <BlogPostHeader post={post} />
-        <Separator className="my-12" />
+        <Separator className="my-8 md:my-12" />
+
+        {/* Mobile TOC - visible on small screens */}
+        <div className="lg:hidden mb-8 px-4 lg:px-0">
+          <details className="group cursor-pointer">
+            <summary className="flex items-center justify-between px-4 py-2 rounded-lg border border-border hover:bg-muted/50 transition-colors">
+              <span className="font-semibold text-foreground">
+                Table of Contents
+              </span>
+              <span className="text-muted-foreground group-open:rotate-180 transition-transform">
+                ▼
+              </span>
+            </summary>
+            <div className="mt-4 border-l border-border pl-6">
+              <TableOfContents blocks={post.content} />
+            </div>
+          </details>
+        </div>
 
         {/* Two-column layout */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 md:gap-8 lg:grid-cols-4 px-4 lg:px-0">
           {/* Main Content - 3 cols */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 overflow-hidden">
             <BlogContent blocks={post.content} />
           </div>
 
           {/* Sidebar - 1 col (sticky on desktop) */}
-          <aside className="lg:col-span-1">
+          <aside className="lg:col-span-1 hidden lg:block">
             <div className="sticky top-32 space-y-12">
               {/* Table of Contents */}
-              <div className="hidden lg:block border-l border-border pl-6">
+              <div className="border-l border-border pl-6">
                 <TableOfContents blocks={post.content} />
               </div>
             </div>
@@ -113,7 +137,9 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
 
         {/* Article Navigation */}
-        <ArticleNav previousPost={previousPost} nextPost={nextPost} />
+        <div className="px-4 lg:px-0">
+          <ArticleNav previousPost={previousPost} nextPost={nextPost} />
+        </div>
       </Wrapper>
     </>
   );

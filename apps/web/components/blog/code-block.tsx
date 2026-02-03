@@ -23,16 +23,16 @@ const CodeBlock = ({ code, language = "javascript" }: CodeBlockProps) => {
   };
 
   return (
-    <div className="relative my-8 overflow-hidden rounded-2xl bg-muted border border-border">
+    <div className="relative my-8 overflow-hidden rounded-2xl bg-muted border border-border -mx-4 md:mx-0">
       {/* Language badge */}
-      <div className="absolute top-3 left-4 z-10">
-        <span className="inline-block px-2 py-1 text-xs font-medium text-muted-foreground bg-background/50 rounded">
+      <div className="absolute top-2 left-3 z-10 md:top-3 md:left-4">
+        <span className="inline-block px-2 py-0.5 md:py-1 text-xs font-medium text-muted-foreground bg-background/50 rounded">
           {language}
         </span>
       </div>
 
       {/* Copy button */}
-      <div className="absolute top-3 right-3 z-10">
+      <div className="absolute top-2 right-2 z-10 md:top-3 md:right-3">
         <Button
           size="sm"
           variant="ghost"
@@ -47,8 +47,8 @@ const CodeBlock = ({ code, language = "javascript" }: CodeBlockProps) => {
         </Button>
       </div>
 
-      {/* Code */}
-      <pre className="overflow-x-auto p-5 pt-12 text-sm leading-relaxed">
+      {/* Code - with horizontal scroll for mobile */}
+      <pre className="overflow-x-auto p-3 pt-10 md:p-5 md:pt-12 text-xs md:text-sm leading-relaxed">
         <code>{code}</code>
       </pre>
     </div>

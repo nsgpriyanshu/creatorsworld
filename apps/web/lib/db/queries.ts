@@ -61,7 +61,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
 }
 
 export async function getPreviousPost(
-  publishedAt: string
+  publishedAt: string,
 ): Promise<BlogPost | null> {
   const supabase = await createSupabaseServer();
 
@@ -77,7 +77,7 @@ export async function getPreviousPost(
 }
 
 export async function getNextPost(
-  publishedAt: string
+  publishedAt: string,
 ): Promise<BlogPost | null> {
   const supabase = await createSupabaseServer();
 
