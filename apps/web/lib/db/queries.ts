@@ -59,3 +59,35 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
 
   return (data as unknown as BlogPost) ?? null;
 }
+
+export async function getPreviousPost(
+  publishedAt: string
+): Promise<BlogPost | null> {
+  const supabase = await createSupabaseServer();
+
+  const { data } = await supabase
+    .from("blogs")
+    .select(BLOG_SELECT)
+    .lt("published_at", publishedAt)
+    .order("published_at", { ascending: false })
+    .limit(1)
+    .single();
+
+  return (data as unknown as BlogPost) ?? null;
+}
+
+export async function getNextPost(
+  publishedAt: string
+): Promise<BlogPost | null> {
+  const supabase = await createSupabaseServer();
+
+  const { data } = await supabase
+    .from("blogs")
+    .select(BLOG_SELECT)
+    .gt("published_at", publishedAt)
+    .order("published_at", { ascending: true })
+    .limit(1)
+    .single();
+
+  return (data as unknown as BlogPost) ?? null;
+}

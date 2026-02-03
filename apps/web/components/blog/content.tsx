@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@repo/ui/components/ui/button";
 import { BlogBlock } from "../../lib/db/types";
+import CodeBlock from "./code-block";
 
 type Props = {
   blocks: BlogBlock[];
@@ -26,7 +27,8 @@ const BlogContent = ({ blocks }: Props) => {
                 return (
                   <h1
                     key={index}
-                    className="mt-10 text-foreground text-balance text-4xl font-semibold leading-tight tracking-tight md:text-5xl"
+                    id={`heading-${index}`}
+                    className="mt-10 text-foreground text-balance text-4xl font-semibold leading-tight tracking-tight md:text-5xl scroll-mt-24"
                   >
                     {block.text}
                   </h1>
@@ -36,7 +38,8 @@ const BlogContent = ({ blocks }: Props) => {
                 return (
                   <h2
                     key={index}
-                    className="mt-10 text-foreground text-balance text-3xl font-semibold leading-snug tracking-tight md:text-4xl"
+                    id={`heading-${index}`}
+                    className="mt-10 text-foreground text-balance text-3xl font-semibold leading-snug tracking-tight md:text-4xl scroll-mt-24"
                   >
                     {block.text}
                   </h2>
@@ -46,7 +49,8 @@ const BlogContent = ({ blocks }: Props) => {
                 return (
                   <h3
                     key={index}
-                    className="mt-8 text-foreground text-balance text-2xl font-semibold leading-snug md:text-3xl"
+                    id={`heading-${index}`}
+                    className="mt-8 text-foreground text-balance text-2xl font-semibold leading-snug md:text-3xl scroll-mt-24"
                   >
                     {block.text}
                   </h3>
@@ -56,7 +60,8 @@ const BlogContent = ({ blocks }: Props) => {
                 return (
                   <h4
                     key={index}
-                    className="mt-6 text-foreground text-xl font-semibold leading-snug md:text-2xl"
+                    id={`heading-${index}`}
+                    className="mt-6 text-foreground text-xl font-semibold leading-snug md:text-2xl scroll-mt-24"
                   >
                     {block.text}
                   </h4>
@@ -110,12 +115,11 @@ const BlogContent = ({ blocks }: Props) => {
 
           case "code":
             return (
-              <pre
+              <CodeBlock
                 key={index}
-                className="my-8 overflow-x-auto rounded-2xl bg-muted p-5 text-sm leading-relaxed"
-              >
-                <code>{block.code}</code>
-              </pre>
+                code={block.code}
+                language={block.language}
+              />
             );
 
           default:
