@@ -10,7 +10,10 @@ export type BlogBlock =
   | { type: "heading"; level: 1 | 2 | 3 | 4; text: string }
   | { type: "image"; src: string; alt?: string }
   | { type: "code"; language: string; code: string }
-  | { type: "quote"; text: string };
+  | { type: "quote"; text: string }
+  | { type: "link"; text: string; href: string }
+  | { type: "list"; items: string[]; ordered?: boolean }
+  | { type: "callout"; text: string; variant: "info" | "warning" | "success" | "error" };
 
 export type BlogPost = {
   id: string;
