@@ -1,4 +1,5 @@
 import { Palette } from "lucide-react";
+import { Button } from "@repo/ui/components/ui/button";
 import LegalHero from "../../../components/legal/legal-hero";
 import Wrapper from "../../../components/global/wrapper";
 import AnimationContainer from "../../../components/global/animation-container";
@@ -17,7 +18,7 @@ export default function BrandPage() {
       {/* Hero */}
       <section className="w-full">
         <LegalHero
-          icon={<Palette className="h-4 w-4 text-purple-500" />}
+          icon={<Palette className="h-4 w-4 text-[#f10a0a]" />}
           badge="Brand Resources"
           title="Brand Guidelines"
           description="Everything you need to represent Creator's World consistently. Download our logos, explore our color palette, and learn our design principles."
@@ -158,18 +159,12 @@ export default function BrandPage() {
 
             <AnimationContainer animation="fadeUp" delay={0.15}>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <a
-                  href="/assets/brand"
-                  className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-3 font-medium text-primary-foreground transition-all hover:opacity-90"
-                >
-                  Browse All Assets
-                </a>
-                <a
-                  href="/contact"
-                  className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-8 py-3 font-medium text-foreground transition-all hover:bg-background/80"
-                >
-                  Request Custom Assets
-                </a>
+                <Button>
+                  <a href="/assets/brand">Browse All Assets</a>
+                </Button>
+                <Button variant="outline">
+                  <a href="/contact">Request Custom Assets</a>
+                </Button>
               </div>
             </AnimationContainer>
           </div>
@@ -186,12 +181,10 @@ export default function BrandPage() {
             Need clarification on how to use our brand? Our team is happy to
             help you get it right.
           </p>
-          <a
-            href="/contact"
-            className="mt-6 inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground transition-all hover:opacity-90"
-          >
-            Contact Us
-          </a>
+
+          <Button className="mt-6">
+            <a href="/contact">Contact Us</a>
+          </Button>
         </div>
       </section>
     </div>

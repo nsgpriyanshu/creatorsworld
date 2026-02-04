@@ -1,4 +1,5 @@
 import { FileText } from "lucide-react";
+import { Button } from "@repo/ui/components/ui/button";
 import LegalHero from "../../../components/legal/legal-hero";
 import LegalContent from "../../../components/legal/legal-content";
 import { terms } from "../../../constants/legal";
@@ -9,7 +10,7 @@ export default function ToSPage() {
       {/* Hero */}
       <section className="w-full">
         <LegalHero
-          icon={<FileText className="h-4 w-4 text-amber-500" />}
+          icon={<FileText className="h-4 w-4 text-[#f10a0a]" />}
           badge="Community Rules"
           title="Terms of Service"
           description="Please read our Terms of Service carefully. By using Creators World, you agree to these terms and conditions."
@@ -31,12 +32,9 @@ export default function ToSPage() {
             If you need clarification on any of our terms or have concerns about
             how they apply to you, our team is here to help.
           </p>
-          <a
-            href="/contact"
-            className="mt-6 inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground transition-all hover:opacity-90"
-          >
-            Get in Touch
-          </a>
+          <Button className="mt-6">
+            <a href="/contact">Get in Touch</a>
+          </Button>
         </div>
       </section>
     </div>

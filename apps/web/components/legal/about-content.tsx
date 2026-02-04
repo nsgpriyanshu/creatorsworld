@@ -3,6 +3,7 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import { Heart, Zap, Users } from "lucide-react";
+import { Button } from "@repo/ui/components/ui/button";
 
 import Wrapper from "../global/wrapper";
 import AnimationContainer from "../global/animation-container";
@@ -30,19 +31,19 @@ const AboutContent: React.FC<AboutContentProps> = ({ description }) => {
 
   const features: Feature[] = [
     {
-      icon: <Zap className="h-6 w-6 text-blue-500" />,
+      icon: <Zap className="h-6 w-6 text-[#f10a0a]" />,
       title: "Innovation First",
       description:
         "We continuously explore new technologies and approaches to create the best tools for our community.",
     },
     {
-      icon: <Users className="h-6 w-6 text-purple-500" />,
+      icon: <Users className="h-6 w-6 text-[#f10a0a]" />,
       title: "Community Driven",
       description:
         "Our platform is built by and for the community, ensuring every voice matters.",
     },
     {
-      icon: <Heart className="h-6 w-6 text-red-500" />,
+      icon: <Heart className="h-6 w-6 text-[#f10a0a]" />,
       title: "Passion & Dedication",
       description:
         "We're committed to excellence and go the extra mile to support our users.",
@@ -167,20 +168,18 @@ const AboutContent: React.FC<AboutContentProps> = ({ description }) => {
             enthusiast, there's a place for you at Creator's World.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="https://discord.gg/creatorsworld"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground transition-all hover:opacity-90 w-full sm:w-auto"
-            >
-              Join Discord
-            </a>
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-6 py-3 font-medium text-foreground transition-all hover:bg-background/80 w-full sm:w-auto"
-            >
-              Get in Touch
-            </a>
+            <Button>
+              <a
+                href="https://discord.gg/creatorsworld"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Join Discord
+              </a>
+            </Button>
+            <Button variant="outline">
+              <a href="/contact">Get in Touch</a>
+            </Button>
           </div>
         </AnimationContainer>
       </section>

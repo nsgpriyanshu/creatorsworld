@@ -9,7 +9,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="w-full">
         <LegalHero
-          icon={<Sparkles className="h-4 w-4 text-yellow-500" />}
+          icon={<Sparkles className="h-4 w-4 text-[#f10a0a]" />}
           badge="Our Journey"
           title="About Creators World"
           description="From a simple dream to the world's largest verified Discord bot server, discover how we're revolutionizing community and innovation."

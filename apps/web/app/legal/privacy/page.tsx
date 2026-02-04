@@ -1,4 +1,5 @@
 import { Lock } from "lucide-react";
+import { Button } from "@repo/ui/components/ui/button";
 import LegalHero from "../../../components/legal/legal-hero";
 import LegalContent from "../../../components/legal/legal-content";
 import { policies } from "../../../constants/legal";
@@ -9,7 +10,7 @@ export default function PrivacyPage() {
       {/* Hero */}
       <section className="w-full">
         <LegalHero
-          icon={<Lock className="h-4 w-4 text-blue-500" />}
+          icon={<Lock className="h-4 w-4 text-[#f10a0a]" />}
           badge="Your Privacy Matters"
           title="Privacy Policy"
           description="We believe in transparency and protecting your privacy. Learn how we collect, use, and safeguard your information."
@@ -31,12 +32,9 @@ export default function PrivacyPage() {
             If you have any concerns about your personal data or how we handle
             information, please don't hesitate to reach out to us.
           </p>
-          <a
-            href="/contact"
-            className="mt-6 inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground transition-all hover:opacity-90"
-          >
-            Contact Us
-          </a>
+          <Button className="mt-6">
+            <a href="/contact">Contact Us</a>
+          </Button>
         </div>
       </section>
     </div>
