@@ -1,0 +1,47 @@
+name: CodeQL
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+  schedule:
+    - cron: '17 4 * * 4'
+
+jobs:
+  analyze:
+    name: Analyze (javascript-typescript)
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    permissions:
+      security-events: write
+      contents: read
+      actions: read
+      packages: read
+      pull-requests: write # Add if PR comments are desired
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ['javascript-typescript']
+        build-mode: ['none'] # Change to 'autobuild' if TypeScript compilation is needed
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: ${{ matrix.build-mode }}
+
+      - if: matrix.build-mode == 'manual'
+        run: |
+          npm install
+          npm run build  # Replace with your build commands if needed
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: 'language:${{ matrix.language }}'

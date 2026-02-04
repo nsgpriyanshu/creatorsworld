@@ -1,0 +1,81 @@
+name: Bug report
+description: Report a bug in the project
+title: '[BUG] '
+labels: bug
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a bug! Please provide the details below.
+
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      description: A brief description of the bug
+      placeholder: 'Enter bug title'
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A detailed description of the bug
+      placeholder: 'Enter bug description'
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: |
+        1. What steps will reproduce the issue?
+        2. What is the expected outcome?
+        3. What do you see instead?
+      placeholder: |
+        1. 
+        2. 
+        3.
+    validations:
+      required: true
+
+  - type: input
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What you expect to happen
+      placeholder: 'Enter expected behavior'
+    validations:
+      required: true
+
+  - type: input
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happens
+      placeholder: 'Enter actual behavior'
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and Screenshots
+      description: If applicable, add logs and screenshots to help explain the problem.
+      placeholder: 'Enter logs or attach screenshots'
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: Select the environment in which the bug occurs
+      options:
+        - Production
+        - Staging
+        - Development
+        - Other
+    validations:
+      required: true
