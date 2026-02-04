@@ -1,0 +1,45 @@
+"use client";
+
+import React from "react";
+import { Mail, Sparkles } from "lucide-react";
+
+import { Badge } from "@repo/ui/components/ui/badge";
+import Wrapper from "../global/wrapper";
+import AnimationContainer from "../global/animation-container";
+
+const ContactHero: React.FC = () => {
+  return (
+    <Wrapper className="relative w-full overflow-hidden pt-28 pb-16">
+      <div className="relative z-10 flex flex-col items-center text-center">
+        {/* Badge */}
+        <AnimationContainer animation="fadeDown">
+          <Badge
+            variant="outline"
+            className="flex items-center gap-2 border-border bg-background px-4 py-1.5 text-secondary-foreground"
+          >
+            <Mail className="h-4 w-4 text-[#f10a0a]" />
+            Let's Connect
+          </Badge>
+        </AnimationContainer>
+
+        {/* Heading */}
+        <AnimationContainer animation="fadeUp" delay={0.15}>
+          <h1 className="mt-8 max-w-4xl text-balance text-5xl font-semibold leading-tight tracking-tight text-foreground md:text-6xl">
+            Get in Touch!
+          </h1>
+        </AnimationContainer>
+
+        {/* Description */}
+        <AnimationContainer animation="fadeUp" delay={0.3}>
+          <p className="mt-6 max-w-3xl text-balance text-base leading-relaxed text-muted-foreground md:text-lg">
+            Have questions, feedback, or collaboration opportunities? We'd love
+            to hear from you. Reach out to our team and let's build something
+            amazing together.
+          </p>
+        </AnimationContainer>
+      </div>
+    </Wrapper>
+  );
+};
+
+export default ContactHero;

@@ -4,7 +4,7 @@ import * as React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import { Mail, Send } from "lucide-react";
+import { Send, User2, Mail, Phone, MessageSquare } from "lucide-react";
 
 import {
   contactSchema,
@@ -12,13 +12,7 @@ import {
 } from "../../lib/validations/contact";
 import { Button } from "@repo/ui/components/ui/button";
 import { Input } from "@repo/ui/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@repo/ui/components/ui/card";
+import { Card, CardContent } from "@repo/ui/components/ui/card";
 import Wrapper from "../global/wrapper";
 import AnimationContainer from "../global/animation-container";
 
@@ -34,8 +28,10 @@ export function ContactForm() {
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
-      name: "",
+      firstName: "",
+      lastName: "",
       email: "",
+      phone: "",
       message: "",
     },
   });
@@ -48,14 +44,11 @@ export function ContactForm() {
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
       const result = await response.json();
-
       if (!response.ok) {
         throw new Error(result?.message || "Failed to send message");
       }
@@ -71,116 +64,138 @@ export function ContactForm() {
   };
 
   return (
-    <Wrapper className="relative w-full overflow-hidden py-24">
-      <div className="flex flex-col items-center justify-center">
+    <Wrapper className="relative w-full pb-24">
+      <div className="flex justify-center w-full">
         <AnimationContainer animation="fadeUp">
-          <Card className="w-full max-w-2xl border border-border/50 bg-card/50 backdrop-blur-sm">
-            <CardHeader className="space-y-2">
-              <div className="flex items-center gap-2">
-                <Mail className="size-5 text-primary" />
-                <CardTitle className="text-2xl">Get in Touch</CardTitle>
-              </div>
-              <CardDescription className="text-base">
-                Have a question or want to collaborate? Send us a message and
-                we'll get back to you as soon as possible.
-              </CardDescription>
-            </CardHeader>
+          <Card className="max-w-2xl lg:w-2xl rounded-2xl border border-border/60 bg-card/60 backdrop-blur-md">
+            {/* Content */}
+            <CardContent className="pt-8">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                {/* First Name & Last Name */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <label className="text-sm font-medium flex items-center gap-2">
+                      <User2 className="h-4 w-4 text-muted-foreground" />
+                      First Name
+                    </label>
+                    <Input
+                      {...register("firstName")}
+                      placeholder="Prakriti"
+                      disabled={isSubmitting}
+                      className="h-9 rounded-md"
+                    />
+                    {errors.firstName && (
+                      <p className="text-xs text-destructive">
+                        {errors.firstName.message}
+                      </p>
+                    )}
+                  </div>
 
-            <CardContent>
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                {/* Name Field */}
-                <div className="space-y-2">
-                  <label
-                    htmlFor="name"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                  >
-                    Name
-                  </label>
-                  <Input
-                    {...register("name")}
-                    id="name"
-                    placeholder="Your name"
-                    disabled={isSubmitting}
-                    className="h-10 rounded-lg border border-border/50 bg-background/50 px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  />
-                  {errors.name && (
-                    <p className="text-xs font-medium text-destructive">
-                      {errors.name.message}
-                    </p>
-                  )}
+                  <div className="space-y-1.5">
+                    <label className="text-sm font-medium flex items-center gap-2">
+                      <User2 className="h-4 w-4 text-muted-foreground" />
+                      Last Name
+                    </label>
+                    <Input
+                      {...register("lastName")}
+                      placeholder="Lisa"
+                      disabled={isSubmitting}
+                      className="h-9 rounded-md"
+                    />
+                    {errors.lastName && (
+                      <p className="text-xs text-destructive">
+                        {errors.lastName.message}
+                      </p>
+                    )}
+                  </div>
                 </div>
 
-                {/* Email Field */}
-                <div className="space-y-2">
-                  <label
-                    htmlFor="email"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                  >
+                {/* Email */}
+                <div className="space-y-1.5">
+                  <label className="text-sm font-medium flex items-center gap-2">
+                    <Mail className="h-4 w-4 text-muted-foreground" />
                     Email
                   </label>
                   <Input
                     {...register("email")}
-                    id="email"
                     type="email"
-                    placeholder="your.email@example.com"
+                    placeholder="prakriti@cw.com"
                     disabled={isSubmitting}
-                    className="h-10 rounded-lg border border-border/50 bg-background/50 px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="h-9 rounded-md"
                   />
                   {errors.email && (
-                    <p className="text-xs font-medium text-destructive">
+                    <p className="text-xs text-destructive">
                       {errors.email.message}
                     </p>
                   )}
                 </div>
 
-                {/* Message Field */}
-                <div className="space-y-2">
+                {/* Phone */}
+                <div className="space-y-1.5">
+                  <label className="text-sm font-medium flex items-center gap-2">
+                    <Phone className="h-4 w-4 text-muted-foreground" />
+                    Phone (Optional)
+                  </label>
+                  <Input
+                    {...register("phone")}
+                    type="tel"
+                    placeholder="+91 12345 67890"
+                    disabled={isSubmitting}
+                    className="h-9 rounded-md"
+                  />
+                  {errors.phone && (
+                    <p className="text-xs text-destructive">
+                      {errors.phone.message}
+                    </p>
+                  )}
+                </div>
+
+                {/* Message */}
+                <div className="space-y-1.5">
                   <div className="flex items-center justify-between">
-                    <label
-                      htmlFor="message"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
+                    <label className="text-sm font-medium flex items-center gap-2">
+                      <MessageSquare className="h-4 w-4 text-muted-foreground" />
                       Message
                     </label>
                     <span className="text-xs text-muted-foreground">
                       {messageValue?.length || 0}/5000
                     </span>
                   </div>
+
                   <textarea
                     {...register("message")}
-                    id="message"
                     placeholder="Tell us about your inquiry..."
                     disabled={isSubmitting}
-                    rows={6}
-                    className="flex min-h-24 w-full rounded-lg border border-border/50 bg-background/50 px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none"
+                    rows={5}
+                    className="w-full resize-none rounded-md border border-border/50 bg-background/50 px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   />
+
                   {errors.message && (
-                    <p className="text-xs font-medium text-destructive">
+                    <p className="text-xs text-destructive">
                       {errors.message.message}
                     </p>
                   )}
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex gap-3 pt-4">
+                {/* Actions */}
+                <div className="flex gap-3 pt-2">
                   <Button
                     type="button"
                     variant="outline"
-                    onClick={() => {
-                      reset();
-                    }}
+                    onClick={() => reset()}
                     disabled={isSubmitting}
-                    className="flex-1"
+                    className="h-9 flex-1"
                   >
                     Clear
                   </Button>
+
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="flex-1 gap-2"
+                    className="h-9 flex-1 gap-2"
                   >
-                    <Send className="size-4" />
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    <Send className="h-4 w-4" />
+                    {isSubmitting ? "Sending..." : "Send"}
                   </Button>
                 </div>
               </form>

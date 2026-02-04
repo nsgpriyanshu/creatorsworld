@@ -1,22 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-
-/* ----------------------------- validation ----------------------------- */
-
-const formSchema = z.object({
-  name: z
-    .string()
-    .min(1, "Name is required")
-    .max(100, "Name must be 100 characters or less"),
-  email: z
-    .string()
-    .email("Invalid email address")
-    .max(255, "Email must be 255 characters or less"),
-  message: z
-    .string()
-    .min(1, "Message is required")
-    .max(2000, "Message must be 2000 characters or less"),
-});
+import { contactSchema } from "../../../lib/validations/contact";
 
 /* ------------------------------- handler ------------------------------ */
 
@@ -34,20 +18,23 @@ export async function POST(req: NextRequest) {
   try {
     const raw = await req.json();
 
-    const validated = await formSchema.parseAsync(raw);
+    const validated = await contactSchema.parseAsync(raw);
 
     /* --------------------------- discord embed --------------------------- */
 
     const embed = {
       title: "New Contact Form Submission",
-      color: 0xf10a0a, //f10a0a
+      color: 0xf10a0a,
       description: [
-        `**Name:** \`${validated.name}\``,
+        `**Name:** \`${validated.firstName} ${validated.lastName}\``,
         `**Email:** \`${validated.email}\``,
+        validated.phone ? `**Phone:** \`${validated.phone}\`` : null,
         "",
         "**Message:**",
         validated.message,
-      ].join("\n"),
+      ]
+        .filter(Boolean)
+        .join("\n"),
       timestamp: new Date().toISOString(),
     };
 
