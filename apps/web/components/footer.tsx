@@ -61,10 +61,10 @@ const PARTNER_LINKS: FooterLink[] = [
 /* ================= COMPANY ================= */
 
 const COMPANY_LINKS: FooterLink[] = [
-  { label: "About Us", href: "/about-us", icon: Info },
-  { label: "Privacy Policy", href: "/privacy-policy", icon: Lock },
-  { label: "Terms of Service", href: "/terms", icon: Scale },
-  { label: "Branding Guidelines", href: "/brand", icon: Palette },
+  { label: "About Us", href: "/legal/about", icon: Info },
+  { label: "Privacy Policy", href: "/legal/privacy", icon: Lock },
+  { label: "Terms of Service", href: "/legal/terms", icon: Scale },
+  { label: "Branding Guidelines", href: "/legal/brand", icon: Palette },
 ];
 
 /* ================= SOCIAL ================= */

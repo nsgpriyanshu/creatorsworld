@@ -1,7 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import { useTheme } from "next-themes";
+import React from "react";
 import { Sparkles, Users, Rocket, Globe } from "lucide-react";
 
 import Wrapper from "../global/wrapper";
@@ -13,19 +12,20 @@ import { FEATURES } from "../../constants/features";
 
 type FeatureIcon = "community" | "growth" | "global";
 
-const ICON_MAP: Record<FeatureIcon, React.FC<{ className?: string }>> = {
+const ICON_MAP: Record<
+  FeatureIcon,
+  React.ComponentType<{ className?: string }>
+> = {
   community: Users,
   growth: Rocket,
   global: Globe,
 };
 
 export default function Features() {
-  const { resolvedTheme } = useTheme();
-
   return (
     <Wrapper className="relative w-full overflow-hidden py-24 lg:py-36">
       {/* Header */}
-      <div className="relative z-10 flex w-full flex-col items-center text-center">
+      <div className="relative z-10 flex flex-col items-center text-center">
         <AnimationContainer animation="fadeDown">
           <Badge
             variant="outline"
@@ -36,76 +36,66 @@ export default function Features() {
           </Badge>
         </AnimationContainer>
 
-        <AnimationContainer animation="fadeUp" delay={0.1}>
+        <AnimationContainer animation="fadeUp" delay={0.08}>
           <h2 className="mt-6 max-w-3xl text-balance text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-6xl">
             Built for creators. Backed by community.
           </h2>
         </AnimationContainer>
 
-        <AnimationContainer animation="fadeUp" delay={0.2}>
-          <p className="mt-6 max-w-3xl text-balance text-base text-muted-foreground md:text-lg">
+        <AnimationContainer animation="fadeUp" delay={0.16}>
+          <p className="mt-6 max-w-2xl text-balance text-base text-muted-foreground md:text-lg">
             Everything you need to build, collaborate, and grow — together.
           </p>
         </AnimationContainer>
       </div>
 
-      {/* Hybrid Layout */}
-      <div className="relative mt-24 flex flex-col gap-24">
-        {FEATURES.map((feature, index) => {
-          const isLarge = feature.size === "large";
-          const Icon = ICON_MAP[feature.icon];
-          const imageSrc =
-            resolvedTheme === "dark" ? feature.image.dark : feature.image.light;
+      {/* Vercel-style Feature Grid */}
+      <div className="relative z-10 mx-auto mt-24 max-w-7xl px-4">
+        <div
+          className={cn(
+            "grid grid-cols-1 gap-6",
+            "sm:grid-cols-2",
+            "lg:grid-cols-3",
+          )}
+        >
+          {FEATURES.map((feature, index) => {
+            const Icon = ICON_MAP[feature.icon];
 
-          return (
-            <AnimationContainer
-              key={feature.title}
-              animation={
-                isLarge
-                  ? index % 2 === 0
-                    ? "fadeRight"
-                    : "fadeLeft"
-                  : "fadeUp"
-              }
-              delay={0.15 * (index + 1)}
-            >
-              <div
-                className={cn(
-                  "mx-auto flex max-w-6xl flex-col items-center gap-10 px-4",
-                  isLarge && "md:flex-row md:gap-16",
-                  isLarge && index % 2 === 0 && "md:flex-row-reverse",
-                )}
+            return (
+              <AnimationContainer
+                key={feature.title}
+                animation="fadeUp"
+                delay={0.06 * index}
               >
-                {/* Image */}
-                <div className="relative w-full max-w-lg">
-                  <Image
-                    src={imageSrc}
-                    alt={feature.title}
-                    width={900}
-                    height={600}
-                    className="rounded-3xl border border-border bg-card"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="flex max-w-xl flex-col items-center text-center md:items-start md:text-left ">
+                <div
+                  className={cn(
+                    "relative flex h-full flex-col rounded-3xl border border-border",
+                    "bg-card px-8 py-9",
+                    "transition-transform duration-200 ease-out",
+                    "hover:-translate-y-1",
+                  )}
+                >
                   {/* Icon */}
-                  <div className="mb-4 flex size-14 items-center justify-center rounded-2xl border border-border bg-card ">
-                    <Icon className="h-6 w-6 text-[#f10a0a]" />
+                  <div className="mb-6 flex size-11 items-center justify-center rounded-2xl border border-border bg-background">
+                    <Icon className="h-5 w-5 text-[#f10a0a]" />
                   </div>
 
-                  <h3 className="text-xl font-semibold tracking-tight text-foreground md:text-2xl">
+                  {/* Content */}
+                  <h3 className="text-lg font-semibold tracking-tight text-foreground">
                     {feature.title}
                   </h3>
 
-                  <p className="mt-3 text-base leading-relaxed text-muted-foreground md:text-lg">
+                  <p className="mt-3 max-w-[36ch] text-sm leading-relaxed text-muted-foreground md:text-base">
                     {feature.description}
                   </p>
+
+                  {/* Hover ring (cheap + CLS safe) */}
+                  <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-transparent transition-colors hover:ring-[#f10a0a]/20" />
                 </div>
-              </div>
-            </AnimationContainer>
-          );
-        })}
+              </AnimationContainer>
+            );
+          })}
+        </div>
       </div>
     </Wrapper>
   );
