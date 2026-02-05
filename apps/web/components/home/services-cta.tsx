@@ -29,7 +29,7 @@ const CURSOR_TAGS: CursorTag[] = [
 
 const ServicesCta = () => {
   return (
-    <Wrapper className="relative py-24 lg:py-32">
+    <Wrapper className="relative py-24">
       {/* Cursor tags */}
       {CURSOR_TAGS.map((tag, index) => (
         <AnimationContainer
@@ -51,7 +51,7 @@ const ServicesCta = () => {
 
       {/* Main bordered CTA box */}
       <AnimationContainer animation="fadeUp" delay={0.25}>
-        <div className="mx-auto max-w-4xl rounded-3xl border-2 border-[#f10a0a] px-8 py-14 text-center md:px-16">
+        <div className="mx-auto max-w-4xl rounded-3xl border-2 bg-red-400/10 border-[#f10a0a] px-8 py-14 text-center md:px-16">
           <AnimationContainer animation="fadeUp" delay={0.35}>
             <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
               Explore Our Services

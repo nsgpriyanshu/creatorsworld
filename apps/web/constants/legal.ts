@@ -139,38 +139,19 @@ export const brandColors: BrandColor[] = [
     name: "Primary Brand",
     hex: "#f10a0a",
     rgb: "rgb(241, 10, 10)",
-    usage:
-      "Main brand color for buttons, links, and primary actions - vibrant red accent",
+    usage: "Main  color",
   },
   {
-    name: "Primary (Dark Mode)",
-    hex: "#dddae5",
-    rgb: "rgb(221, 218, 229)",
-    usage: "Primary color in dark mode (bg-primary)",
+    name: "Primary",
+    hex: "#ffffff",
+    rgb: "rgb(255,255,255)",
+    usage: "Primary color",
   },
   {
-    name: "Secondary (Dark Mode)",
-    hex: "#44475a",
-    rgb: "rgb(68, 71, 90)",
-    usage: "Secondary color in dark mode (bg-secondary)",
-  },
-  {
-    name: "Foreground - Light",
-    hex: "#fafbfc",
-    rgb: "rgb(250, 251, 252)",
-    usage: "Light mode foreground/text color",
-  },
-  {
-    name: "Foreground - Dark",
-    hex: "#faf5f0",
-    rgb: "rgb(250, 245, 240)",
-    usage: "Dark mode foreground/text color",
-  },
-  {
-    name: "Border",
-    hex: "#e8e8e8",
-    rgb: "rgb(232, 232, 232)",
-    usage: "Border color for cards, inputs, and dividers",
+    name: "Secondary",
+    hex: "#000000",
+    rgb: "rgb(0, 0, 0)",
+    usage: "Secondary color",
   },
 ];
 

@@ -141,34 +141,6 @@ export default function BrandPage() {
             ))}
           </div>
         </section>
-
-        {/* Download Kit Section */}
-        <section className="border-t border-border/50 pt-24">
-          <div className="space-y-8 rounded-lg border border-border/50 bg-background/50 p-8 text-center backdrop-blur-sm md:p-12">
-            <AnimationContainer animation="fadeUp">
-              <div className="space-y-4">
-                <h2 className="text-3xl font-semibold text-foreground md:text-4xl">
-                  Need Everything at Once?
-                </h2>
-                <p className="mx-auto max-w-2xl text-muted-foreground">
-                  Download our complete brand kit including all logos, color
-                  swatches, and guidelines for easy access offline.
-                </p>
-              </div>
-            </AnimationContainer>
-
-            <AnimationContainer animation="fadeUp" delay={0.15}>
-              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <Button>
-                  <a href="/assets/brand">Browse All Assets</a>
-                </Button>
-                <Button variant="outline">
-                  <a href="/contact">Request Custom Assets</a>
-                </Button>
-              </div>
-            </AnimationContainer>
-          </div>
-        </section>
       </Wrapper>
 
       {/* Footer CTA */}

@@ -6,7 +6,7 @@ export const NAV_LINKS = [
   },
   {
     name: "Services",
-    link: "/services",
+    link: "/service",
     icon: "Cog",
   },
   {

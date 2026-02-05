@@ -1,4 +1,4 @@
-import { FileText } from "lucide-react";
+import { Scale } from "lucide-react";
 import { Button } from "@repo/ui/components/ui/button";
 import LegalHero from "../../../components/legal/legal-hero";
 import LegalContent from "../../../components/legal/legal-content";
@@ -10,7 +10,7 @@ export default function ToSPage() {
       {/* Hero */}
       <section className="w-full">
         <LegalHero
-          icon={<FileText className="h-4 w-4 text-[#f10a0a]" />}
+          icon={<Scale className="h-4 w-4 text-[#f10a0a]" />}
           badge="Community Rules"
           title="Terms of Service"
           description="Please read our Terms of Service carefully. By using Creators World, you agree to these terms and conditions."
