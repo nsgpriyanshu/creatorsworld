@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { Cog, Sparkles } from "lucide-react";
+import { Cog, Presentation } from "lucide-react";
 
 import Wrapper from "../global/wrapper";
 import AnimationContainer from "../global/animation-container";
@@ -66,7 +66,7 @@ const ServiceHero: React.FC = () => {
   return (
     <Wrapper className="relative w-full overflow-hidden pt-28 pb-24">
       {/* Brand Glow (intentional hardcoded brand color) */}
-      <div className="pointer-events-none absolute inset-x-0 -top-24 -z-10 mx-auto h-64 w-3/4 rounded-full bg-[radial-gradient(86%_172%_at_50%_-40%,rgba(241,10,10,0.9)_0%,rgba(5,5,5,0)_80%)] blur-[6rem]" />
+      <div className="pointer-events-none absolute inset-x-0 -top-24 -z-10 mx-auto h-48 w-3/4 rounded-full bg-[radial-gradient(86%_172%_at_50%_-40%,rgba(241,10,10,0.9)_0%,rgba(5,5,5,0)_80%)] blur-[6rem]" />
 
       <div className="relative z-10 flex flex-col items-center text-center">
         {/* Badge */}
@@ -84,14 +84,13 @@ const ServiceHero: React.FC = () => {
         <AnimationContainer animation="fadeUp" delay={0.15}>
           <h1 className="mt-8 max-w-4xl text-balance text-5xl font-semibold leading-tight tracking-tight text-foreground md:text-6xl">
             Focus on your{" "}
-            <span className="bg-gradient-to-r from-foreground to-[#f10a0a] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-foreground to-[#f10a0a] bg-clip-text text-transparent">
               business
             </span>
             , we will handle the{" "}
-            <span className="bg-gradient-to-r from-foreground to-[#1f3fad] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-foreground to-[#f10a0a] bg-clip-text text-transparent">
               Website
             </span>
-            .
           </h1>
         </AnimationContainer>
 
@@ -107,8 +106,9 @@ const ServiceHero: React.FC = () => {
         <AnimationContainer animation="scaleUp" delay={0.45}>
           <div className="mt-10">
             <Link href="/contact">
-              <Button size="lg" className="px-10 py-6">
-                Book a Call
+              <Button size="lg" className="px-10 py-6 gap-2">
+                <Presentation className="h-5 w-5" />
+                Request a Demo
               </Button>
             </Link>
           </div>

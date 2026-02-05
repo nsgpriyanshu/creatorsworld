@@ -8,6 +8,7 @@ import {
   Bot,
   Rocket,
   type LucideIcon,
+  Building2,
 } from "lucide-react";
 
 import { METRICS } from "../../constants";
@@ -58,7 +59,8 @@ const Milestones = () => {
 
           <AnimationContainer animation="fadeUp" delay={0.3}>
             <Link href="https://discord.gg/VUMVuArkst" target="_blank">
-              <Button size="lg" className="mt-8">
+              <Button size="lg" className="mt-8 gap-2">
+                <Building2 className="h-5 w-5" />
                 Join Community
               </Button>
             </Link>

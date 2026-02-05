@@ -38,7 +38,7 @@ export default function Features() {
 
         <AnimationContainer animation="fadeUp" delay={0.08}>
           <h2 className="mt-6 max-w-3xl text-balance text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            Built for creators. Backed by community.
+            Built for creators. Backed by community
           </h2>
         </AnimationContainer>
 

@@ -4,7 +4,14 @@ import * as React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import { Send, User2, Mail, Phone, MessageSquare } from "lucide-react";
+import {
+  Send,
+  User2,
+  Mail,
+  Phone,
+  MessageSquare,
+  CirclePlus,
+} from "lucide-react";
 
 import {
   contactSchema,
@@ -186,6 +193,7 @@ export function ContactForm() {
                     disabled={isSubmitting}
                     className="h-9 flex-1"
                   >
+                    <CirclePlus className="h-4 w-4 rotate-45" />
                     Clear
                   </Button>
 

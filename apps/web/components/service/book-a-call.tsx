@@ -4,7 +4,7 @@ import Link from "next/link";
 import Wrapper from "../global/wrapper";
 import AnimationContainer from "../global/animation-container";
 import { Button } from "@repo/ui/components/ui/button";
-import { ArrowRight, Cog } from "lucide-react";
+import { ArrowRight, PhoneCall } from "lucide-react";
 import { cn } from "@repo/ui/lib/utils";
 
 type CursorTag = {
@@ -14,23 +14,23 @@ type CursorTag = {
 
 const CURSOR_TAGS: CursorTag[] = [
   {
-    label: "web-dev",
-    className: "lg:left-[12%] lg:top-[28%] left-6 top-16",
+    label: "project-design",
+    className: "lg:left-[14%] lg:top-[26%] left-6 top-14",
   },
   {
-    label: "ui/ux-design",
-    className: "lg:right-[14%] lg:top-[32%] right-6 top-32",
+    label: "project-discussion",
+    className: "lg:right-[16%] lg:top-[34%] right-6 top-28",
   },
   {
-    label: "discord-bot-development",
-    className: "lg:left-[22%] lg:bottom-[30%] left-4 bottom-20",
+    label: "custom-solution",
+    className: "lg:left-[20%] lg:bottom-[28%] left-4 bottom-20",
   },
 ];
 
-const ServicesCta = () => {
+const BookCallCta = () => {
   return (
     <Wrapper className="relative py-24">
-      {/* Cursor tags */}
+      {/* Floating cursor tags */}
       {CURSOR_TAGS.map((tag, index) => (
         <AnimationContainer
           key={tag.label}
@@ -43,39 +43,42 @@ const ServicesCta = () => {
               tag.className,
             )}
           >
-            <Cog className="h-4 w-4 text-[#f10a0a]" />
+            <PhoneCall className="h-4 w-4 text-[#f10a0a]" />
             {tag.label}
           </div>
         </AnimationContainer>
       ))}
 
-      {/* Main bordered CTA box */}
+      {/* Main CTA box */}
       <AnimationContainer animation="fadeUp" delay={0.25}>
-        <div className="mx-auto max-w-4xl rounded-3xl border-2 bg-red-400/10 border-[#f10a0a] px-8 py-14 text-center md:px-16">
+        <div className="mx-auto max-w-4xl rounded-3xl border-2 border-[#f10a0a] bg-red-400/10 px-8 py-14 text-center md:px-16">
           <AnimationContainer animation="fadeUp" delay={0.35}>
             <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
-              Explore Our Services
+              Book a Free Strategy Call
             </h2>
           </AnimationContainer>
 
           <AnimationContainer animation="fadeUp" delay={0.45}>
             <p className="mx-auto mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
-              From full-stack development to UI/UX and Discord automation — we
-              build systems that scale with creators and communities.
+              Let’s discuss your idea, goals, and challenges — and see how we
+              can build a scalable solution tailored for you.
             </p>
           </AnimationContainer>
 
           <AnimationContainer animation="fadeUp" delay={0.55}>
-            <div className="mt-10 flex items-center justify-center">
-              <Link href="/service">
-                <Button variant="default" size="lg">
-                  <Cog className="h-5 w-5" />
-                  Explore Services
-                </Button>
-                <Button size="icon" className="group gap-2">
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <div className="mt-10 flex items-center justify-center gap-2">
+              <Link href="/contact">
+                <Button size="lg" className="gap-2">
+                  <PhoneCall className="h-5 w-5" />
+                  Book a Call
                 </Button>
               </Link>
+
+              <Button size="icon" variant="outline" className="group">
+                <Link href="/contact">
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
             </div>
           </AnimationContainer>
         </div>
@@ -84,4 +87,4 @@ const ServicesCta = () => {
   );
 };
 
-export default ServicesCta;
+export default BookCallCta;

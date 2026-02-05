@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { Sparkles } from "lucide-react";
+import { Compass, Sparkles } from "lucide-react";
 
 import Wrapper from "../global/wrapper";
 import AnimationContainer from "../global/animation-container";
@@ -108,7 +108,8 @@ const Hero: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="lg" className="px-10 py-6">
+              <Button size="lg" className="px-10 py-6 gap-2">
+                <Compass className="h-5 w-5" />
                 Explore More
               </Button>
             </Link>

@@ -9,7 +9,7 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "framer-motion";
-import { Package, Cog, BookMarked, Mail } from "lucide-react";
+import { Package, Cog, BookMarked, Mail, HandHeart } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -148,7 +148,10 @@ const Navbar = () => {
           <div className="flex items-center gap-x-4">
             <ModeToggle />
             <Link href="https://discord.gg/VUMVuArkst">
-              <Button size="sm">Join</Button>
+              <Button size="sm">
+                <HandHeart className="h-4 w-4" />
+                <Link href="https://discord.gg/VUMVuArkst">Join</Link>
+              </Button>
             </Link>
           </div>
         </Wrapper>
@@ -187,6 +190,7 @@ const Navbar = () => {
           <div className="flex items-center gap-x-3">
             <ModeToggle />
             <Button size="sm">
+              <HandHeart className="h-4 w-4" />
               <Link href="https://discord.gg/VUMVuArkst">Join</Link>
             </Button>
             <HamburgerButton open={open} onClick={() => setOpen(!open)} />

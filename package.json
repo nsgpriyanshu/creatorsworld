@@ -1,5 +1,6 @@
 {
   "name": "creatorsworld",
+  "description": "Offcial repo of Creator's World Codebase.",
   "private": true,
   "scripts": {
     "build": "turbo run build",
