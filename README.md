@@ -2,7 +2,7 @@
 
 # Creator's World
 
-<img src="public/og/og-main.png" alt="Creator's World Icon" style="border-radius: 20px;" />
+<img src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/refs/heads/main/apps/web/public/icons/light/android-chrome-512x512.png" alt="Creator's World Icon" style="border-radius: 20px;" />
 
 <br>
 
