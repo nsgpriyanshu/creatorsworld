@@ -6,14 +6,13 @@ import { ArrowRight, CirclePlus } from "lucide-react";
 
 import Wrapper from "../global/wrapper";
 import AnimationContainer from "../global/animation-container";
-
 import { Badge } from "@repo/ui/components/ui/badge";
-import { Card, CardContent } from "@repo/ui/components/ui/card";
 
 const WhatYouGet = () => {
   return (
     <section className="relative w-full overflow-hidden py-28">
       <Wrapper>
+        {/* Header */}
         <div className="flex flex-col items-center text-center">
           <AnimationContainer animation="fadeDown">
             <Badge
@@ -42,20 +41,51 @@ const WhatYouGet = () => {
           </AnimationContainer>
         </div>
 
-        <div className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {WHAT_YOU_GET.map((item, index) => {
-            const Icon = item.icon;
+        {/* Flow */}
+        <div className="relative mt-24">
+          {/* Curved connectors (desktop only) */}
+          <svg
+            className="pointer-events-none absolute inset-0 hidden h-full w-full lg:block"
+            viewBox="0 0 1200 300"
+            fill="none"
+          >
+            {WHAT_YOU_GET.slice(0, -1).map((_, index) => {
+              const startX = 200 + index * 260;
+              const endX = startX + 260;
 
-            return (
-              <AnimationContainer
-                key={item.title}
-                animation="scaleUp"
-                delay={0.45 + index * 0.1}
-              >
-                <Card className="group h-full rounded-3xl border-border transition-all duration-300 hover:shadow-md">
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-3">
-                      {/* ICON — ONLY COLOR UPDATED */}
+              return (
+                <path
+                  key={index}
+                  d={`M ${startX} 150 C ${
+                    startX + 130
+                  } 40, ${endX - 130} 260, ${endX} 150`}
+                  stroke="hsl(var(--border))"
+                  strokeWidth="1"
+                  strokeDasharray="4 6"
+                />
+              );
+            })}
+          </svg>
+
+          {/* Items */}
+          <div className="relative z-10 grid gap-10 lg:grid-flow-col lg:auto-cols-fr">
+            {WHAT_YOU_GET.map((item, index) => {
+              const Icon = item.icon;
+
+              return (
+                <AnimationContainer
+                  key={item.title}
+                  animation="scaleUp"
+                  delay={0.4 + index * 0.1}
+                >
+                  <div className="relative h-full rounded-3xl border border-border bg-background p-6 transition-all duration-300 hover:shadow-md">
+                    {/* Step */}
+                    <div className="absolute -top-4 left-1/2 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full border border-border bg-background text-sm font-medium">
+                      {index + 1}
+                    </div>
+
+                    {/* Header */}
+                    <div className="flex items-center gap-3 pt-6">
                       <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-background">
                         <Icon className="h-5 w-5 text-[#f10a0a]" />
                       </div>
@@ -63,10 +93,12 @@ const WhatYouGet = () => {
                       <h3 className="text-lg font-semibold">{item.title}</h3>
                     </div>
 
+                    {/* Description */}
                     <p className="mt-4 text-sm text-muted-foreground">
                       {item.description}
                     </p>
 
+                    {/* Points */}
                     <ul className="mt-6 space-y-2 text-sm">
                       {item.points.map((point) => (
                         <li key={point} className="flex items-center gap-2">
@@ -75,11 +107,11 @@ const WhatYouGet = () => {
                         </li>
                       ))}
                     </ul>
-                  </CardContent>
-                </Card>
-              </AnimationContainer>
-            );
-          })}
+                  </div>
+                </AnimationContainer>
+              );
+            })}
+          </div>
         </div>
       </Wrapper>
     </section>

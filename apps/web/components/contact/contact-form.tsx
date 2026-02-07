@@ -11,6 +11,7 @@ import {
   Phone,
   MessageSquare,
   CirclePlus,
+  Globe,
 } from "lucide-react";
 
 import {
@@ -40,6 +41,8 @@ export function ContactForm() {
       email: "",
       phone: "",
       message: "",
+      country: "",
+      companySize: "",
     },
   });
 
@@ -71,7 +74,7 @@ export function ContactForm() {
   };
 
   return (
-    <Wrapper className="relative w-full pb-24">
+    <Wrapper className="relative w-full pb-24 overflow-x-hidden">
       <div className="flex justify-center w-full">
         <AnimationContainer animation="fadeUp">
           <Card className="max-w-2xl lg:w-2xl rounded-2xl border border-border/60 bg-card/60 backdrop-blur-md">
@@ -153,6 +156,46 @@ export function ContactForm() {
                   {errors.phone && (
                     <p className="text-xs text-destructive">
                       {errors.phone.message}
+                    </p>
+                  )}
+                </div>
+
+                {/* Country */}
+                <div className="space-y-1.5">
+                  <label className="text-sm font-medium flex items-center gap-2">
+                    <Globe className="h-4 w-4 text-muted-foreground" />
+                    Country
+                  </label>
+                  <Input
+                    {...register("country")}
+                    type="text"
+                    placeholder="India"
+                    disabled={isSubmitting}
+                    className="h-9 rounded-md"
+                  />
+                  {errors.country && (
+                    <p className="text-xs text-destructive">
+                      {errors.country.message}
+                    </p>
+                  )}
+                </div>
+
+                {/* Company Size */}
+                <div className="space-y-1.5">
+                  <label className="text-sm font-medium flex items-center gap-2">
+                    <Globe className="h-4 w-4 text-muted-foreground" />
+                    Company Size
+                  </label>
+                  <Input
+                    {...register("companySize")}
+                    type="text"
+                    placeholder="1-10 employees"
+                    disabled={isSubmitting}
+                    className="h-9 rounded-md"
+                  />
+                  {errors.companySize && (
+                    <p className="text-xs text-destructive">
+                      {errors.companySize.message}
                     </p>
                   )}
                 </div>

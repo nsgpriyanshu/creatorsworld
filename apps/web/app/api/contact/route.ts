@@ -17,7 +17,6 @@ export async function POST(req: NextRequest) {
 
   try {
     const raw = await req.json();
-
     const validated = await contactSchema.parseAsync(raw);
 
     /* --------------------------- discord embed --------------------------- */
@@ -29,6 +28,10 @@ export async function POST(req: NextRequest) {
         `**Name:** \`${validated.firstName} ${validated.lastName}\``,
         `**Email:** \`${validated.email}\``,
         validated.phone ? `**Phone:** \`${validated.phone}\`` : null,
+        `**Country:** \`${validated.country}\``,
+        validated.companySize
+          ? `**Company Size:** \`${validated.companySize}\``
+          : null,
         "",
         "**Message:**",
         validated.message,

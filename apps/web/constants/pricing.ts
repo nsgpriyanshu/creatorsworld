@@ -1,7 +1,3 @@
-// constants/pricing.ts
-
-import { Check } from "lucide-react";
-
 export const PRICING_PLANS = [
   {
     id: "base",

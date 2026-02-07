@@ -36,15 +36,15 @@ export const WHAT_YOU_GET = [
       "Asset & bundle optimization",
     ],
   },
-  {
-    title: "Support",
-    description:
-      "Ongoing support to keep your website running smoothly post-launch.",
-    icon: LifeBuoy,
-    points: [
-      "Post-launch assistance",
-      "Bug fixes & improvements",
-      "Guided maintenance",
-    ],
-  },
+  // {
+  //   title: "Support",
+  //   description:
+  //     "Ongoing support to keep your website running smoothly post-launch.",
+  //   icon: LifeBuoy,
+  //   points: [
+  //     "Post-launch assistance",
+  //     "Bug fixes & improvements",
+  //     "Guided maintenance",
+  //   ],
+  // },
 ] as const;

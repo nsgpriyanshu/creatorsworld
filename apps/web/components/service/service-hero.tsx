@@ -73,9 +73,9 @@ const ServiceHero: React.FC = () => {
         <AnimationContainer animation="fadeDown">
           <Badge
             variant="outline"
-            className="flex items-center gap-2 border-border bg-background/70 px-4 py-1.5 text-secondary-foreground"
+            className="group flex items-center gap-2 border-border bg-background/70 px-4 py-1.5 transition-all duration-300 hover:border-[#f10a0a]"
           >
-            <Cog className="h-4 w-4 text-[#f10a0a]" />
+            <Cog className="h-4 w-4 text-[#f10a0a] transition-transform duration-300 group-hover:rotate-12" />
             Services
           </Badge>
         </AnimationContainer>

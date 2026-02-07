@@ -5,11 +5,14 @@ export const contactSchema = z.object({
     .string()
     .min(2, "First name must be at least 2 characters")
     .max(100, "First name must be less than 100 characters"),
+
   lastName: z
     .string()
     .min(2, "Last name must be at least 2 characters")
     .max(100, "Last name must be less than 100 characters"),
+
   email: z.string().email("Please enter a valid email address"),
+
   phone: z
     .string()
     .optional()
@@ -19,6 +22,14 @@ export const contactSchema = z.object({
         /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/.test(val),
       "Please enter a valid phone number",
     ),
+
+  country: z
+    .string()
+    .min(2, "Country is required")
+    .max(100, "Country must be less than 100 characters"),
+
+  companySize: z.string().min(1, "Company size is required").optional(),
+
   message: z
     .string()
     .min(10, "Message must be at least 10 characters")
