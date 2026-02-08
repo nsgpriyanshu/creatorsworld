@@ -1,4 +1,5 @@
 import BookCallCta from "../../components/service/book-a-call";
+import FAQ from "../../components/service/faq";
 import Pricing from "../../components/service/pricing";
 import ServiceHero from "../../components/service/service-hero";
 import WhatYouGet from "../../components/service/what-you-get";
@@ -14,6 +15,9 @@ const ServicePage = () => {
       </section>
       <section className="w-full">
         <WhatYouGet />
+      </section>
+      <section className="w-full">
+        <FAQ />
       </section>
       <section className="w-full">
         <BookCallCta />
