@@ -66,7 +66,7 @@ const TechStackOrbit = () => {
       </div>
 
       {/* Orbit */}
-      <div className="relative mx-auto mt-24 h-[420px] w-full max-w-5xl sm:h-[520px]">
+      <div className="relative mx-auto mt-24 h-105 w-full max-w-5xl sm:h-130">
         {/* Center node */}
         <motion.div
           className="absolute left-1/2 top-1/2 z-10 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full text-center text-sm font-medium backdrop-blur sm:h-36 sm:w-36"

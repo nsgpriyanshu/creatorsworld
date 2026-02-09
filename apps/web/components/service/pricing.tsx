@@ -46,13 +46,13 @@ const Pricing = () => {
       {/* Subtle Grid Background */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:56px_56px] opacity-[0.12]"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-size-[56px_56px] opacity-[0.12]"
       />
 
       {/* Ambient Glow */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-[-15%] -z-10 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-accent/25 blur-[140px]"
+        className="pointer-events-none absolute left-1/2 top-[-15%] -z-10 h-120 w-120 -translate-x-1/2 rounded-full bg-accent/25 blur-[140px]"
       />
 
       <div className="relative z-10 flex flex-col items-center text-center">
@@ -65,11 +65,11 @@ const Pricing = () => {
             className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
           >
             {/* shine */}
-            <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+            <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
 
             <span className="relative flex items-center gap-2">
               <Tag className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
-              <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                 Pricing
               </span>
             </span>
@@ -82,7 +82,7 @@ const Pricing = () => {
         <AnimationContainer animation="fadeUp" delay={0.15}>
           <h2 className="mt-8 max-w-4xl text-balance text-4xl font-semibold tracking-tight md:text-5xl">
             Simple pricing for{" "}
-            <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
               every stage
             </span>
           </h2>

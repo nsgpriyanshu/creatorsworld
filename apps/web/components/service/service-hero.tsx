@@ -41,13 +41,13 @@ const ServiceHero: React.FC = () => {
           <Skeleton className="h-7 w-56 rounded-full" />
 
           <div className="mt-8 space-y-3">
-            <Skeleton className="h-12 w-[320px] md:w-[520px]" />
-            <Skeleton className="h-12 w-[260px] md:w-[420px]" />
+            <Skeleton className="h-12 w-[320px] md:w-130" />
+            <Skeleton className="h-12 w-65 md:w-105" />
           </div>
 
           <div className="mt-6 space-y-2">
-            <Skeleton className="h-4 w-[320px] md:w-[520px]" />
-            <Skeleton className="h-4 w-[260px] md:w-[420px]" />
+            <Skeleton className="h-4 w-[320px] md:w-130" />
+            <Skeleton className="h-4 w-65 md:w-105" />
           </div>
 
           <Skeleton className="mt-10 h-14 w-44 rounded-xl" />
@@ -65,13 +65,13 @@ const ServiceHero: React.FC = () => {
       {/* Subtle Grid */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:48px_48px] opacity-[0.15]"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-size-[48px_48px] opacity-[0.15]"
       />
 
       {/* Ambient Glow */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-[-12%] -z-10 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-accent/25 blur-[130px]"
+        className="pointer-events-none absolute left-1/2 top-[-12%] -z-10 h-105 w-105 -translate-x-1/2 rounded-full bg-accent/25 blur-[130px]"
       />
 
       <div className="relative z-10 flex flex-col items-center text-center">
@@ -84,11 +84,11 @@ const ServiceHero: React.FC = () => {
             className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
           >
             {/* moving shine */}
-            <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+            <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
 
             <span className="relative flex items-center gap-2">
               <Cog className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
-              <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                 Our Services
               </span>
             </span>
@@ -101,11 +101,11 @@ const ServiceHero: React.FC = () => {
         <AnimationContainer animation="fadeUp" delay={0.15}>
           <h1 className="mt-8 max-w-4xl text-balance text-5xl font-semibold tracking-tight md:text-6xl">
             Build powerful{" "}
-            <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
               digital products
             </span>{" "}
             while we manage the{" "}
-            <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
               complexity
             </span>
           </h1>
@@ -161,7 +161,7 @@ const ServiceHero: React.FC = () => {
         {/* Preview Image (Float + Depth)                                       */}
         {/* ------------------------------------------------------------------ */}
         <AnimationContainer animation="fadeUp" delay={0.75} className="w-full">
-          <div className="relative mx-auto mt-20 max-w-7xl rounded-3xl border border-border bg-card p-2 shadow-sm transition-transform duration-500 hover:translate-y-[-2px]">
+          <div className="relative mx-auto mt-20 max-w-7xl rounded-3xl border border-border bg-card p-2 shadow-sm transition-transform duration-500 hover:-translate-y-0.5">
             <div className="rounded-2xl border border-border bg-background">
               <Image
                 src={heroImageSrc}

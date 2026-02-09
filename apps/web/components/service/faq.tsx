@@ -35,7 +35,7 @@ const FAQ = () => {
             <AnimationContainer animation="fadeUp" delay={0.15}>
               <h2 className="mt-6 text-balance text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl">
                 Frequently asked{" "}
-                <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                   questions
                 </span>
               </h2>

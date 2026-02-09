@@ -37,10 +37,10 @@ const BookCallCta = () => {
   return (
     <Wrapper className="relative py-24 overflow-hidden border-t-2">
       {/* Top hero-style glow */}
-      <div className="pointer-events-none absolute inset-x-0 -top-24 -z-10 mx-auto h-48 w-3/4 rounded-full bg-gradient-to-r from-primary/30 via-primary/10 to-transparent blur-[6rem]" />
+      <div className="pointer-events-none absolute inset-x-0 -top-24 -z-10 mx-auto h-48 w-3/4 rounded-full bg-linear-to-r from-primary/30 via-primary/10 to-transparent blur-[6rem]" />
 
       {/* Bottom soft glow */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 mx-auto h-56 w-3/4 rounded-full bg-gradient-to-r from-primary/20 via-primary/10 to-transparent blur-[7rem]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 mx-auto h-56 w-3/4 rounded-full bg-linear-to-r from-primary/20 via-primary/10 to-transparent blur-[7rem]" />
 
       {/* Floating cursor tags (FORCED ABOVE CARD) */}
       {CURSOR_TAGS.map((tag, index) => {
@@ -69,12 +69,12 @@ const BookCallCta = () => {
       <AnimationContainer animation="fadeUp" delay={0.25}>
         <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-border bg-card/60 px-8 py-14 text-center backdrop-blur md:px-16">
           {/* Subtle inner glow */}
-          <div className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-primary/10 via-transparent to-transparent" />
+          <div className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-linear-to-br from-primary/10 via-transparent to-transparent" />
 
           <AnimationContainer animation="fadeUp" delay={0.35}>
             <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
               Book a Free{" "}
-              <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-foreground to-primary bg-clip-text text-transparent">
                 Strategy Call
               </span>
             </h2>
