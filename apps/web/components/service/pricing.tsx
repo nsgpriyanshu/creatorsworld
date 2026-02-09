@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import * as React from "react";
 import Link from "next/link";
 import {
   Tag,
@@ -20,24 +20,21 @@ import { Button } from "@repo/ui/components/ui/button";
 import { Badge } from "@repo/ui/components/ui/badge";
 
 /* ------------------------- Icon Resolver ------------------------- */
-/**
- * Returns JSX directly.
- * No component references, no indexing, no TS errors.
- */
 function renderFeatureIcon(index: number) {
-  const commonClass = "mt-0.5 h-4 w-4 text-muted-foreground";
+  const base =
+    "mt-0.5 h-4 w-4 text-muted-foreground transition-colors group-hover:text-foreground";
 
   switch (index % 5) {
     case 0:
-      return <Settings className={commonClass} />;
+      return <Settings className={base} />;
     case 1:
-      return <Zap className={commonClass} />;
+      return <Zap className={base} />;
     case 2:
-      return <Headphones className={commonClass} />;
+      return <Headphones className={base} />;
     case 3:
-      return <Shield className={commonClass} />;
+      return <Shield className={base} />;
     default:
-      return <ArrowRight className={commonClass} />;
+      return <ArrowRight className={base} />;
   }
 }
 
@@ -46,29 +43,54 @@ function renderFeatureIcon(index: number) {
 const Pricing = () => {
   return (
     <Wrapper className="relative w-full overflow-hidden py-28">
+      {/* Subtle Grid Background */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:56px_56px] opacity-[0.12]"
+      />
+
+      {/* Ambient Glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-[-15%] -z-10 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-accent/25 blur-[140px]"
+      />
+
       <div className="relative z-10 flex flex-col items-center text-center">
-        {/* Badge */}
+        {/* ------------------------------------------------------------------ */}
+        {/* Badge (Animated Title Effect)                                      */}
+        {/* ------------------------------------------------------------------ */}
         <AnimationContainer animation="fadeDown">
           <Badge
             variant="outline"
-            className="group flex items-center gap-2 border-border bg-background/70 px-4 py-1.5 transition-all duration-300 hover:border-[#f10a0a]"
+            className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
           >
-            <Tag className="h-4 w-4 text-[#f10a0a] transition-transform duration-300 group-hover:rotate-12" />
-            Pricing
+            {/* shine */}
+            <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+
+            <span className="relative flex items-center gap-2">
+              <Tag className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
+              <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                Pricing
+              </span>
+            </span>
           </Badge>
         </AnimationContainer>
 
-        {/* Heading */}
+        {/* ------------------------------------------------------------------ */}
+        {/* Heading                                                            */}
+        {/* ------------------------------------------------------------------ */}
         <AnimationContainer animation="fadeUp" delay={0.15}>
-          <h2 className="mt-8 max-w-4xl text-balance text-4xl font-semibold md:text-5xl">
+          <h2 className="mt-8 max-w-4xl text-balance text-4xl font-semibold tracking-tight md:text-5xl">
             Simple pricing for{" "}
-            <span className="bg-linear-to-r from-foreground to-[#f10a0a] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
               every stage
             </span>
           </h2>
         </AnimationContainer>
 
-        {/* Description */}
+        {/* ------------------------------------------------------------------ */}
+        {/* Description                                                        */}
+        {/* ------------------------------------------------------------------ */}
         <AnimationContainer animation="fadeUp" delay={0.3}>
           <p className="mt-6 max-w-3xl text-muted-foreground md:text-lg">
             Transparent plans designed to scale with your business — no hidden
@@ -76,7 +98,9 @@ const Pricing = () => {
           </p>
         </AnimationContainer>
 
-        {/* Pricing Cards */}
+        {/* ------------------------------------------------------------------ */}
+        {/* Pricing Cards                                                      */}
+        {/* ------------------------------------------------------------------ */}
         <div className="mt-20 grid w-full max-w-6xl gap-8 md:grid-cols-2">
           {PRICING_PLANS.map((plan, planIndex) => (
             <AnimationContainer
@@ -85,8 +109,10 @@ const Pricing = () => {
               delay={0.45 + planIndex * 0.15}
             >
               <div
-                className={`relative flex h-full flex-col rounded-3xl border bg-background px-8 py-10 ${
-                  plan.highlighted ? "border-primary" : "border-border"
+                className={`group relative flex h-full flex-col rounded-3xl border px-8 py-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg ${
+                  plan.highlighted
+                    ? "border-accent bg-accent/10"
+                    : "border-border bg-background"
                 }`}
               >
                 {/* Recommended */}
@@ -119,9 +145,11 @@ const Pricing = () => {
                 {/* Features */}
                 <ul className="flex-1 space-y-4 text-sm">
                   {plan.features.map((feature, idx) => (
-                    <li key={feature} className="flex items-start gap-3">
+                    <li key={feature} className="group flex items-start gap-3">
                       {renderFeatureIcon(idx)}
-                      <span className="text-muted-foreground">{feature}</span>
+                      <span className="text-muted-foreground transition-colors group-hover:text-foreground">
+                        {feature}
+                      </span>
                     </li>
                   ))}
                 </ul>

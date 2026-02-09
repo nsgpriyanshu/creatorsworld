@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import * as React from "react";
 import { WHAT_YOU_GET } from "../../constants/what-you-get";
 import { ArrowRight, CirclePlus } from "lucide-react";
 
@@ -12,22 +12,31 @@ const WhatYouGet = () => {
   return (
     <section className="relative w-full overflow-hidden py-28">
       <Wrapper>
-        {/* Header */}
+        {/* ------------------------------------------------------------------ */}
+        {/* Header                                                             */}
+        {/* ------------------------------------------------------------------ */}
         <div className="flex flex-col items-center text-center">
           <AnimationContainer animation="fadeDown">
             <Badge
               variant="outline"
-              className="group flex items-center gap-2 border-border bg-background/70 px-4 py-1.5 text-secondary-foreground transition-all duration-300 hover:border-[#f10a0a]"
+              className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
             >
-              <CirclePlus className="h-4 w-4 text-[#f10a0a] transition-transform duration-300 group-hover:rotate-12" />
-              What You Get
+              {/* shine */}
+              <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+
+              <span className="relative flex items-center gap-2">
+                <CirclePlus className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
+                <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                  What You Get
+                </span>
+              </span>
             </Badge>
           </AnimationContainer>
 
           <AnimationContainer animation="fadeUp" delay={0.15}>
             <h2 className="mt-8 max-w-4xl text-balance text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
               Everything you need to{" "}
-              <span className="bg-linear-to-r from-foreground to-[#f10a0a] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                 launch & scale
               </span>
             </h2>
@@ -41,7 +50,9 @@ const WhatYouGet = () => {
           </AnimationContainer>
         </div>
 
-        {/* Flow */}
+        {/* ------------------------------------------------------------------ */}
+        {/* Flow                                                               */}
+        {/* ------------------------------------------------------------------ */}
         <div className="relative mt-24">
           {/* Curved connectors (desktop only) */}
           <svg
@@ -78,7 +89,7 @@ const WhatYouGet = () => {
                   animation="scaleUp"
                   delay={0.4 + index * 0.1}
                 >
-                  <div className="relative h-full rounded-3xl border border-border bg-background p-6 transition-all duration-300 hover:shadow-md">
+                  <div className="group relative h-full rounded-3xl border border-border bg-background p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
                     {/* Step */}
                     <div className="absolute -top-4 left-1/2 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full border border-border bg-background text-sm font-medium">
                       {index + 1}
@@ -86,8 +97,8 @@ const WhatYouGet = () => {
 
                     {/* Header */}
                     <div className="flex items-center gap-3 pt-6">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-background">
-                        <Icon className="h-5 w-5 text-[#f10a0a]" />
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-background transition-colors group-hover:bg-muted">
+                        <Icon className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-foreground" />
                       </div>
 
                       <h3 className="text-lg font-semibold">{item.title}</h3>
@@ -103,7 +114,7 @@ const WhatYouGet = () => {
                       {item.points.map((point) => (
                         <li key={point} className="flex items-center gap-2">
                           <ArrowRight className="h-3.5 w-3.5 text-muted-foreground" />
-                          {point}
+                          <span className="text-muted-foreground">{point}</span>
                         </li>
                       ))}
                     </ul>

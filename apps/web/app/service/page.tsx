@@ -3,6 +3,7 @@ import FAQ from "../../components/service/faq";
 import Pricing from "../../components/service/pricing";
 import ServiceHero from "../../components/service/service-hero";
 import WhatYouGet from "../../components/service/what-you-get";
+import TechStackOrbit from "../../components/service/tech-stack";
 
 const ServicePage = () => {
   return (
@@ -15,6 +16,9 @@ const ServicePage = () => {
       </section>
       <section className="w-full">
         <WhatYouGet />
+      </section>
+      <section className="w-full">
+        <TechStackOrbit />
       </section>
       <section className="w-full">
         <FAQ />
