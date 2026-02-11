@@ -43,7 +43,7 @@ function renderFeatureIcon(index: number) {
 const Pricing = () => {
   return (
     <Wrapper className="relative w-full overflow-hidden py-28">
-      {/* Subtle Grid Background */}
+      {/* Grid Background */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-size-[56px_56px] opacity-[0.12]"
@@ -56,17 +56,13 @@ const Pricing = () => {
       />
 
       <div className="relative z-10 flex flex-col items-center text-center">
-        {/* ------------------------------------------------------------------ */}
-        {/* Badge (Animated Title Effect)                                      */}
-        {/* ------------------------------------------------------------------ */}
+        {/* Badge */}
         <AnimationContainer animation="fadeDown">
           <Badge
             variant="outline"
             className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
           >
-            {/* shine */}
             <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
-
             <span className="relative flex items-center gap-2">
               <Tag className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
               <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
@@ -76,32 +72,27 @@ const Pricing = () => {
           </Badge>
         </AnimationContainer>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* Heading                                                            */}
-        {/* ------------------------------------------------------------------ */}
+        {/* Heading */}
         <AnimationContainer animation="fadeUp" delay={0.15}>
           <h2 className="mt-8 max-w-4xl text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-            Simple pricing for{" "}
+            Tailored solutions for{" "}
             <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-              every stage
+              every business stage
             </span>
           </h2>
         </AnimationContainer>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* Description                                                        */}
-        {/* ------------------------------------------------------------------ */}
+        {/* Description */}
         <AnimationContainer animation="fadeUp" delay={0.3}>
           <p className="mt-6 max-w-3xl text-muted-foreground md:text-lg">
-            Transparent plans designed to scale with your business — no hidden
-            costs, no surprises.
+            We don’t sell fixed packages. We provide structured solutions —
+            clearly scoped, transparently defined, and built for long-term
+            growth.
           </p>
         </AnimationContainer>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* Pricing Cards                                                      */}
-        {/* ------------------------------------------------------------------ */}
-        <div className="mt-20 grid w-full max-w-6xl gap-8 md:grid-cols-2">
+        {/* Pricing Cards */}
+        <div className="mt-20 grid w-full max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-3">
           {PRICING_PLANS.map((plan, planIndex) => (
             <AnimationContainer
               key={plan.id}
@@ -115,7 +106,7 @@ const Pricing = () => {
                     : "border-border bg-background"
                 }`}
               >
-                {/* Recommended */}
+                {/* Recommended Badge */}
                 {plan.highlighted && (
                   <div className="absolute -top-4 left-6">
                     <Badge className="flex items-center gap-1">
@@ -132,13 +123,24 @@ const Pricing = () => {
                     {plan.description}
                   </p>
 
-                  <div className="mt-6 flex items-end gap-2">
-                    <span className="text-4xl font-semibold">{plan.price}</span>
-                    <span className="text-sm text-muted-foreground">
-                      {plan.duration}
-                    </span>
+                  <div className="mt-6">
+                    <span className="text-3xl font-semibold">{plan.price}</span>
                   </div>
                 </div>
+
+                {/* Tiers (if exist) */}
+                {"tiers" in plan && plan.tiers && (
+                  <div className="mt-6 space-y-3 rounded-xl border border-border bg-muted/30 p-4 text-left text-sm">
+                    {plan.tiers.map((tier) => (
+                      <div key={tier.id}>
+                        <p className="font-medium">{tier.name}</p>
+                        <p className="text-muted-foreground text-xs">
+                          {tier.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 <div className="my-8 h-px bg-border" />
 
@@ -154,8 +156,17 @@ const Pricing = () => {
                   ))}
                 </ul>
 
+                {/* Notes */}
+                {"notes" in plan && plan.notes && (
+                  <div className="mt-6 space-y-2 border-t border-border pt-4 text-xs text-muted-foreground">
+                    {plan.notes.map((note) => (
+                      <p key={note}>• {note}</p>
+                    ))}
+                  </div>
+                )}
+
                 {/* CTA */}
-                <div className="mt-10">
+                <div className="mt-8">
                   <Link href="/contact">
                     <Button
                       size="lg"

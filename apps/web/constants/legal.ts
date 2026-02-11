@@ -3,6 +3,10 @@ export interface Term {
   description: string;
 }
 
+export interface Rule {
+  title: string;
+  description: string;
+}
 export interface Policy {
   title: string;
   description: string;
@@ -32,52 +36,105 @@ export const terms: Term[] = [
   {
     title: "1. Acceptance of Terms",
     description:
-      "By accessing Creator's World and its Discord server, you agree to these Terms of Service. Staff members must create an account to manage administrative tasks, while users only need a Discord account to participate.",
+      "By accessing Creator's World and purchasing our services, you agree to comply with these Terms and Conditions.",
   },
   {
-    title: "2. User-Generated Content",
+    title: "2. Services Offered",
     description:
-      "Users can submit content on the website and Discord. All content is moderated to keep the community safe and welcoming.",
+      "Creator's World provides services including website development, website management, logo design, Discord bot development, and related digital solutions. Each service may have separate pricing and package structures.",
   },
   {
-    title: "3. Monetization",
+    title: "3. Consultation Policy",
     description:
-      "Creator's World may offer paid services such as website building and Discord bot development in the future.",
+      "We provide two free consultation sessions of up to one hour each. These sessions are limited to project discussion and planning only.",
   },
   {
-    title: "4. Data Collection",
+    title: "4. Payments and Invoicing",
     description:
-      "We only collect the minimum data necessary for authentication and do not use tracking cookies or collect extra personal information.",
+      "Payments must be made online as agreed before project execution. Two invoices may be issued—one for partial payment and one for final payment. Once an invoice is issued, additional work outside the selected package will not be included unless separately agreed.",
   },
   {
-    title: "5. Minors",
+    title: "5. Refund Policy",
     description:
-      "Minors are welcome to participate in our Discord server, which is maintained as a safe community space.",
+      "Refunds are subject to specific conditions. The base fare is non-refundable. If 50% of the total payment has been made and cancellation is requested after project completion (between 1–5 days before the deadline), only 25% of the paid amount may be refunded. Clients must inform us within 5 days from receiving their unique PNR number. No service qualifies for a 100% refund.",
   },
   {
-    title: "6. Content Removal and Suspension",
+    title: "6. Service Packages",
     description:
-      "We reserve the right to remove content or suspend users who violate our community guidelines or these Terms.",
+      "Website development is a one-time payment service. Website management is offered separately under a monthly subscription model. Logo design is charged separately unless explicitly included in a selected package.",
   },
   {
-    title: "7. Third-Party Services",
+    title: "7. Support and Maintenance",
     description:
-      "We use third-party services like Discord, Supabase, and GitHub. We are not responsible for their content or uptime.",
+      "We provide 6 months of free support starting from the date the invoice is sent. Free support covers minor fixes only. After the support period ends, services are available under a paid management plan or per-issue support package.",
   },
   {
-    title: "8. Liability Disclaimer",
+    title: "8. Bug Resolution After Delivery",
     description:
-      "Creator's World is not liable for user-posted content or issues caused by third-party services.",
+      "If issues are discovered after project delivery and the free support period has expired, clients may request fixes under a separate paid service unless subscribed to an active management package.",
   },
   {
-    title: "9. Changes to Terms",
+    title: "9. Third-Party Services",
     description:
-      "These Terms may change occasionally. We will notify users through Discord and the website when significant updates occur.",
+      "We may use third-party platforms such as Discord, Supabase, GitHub, hosting providers, and payment gateways. We are not responsible for their uptime, policies, or service interruptions.",
   },
   {
-    title: "10. Contact Us",
+    title: "10. Liability Disclaimer",
     description:
-      "If you have questions about these Terms, please reach out via our contact page at https://creatorsworld.vercel.app/contact or contact us on Discord.",
+      "Creator's World shall not be held liable for indirect losses, third-party failures, or misuse of delivered services.",
+  },
+  {
+    title: "11. Changes to Terms",
+    description:
+      "These Terms may be updated periodically. Continued use of our services constitutes acceptance of any revised Terms.",
+  },
+  {
+    title: "12. Contact Us",
+    description:
+      "For questions regarding these Terms, please contact us via https://creatorsworld.vercel.app/contact or through our official Discord server.",
+  },
+];
+
+export const rules: Rule[] = [
+  {
+    title: "1. Respect All Members",
+    description:
+      "Treat all members with respect. Harassment, hate speech, discrimination, or abusive behavior will not be tolerated.",
+  },
+  {
+    title: "2. No Spam or Self-Promotion",
+    description:
+      "Do not spam messages, links, or promote unrelated services without permission from moderators.",
+  },
+  {
+    title: "3. Appropriate Content Only",
+    description:
+      "All shared content must be safe, legal, and appropriate for a diverse community. NSFW or harmful content is strictly prohibited.",
+  },
+  {
+    title: "4. Follow Discord Guidelines",
+    description:
+      "All members must follow Discord's official Terms of Service and Community Guidelines.",
+  },
+  {
+    title: "5. No Impersonation",
+    description:
+      "Impersonating staff members, developers, or other users is strictly prohibited.",
+  },
+  {
+    title: "6. Respect Moderation Decisions",
+    description:
+      "Moderators have the authority to remove content or restrict users to maintain community safety.",
+  },
+  {
+    title: "7. Protect Privacy",
+    description:
+      "Do not share personal information of yourself or others without consent.",
+  },
+  {
+    title: "8. Safe Environment for Minors",
+    description:
+      "Creator's World maintains a safe and moderated environment suitable for minors.",
   },
 ];
 
@@ -90,8 +147,9 @@ export const policies: Policy[] = [
   {
     title: "2. Information We Collect",
     description:
-      "We do not collect any personal information other than your Discord account for accessing the Creator's World server.",
+      "We collect only the minimum information necessary for authentication and service delivery, including Discord account details where applicable.",
   },
+
   {
     title: "3. Data Storage",
     description:

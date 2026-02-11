@@ -18,6 +18,7 @@ import {
   Palette,
   BookMarked,
   Cog,
+  ShieldCheck,
 } from "lucide-react";
 
 // External icons
@@ -64,6 +65,11 @@ const COMPANY_LINKS: FooterLink[] = [
   { label: "About Us", href: "/legal/about", icon: Info },
   { label: "Privacy Policy", href: "/legal/privacy", icon: Lock },
   { label: "Terms of Service", href: "/legal/terms", icon: Scale },
+  {
+    label: "Community Rules",
+    href: "/legal/community-rules",
+    icon: ShieldCheck,
+  },
   { label: "Branding Guidelines", href: "/legal/brand", icon: Palette },
 ];
 
