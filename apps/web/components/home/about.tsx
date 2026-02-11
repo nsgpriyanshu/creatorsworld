@@ -34,10 +34,17 @@ export default function WhoWeAre() {
         <AnimationContainer animation="fadeDown" delay={0.1}>
           <Badge
             variant="outline"
-            className="flex items-center gap-2 border-border bg-background px-4 py-1.5 text-secondary-foreground"
+            className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
           >
-            <History className="h-4 w-4 text-[#f10a0a]" />
-            Backstory
+            {/* moving shine */}
+            <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+
+            <span className="relative flex items-center gap-2">
+              <History className="h-4 w-4 text-[#f10a0a] transition-transform duration-300 group-hover:rotate-12" />
+              <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                Backstory
+              </span>
+            </span>
           </Badge>
         </AnimationContainer>
 

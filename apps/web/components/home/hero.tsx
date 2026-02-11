@@ -73,10 +73,17 @@ const Hero: React.FC = () => {
         <AnimationContainer animation="fadeDown">
           <Badge
             variant="outline"
-            className="flex items-center gap-2 border-border bg-background px-4 py-1.5 text-secondary-foreground"
+            className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
           >
-            <Sparkles className="h-4 w-4 text-[#f10a0a]" />
-            World’s largest bot server
+            {/* moving shine */}
+            <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+
+            <span className="relative flex items-center gap-2">
+              <Sparkles className="h-4 w-4 text-[#f10a0a] transition-transform duration-300 group-hover:rotate-12" />
+              <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                World's Largest Bot Server
+              </span>
+            </span>
           </Badge>
         </AnimationContainer>
 

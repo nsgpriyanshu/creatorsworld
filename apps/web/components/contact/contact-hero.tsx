@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Mail } from "lucide-react";
+import { Mail, MailOpen } from "lucide-react";
 
 import { Badge } from "@repo/ui/components/ui/badge";
 import Wrapper from "../global/wrapper";
@@ -15,10 +15,17 @@ const ContactHero: React.FC = () => {
         <AnimationContainer animation="fadeDown">
           <Badge
             variant="outline"
-            className="group flex items-center gap-2 border-border bg-background/70 px-4 py-1.5 transition-all duration-300 hover:border-[#f10a0a]"
+            className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
           >
-            <Mail className="h-4 w-4 text-[#f10a0a] transition-transform duration-300 group-hover:rotate-12" />
-            Let's Connect
+            {/* moving shine */}
+            <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+
+            <span className="relative flex items-center gap-2">
+              <MailOpen className="h-4 w-4 text-[#f10a0a] transition-transform duration-300 group-hover:rotate-12" />
+              <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                Let's Connect
+              </span>
+            </span>
           </Badge>
         </AnimationContainer>
 

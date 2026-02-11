@@ -17,10 +17,17 @@ export default function ProductPage() {
         <AnimationContainer animation="fadeUp" delay={0.1}>
           <Badge
             variant="outline"
-            className="mx-auto mb-4 flex w-fit items-center gap-2"
+            className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
           >
-            <Package2 className="h-4 w-4 text-[#f10a0a]" />
-            Products
+            {/* moving shine */}
+            <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+
+            <span className="relative flex items-center gap-2">
+              <Package2 className="h-4 w-4 text-[#f10a0a] transition-transform duration-300 group-hover:rotate-12" />
+              <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                Products
+              </span>
+            </span>
           </Badge>
         </AnimationContainer>
 

@@ -14,7 +14,7 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@repo/ui/components/ui/avatar";
-import { ShieldCheck, Crown } from "lucide-react";
+import { Crown, Verified } from "lucide-react";
 import { cn } from "@repo/ui/lib/utils";
 import { REGENTS } from "../../constants";
 
@@ -51,10 +51,17 @@ const Regents = () => {
         <AnimationContainer animation="fadeUp" delay={0.2}>
           <Badge
             variant="outline"
-            className="flex items-center gap-2 bg-background px-4 py-1.5 text-foreground"
+            className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
           >
-            <ShieldCheck className="h-4 w-4 text-[#f10a0a]" />
-            Leadership
+            {/* moving shine */}
+            <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+
+            <span className="relative flex items-center gap-2">
+              <Verified className="h-4 w-4 text-[#f10a0a] transition-transform duration-300 group-hover:rotate-12" />
+              <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                Regents
+              </span>
+            </span>
           </Badge>
         </AnimationContainer>
 
