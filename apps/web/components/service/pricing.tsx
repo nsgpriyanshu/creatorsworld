@@ -50,10 +50,10 @@ const Pricing = () => {
       />
 
       {/* Ambient Glow */}
-      <div
+      {/* <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-[-15%] -z-10 h-120 w-120 -translate-x-1/2 rounded-full bg-accent/25 blur-[140px]"
-      />
+      /> */}
 
       <div className="relative z-10 flex flex-col items-center text-center">
         {/* Badge */}
