@@ -31,7 +31,6 @@ export default function Features() {
             variant="outline"
             className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
           >
-            {/* moving shine */}
             <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
 
             <span className="relative flex items-center gap-2">
@@ -44,19 +43,19 @@ export default function Features() {
         </AnimationContainer>
 
         <AnimationContainer animation="fadeUp" delay={0.08}>
-          <h2 className="mt-6 max-w-3xl text-balance text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-6xl">
+          <h2 className="mt-6 max-w-3xl text-balance text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
             Built for creators. Backed by community
           </h2>
         </AnimationContainer>
 
         <AnimationContainer animation="fadeUp" delay={0.16}>
-          <p className="mt-6 max-w-2xl text-balance text-base text-muted-foreground md:text-lg">
+          <p className="mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
             Everything you need to build, collaborate, and grow — together.
           </p>
         </AnimationContainer>
       </div>
 
-      {/* Vercel-style Feature Grid */}
+      {/* Feature Grid */}
       <div className="relative z-10 mx-auto mt-24 max-w-7xl px-4">
         <div
           className={cn(
@@ -76,28 +75,47 @@ export default function Features() {
               >
                 <div
                   className={cn(
-                    "relative flex h-full flex-col rounded-3xl border border-border",
+                    "group relative flex h-full flex-col rounded-3xl",
+                    "border border-border",
                     "bg-card px-8 py-9",
-                    "transition-transform duration-200 ease-out",
+                    "transition-all duration-300 ease-out",
                     "hover:-translate-y-1",
+                    "hover:border-[#f10a0a]/30",
                   )}
                 >
-                  {/* Icon */}
-                  <div className="mb-6 flex size-11 items-center justify-center rounded-2xl border border-border bg-background">
+                  {/* Red inner shine */}
+                  <div className="pointer-events-none absolute inset-0 rounded-3xl bg-linear-to-br from-[#f10a0a]/10 via-transparent to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
+
+                  {/* Subtle radial glow */}
+                  <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <div className="absolute -bottom-20 -left-20 h-40 w-2h-40 rounded-full bg-[#f10a0a]/20 blur-3xl" />
+                  </div>
+
+                  {/* Icon with subtle red accent bg */}
+                  <div
+                    className={cn(
+                      "relative mb-6 flex size-11 items-center justify-center rounded-2xl",
+                      "border border-[#f10a0a]/20",
+                      "bg-[#f10a0a]/10",
+                      "transition-all duration-300",
+                      "group-hover:bg-[#f10a0a]/15",
+                      "group-hover:border-[#f10a0a]/40",
+                    )}
+                  >
                     <Icon className="h-5 w-5 text-[#f10a0a]" />
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-lg font-semibold tracking-tight text-foreground">
+                  <h3 className="relative text-lg font-semibold tracking-tight text-foreground">
                     {feature.title}
                   </h3>
 
-                  <p className="mt-3 max-w-[36ch] text-sm leading-relaxed text-muted-foreground md:text-base">
+                  <p className="relative mt-3 max-w-[36ch] text-sm leading-relaxed text-muted-foreground md:text-base">
                     {feature.description}
                   </p>
 
-                  {/* Hover ring (cheap + CLS safe) */}
-                  <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-transparent transition-colors hover:ring-[#f10a0a]/20" />
+                  {/* Hover ring */}
+                  <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-transparent transition-colors duration-300 group-hover:ring-[#f10a0a]/20" />
                 </div>
               </AnimationContainer>
             );

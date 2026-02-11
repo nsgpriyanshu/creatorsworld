@@ -92,8 +92,9 @@ const Hero: React.FC = () => {
           <h1 className="mt-8 max-w-4xl text-balance text-5xl font-semibold leading-tight tracking-tight text-foreground md:text-6xl">
             You have stepped into the{" "}
             <span>
-              <span className="text-[#f10a0a]">C</span>reator&apos;s{" "}
-              <span className="text-[#f10a0a]">W</span>orld
+              <span className=" bg-linear-to-r from-foreground to-[#f10a0a] bg-clip-text text-transparent">
+                Creator&apos;s World
+              </span>
             </span>
           </h1>
         </AnimationContainer>

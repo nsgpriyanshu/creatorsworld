@@ -36,7 +36,6 @@ export default function WhoWeAre() {
             variant="outline"
             className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
           >
-            {/* moving shine */}
             <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
 
             <span className="relative flex items-center gap-2">
@@ -49,13 +48,13 @@ export default function WhoWeAre() {
         </AnimationContainer>
 
         <AnimationContainer animation="fadeUp" delay={0.2}>
-          <h2 className="mt-8 max-w-3xl text-balance text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-6xl">
+          <h2 className="mt-8 max-w-3xl text-balance text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
             Who we are?
           </h2>
         </AnimationContainer>
 
         <AnimationContainer animation="fadeUp" delay={0.3}>
-          <p className="mt-6 max-w-3xl text-balance text-base text-muted-foreground md:text-lg">
+          <p className="mt-6 max-w-3xl text-base text-muted-foreground md:text-lg">
             We&apos;re a passionate team building a global platform to connect
             and empower creators with innovative tools and resources.
           </p>
@@ -81,9 +80,22 @@ export default function WhoWeAre() {
                   delay={0.15 * (index + 1)}
                 >
                   <div className="group flex max-w-xs flex-col items-center gap-4 text-center transition-transform duration-300 ease-out hover:-translate-y-1">
-                    {/* Icon */}
-                    <div className="flex size-14 items-center justify-center rounded-2xl border border-border bg-card transition-all duration-300 group-hover:scale-105 lg:size-16">
-                      <LucideIcon className="h-6 w-6 text-[#f10a0a]" />
+                    {/* Icon with subtle red accent */}
+                    <div
+                      className={cn(
+                        "relative flex size-14 items-center justify-center rounded-2xl lg:size-16",
+                        "border border-[#f10a0a]/20",
+                        "bg-[#f10a0a]/10",
+                        "transition-all duration-300",
+                        "group-hover:bg-[#f10a0a]/15",
+                        "group-hover:border-[#f10a0a]/40",
+                        "group-hover:scale-105",
+                      )}
+                    >
+                      {/* Soft inner glow */}
+                      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-linear-to-br from-[#f10a0a]/15 via-transparent to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
+
+                      <LucideIcon className="relative h-6 w-6 text-[#f10a0a]" />
                     </div>
 
                     {/* Text */}
