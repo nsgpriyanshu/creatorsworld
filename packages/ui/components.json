@@ -20,5 +20,6 @@
     "hooks": "@repo/ui/hooks"
   },
   "registries": {
+    "@magicui": "https://magicui.design/r/{name}"
   }
 }
