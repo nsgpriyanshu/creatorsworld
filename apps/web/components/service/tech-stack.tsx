@@ -14,9 +14,8 @@ import {
   SiVercel,
 } from "react-icons/si";
 
-import { Monitor } from "lucide-react";
+import { Monitor, Code2 } from "lucide-react";
 import { AnimatedBeam } from "@repo/ui/components/ui/animated-beam";
-import { Code2 } from "lucide-react";
 
 type CircleProps = {
   className?: string;
@@ -24,30 +23,25 @@ type CircleProps = {
 };
 
 const Circle = forwardRef<HTMLDivElement, CircleProps>(
-  ({ className, children }, ref) => {
-    return (
-      <div
-        ref={ref}
-        className={cn(
-          "relative flex size-14 items-center justify-center rounded-2xl lg:size-16",
-          "border border-black/15 dark:border-white/20",
-          "bg-black/5 dark:bg-white/5",
-          "transition-all duration-300",
-          "hover:bg-black/10 dark:hover:bg-white/10",
-          "hover:border-black/30 dark:hover:border-white/40",
-          "hover:scale-105",
-          className
-        )}
-      >
-        {/* Soft inner glow */}
-        <div className="pointer-events-none absolute inset-0 rounded-2xl bg-linear-to-br from-black/10 dark:from-white/10 via-transparent to-transparent opacity-70 transition-opacity duration-300 hover:opacity-100" />
+  ({ className, children }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        "relative z-20 flex size-14 items-center justify-center rounded-2xl lg:size-16",
+        "border border-border",
+        "bg-muted/40",
+        "transition-all duration-300 ease-out",
+        "hover:z-30 hover:scale-105",
+        "hover:bg-muted/60 hover:border-foreground/40",
+        className,
+      )}
+    >
+      {/* Subtle Glow */}
+      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-foreground/10 via-transparent to-transparent opacity-60 transition-opacity duration-300 hover:opacity-100" />
 
-        <div className="relative text-black dark:text-white">
-          {children}
-        </div>
-      </div>
-    );
-  }
+      <div className="relative z-30 text-foreground">{children}</div>
+    </div>
+  ),
 );
 
 Circle.displayName = "Circle";
@@ -64,7 +58,6 @@ const TechStack: React.FC = () => {
   return (
     <Wrapper className="relative overflow-hidden py-28">
       <div className="flex flex-col items-center text-center">
-        {/* Badge */}
         <AnimationContainer animation="fadeDown">
           <Badge
             variant="outline"
@@ -72,16 +65,15 @@ const TechStack: React.FC = () => {
           >
             <span className="relative flex items-center gap-2">
               <Code2 className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
-              <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                 Tech Stack
               </span>
             </span>
           </Badge>
         </AnimationContainer>
 
-        {/* Heading */}
         <AnimationContainer animation="fadeUp" delay={0.15}>
-          <h2 className="mt-8 max-w-4xl text-balance text-4xl font-semibold tracking-tight md:text-5xl">
+          <h2 className="mt-8 max-w-4xl text-4xl font-semibold tracking-tight md:text-5xl">
             Built on a{" "}
             <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
               modern & scalable web stack
@@ -89,60 +81,81 @@ const TechStack: React.FC = () => {
           </h2>
         </AnimationContainer>
 
-        {/* Description */}
         <AnimationContainer animation="fadeUp" delay={0.3}>
           <p className="mt-6 max-w-3xl text-muted-foreground md:text-lg leading-relaxed">
-            A carefully selected ecosystem powering performance, elegant
-            interfaces, smooth animations, and reliable deployment —
-            engineered for speed and long-term scalability.
+            A refined ecosystem delivering performance, elegant UI, smooth
+            animation, strict type safety, and seamless deployment.
           </p>
         </AnimationContainer>
       </div>
 
-      {/* Beam Layout */}
       <div
         ref={containerRef}
-        className="relative mt-20 flex h-80 w-full items-center justify-center "
+        className="relative isolate mt-20 flex h-80 w-full items-center justify-center"
       >
-        <div className="z-10 flex size-full max-w-xl flex-col items-stretch justify-between gap-14">
+        {/* ICONS (Above Beams) */}
+        <div className="relative z-10 flex size-full max-w-xl flex-col justify-between gap-20">
           <div className="flex items-center justify-between">
             <Circle ref={div1Ref}>
-              <SiNextdotjs className="h-6 w-6 z-10" />
+              <SiNextdotjs className="h-6 w-6" />
             </Circle>
-
             <Circle ref={div5Ref}>
-              <SiVercel className="h-6 w-6 z-10" />
+              <SiVercel className="h-6 w-6" />
             </Circle>
           </div>
 
           <div className="flex items-center justify-between">
             <Circle ref={div2Ref}>
-              <SiFramer className="h-6 w-6 z-10" />
+              <SiFramer className="h-6 w-6" />
             </Circle>
 
-            {/* Center (Website / Platform Core) */}
-            <Circle ref={div4Ref} className="size-20 z-10">
-              <Monitor className="h-8 w-8 z-10" />
+            <Circle ref={div4Ref} className="size-20">
+              <Monitor className="h-8 w-8" />
             </Circle>
 
             <Circle ref={div6Ref}>
-              <SiTypescript className="h-6 w-6 z-10" />
+              <SiTypescript className="h-6 w-6" />
             </Circle>
           </div>
 
           <div className="flex items-center justify-center">
             <Circle ref={div3Ref}>
-              <SiTailwindcss className="h-6 w-6 z-10" />
+              <SiTailwindcss className="h-6 w-6" />
             </Circle>
           </div>
         </div>
 
-        {/* Beams */}
-        <AnimatedBeam containerRef={containerRef} fromRef={div1Ref} toRef={div4Ref} curvature={-75} />
-        <AnimatedBeam containerRef={containerRef} fromRef={div2Ref} toRef={div4Ref} />
-        <AnimatedBeam containerRef={containerRef} fromRef={div3Ref} toRef={div4Ref} curvature={75} />
-        <AnimatedBeam containerRef={containerRef} fromRef={div5Ref} toRef={div4Ref} curvature={-75} reverse />
-        <AnimatedBeam containerRef={containerRef} fromRef={div6Ref} toRef={div4Ref} reverse />
+        {/* BEAMS (Always Behind) */}
+        <AnimatedBeam
+          containerRef={containerRef}
+          fromRef={div1Ref}
+          toRef={div4Ref}
+          curvature={-75}
+        />
+        <AnimatedBeam
+          containerRef={containerRef}
+          fromRef={div2Ref}
+          toRef={div4Ref}
+        />
+        <AnimatedBeam
+          containerRef={containerRef}
+          fromRef={div3Ref}
+          toRef={div4Ref}
+          curvature={75}
+        />
+        <AnimatedBeam
+          containerRef={containerRef}
+          fromRef={div5Ref}
+          toRef={div4Ref}
+          curvature={-75}
+          reverse
+        />
+        <AnimatedBeam
+          containerRef={containerRef}
+          fromRef={div6Ref}
+          toRef={div4Ref}
+          reverse
+        />
       </div>
     </Wrapper>
   );

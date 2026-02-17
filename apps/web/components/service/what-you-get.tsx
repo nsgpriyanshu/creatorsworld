@@ -7,6 +7,7 @@ import { ArrowRight, CirclePlus } from "lucide-react";
 import Wrapper from "../global/wrapper";
 import AnimationContainer from "../global/animation-container";
 import { Badge } from "@repo/ui/components/ui/badge";
+import { cn } from "@repo/ui/lib/utils";
 
 const WhatYouGet = () => {
   return (
@@ -22,11 +23,11 @@ const WhatYouGet = () => {
               className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
             >
               {/* shine */}
-              <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+              <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
 
               <span className="relative flex items-center gap-2">
                 <CirclePlus className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
-                <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                   What You Get
                 </span>
               </span>
@@ -36,7 +37,7 @@ const WhatYouGet = () => {
           <AnimationContainer animation="fadeUp" delay={0.15}>
             <h2 className="mt-8 max-w-4xl text-balance text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
               Everything you need to{" "}
-              <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                 launch & scale
               </span>
             </h2>
@@ -90,15 +91,29 @@ const WhatYouGet = () => {
                   delay={0.4 + index * 0.1}
                 >
                   <div className="group relative h-full rounded-3xl border border-border bg-background p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-                    {/* Step */}
+                    {/* Step Badge */}
                     <div className="absolute -top-4 left-1/2 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full border border-border bg-background text-sm font-medium">
                       {index + 1}
                     </div>
 
                     {/* Header */}
                     <div className="flex items-center gap-3 pt-6">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-background transition-colors group-hover:bg-muted">
-                        <Icon className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-foreground" />
+                      {/* Icon Container — Monochrome Subtle Style */}
+                      <div
+                        className={cn(
+                          "relative flex h-12 w-12 items-center justify-center rounded-2xl",
+                          "border border-border",
+                          "bg-muted/40",
+                          "transition-all duration-300",
+                          "group-hover:bg-muted",
+                          "group-hover:border-foreground/20",
+                          "group-hover:scale-105",
+                        )}
+                      >
+                        {/* Soft inner glow */}
+                        <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-foreground/5 via-transparent to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
+
+                        <Icon className="relative h-5 w-5 text-muted-foreground transition-colors duration-300 group-hover:text-foreground" />
                       </div>
 
                       <h3 className="text-lg font-semibold">{item.title}</h3>
@@ -113,8 +128,10 @@ const WhatYouGet = () => {
                     <ul className="mt-6 space-y-2 text-sm">
                       {item.points.map((point) => (
                         <li key={point} className="flex items-center gap-2">
-                          <ArrowRight className="h-3.5 w-3.5 text-muted-foreground" />
-                          <span className="text-muted-foreground">{point}</span>
+                          <ArrowRight className="h-3.5 w-3.5 text-muted-foreground transition-colors group-hover:text-foreground" />
+                          <span className="text-muted-foreground transition-colors group-hover:text-foreground/80">
+                            {point}
+                          </span>
                         </li>
                       ))}
                     </ul>

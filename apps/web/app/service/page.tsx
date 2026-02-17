@@ -4,6 +4,7 @@ import Pricing from "../../components/service/pricing";
 import ServiceHero from "../../components/service/service-hero";
 import WhatYouGet from "../../components/service/what-you-get";
 import TechStack from "../../components/service/tech-stack";
+import Showcase from "../../components/service/showcase";
 
 const ServicePage = () => {
   return (
@@ -19,6 +20,9 @@ const ServicePage = () => {
       </section>
       <section className="w-full">
         <TechStack />
+      </section>
+      <section className="w-full">
+        <Showcase />
       </section>
       <section className="w-full">
         <FAQ />

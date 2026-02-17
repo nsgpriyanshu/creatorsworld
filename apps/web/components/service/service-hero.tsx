@@ -100,13 +100,13 @@ const ServiceHero: React.FC = () => {
         {/* ------------------------------------------------------------------ */}
         <AnimationContainer animation="fadeUp" delay={0.15}>
           <h1 className="mt-8 max-w-4xl text-balance text-5xl font-semibold tracking-tight md:text-6xl">
-            Build powerful{" "}
+            Focus on your{" "}
             <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-              digital products
+              Buisness
             </span>{" "}
-            while we manage the{" "}
+            while we will manage the{" "}
             <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-              complexity
+              digital experience
             </span>
           </h1>
         </AnimationContainer>
