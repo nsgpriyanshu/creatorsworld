@@ -111,7 +111,7 @@ const WhatYouGet = () => {
                         )}
                       >
                         {/* Soft inner glow */}
-                        <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-foreground/5 via-transparent to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
+                        <div className="pointer-events-none absolute inset-0 rounded-2xl bg-linear-to-br from-foreground/5 via-transparent to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
 
                         <Icon className="relative h-5 w-5 text-muted-foreground transition-colors duration-300 group-hover:text-foreground" />
                       </div>

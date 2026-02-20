@@ -1,6 +1,9 @@
+"use client";
+
+import type { JSX } from "react";
 import { Palette } from "lucide-react";
 import { Button } from "@repo/ui/components/ui/button";
-import LegalHero from "../../../components/legal/legal-hero";
+import { Badge } from "@repo/ui/components/ui/badge";
 import Wrapper from "../../../components/global/wrapper";
 import AnimationContainer from "../../../components/global/animation-container";
 import ColorPalette from "../../../components/legal/color-palette";
@@ -12,22 +15,42 @@ import {
   brandGuidelines,
 } from "../../../constants/legal";
 
-export default function BrandPage() {
+export default function BrandPage(): JSX.Element {
   return (
     <div className="relative flex w-full flex-col">
-      {/* Hero */}
-      <section className="w-full">
-        <LegalHero
-          icon={<Palette className="h-4 w-4 text-[#f10a0a]" />}
-          badge="Brand Resources"
-          title="Brand Guidelines"
-          description="Everything you need to represent Creator's World consistently. Download our logos, explore our color palette, and learn our design principles."
-        />
+      {/* Header Section (Replaces LegalHero) */}
+      <section className="relative flex w-full flex-col items-center gap-6 px-6 py-20 sm:py-24 text-center">
+        {/* Subtle background glow */}
+        <div className="absolute inset-0 -z-10 bg-linear-to-b from-muted/40 via-transparent to-transparent" />
+
+        <Badge
+          variant="outline"
+          className="group relative overflow-hidden border-border bg-background/60 px-6 py-2 backdrop-blur-md transition-all duration-300 hover:shadow-md"
+        >
+          <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+
+          <span className="relative flex items-center gap-2">
+            <Palette className="h-4 w-4 text-[#f10a0a] transition-transform duration-300 group-hover:rotate-12" />
+            <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent text-sm font-semibold tracking-wide">
+              Brand Resources
+            </span>
+          </span>
+        </Badge>
+
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+          Brand Guidelines
+        </h1>
+
+        <p className="max-w-2xl text-base text-muted-foreground sm:text-lg">
+          Everything you need to represent Creator's World consistently.
+          Download our logos, explore our color palette, and learn our design
+          principles.
+        </p>
       </section>
 
-      {/* Color Palette Section */}
-      <Wrapper className="space-y-24 py-24">
-        {/* Colors */}
+      {/* Content Sections */}
+      <Wrapper className="space-y-24 px-6 pb-24">
+        {/* Color Palette */}
         <section className="space-y-12">
           <AnimationContainer animation="fadeUp">
             <div className="space-y-4">
@@ -81,7 +104,7 @@ export default function BrandPage() {
           <BrandGuidelines guidelines={brandGuidelines} />
         </section>
 
-        {/* Logo Usage Section */}
+        {/* Logo Usage Rules */}
         <section className="space-y-12 border-t border-border/50 pt-24">
           <AnimationContainer animation="fadeUp">
             <div className="space-y-4">
@@ -119,19 +142,16 @@ export default function BrandPage() {
               },
             ].map((section, index) => (
               <AnimationContainer
-                key={index}
+                key={section.title}
                 animation={index === 0 ? "fadeLeft" : "fadeRight"}
               >
-                <div className="space-y-4 rounded-lg border border-border/50 bg-background/50 p-6 backdrop-blur-sm">
+                <div className="space-y-4 rounded-xl border border-border/50 bg-background/60 p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-md">
                   <h3 className="text-lg font-semibold text-foreground">
                     {section.title}
                   </h3>
                   <ul className="space-y-3">
-                    {section.items.map((item, itemIndex) => (
-                      <li
-                        key={itemIndex}
-                        className="text-sm text-muted-foreground"
-                      >
+                    {section.items.map((item) => (
+                      <li key={item} className="text-sm text-muted-foreground">
                         {item}
                       </li>
                     ))}
@@ -144,8 +164,8 @@ export default function BrandPage() {
       </Wrapper>
 
       {/* Footer CTA */}
-      <section className="w-full border-t border-border/50 bg-background/50 py-16 backdrop-blur-sm">
-        <div className="mx-auto max-w-4xl px-4 text-center lg:px-20">
+      <section className="w-full border-t border-border/50 bg-background/50 py-20 backdrop-blur-sm">
+        <div className="mx-auto max-w-4xl px-6 text-center">
           <h2 className="text-2xl font-semibold text-foreground md:text-3xl">
             Questions About Our Brand?
           </h2>

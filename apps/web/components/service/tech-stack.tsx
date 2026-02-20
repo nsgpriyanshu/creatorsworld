@@ -37,7 +37,7 @@ const Circle = forwardRef<HTMLDivElement, CircleProps>(
       )}
     >
       {/* Subtle Glow */}
-      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-foreground/10 via-transparent to-transparent opacity-60 transition-opacity duration-300 hover:opacity-100" />
+      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-linear-to-br from-foreground/10 via-transparent to-transparent opacity-60 transition-opacity duration-300 hover:opacity-100" />
 
       <div className="relative z-30 text-foreground">{children}</div>
     </div>
