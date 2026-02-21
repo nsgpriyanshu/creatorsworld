@@ -7,8 +7,8 @@
 <br>
 
 [![Join Creator's World](https://custom-icon-badges.demolab.com/badge/Creators%20World-000000.svg?logo=creators_world&logoColor=white)](https://discord.gg/7SAcEv7MDd)
-[![Next.js](https://img.shields.io/github/package-json/dependency-version/nsgpriyanshu/creatorsworld/next?color=black&logo=next.js)](https://nextjs.org/)
-[![Version](https://img.shields.io/github/package-json/v/nsgpriyanshu/creatorsworld/apps/web?color=ff3b30)](https://github.com/nsgpriyanshu/creatorsworld)
+[![Next.js](https://img.shields.io/github/package-json/dependency-version/nsgpriyanshu/creatorsworld/next?filename=apps%2Fweb%2Fpackage.json&color=black&logo=next.js)](https://nextjs.org/)
+[![Version](https://img.shields.io/github/package-json/v/nsgpriyanshu/creatorsworld?filename=apps%2Fweb%2Fpackage.json&color=ff3b30)](https://github.com/nsgpriyanshu/creatorsworld)
 [![Discord](https://img.shields.io/discord/855781247480496130?color=5865F2&logo=discord&logoColor=white)](https://discord.gg/7SAcEv7MDd)
 [![Contributors](https://img.shields.io/github/contributors/nsgpriyanshu/creatorsworld?color=crimson)](https://github.com/nsgpriyanshu/creatorsworld/graphs/contributors)
 [![Last Commit](https://img.shields.io/github/last-commit/nsgpriyanshu/creatorsworld)](https://github.com/nsgpriyanshu/creatorsworld)

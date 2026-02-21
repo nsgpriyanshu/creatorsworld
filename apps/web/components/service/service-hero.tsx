@@ -67,7 +67,9 @@ const EcoCard = ({
         <Icon className="h-4 w-4 text-[#f10a0a]" />
       </span>
       <div>
-        <p className="text-sm font-medium leading-none text-foreground">{label}</p>
+        <p className="text-sm font-medium leading-none text-foreground">
+          {label}
+        </p>
         <p className="mt-0.5 text-xs text-muted-foreground">{sub}</p>
       </div>
     </div>
@@ -152,7 +154,6 @@ const ServiceHero: React.FC = () => {
       />
 
       <div className="relative z-10 flex flex-col items-center text-center">
-
         {/* ------------------------------------------------------------------ */}
         {/* Animated Badge                                                     */}
         {/* ------------------------------------------------------------------ */}
@@ -237,36 +238,173 @@ const ServiceHero: React.FC = () => {
         {/*  CUSTOM ECOSYSTEM VISUAL                                           */}
         {/* ================================================================== */}
         <AnimationContainer animation="fadeUp" delay={0.75} className="w-full">
-
-          {/* Orbital diagram — shown on all sizes, scaled on mobile */}
-          <div className="mt-20 w-full overflow-x-hidden">
-            {/* Scale wrapper: origin CENTER-top so it scales inward symmetrically */}
-            <div
-              style={{
-                transformOrigin: "center top",
-                transform: "scale(var(--eco-scale, 1))",
-                marginBottom: "var(--eco-mb, 0px)",
-                transition: "transform 0.3s",
-              }}
-            >
-              <style>{`
-                @media (max-width: 479px)  { :root { --eco-scale: 0.46; --eco-mb: -292px; } }
-                @media (min-width: 480px) and (max-width: 639px) { :root { --eco-scale: 0.60; --eco-mb: -216px; } }
-                @media (min-width: 640px) and (max-width: 767px) { :root { --eco-scale: 0.78; --eco-mb: -119px; } }
-                @media (min-width: 768px) { :root { --eco-scale: 1; --eco-mb: 0px; } }
-              `}</style>
-              <div className="relative mx-auto h-[540px] w-full max-w-7xl select-none">
-
-                {/* ── Floating accent dots ─────────────────────────────────────── */}
-                <Dot className="left-[8%]  top-[12%]" />
-                <Dot className="left-[18%] top-[72%]" />
-                <Dot className="right-[14%] top-[18%]" />
-                <Dot className="right-[22%] bottom-[14%]" />
-                <Dot className="left-[45%] top-[8%]" />
-                <Dot className="right-[38%] bottom-[8%]" />
-
-                {/* ── SVG connection lines ─────────────────────────────────────── */}
+          {/* ═══════════════════════════════════════════════════════════════ */}
+          {/* MOBILE ORBITAL  (< md)                                         */}
+          {/* Compact layout: center at (195, 190), cards close-in, 390×430  */}
+          {/* ═══════════════════════════════════════════════════════════════ */}
+          <div className="relative mt-16 block w-full md:hidden">
+            {/* Fixed-size container that fits a phone screen */}
+            <div className="relative mx-auto h-[430px] w-full max-w-[390px] select-none">
+              {/* SVG lines — viewBox matches 390×430 */}
+              <svg
+                className="absolute inset-0 h-full w-full"
+                viewBox="0 0 390 430"
+                preserveAspectRatio="none"
+              >
+                <defs>
+                  <style>{`
+                    .m-eco-line { stroke: hsl(215 18% 52%); }
+                    [data-theme="dark"] .m-eco-line,
+                    .dark .m-eco-line { stroke: hsl(215 18% 68%); }
+                  `}</style>
+                </defs>
                 {/*
+                  Center node: left-1/2 top-[175px] → (195, 175+40=215), radius 40px
+                    left:  (155, 215)   right: (235, 215)   bottom: (195, 255)
+                  Snowflake  left-2 top-6 w-36   → right-center: (24+144, 6+26)  = (168, 32) — too close
+                  Actually: left-2=8px, w-36=144px → right=152, centre-y=top+26
+                  Let me use real px for 390px container:
+                    Snowflake  left-2 top-6 w-36  → right(8+144=152), y(24+24=48)
+                    MySQL      left-2 bottom-6 w-36 → right(152), y(430-24-48=358)
+                    Jira       left-8 top-[195px] w-40 → right(32+160=192), y(195+24=219)
+                    Sparkles   right-3 top-4      → left(390-12-52=326), y(16+26=42)
+                    Security   right-3 top-[185px]→ left(326), y(185+26=211)
+                    Layers     right-3 bottom-4   → left(326), y(430-16-80=334 → icon centre 334+26=360)
+                */}
+                {[
+                  // left(155,215) → Snowflake right (152,48): goes left slightly → up → left
+                  "M155,215 H168 Q152,215 152,200 V64 Q152,48 136,48 H8",
+                  // left(155,215) → MySQL right (152,358): goes left → down → left
+                  "M155,215 H168 Q152,215 152,231 V342 Q152,358 136,358 H8",
+                  // left(155,215) → Jira right (192,219): straight left
+                  "M155,215 H192",
+                  // right(235,215) → Sparkles left (326,42): right → up → right
+                  "M235,215 H310 Q326,215 326,199 V58 Q326,42 342,42 H346",
+                  // right(235,215) → Security left (326,211): straight right
+                  "M235,215 H326",
+                  // right(235,215) → Layers left (326,352): right → down → right
+                  "M235,215 H310 Q326,215 326,231 V336 Q326,352 342,352 H346",
+                  // bottom(195,255) → Terminal top
+                  "M195,255 V390",
+                ].map((d, i) => (
+                  <path
+                    key={i}
+                    d={d}
+                    className="m-eco-line"
+                    fill="none"
+                    strokeWidth="1.2"
+                    strokeDasharray="4 7"
+                    strokeOpacity="0.55"
+                    strokeLinecap="round"
+                  />
+                ))}
+
+                {/* Animated dots */}
+                {[
+                  "M155,215 H168 Q152,215 152,200 V64 Q152,48 136,48 H8",
+                  "M155,215 H168 Q152,215 152,231 V342 Q152,358 136,358 H8",
+                  "M155,215 H192",
+                  "M235,215 H310 Q326,215 326,199 V58 Q326,42 342,42 H346",
+                  "M235,215 H326",
+                  "M235,215 H310 Q326,215 326,231 V336 Q326,352 342,352 H346",
+                  "M195,255 V390",
+                ].map((pathD, i) => (
+                  <circle
+                    key={`m-dot-${i}`}
+                    r="3"
+                    fill="#f10a0a"
+                    fillOpacity="0.85"
+                  >
+                    <animateMotion
+                      dur={`${2.4 + i * 0.35}s`}
+                      repeatCount="indefinite"
+                      path={pathD}
+                    />
+                  </circle>
+                ))}
+              </svg>
+
+              {/* Center logo */}
+              <div className="absolute left-1/2 top-[175px] -translate-x-1/2 -translate-y-1/2">
+                <span
+                  aria-hidden
+                  className="absolute inset-0 -m-3 rounded-full border border-[#f10a0a]/20 animate-ping"
+                  style={{ animationDuration: "2.8s" }}
+                />
+                <span
+                  aria-hidden
+                  className="absolute inset-0 -m-1.5 rounded-full border border-[#f10a0a]/10"
+                />
+                <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-border bg-background shadow-xl">
+                  <Image
+                    src={
+                      resolvedTheme === "dark"
+                        ? "/icons/light/android-chrome-512x512.png"
+                        : "/icons/dark/android-chrome-512x512.png"
+                    }
+                    alt="Company Logo"
+                    width={52}
+                    height={52}
+                    priority
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+
+              {/* Left cards — compact w-36 */}
+              <EcoCard
+                icon={Database}
+                label="DB"
+                sub="Cloud warehouse"
+                className="left-2 top-6       w-36 !py-2.5"
+              />
+              <EcoCard
+                icon={Table2}
+                label="React"
+                sub="UI Framework"
+                className="left-2 bottom-6    w-36 !py-2.5"
+              />
+              <EcoCard
+                icon={GitBranch}
+                label="Vercel"
+                sub="Deployment"
+                className="left-8 top-[195px] w-40 !py-2.5"
+              />
+
+              {/* Right icon tiles */}
+              <EcoIcon
+                icon={Sparkles}
+                label="AI Enhance"
+                className="right-3 top-4"
+              />
+              <EcoIcon
+                icon={ShieldCheck}
+                label="Security"
+                className="right-3 top-[185px]"
+              />
+              <EcoIcon
+                icon={Layers}
+                label="Layers"
+                className="right-3 bottom-[42px]"
+              />
+            </div>
+          </div>
+
+          {/* ═══════════════════════════════════════════════════════════════ */}
+          {/* DESKTOP ORBITAL  (≥ md)                                        */}
+          {/* ═══════════════════════════════════════════════════════════════ */}
+          <div className="mt-20 hidden w-full md:block">
+            <div className="relative mx-auto h-[540px] w-full max-w-7xl select-none">
+              {/* ── Floating accent dots ─────────────────────────────────────── */}
+              <Dot className="left-[8%]  top-[12%]" />
+              <Dot className="left-[18%] top-[72%]" />
+              <Dot className="right-[14%] top-[18%]" />
+              <Dot className="right-[22%] bottom-[14%]" />
+              <Dot className="left-[45%] top-[8%]" />
+              <Dot className="right-[38%] bottom-[8%]" />
+
+              {/* ── SVG connection lines ─────────────────────────────────────── */}
+              {/*
                   viewBox="0 0 1280 540" matches the CSS container (max-w-7xl × h-[540px])
                   so path coordinates ARE CSS pixel positions — no scaling math needed.
 
@@ -287,145 +425,153 @@ const ServiceHero: React.FC = () => {
 
                   Terminal: center-top at (640, 326+) → draw down to y=540
                 */}
-                <svg
-                  className="absolute inset-0 h-full w-full"
-                  viewBox="0 0 1280 540"
-                  preserveAspectRatio="none"
-                >
-                  <defs>
-                    <style>{`
+              <svg
+                className="absolute inset-0 h-full w-full"
+                viewBox="0 0 1280 540"
+                preserveAspectRatio="none"
+              >
+                <defs>
+                  <style>{`
                       .eco-line { stroke: hsl(215 18% 52%); }
                       [data-theme="dark"] .eco-line,
                       .dark .eco-line { stroke: hsl(215 18% 68%); }
                     `}</style>
-                  </defs>
+                </defs>
 
-                  {[
-                    // CENTER-LEFT (584,270) → Snowflake right (232,90): left→Q up→Q left
-                    "M584,270 H368 Q350,270 350,252 V108 Q350,90 332,90 H232",
-                    // CENTER-LEFT (584,270) → MySQL right (288,450): left→Q down→Q left
-                    "M584,270 H343 Q325,270 325,288 V432 Q325,450 307,450 H288",
-                    // CENTER-LEFT (584,270) → Jira right (368,276): straight left
-                    "M584,270 H368",
-                    // CENTER-RIGHT (696,270) → Sparkles left (1045,125): right→Q up→Q right
-                    "M696,270 H882 Q900,270 900,252 V143 Q900,125 918,125 H1045",
-                    // CENTER-RIGHT (696,270) → Security left (1096,276): straight right
-                    "M696,270 H1096",
-                    // CENTER-RIGHT (696,270) → Layers left (942,432): right→Q down→Q right
-                    "M696,270 H824 Q842,270 842,288 V414 Q842,432 860,432 H942",
-                    // CENTER-BOTTOM (640,326) → Terminal: straight down
-                    "M640,326 V540",
-                  ].map((d, i) => (
-                    <path
-                      key={i}
-                      d={d}
-                      className="eco-line"
-                      fill="none"
-                      strokeWidth="1.2"
-                      strokeDasharray="4 7"
-                      strokeOpacity="0.55"
-                      strokeLinecap="round"
-                    />
-                  ))}
-
-                  {/* Animated dots travelling along each path */}
-                  {[
-                    "M584,270 H368 Q350,270 350,252 V108 Q350,90 332,90 H232",
-                    "M584,270 H343 Q325,270 325,288 V432 Q325,450 307,450 H288",
-                    "M584,270 H368",
-                    "M696,270 H882 Q900,270 900,252 V143 Q900,125 918,125 H1045",
-                    "M696,270 H1096",
-                    "M696,270 H824 Q842,270 842,288 V414 Q842,432 860,432 H942",
-                    "M640,326 V540",
-                  ].map((pathD, i) => (
-                    <circle key={`dot-${i}`} r="3" fill="#f10a0a" fillOpacity="0.85">
-                      <animateMotion
-                        dur={`${2.4 + i * 0.35}s`}
-                        repeatCount="indefinite"
-                        path={pathD}
-                      />
-                    </circle>
-                  ))}
-                </svg>
-
-                {/* ── Center logo with pulse ring ─────────────────────────────── */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <span
-                    aria-hidden
-                    className="absolute inset-0 -m-4 rounded-full border border-[#f10a0a]/20 animate-ping"
-                    style={{ animationDuration: "2.8s" }}
+                {[
+                  // CENTER-LEFT (584,270) → Snowflake right (232,90): left→Q up→Q left
+                  "M584,270 H368 Q350,270 350,252 V108 Q350,90 332,90 H232",
+                  // CENTER-LEFT (584,270) → MySQL right (288,450): left→Q down→Q left
+                  "M584,270 H343 Q325,270 325,288 V432 Q325,450 307,450 H288",
+                  // CENTER-LEFT (584,270) → Jira right (368,276): straight left
+                  "M584,270 H368",
+                  // CENTER-RIGHT (696,270) → Sparkles left (1045,125): right→Q up→Q right
+                  "M696,270 H882 Q900,270 900,252 V143 Q900,125 918,125 H1045",
+                  // CENTER-RIGHT (696,270) → Security left (1096,276): straight right
+                  "M696,270 H1096",
+                  // CENTER-RIGHT (696,270) → Layers left (942,432): right→Q down→Q right
+                  "M696,270 H824 Q842,270 842,288 V414 Q842,432 860,432 H942",
+                  // CENTER-BOTTOM (640,326) → Terminal: straight down
+                  "M640,326 V540",
+                ].map((d, i) => (
+                  <path
+                    key={i}
+                    d={d}
+                    className="eco-line"
+                    fill="none"
+                    strokeWidth="1.2"
+                    strokeDasharray="4 7"
+                    strokeOpacity="0.55"
+                    strokeLinecap="round"
                   />
-                  <span aria-hidden className="absolute inset-0 -m-2 rounded-full border border-[#f10a0a]/10" />
-                  <div className="relative flex h-28 w-28 items-center justify-center rounded-full border border-border bg-background shadow-xl">
-                    <Image
-                      src={
-                        resolvedTheme === "dark"
-                          ? "/icons/light/android-chrome-512x512.png"
-                          : "/icons/dark/android-chrome-512x512.png"
-                      }
-                      alt="Company Logo"
-                      width={72}
-                      height={72}
-                      priority
-                      className="object-contain"
+                ))}
+
+                {/* Animated dots travelling along each path */}
+                {[
+                  "M584,270 H368 Q350,270 350,252 V108 Q350,90 332,90 H232",
+                  "M584,270 H343 Q325,270 325,288 V432 Q325,450 307,450 H288",
+                  "M584,270 H368",
+                  "M696,270 H882 Q900,270 900,252 V143 Q900,125 918,125 H1045",
+                  "M696,270 H1096",
+                  "M696,270 H824 Q842,270 842,288 V414 Q842,432 860,432 H942",
+                  "M640,326 V540",
+                ].map((pathD, i) => (
+                  <circle
+                    key={`dot-${i}`}
+                    r="3"
+                    fill="#f10a0a"
+                    fillOpacity="0.85"
+                  >
+                    <animateMotion
+                      dur={`${2.4 + i * 0.35}s`}
+                      repeatCount="indefinite"
+                      path={pathD}
                     />
-                  </div>
+                  </circle>
+                ))}
+              </svg>
+
+              {/* ── Center logo with pulse ring ─────────────────────────────── */}
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                <span
+                  aria-hidden
+                  className="absolute inset-0 -m-4 rounded-full border border-[#f10a0a]/20 animate-ping"
+                  style={{ animationDuration: "2.8s" }}
+                />
+                <span
+                  aria-hidden
+                  className="absolute inset-0 -m-2 rounded-full border border-border"
+                />
+                <div className="relative flex h-28 w-28 items-center justify-center rounded-full border border-border bg-background">
+                  <Image
+                    src={
+                      resolvedTheme === "dark"
+                        ? "/icons/light/android-chrome-512x512.png"
+                        : "/icons/dark/android-chrome-512x512.png"
+                    }
+                    alt="Company Logo"
+                    width={72}
+                    height={72}
+                    priority
+                    className="object-contain"
+                  />
                 </div>
+              </div>
 
-                {/* ── Left ecosystem cards ─────────────────────────────────────── */}
-                {/* Snowflake: right-center at (232, 90) in CSS px */}
-                <EcoCard
-                  icon={Database}
-                  label="Snowflake DB"
-                  sub="Cloud data warehouse"
-                  className="left-6 top-14 w-52"
-                />
-                {/* MySQL: right-center at (288, 450) in CSS px */}
-                <EcoCard
-                  icon={Table2}
-                  label="MySQL DB"
-                  sub="Relational database"
-                  className="left-20 bottom-14 w-52"
-                />
-                {/* Jira: right-center at (368, 276) in CSS px */}
-                <EcoCard
-                  icon={GitBranch}
-                  label="Jira Ticket"
-                  sub="Project tracking"
-                  className="left-36 top-[250px] w-56"
-                />
+              {/* ── Left ecosystem cards ─────────────────────────────────────── */}
+              {/* Snowflake: right-center at (232, 90) in CSS px */}
+              <EcoCard
+                icon={Database}
+                label="DB"
+                sub="Cloud Servers"
+                className="left-6 top-14 w-52"
+              />
+              {/* MySQL: right-center at (288, 450) in CSS px */}
+              <EcoCard
+                icon={Table2}
+                label="React"
+                sub="UI Framework"
+                className="left-20 bottom-14 w-52"
+              />
+              {/* Jira: right-center at (368, 276) in CSS px */}
+              <EcoCard
+                icon={GitBranch}
+                label="Vercel"
+                sub="Deployment"
+                className="left-36 top-[250px] w-56"
+              />
 
-                {/* ── Right icon tiles ─────────────────────────────────────────── */}
-                {/* Sparkles: left-center at (1045, 125) in CSS px */}
-                <EcoIcon
-                  icon={Sparkles}
-                  label="AI Enhance"
-                  className="right-[14%] top-[15%]"
-                />
-                {/* Security: left-center at (1096, 276) in CSS px */}
-                <EcoIcon
-                  icon={ShieldCheck}
-                  label="Security"
-                  className="right-[10%] top-[46%]"
-                />
-                {/* Layers: left-center at (942, 432) in CSS px */}
-                <EcoIcon
-                  icon={Layers}
-                  label="Layers"
-                  className="right-[22%] bottom-[14%]"
-                />
+              {/* ── Right icon tiles ─────────────────────────────────────────── */}
+              {/* Sparkles: left-center at (1045, 125) in CSS px */}
+              <EcoIcon
+                icon={Sparkles}
+                label="AI Enhance"
+                className="right-[14%] top-[15%]"
+              />
+              {/* Security: left-center at (1096, 276) in CSS px */}
+              <EcoIcon
+                icon={ShieldCheck}
+                label="Security"
+                className="right-[10%] top-[46%]"
+              />
+              {/* Layers: left-center at (942, 432) in CSS px */}
+              <EcoIcon
+                icon={Layers}
+                label="Layers"
+                className="right-[22%] bottom-[14%]"
+              />
+            </div>
+            {/* end desktop orbital inner */}
+          </div>
+          {/* end desktop orbital outer */}
 
-              </div>{/* end orbital inner */}
-            </div>{/* end scale wrapper */}
-          </div>{/* end overflow wrapper */}
-
-          {/* ── Terminal / Code preview — sits BELOW the diagram ─────────── */}
-          <div className="mx-auto -mt-8 w-full max-w-[460px] overflow-hidden rounded-2xl border border-border bg-card shadow-xl">
+          {/* ── Terminal / Code preview — sits BELOW both layouts ────────── */}
+          <div className="mx-auto mt-4 w-full max-w-[460px] overflow-hidden rounded-2xl border border-border bg-card shadow-xl">
             {/* Terminal title bar */}
             <div className="flex items-center gap-1.5 border-b border-border bg-muted/40 px-4 py-2.5">
-              <span className="h-2.5 w-2.5 rounded-full bg-primary/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-primary/50" />
-              <span className="h-2.5 w-2.5 rounded-full bg-primary/30" />
+              <span className="h-2.5 w-2.5 rounded-full bg-white/70" />
+              <span className="h-2.5 w-2.5 rounded-full bg-white/50" />
+              <span className="h-2.5 w-2.5 rounded-full bg-white/30" />
               <span className="ml-3 text-[10px] font-medium text-muted-foreground tracking-wide">
                 ServiceCard.tsx
               </span>
@@ -435,7 +581,9 @@ const ServiceHero: React.FC = () => {
             <pre className="px-5 py-4 text-left text-xs leading-6">
               <span className="text-primary/80">const </span>
               <span className="text-foreground font-medium">ServiceCard</span>
-              <span className="text-muted-foreground">: React.FC&lt;Props&gt; = (&#123;</span>
+              <span className="text-muted-foreground">
+                : React.FC&lt;Props&gt; = (&#123;
+              </span>
               {"\n"}
               {"  "}
               <span className="text-foreground">title</span>
@@ -456,14 +604,18 @@ const ServiceHero: React.FC = () => {
               {"    "}
               <span className="text-muted-foreground">&lt;</span>
               <span className="text-foreground">span</span>
-              <span className="text-muted-foreground">&gt;&#123;icon&#125;&lt;/</span>
+              <span className="text-muted-foreground">
+                &gt;&#123;icon&#125;&lt;/
+              </span>
               <span className="text-foreground">span</span>
               <span className="text-muted-foreground">&gt;</span>
               {"\n"}
               {"    "}
               <span className="text-muted-foreground">&lt;</span>
               <span className="text-foreground">h3</span>
-              <span className="text-muted-foreground">&gt;&#123;title&#125;&lt;/</span>
+              <span className="text-muted-foreground">
+                &gt;&#123;title&#125;&lt;/
+              </span>
               <span className="text-foreground">h3</span>
               <span className="text-muted-foreground">&gt;</span>
               {"\n"}
@@ -475,9 +627,7 @@ const ServiceHero: React.FC = () => {
               <span className="text-muted-foreground">);</span>
             </pre>
           </div>
-
         </AnimationContainer>
-
       </div>
     </Wrapper>
   );
