@@ -2,7 +2,7 @@
 
 # Creator's World
 
-<img src="https://raw.githubusercontent.com/nsgpriyanshu/creatorsworld/refs/heads/main/apps/web/public/icons/light/android-chrome-512x512.png" alt="Creator's World Icon" style="border-radius: 20px;" />
+![Creator's World](apps/web/public/assets/brand/cw-font-light-3000x500.png)
 
 <br>
 
