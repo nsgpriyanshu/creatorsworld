@@ -1,7 +1,5 @@
 <div align="center">
 
-# Creator's World
-
 ![Creator's World](apps/web/public/assets/brand/cw-font-light-3000x500.png)
 
 <br>

@@ -65,7 +65,7 @@ const TechStack: React.FC = () => {
           >
             <span className="relative flex items-center gap-2">
               <Code2 className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
-              <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                 Tech Stack
               </span>
             </span>
@@ -75,7 +75,7 @@ const TechStack: React.FC = () => {
         <AnimationContainer animation="fadeUp" delay={0.15}>
           <h2 className="mt-8 max-w-4xl text-4xl font-semibold tracking-tight md:text-5xl">
             Built on a{" "}
-            <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
               modern & scalable web stack
             </span>
           </h2>
