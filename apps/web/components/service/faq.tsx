@@ -17,15 +17,15 @@ import { Badge } from "@repo/ui/components/ui/badge";
 
 const FAQ = () => {
   return (
-    <Wrapper className="py-20 md:py-28">
-      <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1fr_2fr] lg:gap-16">
+    <Wrapper className="py-12 md:py-20 lg:py-28">
+      <div className="grid grid-cols-1 gap-8 md:gap-12 lg:grid-cols-[1fr_2fr] lg:gap-14">
         {/* LEFT */}
         <AnimationContainer animation="fadeRight">
           <div className="max-w-lg">
             <AnimationContainer animation="fadeDown">
               <Badge
                 variant="outline"
-                className="group inline-flex items-center gap-2 border-border bg-background/70 px-4 py-1.5 backdrop-blur transition-all duration-300"
+                className="group inline-flex items-center gap-2 border-border bg-background/70 px-3 py-1 md:px-4 md:py-1.5 backdrop-blur transition-all duration-300 text-xs md:text-sm"
               >
                 <FileQuestion className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
                 FAQs
@@ -33,7 +33,7 @@ const FAQ = () => {
             </AnimationContainer>
 
             <AnimationContainer animation="fadeUp" delay={0.15}>
-              <h2 className="mt-6 text-balance text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl">
+              <h2 className="mt-3 md:mt-6 text-balance text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">
                 Frequently asked{" "}
                 <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                   questions
@@ -41,7 +41,7 @@ const FAQ = () => {
               </h2>
             </AnimationContainer>
 
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
+            <p className="mt-3 md:mt-4 text-xs sm:text-sm md:text-base lg:text-base leading-relaxed text-muted-foreground">
               Answers to common questions about our product, security, and
               integrations. If you need more clarity, feel free to reach out.
             </p>
@@ -59,7 +59,7 @@ const FAQ = () => {
               >
                 <AccordionTrigger
                   className="
-                    py-5 text-left text-sm font-medium md:text-base
+                    py-4 md:py-5 text-left text-xs sm:text-sm md:text-base font-medium
                     transition-all duration-300 ease-out
                     hover:opacity-80
                     [&[data-state=open]>svg]:rotate-180
@@ -71,8 +71,8 @@ const FAQ = () => {
                 <AccordionContent
                   className="
                     overflow-hidden
-                    pb-5 pr-2
-                    text-sm leading-relaxed text-muted-foreground
+                    pb-4 md:pb-5 pr-2
+                    text-xs sm:text-sm md:text-base leading-relaxed text-muted-foreground
                     data-[state=open]:animate-accordion-down
                     data-[state=closed]:animate-accordion-up
                   "

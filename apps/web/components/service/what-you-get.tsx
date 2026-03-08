@@ -11,7 +11,7 @@ import { cn } from "@repo/ui/lib/utils";
 
 const WhatYouGet = () => {
   return (
-    <section className="relative w-full overflow-hidden py-28">
+    <section className="relative w-full overflow-hidden py-12 md:py-28">
       <Wrapper>
         {/* ------------------------------------------------------------------ */}
         {/* Header                                                             */}
@@ -20,7 +20,7 @@ const WhatYouGet = () => {
           <AnimationContainer animation="fadeDown">
             <Badge
               variant="outline"
-              className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
+              className="group relative overflow-hidden border-border bg-background/70 px-3 py-1 md:px-4 md:py-1.5 backdrop-blur-md text-xs md:text-sm"
             >
               {/* shine */}
               <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
@@ -35,7 +35,7 @@ const WhatYouGet = () => {
           </AnimationContainer>
 
           <AnimationContainer animation="fadeUp" delay={0.15}>
-            <h2 className="mt-8 max-w-4xl text-balance text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
+            <h2 className="mt-4 md:mt-8 max-w-4xl text-balance text-2xl sm:text-3xl md:text-5xl font-semibold leading-tight tracking-tight">
               Everything you need to{" "}
               <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                 launch & scale
@@ -44,7 +44,7 @@ const WhatYouGet = () => {
           </AnimationContainer>
 
           <AnimationContainer animation="fadeUp" delay={0.3}>
-            <p className="mt-6 max-w-3xl text-balance text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p className="mt-4 md:mt-6 max-w-3xl text-balance text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed text-muted-foreground">
               From design to deployment and beyond, we cover every step so you
               can focus on growing your business.
             </p>
@@ -54,7 +54,7 @@ const WhatYouGet = () => {
         {/* ------------------------------------------------------------------ */}
         {/* Flow                                                               */}
         {/* ------------------------------------------------------------------ */}
-        <div className="relative mt-24">
+        <div className="relative mt-12 md:mt-24">
           {/* Curved connectors (desktop only) */}
           <svg
             className="pointer-events-none absolute inset-0 hidden h-full w-full lg:block"
@@ -80,7 +80,7 @@ const WhatYouGet = () => {
           </svg>
 
           {/* Items */}
-          <div className="relative z-10 grid gap-10 lg:grid-flow-col lg:auto-cols-fr">
+          <div className="relative z-10 grid gap-4 md:gap-6 lg:gap-10 lg:grid-flow-col lg:auto-cols-fr">
             {WHAT_YOU_GET.map((item, index) => {
               const Icon = item.icon;
 
@@ -90,18 +90,18 @@ const WhatYouGet = () => {
                   animation="scaleUp"
                   delay={0.4 + index * 0.1}
                 >
-                  <div className="group relative h-full rounded-3xl border border-border bg-background p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                  <div className="group relative h-full rounded-3xl border border-border bg-background p-4 md:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
                     {/* Step Badge */}
                     <div className="absolute -top-4 left-1/2 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full border border-border bg-background text-sm font-medium">
                       {index + 1}
                     </div>
 
                     {/* Header */}
-                    <div className="flex items-center gap-3 pt-6">
+                    <div className="flex items-center gap-3 pt-4 md:pt-6">
                       {/* Icon Container — Monochrome Subtle Style */}
                       <div
                         className={cn(
-                          "relative flex h-12 w-12 items-center justify-center rounded-2xl",
+                          "relative flex h-10 md:h-12 w-10 md:w-12 items-center justify-center rounded-2xl",
                           "border border-border",
                           "bg-muted/40",
                           "transition-all duration-300",
@@ -116,19 +116,21 @@ const WhatYouGet = () => {
                         <Icon className="relative h-5 w-5 text-muted-foreground transition-colors duration-300 group-hover:text-foreground" />
                       </div>
 
-                      <h3 className="text-lg font-semibold">{item.title}</h3>
+                      <h3 className="text-base md:text-lg font-semibold">
+                        {item.title}
+                      </h3>
                     </div>
 
                     {/* Description */}
-                    <p className="mt-4 text-sm text-muted-foreground">
+                    <p className="mt-3 md:mt-4 text-xs md:text-sm text-muted-foreground">
                       {item.description}
                     </p>
 
                     {/* Points */}
-                    <ul className="mt-6 space-y-2 text-sm">
+                    <ul className="mt-4 md:mt-6 space-y-1.5 md:space-y-2 text-xs md:text-sm">
                       {item.points.map((point) => (
-                        <li key={point} className="flex items-center gap-2">
-                          <ArrowRight className="h-3.5 w-3.5 text-muted-foreground transition-colors group-hover:text-foreground" />
+                        <li key={point} className="flex items-start gap-2">
+                          <ArrowRight className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-muted-foreground transition-colors group-hover:text-foreground" />
                           <span className="text-muted-foreground transition-colors group-hover:text-foreground/80">
                             {point}
                           </span>

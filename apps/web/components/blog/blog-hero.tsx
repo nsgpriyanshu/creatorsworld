@@ -11,65 +11,67 @@ const BlogHero: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
-    // Simulate loading (replace with real data readiness)
     const timer = setTimeout(() => setIsLoading(false), 700);
     return () => clearTimeout(timer);
   }, []);
+
   if (isLoading) {
     return (
-      <Wrapper className="relative w-full overflow-hidden pt-28 pb-24">
-        <div className="flex flex-col items-center text-center">
-          {/* Badge */}
-          <Skeleton className="h-7 w-56 rounded-full" />
-
-          {/* Heading */}
-          <div className="mt-8 space-y-3">
-            <Skeleton className="h-12 w-[320px] md:w-130" />
-            <Skeleton className="h-12 w-65 md:w-105" />
+      <Wrapper className="relative pt-12 md:pt-16 pb-4 md:pb-8 w-full">
+        <div className="relative z-10 mx-auto max-w-4xl text-center space-y-4 md:space-y-6">
+          {/* Badge Skeleton */}
+          <div className="flex justify-center px-4">
+            <Skeleton className="h-6 md:h-8 w-32 md:w-40 rounded-full" />
           </div>
-
-          {/* Description */}
-          <div className="mt-6 space-y-2">
-            <Skeleton className="h-4 w-[320px] md:w-140" />
-            <Skeleton className="h-4 w-70 md:w-120" />
+          {/* Heading Skeleton */}
+          <div className="space-y-2 md:space-y-3 px-4">
+            <Skeleton className="h-8 md:h-10 w-full mx-auto rounded" />
+            <Skeleton className="h-8 md:h-10 w-5/6 mx-auto rounded" />
           </div>
-
-          {/* CTA */}
-          <Skeleton className="mt-10 h-14 w-44 rounded-xl" />
-
-          {/* Preview */}
-          <Skeleton className="mt-16 h-55 w-full max-w-5xl rounded-3xl md:h-90" />
+          {/* Paragraph Skeleton */}
+          <div className="space-y-1.5 md:space-y-2 pt-2 md:pt-4 px-4">
+            <Skeleton className="h-4 md:h-6 w-full mx-auto rounded" />
+            <Skeleton className="h-4 md:h-6 w-4/5 mx-auto rounded" />
+          </div>
         </div>
       </Wrapper>
     );
   }
-  return (
-    <Wrapper className="relative pt-32 pb-20 w-full">
-      {/* Brand Glow
-      <div className="pointer-events-none absolute inset-x-0 -top-24 -z-10 mx-auto h-48 w-3/4 rounded-full bg-[radial-gradient(86%_172%_at_50%_-40%,rgba(241,10,10,0.9)_0%,rgba(5,5,5,0)_80%)] blur-[6rem]" /> */}
 
-      <div className="relative z-10 mx-auto max-w-3xl text-center">
-        <AnimationContainer animation="fadeDown">
+  return (
+    <Wrapper className="relative pt-16 md:pt-24 pb-4 md:pb-8 w-full px-4 md:px-0">
+      {/* Subtle ambient glow */}
+      <div className="pointer-events-none absolute inset-x-0 -top-20 -z-10 mx-auto h-40 w-2/3 rounded-full bg-[radial-gradient(86%_172%_at_50%_-40%,var(--accent)/20_0%,rgba(5,5,5,0)_80%)] blur-[5rem]" />
+
+      <div className="relative z-10 mx-auto max-w-4xl text-center">
+        {/* Badge */}
+        <AnimationContainer animation="fadeDown" delay={0.1}>
           <Badge
-            variant="secondary"
-            className="mx-auto mb-6 px-4 py-2 text-sm font-medium"
+            variant="outline"
+            className="group relative overflow-hidden border-border bg-background/70 px-3 py-1 md:px-4 md:py-1.5 backdrop-blur-md text-xs md:text-sm"
           >
-            <Newspaper className="h-4 w-4 mr-2" />
-            Blog
+            <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+            <span className="relative flex items-center gap-1.5 md:gap-2">
+              <Newspaper className="h-3 w-3 md:h-4 md:w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
+              <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                Blog
+              </span>
+            </span>
           </Badge>
         </AnimationContainer>
 
-        <AnimationContainer animation="fadeUp" delay={0.15}>
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight text-foreground">
-            Stories & Insights from <br />
-            <span className="text-primary">Creator's World</span>
+        {/* Heading */}
+        <AnimationContainer animation="fadeUp" delay={0.2}>
+          <h1 className="mt-4 md:mt-6 text-2xl sm:text-3xl md:text-5xl font-bold leading-tight tracking-tight text-foreground">
+            Insights & Stories from the Community
           </h1>
         </AnimationContainer>
 
+        {/* Paragraph */}
         <AnimationContainer animation="fadeUp" delay={0.3}>
-          <p className="mt-6 max-w-2xl mx-auto text-lg leading-relaxed text-muted-foreground">
-            Discover the latest trends, tutorials, and community stories. Join
-            thousands of creators sharing their journey and expertise.
+          <p className="mt-2 md:mt-4 text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            Explore the latest trends, tutorials, and perspectives from our
+            community.
           </p>
         </AnimationContainer>
       </div>

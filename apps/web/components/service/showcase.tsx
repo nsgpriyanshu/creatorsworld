@@ -13,7 +13,7 @@ import { cn } from "@repo/ui/lib/utils";
 
 const Showcase = () => {
   return (
-    <section className="relative w-full overflow-hidden py-28">
+    <section className="relative w-full overflow-hidden py-12 md:py-28">
       <Wrapper>
         {/* ------------------------------------------------------------------ */}
         {/* Header (Matched Tech Stack)                                        */}
@@ -22,7 +22,7 @@ const Showcase = () => {
           <AnimationContainer animation="fadeDown">
             <Badge
               variant="outline"
-              className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
+              className="group relative overflow-hidden border-border bg-background/70 px-3 py-1 md:px-4 md:py-1.5 backdrop-blur-md text-xs md:text-sm"
             >
               <span className="relative flex items-center gap-2">
                 <Code2 className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
@@ -34,7 +34,7 @@ const Showcase = () => {
           </AnimationContainer>
 
           <AnimationContainer animation="fadeUp" delay={0.15}>
-            <h2 className="mt-8 max-w-4xl text-4xl font-semibold tracking-tight md:text-5xl">
+            <h2 className="mt-4 md:mt-8 max-w-4xl text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight">
               Real-world{" "}
               <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                 production websites
@@ -43,7 +43,7 @@ const Showcase = () => {
           </AnimationContainer>
 
           <AnimationContainer animation="fadeUp" delay={0.3}>
-            <p className="mt-6 max-w-3xl text-muted-foreground md:text-lg leading-relaxed">
+            <p className="mt-4 md:mt-6 max-w-3xl text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed">
               Carefully crafted web experiences built with performance,
               scalability, elegant UI, and modern development standards.
             </p>
@@ -53,23 +53,23 @@ const Showcase = () => {
         {/* ------------------------------------------------------------------ */}
         {/* Showcase Grid                                                      */}
         {/* ------------------------------------------------------------------ */}
-        <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 md:mt-20 grid gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-3">
           {SHOWCASE.map((project, index) => (
             <AnimationContainer
               key={project.url}
               animation="scaleUp"
               delay={0.4 + index * 0.1}
             >
-              <div className="group relative rounded-2xl border border-border bg-background p-3 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-lg">
+              <div className="group relative rounded-2xl border border-border bg-background p-3 md:p-4 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-lg">
                 {/* Browser Bar */}
-                <div className="flex items-center justify-between rounded-xl border border-border bg-muted/40 px-3 py-1.5">
+                <div className="flex items-center justify-between rounded-xl border border-border bg-muted/40 px-2 md:px-3 py-1 md:py-1.5">
                   <div className="flex items-center gap-1.5">
-                    <div className="h-2.5 w-2.5 rounded-full bg-primary" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-foreground" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-muted-foreground" />
+                    <div className="h-2 md:h-2.5 w-2 md:w-2.5 rounded-full bg-primary" />
+                    <div className="h-2 md:h-2.5 w-2 md:w-2.5 rounded-full bg-foreground" />
+                    <div className="h-2 md:h-2.5 w-2 md:w-2.5 rounded-full bg-muted-foreground" />
                   </div>
 
-                  <span className="truncate text-[11px] text-muted-foreground max-w-[55%]">
+                  <span className="truncate text-[10px] md:text-[11px] text-muted-foreground max-w-[55%]">
                     {project.url}
                   </span>
                 </div>
@@ -91,14 +91,16 @@ const Showcase = () => {
                 </div>
 
                 {/* Footer */}
-                <div className="mt-4 flex items-center justify-between">
-                  <h3 className="text-sm font-semibold">{project.name}</h3>
+                <div className="mt-3 md:mt-4 flex items-center justify-between">
+                  <h3 className="text-xs md:text-sm font-semibold">
+                    {project.name}
+                  </h3>
 
                   <Link
                     href={project.url}
                     target="_blank"
                     className={cn(
-                      "flex items-center gap-1.5 rounded-lg border border-border px-3 py-1.5 text-xs",
+                      "flex items-center gap-1 md:gap-1.5 rounded-lg border border-border px-2 md:px-3 py-1 md:py-1.5 text-xs",
                       "transition-all duration-300",
                       "hover:bg-muted",
                       "hover:gap-2",

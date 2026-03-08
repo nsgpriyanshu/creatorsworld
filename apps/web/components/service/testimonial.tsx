@@ -27,16 +27,16 @@ const ReviewCard = ({ img, name, userrole, body }: ReviewCardProps) => {
   return (
     <div
       className={cn(
-        "relative h-full w-64 shrink-0 overflow-hidden rounded-2xl border p-4 transition-all duration-300",
+        "relative h-full w-48 sm:w-56 md:w-64 shrink-0 overflow-hidden rounded-2xl border p-3 md:p-4 transition-all duration-300",
         "bg-neutral-50/80 backdrop-blur-md",
         "dark:border-neutral-800 dark:bg-neutral-900/60",
         "hover:bg-neutral-100 dark:hover:bg-neutral-800/60",
       )}
     >
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2 md:gap-3">
         {/* Header */}
-        <div className="flex items-center gap-3">
-          <div className="relative size-9 shrink-0">
+        <div className="flex items-center gap-2 md:gap-3">
+          <div className="relative size-8 md:size-9 shrink-0">
             <Image
               src={img}
               alt={name}
@@ -52,13 +52,17 @@ const ReviewCard = ({ img, name, userrole, body }: ReviewCardProps) => {
           </div>
 
           <div className="flex flex-col leading-tight">
-            <h4 className="text-sm font-medium text-foreground">{name}</h4>
+            <h4 className="text-xs md:text-sm font-medium text-foreground">
+              {name}
+            </h4>
             <p className="text-xs text-muted-foreground">{userrole}</p>
           </div>
         </div>
 
         {/* Body */}
-        <p className="text-sm leading-relaxed text-muted-foreground">{body}</p>
+        <p className="text-xs md:text-sm leading-relaxed text-muted-foreground">
+          {body}
+        </p>
       </div>
     </div>
   );
@@ -66,13 +70,13 @@ const ReviewCard = ({ img, name, userrole, body }: ReviewCardProps) => {
 
 const Reviews = () => {
   return (
-    <Wrapper className="py-20 lg:py-32">
+    <Wrapper className="py-12 md:py-20 lg:py-32">
       {/* Header */}
-      <div className="mb-16 flex flex-col items-center gap-4 text-center">
+      <div className="mb-8 md:mb-16 flex flex-col items-center gap-4 text-center">
         <AnimationContainer animation="fadeUp" delay={0.2}>
           <Badge
             variant="outline"
-            className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
+            className="group relative overflow-hidden border-border bg-background/70 px-3 py-1 md:px-4 md:py-1.5 backdrop-blur-md text-xs md:text-sm"
           >
             <span className="relative flex items-center gap-2">
               <Code2 className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
@@ -84,13 +88,13 @@ const Reviews = () => {
         </AnimationContainer>
 
         <AnimationContainer animation="fadeUp" delay={0.3}>
-          <h2 className="mt-6 text-4xl font-semibold tracking-tight text-balance md:text-5xl lg:text-6xl">
+          <h2 className="mt-3 md:mt-6 text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-balance">
             Get started with us!
           </h2>
         </AnimationContainer>
 
         <AnimationContainer animation="fadeUp" delay={0.4}>
-          <p className="mt-5 max-w-3xl text-base text-muted-foreground text-balance md:text-lg">
+          <p className="mt-3 md:mt-5 max-w-3xl text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground text-balance">
             Hear from our clients about their transformative journeys with
             CreatorsWorld.
           </p>
@@ -98,7 +102,7 @@ const Reviews = () => {
       </div>
 
       {/* 3D Marquee Section */}
-      <div className="relative flex h-150 w-full items-center justify-center overflow-hidden perspective-[1000px]">
+      <div className="relative flex h-96 md:h-150 w-full items-center justify-center overflow-hidden perspective-[1000px]">
         <div
           className="flex items-center gap-6"
           style={{

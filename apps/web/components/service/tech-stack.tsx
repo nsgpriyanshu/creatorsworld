@@ -27,7 +27,7 @@ const Circle = forwardRef<HTMLDivElement, CircleProps>(
     <div
       ref={ref}
       className={cn(
-        "relative z-20 flex size-14 items-center justify-center rounded-2xl lg:size-16",
+        "relative z-20 flex size-12 md:size-14 lg:size-16 items-center justify-center rounded-2xl",
         "border border-border",
         "bg-muted/40",
         "transition-all duration-300 ease-out",
@@ -56,12 +56,12 @@ const TechStack: React.FC = () => {
   const div6Ref = useRef<HTMLDivElement>(null);
 
   return (
-    <Wrapper className="relative overflow-hidden py-28">
+    <Wrapper className="relative overflow-hidden py-12 md:py-28">
       <div className="flex flex-col items-center text-center">
         <AnimationContainer animation="fadeDown">
           <Badge
             variant="outline"
-            className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
+            className="group relative overflow-hidden border-border bg-background/70 px-3 py-1 md:px-4 md:py-1.5 backdrop-blur-md text-xs md:text-sm"
           >
             <span className="relative flex items-center gap-2">
               <Code2 className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
@@ -73,7 +73,7 @@ const TechStack: React.FC = () => {
         </AnimationContainer>
 
         <AnimationContainer animation="fadeUp" delay={0.15}>
-          <h2 className="mt-8 max-w-4xl text-4xl font-semibold tracking-tight md:text-5xl">
+          <h2 className="mt-4 md:mt-8 max-w-4xl text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight">
             Built on a{" "}
             <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
               modern & scalable web stack
@@ -82,7 +82,7 @@ const TechStack: React.FC = () => {
         </AnimationContainer>
 
         <AnimationContainer animation="fadeUp" delay={0.3}>
-          <p className="mt-6 max-w-3xl text-muted-foreground md:text-lg leading-relaxed">
+          <p className="mt-4 md:mt-6 max-w-3xl text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed">
             A refined ecosystem delivering performance, elegant UI, smooth
             animation, strict type safety, and seamless deployment.
           </p>
@@ -91,10 +91,10 @@ const TechStack: React.FC = () => {
 
       <div
         ref={containerRef}
-        className="relative isolate mt-20 flex h-80 w-full items-center justify-center"
+        className="relative isolate mt-12 md:mt-20 flex h-64 md:h-80 w-full items-center justify-center"
       >
         {/* ICONS (Above Beams) */}
-        <div className="relative z-10 flex size-full max-w-xl flex-col justify-between gap-20">
+        <div className="relative z-10 flex size-full max-w-xl flex-col justify-between gap-12 md:gap-20">
           <div className="flex items-center justify-between">
             <Circle ref={div1Ref}>
               <SiNextdotjs className="h-6 w-6" />
@@ -109,7 +109,7 @@ const TechStack: React.FC = () => {
               <SiFramer className="h-6 w-6" />
             </Circle>
 
-            <Circle ref={div4Ref} className="size-20">
+            <Circle ref={div4Ref} className="size-16 md:size-18 lg:size-20">
               <Monitor className="h-8 w-8" />
             </Circle>
 

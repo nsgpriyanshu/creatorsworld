@@ -47,10 +47,10 @@ const BlogCard = ({ post }: Props) => {
           </div>
 
           {/* Content */}
-          <div className="flex flex-col justify-between p-6">
+          <div className="flex flex-col justify-between p-4 md:p-6">
             <div>
               {/* Tags */}
-              <div className="mb-3 flex flex-wrap gap-1.5">
+              <div className="mb-2 md:mb-3 flex flex-wrap gap-1">
                 {post.tags.slice(0, 2).map((tag) => (
                   <Badge
                     key={tag}
@@ -63,41 +63,43 @@ const BlogCard = ({ post }: Props) => {
               </div>
 
               {/* Title */}
-              <h3 className="line-clamp-2 text-lg font-semibold text-foreground transition-colors duration-300 group-hover:text-primary">
+              <h3 className="line-clamp-2 text-base md:text-lg font-semibold text-foreground transition-colors duration-300 group-hover:text-primary">
                 {post.title}
               </h3>
 
               {/* Excerpt */}
-              <p className="mt-3 line-clamp-2 text-sm text-muted-foreground leading-relaxed">
+              <p className="mt-2 md:mt-3 line-clamp-2 text-xs md:text-sm text-muted-foreground leading-relaxed">
                 {post.excerpt}
               </p>
             </div>
 
             {/* Meta */}
-            <div className="mt-6 flex items-center justify-between text-xs text-muted-foreground">
-              <div className="flex items-center gap-4">
+            <div className="mt-4 md:mt-6 flex items-center justify-between text-xs text-muted-foreground">
+              <div className="flex items-center gap-2 md:gap-4 min-w-0">
                 {/* Author */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 md:gap-2 min-w-0">
                   <Image
                     src={post.author.avatar_url || FALLBACK_IMAGE}
                     alt={post.author.name}
                     width={24}
                     height={24}
-                    className="rounded-full border border-border"
+                    className="rounded-full border border-border flex-shrink-0"
                     onError={(e) => {
                       (e.currentTarget as HTMLImageElement).src =
                         FALLBACK_IMAGE;
                     }}
                   />
-                  <span className="font-medium text-foreground">
+                  <span className="font-medium text-foreground truncate text-xs md:text-sm">
                     {post.author.name}
                   </span>
                 </div>
 
                 {/* Date */}
-                <div className="flex items-center gap-1">
-                  <Calendar className="h-3 w-3" />
-                  <time dateTime={post.published_at}>{formattedDate}</time>
+                <div className="flex items-center gap-1 whitespace-nowrap">
+                  <Calendar className="h-3 w-3 flex-shrink-0" />
+                  <time dateTime={post.published_at} className="text-xs">
+                    {formattedDate}
+                  </time>
                 </div>
               </div>
 

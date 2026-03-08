@@ -1,5 +1,6 @@
 import BlogHero from "../../components/blog/blog-hero";
 import BlogList from "../../components/blog/list";
+import CategoryFilter from "../../components/blog/category-filter";
 import Wrapper from "../../components/global/wrapper";
 import { getFeaturedPost, getAllPosts } from "../../lib/db/queries";
 
@@ -21,15 +22,9 @@ export default async function BlogPage() {
       </section>
 
       {/* Content */}
-      <Wrapper className="space-y-16 pb-24">
-        {/* Featured */}
-        {/* <section>
-          {featured ? (
-            <FeaturedBlogCard post={featured} />
-          ) : (
-            <FeaturedBlogCardSkeleton />
-          )}
-        </section> */}
+      <Wrapper className="space-y-8 md:space-y-12 py-8 md:py-16 px-4 md:px-0">
+        {/* Category Navigation */}
+        <CategoryFilter />
 
         {/* Blog list */}
         {restPosts.length > 0 ? (
@@ -37,12 +32,12 @@ export default async function BlogPage() {
             <BlogList posts={restPosts} />
           </section>
         ) : (
-          <section className="flex flex-col items-center justify-center py-20 text-center">
-            <div className="space-y-4">
-              <h2 className="text-2xl font-semibold text-foreground">
+          <section className="flex flex-col items-center justify-center py-12 md:py-20 text-center">
+            <div className="space-y-3 md:space-y-4 px-4">
+              <h2 className="text-xl md:text-2xl font-semibold text-foreground">
                 No Blogs Yet
               </h2>
-              <p className="text-muted-foreground max-w-md mx-auto">
+              <p className="text-sm md:text-base text-muted-foreground max-w-md mx-auto">
                 We're working on some great content. Check back soon for
                 insightful articles and stories!
               </p>

@@ -64,27 +64,28 @@ const TableOfContents = ({ blocks }: TableOfContentsProps) => {
   }
 
   return (
-    <nav className="sticky top-8 space-y-6">
-      <div className="text-sm font-semibold text-foreground uppercase tracking-wide">
-        Table of Contents
+    <nav className="sticky top-8 space-y-3 p-4 rounded-lg bg-background border border-border/40 backdrop-blur-sm">
+      <div className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">
+        On this page
       </div>
-      <ul className="space-y-3 text-sm">
+      <ul className="space-y-1.5 text-sm">
         {headings.map((heading) => (
           <li
             key={heading.id}
             style={{
-              marginLeft: `${(heading.level - 1) * 16}px`,
+              marginLeft: `${(heading.level - 1) * 12}px`,
             }}
           >
             <Link
               href={`#${heading.id}`}
               className={cn(
-                "block py-1 text-muted-foreground transition-all duration-200 hover:text-foreground hover:translate-x-1 border-l-2 border-transparent hover:border-primary/50",
+                "group relative block py-1.5 px-2 text-muted-foreground transition-all duration-300 rounded-md",
+                "hover:text-foreground after:absolute after:left-0 after:top-1/2 after:-translate-y-1/2 after:w-1 after:h-0 after:bg-primary after:rounded-r after:transition-all after:duration-300 hover:after:h-4",
                 activeId === heading.id &&
-                  "text-primary font-medium border-primary translate-x-1",
+                  "text-primary font-medium after:h-6 after:bg-primary",
               )}
             >
-              {heading.text}
+              <span className="relative z-10">{heading.text}</span>
             </Link>
           </li>
         ))}

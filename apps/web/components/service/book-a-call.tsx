@@ -35,12 +35,12 @@ const CURSOR_TAGS: CursorTag[] = [
 
 const BookCallCta = () => {
   return (
-    <Wrapper className="relative py-24 overflow-hidden border-t-2">
+    <Wrapper className="relative py-12 md:py-24 overflow-hidden border-t-2">
       {/* Top hero-style glow */}
-      <div className="pointer-events-none absolute inset-x-0 -top-24 -z-10 mx-auto h-48 w-3/4 rounded-full bg-linear-to-r from-primary/30 via-primary/10 to-transparent blur-[6rem]" />
+      <div className="pointer-events-none absolute inset-x-0 -top-12 md:-top-24 -z-10 mx-auto h-32 md:h-48 w-3/4 rounded-full bg-linear-to-r from-primary/30 via-primary/10 to-transparent blur-[6rem]" />
 
       {/* Bottom soft glow */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 mx-auto h-56 w-3/4 rounded-full bg-linear-to-r from-primary/20 via-primary/10 to-transparent blur-[7rem]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 mx-auto h-40 md:h-56 w-3/4 rounded-full bg-linear-to-r from-primary/20 via-primary/10 to-transparent blur-[7rem]" />
 
       {/* Floating cursor tags (FORCED ABOVE CARD) */}
       {CURSOR_TAGS.map((tag, index) => {
@@ -54,7 +54,7 @@ const BookCallCta = () => {
           >
             <div
               className={cn(
-                "absolute z-30 flex items-center gap-2 rounded-xl border border-border bg-background/70 px-3 py-1.5 text-xs font-medium text-foreground backdrop-blur shadow-sm transition-all",
+                "absolute z-30 flex items-center gap-2 rounded-xl border border-border bg-background/70 px-2 py-1 md:px-3 md:py-1.5 text-xs font-medium text-foreground backdrop-blur shadow-sm transition-all",
                 tag.className,
               )}
             >
@@ -67,12 +67,12 @@ const BookCallCta = () => {
 
       {/* Main CTA box */}
       <AnimationContainer animation="fadeUp" delay={0.25}>
-        <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-border bg-card/60 px-8 py-14 text-center backdrop-blur md:px-16">
+        <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-border bg-card/60 px-4 py-8 md:px-8 md:py-12 lg:px-16 lg:py-14 text-center backdrop-blur">
           {/* Subtle inner glow */}
           <div className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-linear-to-br from-primary/10 via-transparent to-transparent" />
 
           <AnimationContainer animation="fadeUp" delay={0.35}>
-            <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
+            <h2 className="text-balance text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
               Book a Free{" "}
               <span className="bg-linear-to-r from-foreground to-primary bg-clip-text text-transparent">
                 Strategy Call
@@ -81,14 +81,14 @@ const BookCallCta = () => {
           </AnimationContainer>
 
           <AnimationContainer animation="fadeUp" delay={0.45}>
-            <p className="mx-auto mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
-              Let’s discuss your idea, goals, and challenges — and see how we
+            <p className="mx-auto mt-4 md:mt-6 max-w-xl text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground">
+              Let's discuss your idea, goals, and challenges — and see how we
               can build a scalable solution tailored for you.
             </p>
           </AnimationContainer>
 
           <AnimationContainer animation="fadeUp" delay={0.55}>
-            <div className="mt-10 flex items-center justify-center">
+            <div className="mt-6 md:mt-10 flex items-center justify-center gap-2">
               <Link href="/contact">
                 <Button size="lg" className="gap-2">
                   <PhoneCall className="h-5 w-5" />

@@ -18,14 +18,14 @@ const BlogPostHeader = ({ post }: Props) => {
   }, [post.published_at]);
 
   return (
-    <header className="mx-auto mb-20 max-w-4xl px-4 text-center md:px-0">
-      {/* Tags */}
+    <header className="mx-auto mb-16 max-w-4xl px-0 pt-12 pb-8 text-center">
+      {/* Tags with enhanced styling */}
       <div className="flex flex-wrap justify-center gap-2 mb-6">
         {post.tags.map((tag) => (
           <Badge
             key={tag}
-            variant="secondary"
-            className="text-xs font-medium px-3 py-1"
+            variant="outline"
+            className="text-xs font-medium px-3 py-1 border-border bg-background/50 text-foreground"
           >
             {tag}
           </Badge>
@@ -33,47 +33,45 @@ const BlogPostHeader = ({ post }: Props) => {
       </div>
 
       {/* Title */}
-      <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight mb-6">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-tight mb-4 tracking-tight">
         {post.title}
       </h1>
 
       {/* Excerpt */}
-      <p className="mx-auto max-w-2xl text-lg text-muted-foreground leading-relaxed mb-8">
+      <p className="mx-auto max-w-2xl text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
         {post.excerpt}
       </p>
 
-      {/* Meta */}
-      <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-8">
+      {/* Meta - Minimal layout */}
+      <div className="flex flex-col items-center gap-2 sm:gap-3 sm:flex-row sm:justify-center sm:gap-4 text-xs sm:text-sm">
         {/* Author */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
           <Image
             src={post.author.avatar_url}
             alt={post.author.name}
-            width={48}
-            height={48}
+            width={32}
+            height={32}
             className="rounded-full border border-border"
           />
-          <div className="text-left">
-            <div className="flex items-center gap-2 text-foreground">
-              <Verified className="h-4 w-4 text-primary" />
-              <span className="font-semibold">{post.author.name}</span>
-            </div>
-            <p className="text-sm text-muted-foreground">{post.author.role}</p>
+          <div>
+            <span className="font-semibold text-foreground">
+              {post.author.name}
+            </span>
+            <span className="text-muted-foreground mx-1">•</span>
+            <span className="text-muted-foreground">{post.author.role}</span>
           </div>
         </div>
 
         {/* Date */}
         <div className="flex items-center gap-2 text-muted-foreground">
           <Calendar className="h-4 w-4" />
-          <time dateTime={post.published_at} className="font-medium">
-            {formattedDate}
-          </time>
+          <time dateTime={post.published_at}>{formattedDate}</time>
         </div>
 
         {/* Reading time */}
         <div className="flex items-center gap-2 text-muted-foreground">
           <Clock2 className="h-4 w-4" />
-          <span className="font-medium">{post.reading_time} min read</span>
+          <span>{post.reading_time} min read</span>
         </div>
       </div>
     </header>

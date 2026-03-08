@@ -42,7 +42,7 @@ function renderFeatureIcon(index: number) {
 
 const Pricing = () => {
   return (
-    <Wrapper className="relative w-full overflow-hidden py-28">
+    <Wrapper className="relative w-full overflow-hidden py-12 md:py-28 px-4 md:px-0">
       {/* Grid Background */}
       <div
         aria-hidden
@@ -60,11 +60,11 @@ const Pricing = () => {
         <AnimationContainer animation="fadeDown">
           <Badge
             variant="outline"
-            className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
+            className="group relative overflow-hidden border-border bg-background/70 px-3 py-1 md:px-4 md:py-1.5 backdrop-blur-md text-xs md:text-sm"
           >
             <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
-            <span className="relative flex items-center gap-2">
-              <Tag className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
+            <span className="relative flex items-center gap-1.5 md:gap-2">
+              <Tag className="h-3 w-3 md:h-4 md:w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
               <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                 Pricing
               </span>
@@ -74,7 +74,7 @@ const Pricing = () => {
 
         {/* Heading */}
         <AnimationContainer animation="fadeUp" delay={0.15}>
-          <h2 className="mt-8 max-w-4xl text-balance text-4xl font-semibold tracking-tight md:text-5xl">
+          <h2 className="mt-4 md:mt-8 max-w-4xl text-balance text-2xl sm:text-3xl md:text-5xl lg:text-5xl font-semibold tracking-tight">
             Tailored solutions for{" "}
             <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
               every business stage
@@ -92,7 +92,7 @@ const Pricing = () => {
         </AnimationContainer>
 
         {/* Pricing Cards */}
-        <div className="mt-20 grid w-full max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 md:mt-20 grid w-full max-w-6xl gap-4 md:gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-3">
           {PRICING_PLANS.map((plan, planIndex) => (
             <AnimationContainer
               key={plan.id}
@@ -100,7 +100,7 @@ const Pricing = () => {
               delay={0.45 + planIndex * 0.15}
             >
               <div
-                className={`group relative flex h-full flex-col rounded-3xl border px-8 py-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg ${
+                className={`group relative flex h-full flex-col rounded-3xl border px-4 py-6 md:px-6 md:py-8 lg:px-8 lg:py-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg ${
                   plan.highlighted
                     ? "border-accent bg-accent/10"
                     : "border-border bg-background"
@@ -108,7 +108,7 @@ const Pricing = () => {
               >
                 {/* Recommended Badge */}
                 {plan.highlighted && (
-                  <div className="absolute -top-4 left-6">
+                  <div className="absolute -top-4 left-4 md:left-6">
                     <Badge className="flex items-center gap-1">
                       <Sparkles className="h-3.5 w-3.5" />
                       Recommended
@@ -118,19 +118,23 @@ const Pricing = () => {
 
                 {/* Header */}
                 <div>
-                  <h3 className="text-2xl font-semibold">{plan.name}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-semibold">
+                    {plan.name}
+                  </h3>
+                  <p className="mt-1 md:mt-2 text-xs md:text-sm text-muted-foreground">
                     {plan.description}
                   </p>
 
-                  <div className="mt-6">
-                    <span className="text-3xl font-semibold">{plan.price}</span>
+                  <div className="mt-4 md:mt-6">
+                    <span className="text-2xl md:text-3xl lg:text-3xl font-semibold">
+                      {plan.price}
+                    </span>
                   </div>
                 </div>
 
                 {/* Tiers (if exist) */}
                 {"tiers" in plan && plan.tiers && (
-                  <div className="mt-6 space-y-3 rounded-xl border border-border bg-muted/30 p-4 text-left text-sm">
+                  <div className="mt-4 md:mt-6 space-y-2 md:space-y-3 rounded-xl border border-border bg-muted/30 p-3 md:p-4 text-left text-xs md:text-sm">
                     {plan.tiers.map((tier) => (
                       <div key={tier.id}>
                         <p className="font-medium">{tier.name}</p>
@@ -142,10 +146,10 @@ const Pricing = () => {
                   </div>
                 )}
 
-                <div className="my-8 h-px bg-border" />
+                <div className="my-6 md:my-8 h-px bg-border" />
 
                 {/* Features */}
-                <ul className="flex-1 space-y-4 text-sm">
+                <ul className="flex-1 space-y-3 md:space-y-4 text-xs md:text-sm">
                   {plan.features.map((feature, idx) => (
                     <li key={feature} className="group flex items-start gap-3">
                       {renderFeatureIcon(idx)}
@@ -158,7 +162,7 @@ const Pricing = () => {
 
                 {/* Notes */}
                 {"notes" in plan && plan.notes && (
-                  <div className="mt-6 space-y-2 border-t border-border pt-4 text-xs text-muted-foreground">
+                  <div className="mt-4 md:mt-6 space-y-2 border-t border-border pt-4 text-xs text-muted-foreground">
                     {plan.notes.map((note) => (
                       <p key={note}>• {note}</p>
                     ))}
@@ -166,7 +170,7 @@ const Pricing = () => {
                 )}
 
                 {/* CTA */}
-                <div className="mt-8">
+                <div className="mt-6 md:mt-8">
                   <Link href="/contact">
                     <Button
                       size="lg"
