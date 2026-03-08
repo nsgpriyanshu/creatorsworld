@@ -19,8 +19,8 @@ type Props = {
 const BlogContent = ({ blocks }: Props) => {
   return (
     <>
-      <Link href="/blog" className="mb-8 mt-2 inline-block">
-        <Button variant="ghost" size="sm">
+      <Link href="/blog" className="mb-12 inline-block">
+        <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Blog
         </Button>
@@ -136,7 +136,7 @@ const BlogContent = ({ blocks }: Props) => {
                     href={block.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-[#f10a0a] dark:text-[#ff3333] font-medium hover:underline break-words"
+                    className="inline-flex items-center gap-2 text-primary font-medium hover:underline break-words"
                   >
                     <Link2 className="h-4 w-4 flex-shrink-0" />
                     <span className="text-base md:text-lg">{block.text}</span>

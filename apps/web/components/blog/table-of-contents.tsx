@@ -64,25 +64,27 @@ const TableOfContents = ({ blocks }: TableOfContentsProps) => {
   }
 
   return (
-    <nav className="space-y-4">
-      <div className="text-sm font-semibold text-foreground">On this page</div>
-      <ul className="space-y-2 text-sm">
+    <nav className="sticky top-8 space-y-6">
+      <div className="text-sm font-semibold text-foreground uppercase tracking-wide">
+        Table of Contents
+      </div>
+      <ul className="space-y-3 text-sm">
         {headings.map((heading) => (
           <li
             key={heading.id}
             style={{
-              marginLeft: `${(heading.level - 1) * 12}px`,
+              marginLeft: `${(heading.level - 1) * 16}px`,
             }}
           >
-            <a
+            <Link
               href={`#${heading.id}`}
               className={cn(
-                "inline-block text-muted-foreground transition-colors duration-200 hover:text-foreground break-words max-w-full",
-                activeId === heading.id && "text-[#f10a0a] font-medium",
+                "block py-1 text-muted-foreground transition-all duration-200 hover:text-foreground hover:translate-x-1 border-l-2 border-transparent hover:border-primary/50",
+                activeId === heading.id && "text-primary font-medium border-primary translate-x-1",
               )}
             >
               {heading.text}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

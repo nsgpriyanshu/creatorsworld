@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from 'react';
 import AnimationContainer from "./global/animation-container";
 import Wrapper from "./global/wrapper";
 
@@ -81,6 +82,12 @@ const SOCIAL_LINKS: FooterLink[] = [
 ];
 
 const Footer = () => {
+  const [year, setYear] = useState('');
+
+  useEffect(() => {
+    setYear(new Date().getFullYear().toString());
+  }, []);
+
   return (
     <footer className="border-border relative w-full overflow-hidden border-t pt-16 pb-8 md:pb-0">
       <Wrapper>
@@ -244,9 +251,20 @@ const Footer = () => {
         <AnimationContainer animation="fadeUp" delay={0.5}>
           <div className="border-border/40 mt-16 border-t py-8 text-center">
             <p className="text-foreground text-xs tracking-wider">
-              © {new Date().getFullYear()} Creator&apos;s World. All rights
-              reserved.
+              © {year} Creator&apos;s World. All rights reserved.
             </p>
+
+            {/* Brand font image */}
+            <div className="mt-8 flex justify-center">
+              <Image
+                src="/assets/brand/cw-font-transparent-3000x500.svg"
+                alt="Creator's World Brand"
+                width={3000}
+                height={500}
+                className="w-full max-w-3xl h-auto opacity-80"
+                sizes="(max-width: 768px) 90vw, 700px"
+              />
+            </div>
           </div>
         </AnimationContainer>
       </Wrapper>

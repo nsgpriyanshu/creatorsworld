@@ -44,32 +44,32 @@ const BlogHero: React.FC = () => {
     );
   }
   return (
-    <Wrapper className="relative pt-28 pb-24 w-full overflow-hidden">
+    <Wrapper className="relative pt-32 pb-20 w-full">
       {/* Brand Glow
       <div className="pointer-events-none absolute inset-x-0 -top-24 -z-10 mx-auto h-48 w-3/4 rounded-full bg-[radial-gradient(86%_172%_at_50%_-40%,rgba(241,10,10,0.9)_0%,rgba(5,5,5,0)_80%)] blur-[6rem]" /> */}
 
       <div className="relative z-10 mx-auto max-w-3xl text-center">
         <AnimationContainer animation="fadeDown">
           <Badge
-            variant="outline"
-            className="mx-auto mb-5 flex w-fit items-center gap-2 border-border bg-background px-4 py-1.5 text-secondary-foreground"
+            variant="secondary"
+            className="mx-auto mb-6 px-4 py-2 text-sm font-medium"
           >
-            <Newspaper className="h-4 w-4 text-[#f10a0a]" />
+            <Newspaper className="h-4 w-4 mr-2" />
             Blog
           </Badge>
         </AnimationContainer>
 
         <AnimationContainer animation="fadeUp" delay={0.15}>
-          <h1 className="mt-8 max-w-4xl text-balance text-5xl font-semibold leading-tight tracking-tight text-foreground md:text-6xl">
-            Discover Stories & Insights
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight text-foreground">
+            Stories & Insights from <br />
+            <span className="text-primary">Creator's World</span>
           </h1>
         </AnimationContainer>
 
         <AnimationContainer animation="fadeUp" delay={0.3}>
-          <p className="mt-6 max-w-3xl text-balance text-base leading-relaxed text-muted-foreground md:text-lg">
-            Stay updated with the latest news, articles, and insights from the
-            Creator's World community. Explore diverse perspectives and creative
-            content.
+          <p className="mt-6 max-w-2xl mx-auto text-lg leading-relaxed text-muted-foreground">
+            Discover the latest trends, tutorials, and community stories.
+            Join thousands of creators sharing their journey and expertise.
           </p>
         </AnimationContainer>
       </div>

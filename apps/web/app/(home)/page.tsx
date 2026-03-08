@@ -24,9 +24,9 @@ const HomePage = () => {
       <section className="w-full">
         <Reviews />
       </section>
-      <section className="w-full">
+      {/* <section className="w-full">
         <Regents />
-      </section>
+      </section> */}
       <section className="w-full">
         <ServicesCta />
       </section>
