@@ -8,7 +8,7 @@ import { Badge } from "@repo/ui/components/ui/badge";
 import { Button } from "@repo/ui/components/ui/button";
 import { BlogPost } from "../../lib/db/types";
 import { Calendar, Clock2, ArrowRight } from "lucide-react";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import AnimationContainer from "../global/animation-container";
 
 type Props = {
@@ -23,7 +23,7 @@ const BlogCard = ({ post }: Props) => {
       ? post.thumbnail_url
       : FALLBACK_IMAGE,
   );
-  const [formattedDate, setFormattedDate] = useState('');
+  const [formattedDate, setFormattedDate] = useState("");
 
   useEffect(() => {
     setFormattedDate(new Date(post.published_at).toLocaleDateString());
@@ -85,7 +85,8 @@ const BlogCard = ({ post }: Props) => {
                     height={24}
                     className="rounded-full border border-border"
                     onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).src = FALLBACK_IMAGE;
+                      (e.currentTarget as HTMLImageElement).src =
+                        FALLBACK_IMAGE;
                     }}
                   />
                   <span className="font-medium text-foreground">
@@ -96,9 +97,7 @@ const BlogCard = ({ post }: Props) => {
                 {/* Date */}
                 <div className="flex items-center gap-1">
                   <Calendar className="h-3 w-3" />
-                  <time dateTime={post.published_at}>
-                    {formattedDate}
-                  </time>
+                  <time dateTime={post.published_at}>{formattedDate}</time>
                 </div>
               </div>
 

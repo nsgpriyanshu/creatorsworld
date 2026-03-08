@@ -80,7 +80,8 @@ const TableOfContents = ({ blocks }: TableOfContentsProps) => {
               href={`#${heading.id}`}
               className={cn(
                 "block py-1 text-muted-foreground transition-all duration-200 hover:text-foreground hover:translate-x-1 border-l-2 border-transparent hover:border-primary/50",
-                activeId === heading.id && "text-primary font-medium border-primary translate-x-1",
+                activeId === heading.id &&
+                  "text-primary font-medium border-primary translate-x-1",
               )}
             >
               {heading.text}

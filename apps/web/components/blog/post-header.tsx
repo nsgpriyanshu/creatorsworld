@@ -4,14 +4,14 @@ import Image from "next/image";
 import { Badge } from "@repo/ui/components/ui/badge";
 import { BlogPost } from "../../lib/db/types";
 import { PenLine, Hourglass, Calendar, Clock2, Verified } from "lucide-react";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 type Props = {
   post: BlogPost;
 };
 
 const BlogPostHeader = ({ post }: Props) => {
-  const [formattedDate, setFormattedDate] = useState('');
+  const [formattedDate, setFormattedDate] = useState("");
 
   useEffect(() => {
     setFormattedDate(new Date(post.published_at).toLocaleDateString());
@@ -22,7 +22,11 @@ const BlogPostHeader = ({ post }: Props) => {
       {/* Tags */}
       <div className="flex flex-wrap justify-center gap-2 mb-6">
         {post.tags.map((tag) => (
-          <Badge key={tag} variant="secondary" className="text-xs font-medium px-3 py-1">
+          <Badge
+            key={tag}
+            variant="secondary"
+            className="text-xs font-medium px-3 py-1"
+          >
             {tag}
           </Badge>
         ))}

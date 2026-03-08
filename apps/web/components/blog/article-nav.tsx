@@ -25,7 +25,9 @@ const ArticleNav = ({ previousPost, nextPost }: ArticleNavProps) => {
             <div className="flex items-start gap-4 p-4 rounded-lg transition-all duration-300 hover:bg-muted/30 hover:shadow-sm">
               <ArrowLeft className="h-5 w-5 mt-1 text-muted-foreground group-hover:text-primary transition-colors" />
               <div>
-                <div className="text-sm text-muted-foreground mb-1">Previous</div>
+                <div className="text-sm text-muted-foreground mb-1">
+                  Previous
+                </div>
                 <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
                   {previousPost.title}
                 </h3>

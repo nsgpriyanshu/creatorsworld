@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import AnimationContainer from "./global/animation-container";
 import Wrapper from "./global/wrapper";
 
@@ -82,7 +82,7 @@ const SOCIAL_LINKS: FooterLink[] = [
 ];
 
 const Footer = () => {
-  const [year, setYear] = useState('');
+  const [year, setYear] = useState("");
 
   useEffect(() => {
     setYear(new Date().getFullYear().toString());

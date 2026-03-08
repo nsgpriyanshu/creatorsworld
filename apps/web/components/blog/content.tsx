@@ -20,7 +20,11 @@ const BlogContent = ({ blocks }: Props) => {
   return (
     <>
       <Link href="/blog" className="mb-12 inline-block">
-        <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+        <Button
+          variant="ghost"
+          size="sm"
+          className="text-muted-foreground hover:text-foreground"
+        >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Blog
         </Button>

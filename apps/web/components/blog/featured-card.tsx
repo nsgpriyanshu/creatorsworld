@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Badge } from "@repo/ui/components/ui/badge";
 import { BlogPost } from "../../lib/db/types";
 import { Calendar, Clock2, Star } from "lucide-react";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import Wrapper from "../global/wrapper";
 import AnimationContainer from "../global/animation-container";
 
@@ -14,7 +14,7 @@ type Props = {
 };
 
 const FeaturedBlogCard = ({ post }: Props) => {
-  const [formattedDate, setFormattedDate] = useState('');
+  const [formattedDate, setFormattedDate] = useState("");
 
   useEffect(() => {
     setFormattedDate(new Date(post.published_at).toLocaleDateString());
@@ -100,9 +100,7 @@ const FeaturedBlogCard = ({ post }: Props) => {
                   {/* Reading time */}
                   <div className="flex items-center gap-1.5">
                     <Clock2 className="h-4 w-4" />
-                    <span className="font-medium">
-                      {post.reading_time} min
-                    </span>
+                    <span className="font-medium">{post.reading_time} min</span>
                   </div>
                 </div>
               </div>

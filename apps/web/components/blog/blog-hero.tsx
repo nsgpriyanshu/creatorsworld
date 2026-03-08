@@ -68,8 +68,8 @@ const BlogHero: React.FC = () => {
 
         <AnimationContainer animation="fadeUp" delay={0.3}>
           <p className="mt-6 max-w-2xl mx-auto text-lg leading-relaxed text-muted-foreground">
-            Discover the latest trends, tutorials, and community stories.
-            Join thousands of creators sharing their journey and expertise.
+            Discover the latest trends, tutorials, and community stories. Join
+            thousands of creators sharing their journey and expertise.
           </p>
         </AnimationContainer>
       </div>
