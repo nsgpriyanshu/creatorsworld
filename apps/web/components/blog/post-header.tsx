@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Badge } from "@repo/ui/components/ui/badge";
 import { BlogPost } from "../../lib/db/types";
-import { PenLine, Hourglass, Calendar, Clock2, Verified } from "lucide-react";
+import { Calendar, Clock2 } from "lucide-react";
 import { useState, useEffect } from "react";
 
 type Props = {
@@ -18,60 +18,48 @@ const BlogPostHeader = ({ post }: Props) => {
   }, [post.published_at]);
 
   return (
-    <header className="mx-auto mb-16 max-w-4xl px-0 pt-12 pb-8 text-center">
-      {/* Tags with enhanced styling */}
-      <div className="flex flex-wrap justify-center gap-2 mb-6">
+    <header className="mx-auto mb-10 max-w-4xl rounded-md border border-border overflow-hidden">
+      {/* Tags */}
+      <div className="border-b border-dashed border-border p-4 flex flex-wrap justify-center gap-2">
         {post.tags.map((tag) => (
-          <Badge
-            key={tag}
-            variant="outline"
-            className="text-xs font-medium px-3 py-1 border-border bg-background/50 text-foreground"
-          >
+          <Badge key={tag} variant="outline">
             {tag}
           </Badge>
         ))}
       </div>
 
       {/* Title */}
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-tight mb-4 tracking-tight">
-        {post.title}
-      </h1>
+      <div className="border-b border-dashed border-border px-6 py-8 text-center">
+        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground">
+          {post.title}
+        </h1>
 
-      {/* Excerpt */}
-      <p className="mx-auto max-w-2xl text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
-        {post.excerpt}
-      </p>
+        <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
+          {post.excerpt}
+        </p>
+      </div>
 
-      {/* Meta - Minimal layout */}
-      <div className="flex flex-col items-center gap-2 sm:gap-3 sm:flex-row sm:justify-center sm:gap-4 text-xs sm:text-sm">
-        {/* Author */}
+      {/* Meta */}
+      <div className="flex flex-wrap justify-center items-center gap-4 p-4 text-sm text-muted-foreground">
         <div className="flex items-center gap-2">
           <Image
             src={post.author.avatar_url}
             alt={post.author.name}
-            width={32}
-            height={32}
+            width={28}
+            height={28}
             className="rounded-full border border-border"
           />
-          <div>
-            <span className="font-semibold text-foreground">
-              {post.author.name}
-            </span>
-            <span className="text-muted-foreground mx-1">•</span>
-            <span className="text-muted-foreground">{post.author.role}</span>
-          </div>
+          <span>{post.author.name}</span>
         </div>
 
-        {/* Date */}
-        <div className="flex items-center gap-2 text-muted-foreground">
+        <div className="flex items-center gap-1">
           <Calendar className="h-4 w-4" />
-          <time dateTime={post.published_at}>{formattedDate}</time>
+          {formattedDate}
         </div>
 
-        {/* Reading time */}
-        <div className="flex items-center gap-2 text-muted-foreground">
+        <div className="flex items-center gap-1">
           <Clock2 className="h-4 w-4" />
-          <span>{post.reading_time} min read</span>
+          {post.reading_time} min read
         </div>
       </div>
     </header>

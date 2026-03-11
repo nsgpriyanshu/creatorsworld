@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@repo/ui/components/ui/badge";
 import { Button } from "@repo/ui/components/ui/button";
 import { ArrowRight, Package2 } from "lucide-react";
+
 import AnimationContainer from "../../components/global/animation-container";
 import Wrapper from "../../components/global/wrapper";
 import { products } from "../../lib/products";
@@ -11,84 +14,102 @@ export default function ProductPage() {
   const productList = Object.values(products);
 
   return (
-    <Wrapper className="relative py-20 lg:py-32">
-      {/* Header */}
-      <div className="mx-auto mb-16 max-w-2xl text-center">
-        <AnimationContainer animation="fadeUp" delay={0.1}>
-          <Badge
-            variant="outline"
-            className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
-          >
-            {/* moving shine */}
-            <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+    <Wrapper className="relative overflow-x-hidden py-20 lg:py-32">
+      {" "}
+      <AnimationContainer animation="fadeUp">
+        {" "}
+        <div className="mx-auto w-full max-w-6xl rounded-md border border-border">
+          {/* Badge */}
+          <div className="flex justify-center border-b border-dashed border-border p-4">
+            <Badge
+              variant="outline"
+              className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
+            >
+              <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
 
-            <span className="relative flex items-center gap-2">
-              <Package2 className="h-4 w-4 text-[#f10a0a] transition-transform duration-300 group-hover:rotate-12" />
-              <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                Products
+              <span className="relative flex items-center gap-2">
+                <Package2 className="h-4 w-4 text-foreground transition-transform duration-300 group-hover:rotate-12" />
+                <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                  Products
+                </span>
               </span>
-            </span>
-          </Badge>
-        </AnimationContainer>
+            </Badge>
+          </div>
 
-        <AnimationContainer animation="fadeUp" delay={0.2}>
-          <h1 className="mt-8 max-w-4xl text-balance text-5xl font-semibold leading-tight tracking-tight text-foreground md:text-6xl">
-            Explore Our Products
-          </h1>
-        </AnimationContainer>
+          {/* Heading */}
+          <div className="border-b border-dashed border-border px-6 py-10 text-center">
+            <h1 className="mx-auto max-w-3xl text-balance text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
+              Explore Our Products
+            </h1>
+          </div>
 
-        <AnimationContainer animation="fadeUp" delay={0.3}>
-          <p className="mt-6 max-w-3xl text-balance text-base leading-relaxed text-muted-foreground md:text-lg">
-            Carefully crafted digital products built for creators, communities,
-            and modern Discord ecosystems.
-          </p>
-        </AnimationContainer>
-      </div>
+          {/* Description */}
+          <div className="border-b border-dashed border-border px-6 py-8 text-center">
+            <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
+              Carefully crafted digital products built for creators,
+              communities, and modern Discord ecosystems.
+            </p>
+          </div>
 
-      {/* Product grid */}
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
-        {productList.map((product, index) => (
-          <AnimationContainer
-            key={product.slug}
-            animation="fadeUp"
-            delay={0.2 + index * 0.1}
-          >
-            <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-background p-6 transition hover:border-[#f10a0a]/60">
-              {/* Image */}
-              <div className="relative mb-6 aspect-square w-full overflow-hidden rounded-2xl bg-muted">
-                <Image
-                  src={product.image.light}
-                  alt={product.image.alt}
-                  fill
-                  className="object-contain transition-transform duration-300 group-hover:scale-[1.03]"
-                />
-              </div>
+          {/* Product Grid */}
+          <div className="p-4 sm:p-6 md:p-8">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {productList.map((product, index) => (
+                <AnimationContainer
+                  key={product.slug}
+                  animation="fadeUp"
+                  delay={0.1 + index * 0.08}
+                >
+                  <div className="group flex h-full min-w-0 flex-col overflow-hidden rounded-md border border-border bg-background">
+                    {/* Image */}
+                    <div className="relative aspect-square w-full border-b border-dashed border-border bg-muted">
+                      <Image
+                        src={product.image.light}
+                        alt={product.image.alt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-contain p-6 transition-transform duration-300 group-hover:scale-[1.04]"
+                      />
+                    </div>
 
-              {/* Content */}
-              <h3 className="text-xl font-semibold">
-                {product.title}{" "}
-                {product.highlight && (
-                  <span className="text-[#f10a0a]">{product.highlight}</span>
-                )}
-              </h3>
+                    {/* Title */}
+                    <div className="border-b border-dashed border-border p-5">
+                      <h3 className="text-lg font-semibold leading-tight">
+                        {product.title}{" "}
+                        {product.highlight && (
+                          <span className="text-foreground">
+                            {product.highlight}
+                          </span>
+                        )}
+                      </h3>
+                    </div>
 
-              <p className="mt-2 text-sm text-muted-foreground">
-                {product.description}
-              </p>
+                    {/* Description */}
+                    <div className="border-b border-dashed border-border p-5">
+                      <p className="text-sm text-muted-foreground">
+                        {product.description}
+                      </p>
+                    </div>
 
-              {/* CTA */}
-              <div className="mt-auto pt-6">
-                <Link href={`/product/${product.slug}`}>
-                  <Button className="group w-full">
-                    View Product
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </Link>
-              </div>
+                    {/* CTA */}
+                    <div className="mt-auto p-5">
+                      <Link href={`/product/${product.slug}`}>
+                        <Button
+                          variant="default"
+                          className="group w-full rounded-md border border-border"
+                        >
+                          View Product
+                          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </AnimationContainer>
+              ))}
             </div>
-          </AnimationContainer>
-        ))}
-      </div>
+          </div>
+        </div>
+      </AnimationContainer>
     </Wrapper>
   );
 }

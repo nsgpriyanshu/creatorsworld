@@ -14,7 +14,6 @@ import { ABOUT } from "../../constants/about";
 import Wrapper from "../global/wrapper";
 import AnimationContainer from "../global/animation-container";
 import { Badge } from "@repo/ui/components/ui/badge";
-import { cn } from "@repo/ui/lib/utils";
 
 const ICON_MAP: Record<
   "community" | "growth" | "global" | "trust",
@@ -28,92 +27,77 @@ const ICON_MAP: Record<
 
 export default function WhoWeAre() {
   return (
-    <Wrapper className="relative w-full overflow-hidden py-24 lg:py-36">
-      {/* Header */}
-      <div className="relative z-10 flex w-full flex-col items-center text-center">
-        <AnimationContainer animation="fadeDown" delay={0.1}>
-          <Badge
-            variant="outline"
-            className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
-          >
-            <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
-
-            <span className="relative flex items-center gap-2">
-              <History className="h-4 w-4 text-[#f10a0a] transition-transform duration-300 group-hover:rotate-12" />
-              <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                Backstory
-              </span>
-            </span>
-          </Badge>
-        </AnimationContainer>
-
-        <AnimationContainer animation="fadeUp" delay={0.2}>
-          <h2 className="mt-8 max-w-3xl text-balance text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
-            Who we are?
-          </h2>
-        </AnimationContainer>
-
-        <AnimationContainer animation="fadeUp" delay={0.3}>
-          <p className="mt-6 max-w-3xl text-base text-muted-foreground md:text-lg">
-            We&apos;re a passionate team building a global platform to connect
-            and empower creators with innovative tools and resources.
-          </p>
-        </AnimationContainer>
+    <Wrapper className="relative w-full overflow-x-hidden py-24 lg:py-36">
+      {/* subtle background grid */}
+      <div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.25]">
+        <div className="h-full w-full bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:64px_64px]" />
       </div>
 
-      {/* Content */}
-      <div className="relative mt-24">
-        <div className="relative z-10 grid grid-cols-1 gap-y-16 md:grid-cols-2 lg:gap-y-28">
-          {ABOUT.map((item, index) => {
-            const LucideIcon = ICON_MAP[item.icon] ?? Sparkles;
+      <AnimationContainer animation="fadeUp">
+        <div className="mx-auto max-w-6xl rounded-md border border-border">
+          {/* Badge */}
+          <div className="border-b border-dashed border-border p-4 flex justify-center">
+            <Badge
+              variant="outline"
+              className="flex items-center gap-2 rounded-md px-3 py-1"
+            >
+              <History className="h-3.5 w-3.5" />
+              Backstory
+            </Badge>
+          </div>
 
-            return (
-              <div
-                key={item.icon}
-                className={cn(
-                  "flex px-4 md:px-16",
-                  index % 2 === 0 ? "justify-end" : "justify-start",
-                )}
-              >
+          {/* Heading */}
+          <div className="border-b border-dashed border-border px-6 py-10 text-center">
+            <h2 className="mx-auto max-w-3xl text-balance text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
+              Who we are
+            </h2>
+          </div>
+
+          {/* Description */}
+          <div className="border-b border-dashed border-border px-6 py-8 text-center">
+            <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
+              We’re a passionate team building a global platform to connect
+              creators, empower developers, and launch powerful community tools.
+            </p>
+          </div>
+
+          {/* Feature Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {ABOUT.map((item, index) => {
+              const Icon = ICON_MAP[item.icon] ?? Sparkles;
+
+              return (
                 <AnimationContainer
-                  animation={index % 2 === 0 ? "fadeRight" : "fadeLeft"}
-                  delay={0.15 * (index + 1)}
+                  key={item.icon}
+                  animation="fadeUp"
+                  delay={0.12 * (index + 1)}
                 >
-                  <div className="group flex max-w-xs flex-col items-center gap-4 text-center transition-transform duration-300 ease-out hover:-translate-y-1">
-                    {/* Icon with subtle red accent */}
-                    <div
-                      className={cn(
-                        "relative flex size-14 items-center justify-center rounded-2xl lg:size-16",
-                        "border border-[#f10a0a]/20",
-                        "bg-[#f10a0a]/10",
-                        "transition-all duration-300",
-                        "group-hover:bg-[#f10a0a]/15",
-                        "group-hover:border-[#f10a0a]/40",
-                        "group-hover:scale-105",
-                      )}
-                    >
-                      {/* Soft inner glow */}
-                      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-linear-to-br from-[#f10a0a]/15 via-transparent to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div
+                    className="
+                      border-dashed
+                      p-6
+                      transition-colors
+                      hover:bg-muted/30
+                      md:border
+                      md:border-border
+                      md:border-r
+                      md:border-b
+                    "
+                  >
+                    <Icon className="mb-3 h-5 w-5 text-muted-foreground" />
 
-                      <LucideIcon className="relative h-6 w-6 text-[#f10a0a]" />
-                    </div>
+                    <h3 className="text-lg font-semibold">{item.title}</h3>
 
-                    {/* Text */}
-                    <div className="space-y-2">
-                      <h3 className="text-lg font-semibold tracking-tight text-foreground md:text-xl">
-                        {item.title}
-                      </h3>
-                      <p className="max-w-64 text-xs leading-relaxed text-muted-foreground md:text-sm">
-                        {item.description}
-                      </p>
-                    </div>
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      {item.description}
+                    </p>
                   </div>
                 </AnimationContainer>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </AnimationContainer>
     </Wrapper>
   );
 }

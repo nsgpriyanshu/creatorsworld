@@ -3,10 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import AnimationContainer from "./global/animation-container";
-import Wrapper from "./global/wrapper";
 
-// Lucide icons
+import Wrapper from "./global/wrapper";
+import AnimationContainer from "./global/animation-container";
+
 import {
   Package,
   Sword,
@@ -22,7 +22,6 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-// External icons
 import { FaDiscord, FaGithub } from "react-icons/fa";
 
 type FooterLink = {
@@ -31,16 +30,12 @@ type FooterLink = {
   icon: React.ElementType;
 };
 
-/* ================= QUICK LINKS ================= */
-
 const QUICK_LINKS: FooterLink[] = [
   { label: "Products", href: "/product", icon: Package },
   { label: "Services", href: "/service", icon: Cog },
   { label: "Blog", href: "/blog", icon: BookMarked },
   { label: "Contact", href: "/contact", icon: Mail },
 ];
-
-/* ================= PARTNERS ================= */
 
 const PARTNER_LINKS: FooterLink[] = [
   {
@@ -60,8 +55,6 @@ const PARTNER_LINKS: FooterLink[] = [
   },
 ];
 
-/* ================= COMPANY ================= */
-
 const COMPANY_LINKS: FooterLink[] = [
   { label: "About Us", href: "/legal/about", icon: Info },
   { label: "Privacy Policy", href: "/legal/privacy", icon: Lock },
@@ -73,8 +66,6 @@ const COMPANY_LINKS: FooterLink[] = [
   },
   { label: "Branding Guidelines", href: "/legal/brand", icon: Palette },
 ];
-
-/* ================= SOCIAL ================= */
 
 const SOCIAL_LINKS: FooterLink[] = [
   { label: "Discord", href: "https://discord.gg/VUMVuArkst", icon: FaDiscord },
@@ -89,157 +80,95 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="border-border relative w-full overflow-hidden border-t pt-16 pb-8 md:pb-0">
-      <Wrapper>
-        {/* Glow */}
-        <AnimationContainer animation="scaleUp" delay={0.1}>
-          <div className="bg-accent/30 absolute inset-x-0 -top-1/4 mx-auto h-1/3 w-2/3 rounded-full blur-[8rem] lg:-top-1/2 lg:h-1/2 lg:blur-[16rem]" />
-        </AnimationContainer>
-
-        <AnimationContainer animation="scaleUp" delay={0.2}>
-          <div className="from-accent/0 via-accent/50 to-accent/0 absolute inset-x-0 top-0 mx-auto h-px w-4/5 bg-linear-to-r" />
-        </AnimationContainer>
-
-        {/* ================= GRID ================= */}
-        <div className="grid grid-cols-2 gap-8 xl:grid-cols-4 xl:gap-8">
-          {/* Brand */}
-          <AnimationContainer animation="fadeRight" delay={0.3}>
-            <div className="flex flex-col items-start">
+    <footer className="w-full border-t border-dashed border-border overflow-hidden">
+      {" "}
+      <Wrapper className="overflow-hidden">
+        {/* BRAND SECTION */}
+        <div className="py-8 border-b border-dashed border-border">
+          <AnimationContainer animation="fadeUp">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div className="flex items-center gap-2">
                 <Image
                   src="/icons/dark/android-chrome-512x512.png"
                   alt="CW Icon"
-                  width={32}
-                  height={32}
-                  className="-mt-1 dark:hidden"
+                  width={28}
+                  height={28}
+                  className="dark:hidden"
                 />
+
                 <Image
                   src="/icons/light/android-chrome-512x512.png"
                   alt="CW Icon"
-                  width={32}
-                  height={32}
-                  className="-mt-1 hidden dark:block"
+                  width={28}
+                  height={28}
+                  className="hidden dark:block"
                 />
-                <span className="text-foreground text-lg font-semibold lg:text-xl">
-                  Creator&apos;s World
-                </span>
               </div>
 
-              <p className="text-foreground mt-3 text-xs tracking-wide">
-                India
-              </p>
-
-              <div className="mt-6 flex items-center gap-3">
+              <div className="flex items-center gap-4">
                 {SOCIAL_LINKS.map((social, index) => {
                   const Icon = social.icon;
+
                   return (
-                    <AnimationContainer
+                    <Link
                       key={index}
-                      animation="scaleUp"
-                      delay={0.4 + index * 0.1}
+                      href={social.href}
+                      target="_blank"
+                      className="text-muted-foreground transition-colors hover:text-foreground"
                     >
-                      <Link
-                        href={social.href}
-                        target="_blank"
-                        className="text-foreground transition-all duration-300 hover:scale-110 hover:text-[#f10a0a]"
-                      >
-                        <Icon className="h-5 w-5" />
-                      </Link>
-                    </AnimationContainer>
+                      <Icon className="h-5 w-5" />
+                    </Link>
                   );
                 })}
               </div>
             </div>
           </AnimationContainer>
+        </div>
 
-          {/* Quick Links */}
-          <AnimationContainer animation="fadeUp" delay={0.3}>
+        {/* LINKS GRID */}
+        <div className="py-10 border-b border-dashed border-border grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 xl:gap-12">
+          <AnimationContainer animation="fadeUp">
             <div>
-              <h3 className="text-foreground text-sm font-semibold tracking-wider uppercase">
-                Quick Links
-              </h3>
-              <ul className="text-foreground mt-4 space-y-3 text-sm">
+              <h3 className="text-sm font-semibold">Quick Links</h3>
+
+              <ul className="mt-4 space-y-3 text-sm">
                 {QUICK_LINKS.map((link, index) => {
                   const Icon = link.icon;
+
                   return (
-                    <AnimationContainer
-                      key={index}
-                      animation="fadeLeft"
-                      delay={0.4 + index * 0.1}
-                    >
-                      <li>
-                        <Link
-                          href={link.href}
-                          className="flex items-center gap-2 transition-all duration-300 hover:translate-x-1 hover:text-[#f10a0a]"
-                        >
-                          <Icon className="h-4 w-4" />
-                          {link.label}
-                        </Link>
-                      </li>
-                    </AnimationContainer>
+                    <li key={index}>
+                      <Link
+                        href={link.href}
+                        className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        <Icon className="h-4 w-4" />
+                        {link.label}
+                      </Link>
+                    </li>
                   );
                 })}
               </ul>
             </div>
           </AnimationContainer>
 
-          {/* Partners */}
-          <AnimationContainer animation="fadeUp" delay={0.3}>
+          <AnimationContainer animation="fadeUp">
             <div>
-              <h3 className="text-foreground text-sm font-semibold tracking-wider uppercase">
-                Partners
-              </h3>
-              <ul className="text-foreground mt-4 space-y-3 text-sm">
-                {PARTNER_LINKS.map((link, index) => {
-                  const Icon = link.icon;
-                  return (
-                    <AnimationContainer
-                      key={index}
-                      animation="fadeLeft"
-                      delay={0.4 + index * 0.1}
-                    >
-                      <li>
-                        <Link
-                          href={link.href}
-                          target="_blank"
-                          className="flex items-center gap-2 transition-all duration-300 hover:translate-x-1 hover:text-[#f10a0a]"
-                        >
-                          <Icon className="h-4 w-4" />
-                          {link.label}
-                        </Link>
-                      </li>
-                    </AnimationContainer>
-                  );
-                })}
-              </ul>
-            </div>
-          </AnimationContainer>
+              <h3 className="text-sm font-semibold">Company</h3>
 
-          {/* Company Guidelines */}
-          <AnimationContainer animation="fadeUp" delay={0.3}>
-            <div>
-              <h3 className="text-foreground text-sm font-semibold tracking-wider uppercase">
-                Company
-              </h3>
-              <ul className="text-foreground mt-4 space-y-3 text-sm">
+              <ul className="mt-4 space-y-3 text-sm">
                 {COMPANY_LINKS.map((link, index) => {
                   const Icon = link.icon;
+
                   return (
-                    <AnimationContainer
-                      key={index}
-                      animation="fadeLeft"
-                      delay={0.4 + index * 0.1}
-                    >
-                      <li>
-                        <Link
-                          href={link.href}
-                          className="flex items-center gap-2 transition-all duration-300 hover:translate-x-1 hover:text-[#f10a0a]"
-                        >
-                          <Icon className="h-4 w-4" />
-                          {link.label}
-                        </Link>
-                      </li>
-                    </AnimationContainer>
+                    <li key={index}>
+                      <Link
+                        href={link.href}
+                        className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        <Icon className="h-4 w-4" />
+                        {link.label}
+                      </Link>
+                    </li>
                   );
                 })}
               </ul>
@@ -247,26 +176,40 @@ const Footer = () => {
           </AnimationContainer>
         </div>
 
-        {/* Footer bottom */}
-        <AnimationContainer animation="fadeUp" delay={0.5}>
-          <div className="border-border/40 mt-16 border-t py-8 text-center">
-            <p className="text-foreground text-xs tracking-wider">
-              © {year} Creator&apos;s World. All rights reserved.
-            </p>
+        {/* PARTNERS SECTION */}
+        <div className="py-10 border-b border-dashed border-border">
+          <AnimationContainer animation="fadeUp">
+            <div>
+              <h3 className="text-sm font-semibold">Partners</h3>
 
-            {/* Brand font image */}
-            <div className="mt-8 flex justify-center">
-              <Image
-                src="/assets/brand/cw-font-transparent-3000x500.svg"
-                alt="Creator's World Brand"
-                width={3000}
-                height={500}
-                className="w-full max-w-3xl h-auto opacity-80"
-                sizes="(max-width: 768px) 90vw, 700px"
-              />
+              <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+                {PARTNER_LINKS.map((link, index) => {
+                  const Icon = link.icon;
+
+                  return (
+                    <li key={index}>
+                      <Link
+                        href={link.href}
+                        target="_blank"
+                        className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        <Icon className="h-4 w-4" />
+                        {link.label}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
-          </div>
-        </AnimationContainer>
+          </AnimationContainer>
+        </div>
+
+        {/* COPYRIGHT */}
+        <div className="py-6 text-center">
+          <p className="text-xs text-muted-foreground">
+            © {year} Creator's World. All rights reserved.
+          </p>
+        </div>
       </Wrapper>
     </footer>
   );

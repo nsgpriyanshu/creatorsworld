@@ -1,145 +1,305 @@
+// "use client";
+
+// import React from "react";
+// import Link from "next/link";
+// import {
+//   Compass,
+//   Sparkles,
+//   Bot,
+//   Server,
+//   Users,
+//   Rocket,
+//   Code2,
+//   Terminal,
+// } from "lucide-react";
+
+// import Wrapper from "../global/wrapper";
+// import AnimationContainer from "../global/animation-container";
+
+// import { Button } from "@repo/ui/components/ui/button";
+// import { Badge } from "@repo/ui/components/ui/badge";
+
+// const Hero: React.FC = () => {
+//   return (
+//     <Wrapper className="relative w-full overflow-hidden pt-32 pb-24">
+
+//       {/* subtle grid background */}
+//       <div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.25]">
+//         <div className="h-full w-full bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:64px_64px]" />
+//       </div>
+
+//       <div className="flex flex-col items-center text-center">
+
+//         {/* Badge */}
+//         <AnimationContainer animation="fadeDown">
+//           <Badge
+//             variant="outline"
+//             className="flex items-center gap-2 rounded-md px-3 py-1"
+//           >
+//             <Sparkles className="h-3.5 w-3.5" />
+//             World's Largest Bot Server
+//           </Badge>
+//         </AnimationContainer>
+
+//         {/* Heading */}
+//         <AnimationContainer animation="fadeUp" delay={0.1}>
+//           <h1 className="mt-8 max-w-4xl text-balance text-5xl font-semibold leading-tight tracking-tight md:text-6xl">
+//             Step into the
+//             <span className="block text-muted-foreground">
+//               Creator's World
+//             </span>
+//           </h1>
+//         </AnimationContainer>
+
+//         {/* Description */}
+//         <AnimationContainer animation="fadeUp" delay={0.2}>
+//           <p className="mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
+//             Build bots, collaborate with developers, and launch projects
+//             inside a powerful creator ecosystem.
+//           </p>
+//         </AnimationContainer>
+
+//         {/* CTA */}
+//         <AnimationContainer animation="scaleUp" delay={0.3}>
+//           <div className="mt-10">
+//             <Link
+//               href="https://discord.gg/VUMVuArkst"
+//               target="_blank"
+//               rel="noopener noreferrer"
+//             >
+//               <Button size="lg" className="gap-2 rounded-md px-8">
+//                 <Compass className="h-4 w-4" />
+//                 Explore Community
+//               </Button>
+//             </Link>
+//           </div>
+//         </AnimationContainer>
+
+//         {/* HERO PARTITION PANEL */}
+//         <AnimationContainer
+//           animation="fadeUp"
+//           delay={0.45}
+//           className="w-full"
+//         >
+//           <div className="mx-auto mt-20 max-w-6xl rounded-md border border-border">
+
+//             {/* header */}
+//             <div className="flex items-center justify-between border-b border-dashed border-border px-6 py-3 text-sm text-muted-foreground">
+//               <div className="flex items-center gap-2">
+//                 <Terminal className="h-4 w-4" />
+//                 creator-network.console
+//               </div>
+
+//               <span>live overview</span>
+//             </div>
+
+//             {/* grid */}
+//             <div className="grid grid-cols-1 md:grid-cols-3">
+
+//               {/* Bots */}
+//               <div className="border-b border-r border-dashed border-border p-6 transition-colors hover:bg-muted/30">
+//                 <Bot className="mb-3 h-5 w-5 text-muted-foreground" />
+
+//                 <p className="text-sm text-muted-foreground mb-1">
+//                   Bots Running
+//                 </p>
+
+//                 <h3 className="text-xl font-semibold">124K+</h3>
+//               </div>
+
+//               {/* Servers */}
+//               <div className="border-b border-r border-dashed border-border p-6 transition-colors hover:bg-muted/30">
+//                 <Server className="mb-3 h-5 w-5 text-muted-foreground" />
+
+//                 <p className="text-sm text-muted-foreground mb-1">
+//                   Servers
+//                 </p>
+
+//                 <h3 className="text-xl font-semibold">9,200+</h3>
+//               </div>
+
+//               {/* Developers */}
+//               <div className="border-b border-dashed border-border p-6 transition-colors hover:bg-muted/30">
+//                 <Users className="mb-3 h-5 w-5 text-muted-foreground" />
+
+//                 <p className="text-sm text-muted-foreground mb-1">
+//                   Developers
+//                 </p>
+
+//                 <h3 className="text-xl font-semibold">3,100+</h3>
+//               </div>
+
+//               {/* Tools */}
+//               <div className="border-r border-dashed border-border p-6 transition-colors hover:bg-muted/30">
+//                 <Code2 className="mb-3 h-5 w-5 text-muted-foreground" />
+
+//                 <p className="text-sm text-muted-foreground mb-1">
+//                   Creator Tools
+//                 </p>
+
+//                 <h3 className="text-lg font-medium">
+//                   Build & Automate
+//                 </h3>
+//               </div>
+
+//               {/* Community */}
+//               <div className="border-r border-dashed border-border p-6 transition-colors hover:bg-muted/30">
+//                 <Users className="mb-3 h-5 w-5 text-muted-foreground" />
+
+//                 <p className="text-sm text-muted-foreground mb-1">
+//                   Community
+//                 </p>
+
+//                 <h3 className="text-lg font-medium">
+//                   Collaborate
+//                 </h3>
+//               </div>
+
+//               {/* Deploy */}
+//               <div className="p-6 transition-colors hover:bg-muted/30">
+//                 <Rocket className="mb-3 h-5 w-5 text-muted-foreground" />
+
+//                 <p className="text-sm text-muted-foreground mb-1">
+//                   Deployment
+//                 </p>
+
+//                 <h3 className="text-lg font-medium">
+//                   Ship Faster
+//                 </h3>
+//               </div>
+
+//             </div>
+//           </div>
+//         </AnimationContainer>
+
+//       </div>
+//     </Wrapper>
+//   );
+// };
+
+// export default Hero;
+
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { useTheme } from "next-themes";
-import { Compass, Sparkles } from "lucide-react";
+import {
+  Sparkles,
+  Compass,
+  Bot,
+  Server,
+  Users,
+  Rocket,
+  Code2,
+  Terminal,
+} from "lucide-react";
 
 import Wrapper from "../global/wrapper";
 import AnimationContainer from "../global/animation-container";
 
 import { Button } from "@repo/ui/components/ui/button";
 import { Badge } from "@repo/ui/components/ui/badge";
-import { Skeleton } from "@repo/ui/components/ui/skeleton";
 
 const Hero: React.FC = () => {
-  const { resolvedTheme } = useTheme();
-  const [isLoading, setIsLoading] = React.useState(true);
+  return (
+    <Wrapper className="relative w-full overflow-hidden pt-32 pb-24">
+      {/* subtle background grid */}
+      <div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.25]">
+        <div className="h-full w-full bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:64px_64px]" />
+      </div>
 
-  React.useEffect(() => {
-    // Simulate loading (replace with real data readiness)
-    const timer = setTimeout(() => setIsLoading(false), 700);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const heroImageSrc =
-    resolvedTheme === "light"
-      ? "/backgrounds/hero-light.png"
-      : "/backgrounds/hero-dark.png";
-
-  /* -------------------------------------------------------------------------- */
-  /*                                  SKELETON                                   */
-  /* -------------------------------------------------------------------------- */
-  if (isLoading) {
-    return (
-      <Wrapper className="relative w-full overflow-hidden pt-28 pb-24">
-        <div className="flex flex-col items-center text-center">
+      <AnimationContainer animation="fadeUp" className="w-full">
+        <div className="mx-auto max-w-6xl rounded-md border border-border">
           {/* Badge */}
-          <Skeleton className="h-7 w-56 rounded-full" />
+          <div className="border-b border-dashed border-border p-4 flex justify-center">
+            <Badge
+              variant="outline"
+              className="flex items-center gap-2 rounded-md px-3 py-1"
+            >
+              <Sparkles className="h-3.5 w-3.5" />
+              World's Largest Bot Server
+            </Badge>
+          </div>
 
           {/* Heading */}
-          <div className="mt-8 space-y-3">
-            <Skeleton className="h-12 w-[320px] md:w-130" />
-            <Skeleton className="h-12 w-65 md:w-105" />
+          <div className="border-b border-dashed border-border px-6 py-10 text-center">
+            <h1 className="mx-auto max-w-3xl text-balance text-5xl font-semibold leading-tight tracking-tight md:text-6xl">
+              Step into the
+              <span className="block text-muted-foreground">
+                Creator's World
+              </span>
+            </h1>
           </div>
 
           {/* Description */}
-          <div className="mt-6 space-y-2">
-            <Skeleton className="h-4 w-[320px] md:w-140" />
-            <Skeleton className="h-4 w-70 md:w-120" />
+          <div className="border-b border-dashed border-border px-6 py-8 text-center">
+            <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
+              Build bots, collaborate with developers, and deploy powerful tools
+              for communities around the world.
+            </p>
           </div>
 
-          {/* CTA */}
-          <Skeleton className="mt-10 h-14 w-44 rounded-xl" />
+          {/* CTA row */}
+          <div className="grid md:grid-cols-2 border-b border-dashed border-border">
+            <div className="flex items-center justify-center border-r border-dashed border-border p-6">
+              <Link
+                href="https://discord.gg/VUMVuArkst"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="lg" className="gap-2 rounded-md px-8">
+                  <Compass className="h-4 w-4" />
+                  Explore Community
+                </Button>
+              </Link>
+            </div>
 
-          {/* Preview */}
-          <Skeleton className="mt-16 h-55 w-full max-w-5xl rounded-3xl md:h-90" />
-        </div>
-      </Wrapper>
-    );
-  }
-
-  /* -------------------------------------------------------------------------- */
-  /*                                   CONTENT                                  */
-  /* -------------------------------------------------------------------------- */
-  return (
-    <Wrapper className="relative w-full overflow-hidden pt-28 pb-24">
-      {/* Brand Glow (intentional hardcoded brand color) */}
-      <div className="pointer-events-none absolute inset-x-0 -top-24 -z-10 mx-auto h-48 w-3/4 rounded-full bg-[radial-gradient(86%_172%_at_50%_-40%,rgba(241,10,10,0.9)_0%,rgba(5,5,5,0)_80%)] blur-[6rem]" />
-
-      <div className="relative z-10 flex flex-col items-center text-center">
-        {/* Badge */}
-        <AnimationContainer animation="fadeDown">
-          <Badge
-            variant="outline"
-            className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
-          >
-            {/* moving shine */}
-            <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
-
-            <span className="relative flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-[#f10a0a] transition-transform duration-300 group-hover:rotate-12" />
-              <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                World's Largest Bot Server
-              </span>
-            </span>
-          </Badge>
-        </AnimationContainer>
-
-        {/* Heading */}
-        <AnimationContainer animation="fadeUp" delay={0.15}>
-          <h1 className="mt-8 max-w-4xl text-balance text-5xl font-semibold leading-tight tracking-tight text-foreground md:text-6xl">
-            You have stepped into the{" "}
-            <span>
-              <span className=" bg-linear-to-r from-foreground to-[#f10a0a] bg-clip-text text-transparent">
-                Creator&apos;s World
-              </span>
-            </span>
-          </h1>
-        </AnimationContainer>
-
-        {/* Description */}
-        <AnimationContainer animation="fadeUp" delay={0.3}>
-          <p className="mt-6 max-w-3xl text-balance text-base leading-relaxed text-muted-foreground md:text-lg">
-            The ultimate destination for creators to showcase their work,
-            connect with like-minded individuals, and explore a world of
-            creativity. Join us and unleash your creative potential.
-          </p>
-        </AnimationContainer>
-
-        {/* CTA */}
-        <AnimationContainer animation="scaleUp" delay={0.45}>
-          <div className="mt-10">
-            <Link
-              href="https://discord.gg/VUMVuArkst"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button size="lg" className="px-10 py-6 gap-2">
-                <Compass className="h-5 w-5" />
-                Explore More
-              </Button>
-            </Link>
-          </div>
-        </AnimationContainer>
-
-        {/* Preview */}
-        <AnimationContainer animation="fadeUp" delay={0.6} className="w-full">
-          <div className="relative mx-auto mt-16 max-w-7xl rounded-3xl border border-border bg-card p-2">
-            <div className="rounded-2xl border border-border bg-background">
-              <Image
-                src={heroImageSrc}
-                alt="Creator World preview"
-                priority
-                width={2932}
-                height={1664}
-                className="rounded-2xl"
-              />
+            <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground p-6">
+              <Terminal className="h-4 w-4" />
+              creator-network.console
             </div>
           </div>
-        </AnimationContainer>
-      </div>
+
+          {/* Stats grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3">
+            <div className="border-r border-b border-dashed border-border p-6 hover:bg-muted/30 transition-colors">
+              <Bot className="mb-3 h-5 w-5 text-muted-foreground" />
+              <p className="text-sm text-muted-foreground">Bots Running</p>
+              <h3 className="text-xl font-semibold">124K+</h3>
+            </div>
+
+            <div className="border-r border-b border-dashed border-border p-6 hover:bg-muted/30 transition-colors">
+              <Server className="mb-3 h-5 w-5 text-muted-foreground" />
+              <p className="text-sm text-muted-foreground">Servers</p>
+              <h3 className="text-xl font-semibold">9,200+</h3>
+            </div>
+
+            <div className="border-b border-dashed border-border p-6 hover:bg-muted/30 transition-colors">
+              <Users className="mb-3 h-5 w-5 text-muted-foreground" />
+              <p className="text-sm text-muted-foreground">Developers</p>
+              <h3 className="text-xl font-semibold">3,100+</h3>
+            </div>
+
+            <div className="border-r border-dashed border-border p-6 hover:bg-muted/30 transition-colors">
+              <Code2 className="mb-3 h-5 w-5 text-muted-foreground" />
+              <p className="text-sm text-muted-foreground">Creator Tools</p>
+              <h3 className="text-lg font-medium">Build & Automate</h3>
+            </div>
+
+            <div className="border-r border-dashed border-border p-6 hover:bg-muted/30 transition-colors">
+              <Users className="mb-3 h-5 w-5 text-muted-foreground" />
+              <p className="text-sm text-muted-foreground">Community</p>
+              <h3 className="text-lg font-medium">Collaborate</h3>
+            </div>
+
+            <div className="p-6 hover:bg-muted/30 transition-colors">
+              <Rocket className="mb-3 h-5 w-5 text-muted-foreground" />
+              <p className="text-sm text-muted-foreground">Deployment</p>
+              <h3 className="text-lg font-medium">Ship Faster</h3>
+            </div>
+          </div>
+        </div>
+      </AnimationContainer>
     </Wrapper>
   );
 };

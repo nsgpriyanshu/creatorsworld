@@ -1,3 +1,6 @@
+"use client";
+
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -18,106 +21,79 @@ type Props = {
 
 const BlogContent = ({ blocks }: Props) => {
   return (
-    <>
-      <Link href="/blog" className="mb-12 inline-block group">
-        <Button
-          variant="ghost"
-          size="sm"
-          className="text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors duration-200"
-        >
-          <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform duration-200" />
-          Back to Blog
-        </Button>
-      </Link>
-      <div className="mx-auto max-w-4xl px-0 overflow-hidden">
+    <div className="mx-auto max-w-4xl rounded-md border border-border overflow-hidden">
+      {/* Back Button */}
+      <div className="border-b border-dashed border-border p-4">
+        <Link href="/blog" className="inline-block group">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="text-muted-foreground hover:text-foreground"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+            Back to Blog
+          </Button>
+        </Link>
+      </div>
+
+      <div className="p-6 md:p-8">
         {blocks.map((block, index) => {
           switch (block.type) {
             case "heading": {
-              switch (block.level) {
-                case 1:
-                  return (
-                    <h1
-                      key={index}
-                      id={`heading-${index}`}
-                      className="mt-10 text-foreground text-balance text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight tracking-tight scroll-mt-24"
-                    >
-                      {block.text}
-                    </h1>
-                  );
+              const getHeadingClass = (level: number) => {
+                const baseClass =
+                  "text-foreground font-semibold tracking-tight scroll-mt-24";
+                const marginClass = "mt-10 md:mt-12";
 
-                case 2:
-                  return (
-                    <h2
-                      key={index}
-                      id={`heading-${index}`}
-                      className="mt-10 md:mt-12 pt-2 text-foreground text-balance text-2xl sm:text-3xl md:text-4xl font-semibold leading-snug tracking-tight scroll-mt-24 border-t border-border/30 pb-2"
-                    >
-                      {block.text}
-                    </h2>
-                  );
+                switch (level) {
+                  case 1:
+                    return `${marginClass} ${baseClass} text-balance text-3xl sm:text-4xl md:text-5xl leading-tight`;
+                  case 2:
+                    return `${marginClass} pt-2 ${baseClass} text-balance text-2xl sm:text-3xl md:text-4xl leading-snug border-t border-border/30 pb-2`;
+                  case 3:
+                    return `mt-8 md:mt-10 ${baseClass} text-balance text-xl sm:text-2xl md:text-3xl leading-snug`;
+                  case 4:
+                    return `mt-6 md:mt-8 ${baseClass} text-lg sm:text-xl md:text-2xl leading-snug`;
+                  default:
+                    return `${marginClass} ${baseClass} text-xl`;
+                }
+              };
 
-                case 3:
-                  return (
-                    <h3
-                      key={index}
-                      id={`heading-${index}`}
-                      className="mt-8 md:mt-10 text-foreground text-balance text-xl sm:text-2xl md:text-3xl font-semibold leading-snug scroll-mt-24"
-                    >
-                      {block.text}
-                    </h3>
-                  );
-
-                case 4:
-                  return (
-                    <h4
-                      key={index}
-                      id={`heading-${index}`}
-                      className="mt-6 md:mt-8 text-foreground text-lg sm:text-xl md:text-2xl font-semibold leading-snug scroll-mt-24"
-                    >
-                      {block.text}
-                    </h4>
-                  );
-
-                default:
-                  return null;
-              }
+              return React.createElement(
+                `h${block.level}` as any,
+                {
+                  key: index,
+                  id: `heading-${index}`,
+                  className: getHeadingClass(block.level),
+                },
+                block.text,
+              );
             }
 
             case "paragraph":
               return (
                 <p
                   key={index}
-                  className="mt-6 text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed"
+                  className="mt-6 text-muted-foreground text-sm md:text-base leading-relaxed"
                 >
                   {block.text}
                 </p>
               );
 
-            case "quote":
-              return (
-                <blockquote
-                  key={index}
-                  className="my-6 md:my-8 border-l-4 border-primary pl-4 md:pl-6 py-2 italic text-muted-foreground bg-muted/30 rounded-r-lg"
-                >
-                  {block.text}
-                </blockquote>
-              );
-
             case "image":
               return (
-                <figure key={index} className="my-8 md:my-10">
-                  <div className="relative aspect-video overflow-hidden rounded-2xl border border-border/30 w-full">
+                <figure key={index} className="my-8">
+                  <div className="relative aspect-video overflow-hidden rounded-md border border-border">
                     <Image
                       src={block.src}
                       alt={block.alt ?? ""}
                       fill
-                      sizes="(min-width: 1024px) 704px, (min-width: 768px) 672px, (min-width: 640px) 576px, 100vw"
                       className="object-cover"
                     />
                   </div>
 
                   {block.alt && (
-                    <figcaption className="mt-4 text-center text-sm font-medium text-muted-foreground">
+                    <figcaption className="mt-3 text-center text-sm text-muted-foreground">
                       {block.alt}
                     </figcaption>
                   )}
@@ -126,56 +102,51 @@ const BlogContent = ({ blocks }: Props) => {
 
             case "code":
               return (
-                <CodeBlock
+                <div key={index} className="my-8">
+                  <CodeBlock code={block.code} language={block.language} />
+                </div>
+              );
+
+            case "quote":
+              return (
+                <blockquote
                   key={index}
-                  code={block.code}
-                  language={block.language}
-                />
+                  className="my-8 border-l-2 border-border pl-4 italic text-muted-foreground"
+                >
+                  {block.text}
+                </blockquote>
               );
 
             case "link":
               return (
-                <div key={index} className="mt-4 md:mt-6 mb-4 md:mb-6">
-                  <a
-                    href={block.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary/80 break-words transition-colors duration-200 text-sm sm:text-base"
-                  >
-                    <Link2 className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
-                    <span className="underline underline-offset-2">
-                      {block.text}
-                    </span>
-                  </a>
-                </div>
+                <a
+                  key={index}
+                  href={block.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-primary mt-6"
+                >
+                  <Link2 className="h-4 w-4" />
+                  {block.text}
+                </a>
               );
 
             case "list":
               return (
                 <div
                   key={index}
-                  className="mt-8 mb-6 p-3 md:p-5 rounded-lg bg-card border border-border/30"
+                  className="mt-8 rounded-md border border-dashed border-border p-4"
                 >
                   {block.ordered ? (
-                    <ol className="space-y-2 md:space-y-3 list-decimal list-outside pl-6 text-muted-foreground">
-                      {block.items.map((item, itemIndex) => (
-                        <li
-                          key={itemIndex}
-                          className="text-sm md:text-base md:text-lg leading-relaxed break-words marker:text-primary marker:font-semibold"
-                        >
-                          {item}
-                        </li>
+                    <ol className="list-decimal pl-6 space-y-2 text-muted-foreground">
+                      {block.items.map((item, i) => (
+                        <li key={i}>{item}</li>
                       ))}
                     </ol>
                   ) : (
-                    <ul className="space-y-2 md:space-y-3 list-disc list-outside pl-6 text-muted-foreground">
-                      {block.items.map((item, itemIndex) => (
-                        <li
-                          key={itemIndex}
-                          className="text-sm md:text-base md:text-lg leading-relaxed break-words marker:text-primary"
-                        >
-                          {item}
-                        </li>
+                    <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
+                      {block.items.map((item, i) => (
+                        <li key={i}>{item}</li>
                       ))}
                     </ul>
                   )}
@@ -183,44 +154,22 @@ const BlogContent = ({ blocks }: Props) => {
               );
 
             case "callout":
-              const calloutIcons = {
+              const icons = {
                 info: <Info className="h-5 w-5" />,
                 warning: <AlertCircle className="h-5 w-5" />,
                 success: <CheckCircle className="h-5 w-5" />,
                 error: <XCircle className="h-5 w-5" />,
               };
 
-              const calloutStyles: Record<string, string> = {
-                info: "border-l-blue-500/50 bg-blue-50/50 dark:bg-blue-950/20",
-                warning:
-                  "border-l-yellow-500/50 bg-yellow-50/50 dark:bg-yellow-950/20",
-                success:
-                  "border-l-green-500/50 bg-green-50/50 dark:bg-green-950/20",
-                error: "border-l-red-500/50 bg-red-50/50 dark:bg-red-950/20",
-              };
-
-              const calloutIconColors: Record<string, string> = {
-                info: "text-blue-500",
-                warning: "text-yellow-500",
-                success: "text-green-500",
-                error: "text-red-500",
-              };
-
               return (
                 <div
                   key={index}
-                  className={`mt-8 rounded-lg border-l-4 border-border/60 p-3 md:p-6 ${calloutStyles[block.variant]}`}
+                  className="mt-8 flex gap-3 rounded-md border border-dashed border-border p-4"
                 >
-                  <div className="flex gap-2 md:gap-4">
-                    <div
-                      className={`${calloutIconColors[block.variant]} shrink-0 mt-0.5`}
-                    >
-                      {calloutIcons[block.variant]}
-                    </div>
-                    <p className="text-sm md:text-base md:text-lg leading-relaxed text-muted-foreground break-words">
-                      {block.text}
-                    </p>
+                  <div className="text-muted-foreground">
+                    {icons[block.variant]}
                   </div>
+                  <p className="text-muted-foreground">{block.text}</p>
                 </div>
               );
 
@@ -229,9 +178,7 @@ const BlogContent = ({ blocks }: Props) => {
           }
         })}
       </div>
-      {/* Footer spacing */}
-      <div className="mt-20 pt-12 border-t border-border/30" />
-    </>
+    </div>
   );
 };
 

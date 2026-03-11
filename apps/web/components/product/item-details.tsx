@@ -21,7 +21,7 @@ import {
   AlertDialogTrigger,
 } from "@repo/ui/components/ui/alert-dialog";
 
-import { ArrowRight, Package, Package2 } from "lucide-react";
+import { ArrowRight, Package2 } from "lucide-react";
 
 export type ItemDetailsProps = {
   title: string;
@@ -49,104 +49,130 @@ const ItemDetails = ({
   const productImage = resolvedTheme === "dark" ? image.dark : image.light;
 
   return (
-    <Wrapper className="relative py-20 lg:py-32">
-      <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
-        {/* Left content */}
-        <div className="flex flex-col gap-6">
-          <AnimationContainer animation="fadeUp" delay={0.1}>
+    <Wrapper className="relative overflow-x-hidden py-20 lg:py-32">
+      {" "}
+      <AnimationContainer animation="fadeUp">
+        {" "}
+        <div className="mx-auto w-full max-w-6xl rounded-md border border-border">
+          {/* Badge */}
+          <div className="flex justify-center border-b border-dashed border-border p-4">
             <Badge
               variant="outline"
               className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
             >
-              {/* moving shine */}
               <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
 
               <span className="relative flex items-center gap-2">
-                <Package2 className="h-4 w-4 text-[#f10a0a] transition-transform duration-300 group-hover:rotate-12" />
+                <Package2 className="h-4 w-4 text-foreground transition-transform duration-300 group-hover:rotate-12" />
                 <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                   Products
                 </span>
               </span>
             </Badge>
-          </AnimationContainer>
-
-          <AnimationContainer animation="fadeUp" delay={0.2}>
-            <h1 className="text-balance text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
-              {title}{" "}
-              {highlight && <span className="text-[#f10a0a]">{highlight}</span>}
-            </h1>
-          </AnimationContainer>
-
-          <AnimationContainer animation="fadeUp" delay={0.3}>
-            <p className="max-w-xl text-base text-muted-foreground md:text-lg">
-              {description}
-            </p>
-          </AnimationContainer>
-
-          <AnimationContainer animation="fadeUp" delay={0.4}>
-            <p className="text-lg font-medium">
-              Price:{" "}
-              <span className="text-xl font-semibold text-foreground">
-                ₹{price}
-              </span>
-            </p>
-          </AnimationContainer>
-
-          <AnimationContainer animation="fadeUp" delay={0.5}>
-            <div className="mt-4 flex flex-wrap gap-4">
-              {/* Buy Now – Alert Dialog */}
-              <AlertDialog>
-                <AlertDialogTrigger>
-                  <Button size="lg">Buy Now</Button>
-                </AlertDialogTrigger>
-
-                <AlertDialogContent>
-                  <AlertDialogHeader>
-                    <AlertDialogTitle>Payments Coming Soon</AlertDialogTitle>
-                    <AlertDialogDescription>
-                      Our payment gateway is currently under deployment. To
-                      purchase this product, please contact us directly on
-                      Discord and we’ll assist you manually.
-                    </AlertDialogDescription>
-                  </AlertDialogHeader>
-
-                  <AlertDialogFooter>
-                    <AlertDialogCancel>Close</AlertDialogCancel>
-
-                    <AlertDialogAction>
-                      <Link href={discordLink} target="_blank">
-                        Contact on Discord
-                      </Link>
-                    </AlertDialogAction>
-                  </AlertDialogFooter>
-                </AlertDialogContent>
-              </AlertDialog>
-
-              {/* Secondary CTA */}
-              <Link href={discordLink} target="_blank">
-                <Button size="lg" variant="outline" className="group">
-                  Discord
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </Link>
-            </div>
-          </AnimationContainer>
-        </div>
-
-        {/* Right preview */}
-        <AnimationContainer animation="fadeRight" delay={0.3}>
-          <div className="relative mx-auto max-w-md rounded-3xl border border-primary/50 p-4">
-            <Image
-              src={productImage}
-              alt={image.alt}
-              width={600}
-              height={600}
-              priority
-              className="rounded-2xl object-contain"
-            />
           </div>
-        </AnimationContainer>
-      </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            {/* LEFT CONTENT */}
+            <div className="flex min-w-0 flex-col">
+              {/* Title */}
+              <div className="border-b border-dashed border-border p-6">
+                <h1 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
+                  {title}{" "}
+                  {highlight && (
+                    <span className="text-foreground">{highlight}</span>
+                  )}
+                </h1>
+              </div>
+
+              {/* Description */}
+              <div className="border-b border-dashed border-border p-6">
+                <p className="text-base text-muted-foreground md:text-lg">
+                  {description}
+                </p>
+              </div>
+
+              {/* Price */}
+              <div className="border-b border-dashed border-border p-6">
+                <p className="text-lg font-medium">
+                  Price:{" "}
+                  <span className="text-xl font-semibold text-foreground">
+                    ₹{price}
+                  </span>
+                </p>
+              </div>
+
+              {/* Buttons */}
+              <div className="p-6">
+                <div className="flex flex-wrap gap-4">
+                  {/* Buy Now */}
+                  <AlertDialog>
+                    <AlertDialogTrigger>
+                      <Button
+                        size="lg"
+                        variant="default"
+                        className="rounded-md border border-border"
+                      >
+                        Buy Now
+                      </Button>
+                    </AlertDialogTrigger>
+
+                    <AlertDialogContent>
+                      <AlertDialogHeader>
+                        <AlertDialogTitle>
+                          Payments Coming Soon
+                        </AlertDialogTitle>
+                        <AlertDialogDescription>
+                          Our payment gateway is currently under deployment. To
+                          purchase this product, please contact us directly on
+                          Discord and we’ll assist you manually.
+                        </AlertDialogDescription>
+                      </AlertDialogHeader>
+
+                      <AlertDialogFooter>
+                        <AlertDialogCancel>Close</AlertDialogCancel>
+
+                        <AlertDialogAction>
+                          <Link href={discordLink} target="_blank">
+                            Contact on Discord
+                          </Link>
+                        </AlertDialogAction>
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialog>
+
+                  {/* Discord */}
+                  <Link href={discordLink} target="_blank">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="group rounded-md border border-border"
+                    >
+                      Discord
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT PREVIEW */}
+            <div className="border-t border-dashed border-border lg:border-t-0 lg:border-l">
+              <div className="flex h-full items-center justify-center p-8">
+                <div className="relative w-full max-w-sm rounded-md border border-border bg-muted/40 p-4">
+                  <Image
+                    src={productImage}
+                    alt={image.alt}
+                    width={600}
+                    height={600}
+                    priority
+                    className="w-full rounded-md object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </AnimationContainer>
     </Wrapper>
   );
 };

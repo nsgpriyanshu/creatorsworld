@@ -1,18 +1,49 @@
 import BlogHero from "../../components/blog/blog-hero";
+import FeaturedBlogCard from "../../components/blog/featured-card";
 import BlogList from "../../components/blog/list";
 import CategoryFilter from "../../components/blog/category-filter";
 import Wrapper from "../../components/global/wrapper";
 import { getFeaturedPost, getAllPosts } from "../../lib/db/queries";
 
-export default async function BlogPage() {
+interface BlogPageProps {
+  searchParams?: {
+    category?: string;
+  };
+}
+
+export default async function BlogPage({ searchParams }: BlogPageProps) {
+  const category = searchParams?.category;
+
   const [featured, posts] = await Promise.all([
     getFeaturedPost(),
     getAllPosts(),
   ]);
 
-  const restPosts = featured
-    ? posts.filter((post) => post.id !== featured.id)
-    : posts;
+  // apply category filter if one is specified (and not "all")
+  let filteredPosts = posts;
+  if (category && category !== "all") {
+    const normalized = category.toLowerCase();
+    filteredPosts = posts.filter((post) =>
+      post.tags.some(
+        (tag) => tag.toLowerCase().replace(/\s+/g, "-") === normalized,
+      ),
+    );
+  }
+
+  // determine which featured post (if any) should be shown
+  let displayFeatured = featured;
+  if (category && category !== "all") {
+    if (
+      displayFeatured &&
+      !filteredPosts.some((p) => p.id === displayFeatured?.id)
+    ) {
+      displayFeatured = null;
+    }
+  }
+
+  const restPosts = displayFeatured
+    ? filteredPosts.filter((post) => post.id !== displayFeatured?.id)
+    : filteredPosts;
 
   return (
     <div className="relative flex w-full flex-col">
@@ -22,9 +53,16 @@ export default async function BlogPage() {
       </section>
 
       {/* Content */}
-      <Wrapper className="space-y-8 md:space-y-12 py-8 md:py-16 px-4 md:px-0">
+      <Wrapper className="space-y-4 md:space-y-6 pt-0 pb-8 md:pb-12 px-4 md:px-0">
         {/* Category Navigation */}
         <CategoryFilter />
+
+        {/* Featured post (if applicable) */}
+        {displayFeatured && (
+          <section>
+            <FeaturedBlogCard post={displayFeatured} />
+          </section>
+        )}
 
         {/* Blog list */}
         {restPosts.length > 0 ? (

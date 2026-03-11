@@ -32,7 +32,7 @@ const BlogCard = ({ post }: Props) => {
   return (
     <AnimationContainer animation="fadeUp">
       <Link href={`/blog/${post.slug}`} className="group block">
-        <article className="flex flex-col overflow-hidden rounded-xl border border-border/50 bg-background transition-all duration-300 hover:shadow-lg hover:shadow-muted/20 hover:border-border">
+        <article className="flex flex-col overflow-hidden rounded-2xl border border-border/20 bg-background transition-colors duration-300 hover:bg-muted/10">
           {/* Thumbnail */}
           <div className="relative aspect-video overflow-hidden rounded-t-xl">
             <Image
@@ -54,8 +54,8 @@ const BlogCard = ({ post }: Props) => {
                 {post.tags.slice(0, 2).map((tag) => (
                   <Badge
                     key={tag}
-                    variant="secondary"
-                    className="px-2 py-0.5 text-xs font-medium"
+                    variant="ghost"
+                    className="px-2 py-0.5 text-xs font-medium text-muted-foreground"
                   >
                     {tag}
                   </Badge>

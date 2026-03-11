@@ -12,16 +12,12 @@ import {
 } from "lucide-react";
 
 import { METRICS } from "../../constants";
-import { cn } from "@repo/ui/lib/utils";
 
 import Wrapper from "../global/wrapper";
 import AnimationContainer from "../global/animation-container";
 import { Button } from "@repo/ui/components/ui/button";
 import { Badge } from "@repo/ui/components/ui/badge";
 
-/**
- * Icon mapping (index-based, METRICS untouched)
- */
 const METRIC_ICONS: Record<number, LucideIcon> = {
   0: Package,
   1: Bot,
@@ -30,116 +26,88 @@ const METRIC_ICONS: Record<number, LucideIcon> = {
 
 const Milestones = () => {
   return (
-    <Wrapper className="relative w-full overflow-hidden py-24 lg:py-36">
-      <div className="grid grid-cols-1 items-center gap-20 lg:grid-cols-2">
-        {/* Left content */}
-        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-          <AnimationContainer animation="fadeDown">
+    <Wrapper className="relative w-full overflow-x-hidden py-24 lg:py-36">
+      <AnimationContainer animation="fadeUp">
+        <div className="mx-auto max-w-6xl rounded-md border border-border">
+          {/* Badge */}
+          <div className="flex justify-center border-b border-dashed border-border p-4">
             <Badge
               variant="outline"
-              className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
+              className="flex items-center gap-2 rounded-md px-3 py-1"
             >
-              <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
-
-              <span className="relative flex items-center gap-2">
-                <Goal className="h-4 w-4 text-[#f10a0a] transition-transform duration-300 group-hover:rotate-12" />
-                <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                  Achievements
-                </span>
-              </span>
+              <Goal className="h-4 w-4" />
+              Achievements
             </Badge>
-          </AnimationContainer>
+          </div>
 
-          <AnimationContainer animation="fadeUp" delay={0.1}>
-            <h2 className="mt-8 max-w-xl text-balance text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
+          {/* Heading */}
+          <div className="border-b border-dashed border-border px-6 py-10 text-center">
+            <h2 className="mx-auto max-w-3xl text-balance text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
               Milestones we achieved
             </h2>
-          </AnimationContainer>
+          </div>
 
-          <AnimationContainer animation="fadeUp" delay={0.2}>
-            <p className="mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
+          {/* Description */}
+          <div className="border-b border-dashed border-border px-6 py-8 text-center">
+            <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
               A glimpse into the goals we’ve conquered and the impact we’ve
               created along the way.
             </p>
-          </AnimationContainer>
+          </div>
 
-          <AnimationContainer animation="fadeUp" delay={0.3}>
-            <Link href="https://discord.gg/VUMVuArkst" target="_blank">
-              <Button size="lg" className="mt-8 gap-2">
-                <Building2 className="h-5 w-5" />
-                Join Community
-              </Button>
-            </Link>
-          </AnimationContainer>
-        </div>
+          {/* Content Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            {/* Left CTA */}
+            <div className="flex flex-col items-center justify-center gap-6 border-b border-dashed border-border p-8 lg:border-b-0 lg:border-r">
+              <p className="text-sm text-muted-foreground text-center max-w-xs">
+                Become part of the community shaping the future of our platform.
+              </p>
 
-        {/* Metrics */}
-        <div className="relative flex flex-col gap-8">
-          {METRICS.map((metric, index) => {
-            const Icon = METRIC_ICONS[index] ?? Trophy;
+              <Link href="https://discord.gg/VUMVuArkst" target="_blank">
+                <Button size="lg" className="gap-2">
+                  <Building2 className="h-5 w-5" />
+                  Join Community
+                </Button>
+              </Link>
+            </div>
 
-            return (
-              <AnimationContainer
-                key={index}
-                animation={metric.reverse ? "fadeLeft" : "fadeRight"}
-                delay={0.4 + index * 0.15}
-              >
-                <div className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 transition-all duration-300 hover:border-[#f10a0a]/30">
-                  {/* Subtle inner red shine */}
-                  <div className="pointer-events-none absolute inset-0 rounded-3xl bg-linear-to-br from-[#f10a0a]/10 via-transparent to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
+            {/* Metrics */}
+            <div className="grid grid-cols-1 sm:grid-cols-3">
+              {METRICS.map((metric, index) => {
+                const Icon = METRIC_ICONS[index] ?? Trophy;
 
-                  {/* Soft radial glow */}
-                  <div
-                    className={cn(
-                      "pointer-events-none absolute -bottom-1/2 right-0 size-40 rounded-full bg-[#f10a0a]/20 blur-3xl opacity-60 transition-opacity duration-300 group-hover:opacity-100",
-                      metric.reverse && "left-0 right-auto",
-                    )}
-                  />
-
-                  {/* Content */}
-                  <div
-                    className={cn(
-                      "relative z-10 flex items-center justify-between gap-6",
-                      metric.reverse && "flex-row-reverse",
-                    )}
+                return (
+                  <AnimationContainer
+                    key={index}
+                    animation="fadeUp"
+                    delay={0.08 * index}
                   >
-                    {/* Metric */}
-                    <div className="flex flex-col">
+                    <div className="flex flex-col items-center justify-center gap-3 border-dashed p-6 text-center sm:border sm:border-border sm:border-r last:border-r-0">
+                      <Icon className="h-5 w-5 text-muted-foreground" />
+
                       <div className="flex items-baseline gap-1">
-                        <span className="font-mono text-5xl font-medium text-foreground lg:text-6xl">
+                        <span className="font-mono text-4xl font-semibold">
                           {metric.number}
                         </span>
+
                         {metric.suffix && (
-                          <span className="font-mono text-5xl font-medium text-foreground lg:text-6xl">
+                          <span className="font-mono text-4xl font-semibold">
                             {metric.suffix}
                           </span>
                         )}
                       </div>
-                      <p className="mt-1 text-sm text-muted-foreground">
+
+                      <p className="text-sm text-muted-foreground">
                         {metric.label}
                       </p>
                     </div>
-
-                    {/* Icon with subtle red accent bg */}
-                    <div
-                      className={cn(
-                        "flex size-14 items-center justify-center rounded-2xl lg:size-16",
-                        "border border-[#f10a0a]/20",
-                        "bg-[#f10a0a]/10",
-                        "transition-all duration-300",
-                        "group-hover:bg-[#f10a0a]/15",
-                        "group-hover:border-[#f10a0a]/40",
-                      )}
-                    >
-                      <Icon className="h-6 w-6 text-[#f10a0a]" />
-                    </div>
-                  </div>
-                </div>
-              </AnimationContainer>
-            );
-          })}
+                  </AnimationContainer>
+                );
+              })}
+            </div>
+          </div>
         </div>
-      </div>
+      </AnimationContainer>
     </Wrapper>
   );
 };

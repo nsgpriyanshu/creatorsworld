@@ -17,21 +17,23 @@ const BlogHero: React.FC = () => {
 
   if (isLoading) {
     return (
-      <Wrapper className="relative pt-12 md:pt-16 pb-4 md:pb-8 w-full">
-        <div className="relative z-10 mx-auto max-w-4xl text-center space-y-4 md:space-y-6">
+      <Wrapper className="relative overflow-x-hidden py-12 lg:py-20">
+        {" "}
+        <div className="mx-auto w-full max-w-6xl rounded-md border border-border">
+          ```
           {/* Badge Skeleton */}
-          <div className="flex justify-center px-4">
-            <Skeleton className="h-6 md:h-8 w-32 md:w-40 rounded-full" />
+          <div className="flex justify-center border-b border-dashed border-border p-4">
+            <Skeleton className="h-6 w-32 rounded-md" />
           </div>
           {/* Heading Skeleton */}
-          <div className="space-y-2 md:space-y-3 px-4">
-            <Skeleton className="h-8 md:h-10 w-full mx-auto rounded" />
-            <Skeleton className="h-8 md:h-10 w-5/6 mx-auto rounded" />
+          <div className="border-b border-dashed border-border px-6 py-8 text-center space-y-3">
+            <Skeleton className="h-8 w-full max-w-xl mx-auto rounded-md" />
+            <Skeleton className="h-8 w-3/4 mx-auto rounded-md" />
           </div>
           {/* Paragraph Skeleton */}
-          <div className="space-y-1.5 md:space-y-2 pt-2 md:pt-4 px-4">
-            <Skeleton className="h-4 md:h-6 w-full mx-auto rounded" />
-            <Skeleton className="h-4 md:h-6 w-4/5 mx-auto rounded" />
+          <div className="px-6 py-6 text-center space-y-2">
+            <Skeleton className="h-4 w-full max-w-lg mx-auto rounded-md" />
+            <Skeleton className="h-4 w-3/4 mx-auto rounded-md" />
           </div>
         </div>
       </Wrapper>
@@ -39,42 +41,44 @@ const BlogHero: React.FC = () => {
   }
 
   return (
-    <Wrapper className="relative pt-16 md:pt-24 pb-4 md:pb-8 w-full px-4 md:px-0">
-      {/* Subtle ambient glow */}
-      <div className="pointer-events-none absolute inset-x-0 -top-20 -z-10 mx-auto h-40 w-2/3 rounded-full bg-[radial-gradient(86%_172%_at_50%_-40%,var(--accent)/20_0%,rgba(5,5,5,0)_80%)] blur-[5rem]" />
+    <Wrapper className="relative overflow-x-hidden py-12 lg:py-20">
+      {" "}
+      <AnimationContainer animation="fadeUp">
+        {" "}
+        <div className="mx-auto w-full max-w-6xl rounded-md border border-border">
+          {/* Badge */}
+          <div className="flex justify-center border-b border-dashed border-border p-4">
+            <Badge
+              variant="outline"
+              className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
+            >
+              <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
 
-      <div className="relative z-10 mx-auto max-w-4xl text-center">
-        {/* Badge */}
-        <AnimationContainer animation="fadeDown" delay={0.1}>
-          <Badge
-            variant="outline"
-            className="group relative overflow-hidden border-border bg-background/70 px-3 py-1 md:px-4 md:py-1.5 backdrop-blur-md text-xs md:text-sm"
-          >
-            <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
-            <span className="relative flex items-center gap-1.5 md:gap-2">
-              <Newspaper className="h-3 w-3 md:h-4 md:w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
-              <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                Blog
+              <span className="relative flex items-center gap-2">
+                <Newspaper className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
+                <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                  Blog
+                </span>
               </span>
-            </span>
-          </Badge>
-        </AnimationContainer>
+            </Badge>
+          </div>
 
-        {/* Heading */}
-        <AnimationContainer animation="fadeUp" delay={0.2}>
-          <h1 className="mt-4 md:mt-6 text-2xl sm:text-3xl md:text-5xl font-bold leading-tight tracking-tight text-foreground">
-            Insights & Stories from the Community
-          </h1>
-        </AnimationContainer>
+          {/* Heading */}
+          <div className="border-b border-dashed border-border px-6 py-10 text-center">
+            <h1 className="mx-auto max-w-3xl text-balance text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
+              Insights & Stories from the Community
+            </h1>
+          </div>
 
-        {/* Paragraph */}
-        <AnimationContainer animation="fadeUp" delay={0.3}>
-          <p className="mt-2 md:mt-4 text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Explore the latest trends, tutorials, and perspectives from our
-            community.
-          </p>
-        </AnimationContainer>
-      </div>
+          {/* Description */}
+          <div className="px-6 py-8 text-center">
+            <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
+              Explore the latest trends, tutorials, and perspectives from our
+              community.
+            </p>
+          </div>
+        </div>
+      </AnimationContainer>
     </Wrapper>
   );
 };
