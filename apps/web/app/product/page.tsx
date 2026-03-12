@@ -18,36 +18,42 @@ export default function ProductPage() {
       <AnimationContainer animation="fadeUp">
         <div className="mx-auto w-full max-w-6xl rounded-md border border-border">
           {/* Badge */}
-          <div className="flex justify-center border-b border-dashed border-border p-4">
-            <Badge
-              variant="outline"
-              className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
-            >
-              <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+          <AnimationContainer animation="fadeDown">
+            <div className="flex justify-center border-b border-dashed border-border p-4">
+              <Badge
+                variant="outline"
+                className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
+              >
+                <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
 
-              <span className="relative flex items-center gap-2">
-                <Package2 className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
-                <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                  Products
+                <span className="relative flex items-center gap-2">
+                  <Package2 className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
+                  <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                    Products
+                  </span>
                 </span>
-              </span>
-            </Badge>
-          </div>
+              </Badge>
+            </div>
+          </AnimationContainer>
 
           {/* Heading */}
-          <div className="border-b border-dashed border-border px-6 py-10 text-center">
-            <h1 className="mx-auto max-w-3xl text-balance text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
-              Explore Our Products
-            </h1>
-          </div>
+          <AnimationContainer animation="fadeUp" delay={0.15}>
+            <div className="border-b border-dashed border-border px-6 py-10 text-center">
+              <h1 className="mx-auto max-w-3xl text-balance text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
+                Explore Our Products
+              </h1>
+            </div>
+          </AnimationContainer>
 
           {/* Description */}
-          <div className="border-b border-dashed border-border px-6 py-8 text-center">
-            <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
-              Carefully crafted digital products built for creators,
-              communities, and modern Discord ecosystems.
-            </p>
-          </div>
+          <AnimationContainer animation="fadeUp" delay={0.3}>
+            <div className="border-b border-dashed border-border px-6 py-8 text-center">
+              <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
+                Carefully crafted digital products built for creators,
+                communities, and modern Discord ecosystems.
+              </p>
+            </div>
+          </AnimationContainer>
 
           {/* Product Grid */}
           <div className="p-4 sm:p-6 md:p-8">

@@ -21,9 +21,59 @@ import {
 
 import { Button } from "@repo/ui/components/ui/button";
 import { Input } from "@repo/ui/components/ui/input";
+import { Skeleton } from "@repo/ui/components/ui/skeleton";
 
 import Wrapper from "../global/wrapper";
 import AnimationContainer from "../global/animation-container";
+
+const ContactFormSkeleton = () => {
+  return (
+    <div className="w-full rounded-md border border-border overflow-hidden">
+      <div className="border-b border-dashed border-border px-6 py-4 space-y-2">
+        <Skeleton className="h-5 w-40" />
+        <Skeleton className="h-4 w-64" />
+      </div>
+
+      <div className="px-6 py-6 space-y-6">
+        <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <Skeleton className="h-4 w-24" />
+            <Skeleton className="h-9 w-full rounded-md" />
+          </div>
+          <div className="space-y-2">
+            <Skeleton className="h-4 w-24" />
+            <Skeleton className="h-9 w-full rounded-md" />
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-24" />
+          <Skeleton className="h-9 w-full rounded-md" />
+        </div>
+
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-24" />
+          <Skeleton className="h-9 w-full rounded-md" />
+        </div>
+
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-24" />
+          <Skeleton className="h-9 w-full rounded-md" />
+        </div>
+
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-32" />
+          <Skeleton className="h-28 w-full rounded-md" />
+        </div>
+
+        <div className="border-t border-dashed border-border pt-4 flex gap-3">
+          <Skeleton className="h-10 w-full rounded-md" />
+          <Skeleton className="h-10 w-full rounded-md" />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
@@ -77,9 +127,10 @@ export function ContactForm() {
 
   return (
     <Wrapper className="w-full pb-24 overflow-x-hidden">
-      {" "}
       <AnimationContainer animation="fadeUp">
-        {" "}
+        {isSubmitting ? (
+          <ContactFormSkeleton />
+        ) : (
         <div className="w-full rounded-md border border-border overflow-hidden">
           {/* Header */}
           <div className="border-b border-dashed border-border px-6 py-4">
@@ -105,7 +156,7 @@ export function ContactForm() {
 
                 <Input
                   {...register("firstName")}
-                  placeholder="John"
+                  placeholder="Prakriti"
                   disabled={isSubmitting}
                 />
 
@@ -124,7 +175,7 @@ export function ContactForm() {
 
                 <Input
                   {...register("lastName")}
-                  placeholder="Doe"
+                  placeholder="Lisaa"
                   disabled={isSubmitting}
                 />
 
@@ -146,7 +197,7 @@ export function ContactForm() {
               <Input
                 {...register("email")}
                 type="email"
-                placeholder="john@example.com"
+                placeholder="prakritilisaa@cw.com.com"
                 disabled={isSubmitting}
               />
 
@@ -166,7 +217,7 @@ export function ContactForm() {
 
               <Input
                 {...register("phone")}
-                placeholder="+91 9876543210"
+                placeholder="+91 1234567890"
                 disabled={isSubmitting}
               />
 
@@ -269,6 +320,7 @@ export function ContactForm() {
             </div>
           </form>
         </div>
+        )}
       </AnimationContainer>
     </Wrapper>
   );

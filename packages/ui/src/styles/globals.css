@@ -50,6 +50,7 @@
 
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  --animate-button-bounce: button-bounce 0.45s ease;
 
   @keyframes marquee {
     from {
@@ -68,6 +69,21 @@
 
     to {
       transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes button-bounce {
+    0% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-2px);
+    }
+    70% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-1px);
     }
   }
 }
