@@ -18,19 +18,26 @@ const BlogPostHeader = ({ post }: Props) => {
   }, [post.published_at]);
 
   return (
-    <header className="mx-auto mb-10 max-w-4xl rounded-md border border-border overflow-hidden">
+    <header className="mx-auto mb-8 md:mb-10 max-w-4xl rounded-md border border-border overflow-hidden">
       {/* Tags */}
-      <div className="border-b border-dashed border-border p-4 flex flex-wrap justify-center gap-2">
+      <div className="flex flex-wrap justify-center gap-2 border-b border-dashed border-border p-4">
         {post.tags.map((tag) => (
-          <Badge key={tag} variant="outline">
-            {tag}
+          <Badge
+            key={tag}
+            variant="outline"
+            className="group relative overflow-hidden border-border bg-background/70 px-2 py-0.5 text-xs font-medium backdrop-blur-md"
+          >
+            <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+            <span className="relative bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+              {tag}
+            </span>
           </Badge>
         ))}
       </div>
 
       {/* Title */}
       <div className="border-b border-dashed border-border px-6 py-8 text-center">
-        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
           {post.title}
         </h1>
 

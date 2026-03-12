@@ -17,7 +17,7 @@ const ArticleNav = ({ previousPost, nextPost }: ArticleNavProps) => {
   }
 
   return (
-    <nav className="mt-12 md:mt-24 border-t border-border pt-8 md:pt-12">
+    <nav className="mt-8 md:mt-12 border-t border-border pt-6 md:pt-8">
       <div className="grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2">
         {/* Previous Article */}
         {previousPost ? (

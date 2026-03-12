@@ -27,7 +27,7 @@ const ICON_MAP: Record<
 
 export default function WhoWeAre() {
   return (
-    <Wrapper className="relative w-full overflow-x-hidden py-24 lg:py-36">
+    <Wrapper className="relative w-full overflow-x-hidden py-12 lg:py-16">
       {/* subtle background grid */}
       <div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.25]">
         <div className="h-full w-full bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:64px_64px]" />
@@ -36,13 +36,19 @@ export default function WhoWeAre() {
       <AnimationContainer animation="fadeUp">
         <div className="mx-auto max-w-6xl rounded-md border border-border">
           {/* Badge */}
-          <div className="border-b border-dashed border-border p-4 flex justify-center">
+          <div className="flex justify-center border-b border-dashed border-border p-4">
             <Badge
               variant="outline"
-              className="flex items-center gap-2 rounded-md px-3 py-1"
+              className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
             >
-              <History className="h-3.5 w-3.5" />
-              Backstory
+              <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+
+              <span className="relative flex items-center gap-2">
+                <History className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
+                <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                  Backstory
+                </span>
+              </span>
             </Badge>
           </div>
 

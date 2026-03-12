@@ -17,10 +17,8 @@ const BlogHero: React.FC = () => {
 
   if (isLoading) {
     return (
-      <Wrapper className="relative overflow-x-hidden py-12 lg:py-20">
-        {" "}
+      <Wrapper className="relative overflow-x-hidden pt-24 pb-12 md:pt-24 md:pb-16">
         <div className="mx-auto w-full max-w-6xl rounded-md border border-border">
-          ```
           {/* Badge Skeleton */}
           <div className="flex justify-center border-b border-dashed border-border p-4">
             <Skeleton className="h-6 w-32 rounded-md" />
@@ -41,10 +39,8 @@ const BlogHero: React.FC = () => {
   }
 
   return (
-    <Wrapper className="relative overflow-x-hidden py-12 lg:py-20">
-      {" "}
+    <Wrapper className="relative overflow-x-hidden py-12 lg:py-16">
       <AnimationContainer animation="fadeUp">
-        {" "}
         <div className="mx-auto w-full max-w-6xl rounded-md border border-border">
           {/* Badge */}
           <div className="flex justify-center border-b border-dashed border-border p-4">
@@ -65,7 +61,7 @@ const BlogHero: React.FC = () => {
 
           {/* Heading */}
           <div className="border-b border-dashed border-border px-6 py-10 text-center">
-            <h1 className="mx-auto max-w-3xl text-balance text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
+            <h1 className="mx-auto max-w-3xl text-balance text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
               Insights & Stories from the Community
             </h1>
           </div>

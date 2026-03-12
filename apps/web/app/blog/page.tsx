@@ -48,7 +48,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   return (
     <div className="relative flex w-full flex-col">
       {/* Hero */}
-      <section className="w-full">
+      <section className="w-full pt-12 pb-6 md:pt-8 md:pb-8">
         <BlogHero />
       </section>
 

@@ -59,17 +59,23 @@ const ReviewCard = ({ img, name, userrole, body }: ReviewCardProps) => {
 
 const Reviews = () => {
   return (
-    <Wrapper className="py-24 lg:py-36 overflow-x-hidden">
+    <Wrapper className="py-12 lg:py-16 overflow-x-hidden">
       <AnimationContainer animation="fadeUp">
         <div className="mx-auto max-w-6xl rounded-md border border-border">
           {/* Badge */}
           <div className="flex justify-center border-b border-dashed border-border p-4">
             <Badge
               variant="outline"
-              className="flex items-center gap-2 rounded-md px-3 py-1"
+              className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
             >
-              <HeartHandshake className="h-4 w-4" />
-              Reviews
+              <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+
+              <span className="relative flex items-center gap-2">
+                <HeartHandshake className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
+                <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                  Reviews
+                </span>
+              </span>
             </Badge>
           </div>
 

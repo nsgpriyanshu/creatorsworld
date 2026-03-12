@@ -26,17 +26,23 @@ const METRIC_ICONS: Record<number, LucideIcon> = {
 
 const Milestones = () => {
   return (
-    <Wrapper className="relative w-full overflow-x-hidden py-24 lg:py-36">
+    <Wrapper className="relative w-full overflow-x-hidden py-12 lg:py-16">
       <AnimationContainer animation="fadeUp">
         <div className="mx-auto max-w-6xl rounded-md border border-border">
           {/* Badge */}
           <div className="flex justify-center border-b border-dashed border-border p-4">
             <Badge
               variant="outline"
-              className="flex items-center gap-2 rounded-md px-3 py-1"
+              className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
             >
-              <Goal className="h-4 w-4" />
-              Achievements
+              <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+
+              <span className="relative flex items-center gap-2">
+                <Goal className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
+                <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                  Achievements
+                </span>
+              </span>
             </Badge>
           </div>
 
@@ -64,7 +70,7 @@ const Milestones = () => {
               </p>
 
               <Link href="https://discord.gg/VUMVuArkst" target="_blank">
-                <Button size="lg" className="gap-2">
+                <Button size="lg" className="gap-2 rounded-md px-8">
                   <Building2 className="h-5 w-5" />
                   Join Community
                 </Button>

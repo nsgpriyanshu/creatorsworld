@@ -1,8 +1,6 @@
 "use client";
 
 import React from "react";
-import { Shield } from "lucide-react";
-
 import { Badge } from "@repo/ui/components/ui/badge";
 import Wrapper from "../global/wrapper";
 import AnimationContainer from "../global/animation-container";
@@ -20,6 +18,13 @@ const LegalHero: React.FC<LegalHeroProps> = ({
   title,
   description,
 }) => {
+  const iconElement = React.isValidElement(icon)
+    ? React.cloneElement(icon, {
+        className:
+          "h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12",
+      })
+    : icon;
+
   return (
     <Wrapper className="relative w-full overflow-hidden pt-28 pb-16">
       <div className="relative z-10 flex flex-col items-center text-center">
@@ -27,10 +32,16 @@ const LegalHero: React.FC<LegalHeroProps> = ({
         <AnimationContainer animation="fadeDown">
           <Badge
             variant="outline"
-            className="flex items-center gap-2 border-border bg-background px-4 py-1.5 text-secondary-foreground"
+            className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
           >
-            {icon}
-            {badge}
+            <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+
+            <span className="relative flex items-center gap-2">
+              {iconElement}
+              <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                {badge}
+              </span>
+            </span>
           </Badge>
         </AnimationContainer>
 

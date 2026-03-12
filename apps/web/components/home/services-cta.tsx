@@ -29,7 +29,7 @@ const CURSOR_TAGS: CursorTag[] = [
 
 const ServicesCta = () => {
   return (
-    <Wrapper className="relative py-24 overflow-x-hidden border-t-2 border-border/30">
+    <Wrapper className="relative py-12 lg:py-16 overflow-x-hidden border-t-2 border-border/30">
       {/* Top glow */}
       <div className="pointer-events-none absolute inset-x-0 -top-24 -z-10 mx-auto h-48 w-3/4 rounded-full bg-linear-to-r from-foreground/20 via-foreground/10 to-transparent blur-[6rem]" />
 

@@ -21,15 +21,23 @@ const FeaturedBlogCard = ({ post }: Props) => {
   }, [post.published_at]);
 
   return (
-    <Wrapper className="relative pb-16 lg:pb-24">
+    <Wrapper className="relative pb-12 lg:pb-16">
       <AnimationContainer animation="scaleUp" delay={0.1}>
         <Link href={`/blog/${post.slug}`} className="group block">
           <article className="relative overflow-hidden rounded-2xl border border-border/50 bg-background shadow-sm transition-all duration-500 hover:shadow-xl hover:shadow-muted/10 hover:border-border md:grid md:grid-cols-2 md:gap-8">
             {/* Featured Badge */}
-            <div className="absolute top-4 right-4 z-10">
-              <Badge className="bg-primary text-primary-foreground border-0 px-3 py-1 text-xs font-medium">
-                <Star className="h-3 w-3 mr-1" />
-                Featured
+            <div className="absolute right-4 top-4 z-10">
+              <Badge
+                variant="outline"
+                className="group relative overflow-hidden border-border bg-background/70 px-3 py-1 text-xs font-medium backdrop-blur-md"
+              >
+                <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+                <span className="relative flex items-center gap-1.5">
+                  <Star className="h-3 w-3 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
+                  <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                    Featured
+                  </span>
+                </span>
               </Badge>
             </div>
 
@@ -52,10 +60,13 @@ const FeaturedBlogCard = ({ post }: Props) => {
                   {post.tags.slice(0, 3).map((tag) => (
                     <Badge
                       key={tag}
-                      variant="secondary"
-                      className="px-2 py-1 text-xs font-medium"
+                      variant="outline"
+                      className="group relative overflow-hidden border-border bg-background/70 px-2 py-0.5 text-xs font-medium backdrop-blur-md"
                     >
-                      {tag}
+                      <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+                      <span className="relative bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                        {tag}
+                      </span>
                     </Badge>
                   ))}
                 </div>

@@ -9,10 +9,8 @@ import AnimationContainer from "../global/animation-container";
 
 const ContactHero: React.FC = () => {
   return (
-    <Wrapper className="relative w-full overflow-x-hidden pt-16 md:pt-24 pb-6 md:pb-10">
-      {" "}
+    <Wrapper className="relative w-full overflow-x-hidden pt-24 pb-12 md:pt-24 md:pb-16">
       <AnimationContainer animation="fadeUp">
-        {" "}
         <div className="w-full rounded-md border border-border">
           {/* Badge */}
           <div className="flex justify-center border-b border-dashed border-border p-4 md:p-5">

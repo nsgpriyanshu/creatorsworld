@@ -54,10 +54,13 @@ const BlogCard = ({ post }: Props) => {
                 {post.tags.slice(0, 2).map((tag) => (
                   <Badge
                     key={tag}
-                    variant="ghost"
-                    className="px-2 py-0.5 text-xs font-medium text-muted-foreground"
+                    variant="outline"
+                    className="group relative overflow-hidden border-border bg-background/70 px-2 py-0.5 text-xs font-medium backdrop-blur-md"
                   >
-                    {tag}
+                    <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+                    <span className="relative bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                      {tag}
+                    </span>
                   </Badge>
                 ))}
               </div>

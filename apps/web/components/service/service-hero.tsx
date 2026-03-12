@@ -89,12 +89,12 @@ export default function ServiceHero() {
             <AnimationContainer animation="fadeUp" delay={0.1}>
               <Badge
                 variant="outline"
-                className="group relative overflow-hidden border-border bg-background/70 px-3 py-1 md:px-4 md:py-1.5 backdrop-blur-md text-xs md:text-sm"
+                className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
               >
                 <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
 
                 <span className="relative flex items-center gap-1.5 md:gap-2">
-                  <Cog className="h-3 w-3 md:h-4 md:w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
+                  <Cog className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
 
                   <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                     Services

@@ -29,7 +29,7 @@ const Regents = () => {
   const regents = REGENTS as Regent[];
 
   return (
-    <Wrapper className="relative w-full overflow-x-hidden py-24 lg:py-36">
+    <Wrapper className="relative w-full overflow-x-hidden py-12 lg:py-16">
       <AnimationContainer animation="fadeUp">
         <div className="mx-auto max-w-6xl rounded-md border border-border">
           {/* Badge */}
@@ -41,7 +41,7 @@ const Regents = () => {
               <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
 
               <span className="relative flex items-center gap-2">
-                <Verified className="h-4 w-4 text-foreground transition-transform duration-300 group-hover:rotate-12" />
+                <Verified className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
                 <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                   Regents
                 </span>

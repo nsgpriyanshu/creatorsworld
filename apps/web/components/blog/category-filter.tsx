@@ -85,15 +85,13 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
 
   return (
     <div className="overflow-x-hidden">
-      {" "}
       <AnimationContainer animation="fadeUp">
-        {" "}
         <div className="w-full rounded-md border border-border">
           {/* Badge */}
           <div className="flex justify-center border-b border-dashed border-border p-3 md:p-4">
             <Badge
               variant="outline"
-              className="group relative overflow-hidden border-border bg-background/70 px-3 py-1.5 backdrop-blur-md"
+              className="group relative overflow-hidden border-border bg-background/70 px-4 py-1.5 backdrop-blur-md"
             >
               <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
 

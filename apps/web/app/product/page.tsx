@@ -14,10 +14,8 @@ export default function ProductPage() {
   const productList = Object.values(products);
 
   return (
-    <Wrapper className="relative overflow-x-hidden py-20 lg:py-32">
-      {" "}
+    <Wrapper className="relative overflow-x-hidden pt-24 pb-12 md:pt-24 md:pb-16">
       <AnimationContainer animation="fadeUp">
-        {" "}
         <div className="mx-auto w-full max-w-6xl rounded-md border border-border">
           {/* Badge */}
           <div className="flex justify-center border-b border-dashed border-border p-4">
@@ -28,7 +26,7 @@ export default function ProductPage() {
               <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
 
               <span className="relative flex items-center gap-2">
-                <Package2 className="h-4 w-4 text-foreground transition-transform duration-300 group-hover:rotate-12" />
+                <Package2 className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
                 <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                   Products
                 </span>
