@@ -42,7 +42,10 @@ const ArticleNav = ({ previousPost, nextPost }: ArticleNavProps) => {
 
           {/* Next Article */}
           {nextPost ? (
-            <Link href={`/blog/${nextPost.slug}`} className="group md:text-right">
+            <Link
+              href={`/blog/${nextPost.slug}`}
+              className="group md:text-right"
+            >
               <div className="flex items-start justify-start md:justify-end gap-3 md:gap-4 p-3 md:p-4 rounded-lg transition-all duration-300 hover:bg-muted/30">
                 <div className="min-w-0">
                   <div className="text-xs md:text-sm text-muted-foreground mb-1">

@@ -18,13 +18,6 @@ const LegalHero: React.FC<LegalHeroProps> = ({
   title,
   description,
 }) => {
-  const iconElement = React.isValidElement(icon)
-    ? React.cloneElement(icon, {
-        className:
-          "h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12",
-      })
-    : icon;
-
   return (
     <Wrapper className="relative w-full overflow-hidden pt-28 pb-16">
       <div className="relative z-10 flex flex-col items-center text-center">
@@ -36,8 +29,8 @@ const LegalHero: React.FC<LegalHeroProps> = ({
           >
             <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
 
-            <span className="relative flex items-center gap-2">
-              {iconElement}
+            <span className="relative flex items-center gap-2 [&_svg]:h-4 [&_svg]:w-4 [&_svg]:text-muted-foreground [&_svg]:transition-transform [&_svg]:duration-300 group-hover:[&_svg]:rotate-12">
+              {icon}
               <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                 {badge}
               </span>

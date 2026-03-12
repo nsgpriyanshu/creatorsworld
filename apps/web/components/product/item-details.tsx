@@ -129,9 +129,9 @@ const ItemDetails = ({
                             Payments Coming Soon
                           </AlertDialogTitle>
                           <AlertDialogDescription>
-                            Our payment gateway is currently under deployment. To
-                            purchase this product, please contact us directly on
-                            Discord and we’ll assist you manually.
+                            Our payment gateway is currently under deployment.
+                            To purchase this product, please contact us directly
+                            on Discord and we’ll assist you manually.
                           </AlertDialogDescription>
                         </AlertDialogHeader>
 

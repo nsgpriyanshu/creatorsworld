@@ -68,7 +68,8 @@ export default function WhoWeAre() {
             <div className="border-b border-dashed border-border px-6 py-8 text-center">
               <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
                 We’re a passionate team building a global platform to connect
-                creators, empower developers, and launch powerful community tools.
+                creators, empower developers, and launch powerful community
+                tools.
               </p>
             </div>
           </AnimationContainer>

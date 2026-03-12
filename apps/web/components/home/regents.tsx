@@ -64,8 +64,8 @@ const Regents = () => {
           <AnimationContainer animation="fadeUp" delay={0.3}>
             <div className="border-b border-dashed border-border px-6 py-8 text-center">
               <p className="mx-auto max-w-xl text-base text-muted-foreground md:text-lg">
-                The core leadership guiding the vision, operations, and growth of
-                Creator&apos;s World.
+                The core leadership guiding the vision, operations, and growth
+                of Creator&apos;s World.
               </p>
             </div>
           </AnimationContainer>
@@ -103,7 +103,10 @@ const Regents = () => {
                             />
 
                             <Avatar className="size-16 transition-transform duration-300 group-hover:scale-105 md:size-20">
-                              <AvatarImage src={regent.image} alt={regent.name} />
+                              <AvatarImage
+                                src={regent.image}
+                                alt={regent.name}
+                              />
                               <AvatarFallback>
                                 {regent.name
                                   .replace("@", "")

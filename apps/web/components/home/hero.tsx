@@ -64,8 +64,8 @@ const Hero: React.FC = () => {
           <AnimationContainer animation="fadeUp" delay={0.3}>
             <div className="border-b border-dashed border-border px-6 py-8 text-center">
               <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
-                Build bots, collaborate with developers, and deploy powerful tools
-                for communities around the world.
+                Build bots, collaborate with developers, and deploy powerful
+                tools for communities around the world.
               </p>
             </div>
           </AnimationContainer>
