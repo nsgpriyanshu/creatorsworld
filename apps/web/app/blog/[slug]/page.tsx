@@ -10,9 +10,8 @@ import {
   getNextPost,
 } from "../../../lib/db/queries";
 import Wrapper from "../../../components/global/wrapper";
-import { Separator } from "@repo/ui/components/ui/separator";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { ChevronDown, ChevronRight, Home } from "lucide-react";
 
 type PageProps = {
   params: Promise<{
@@ -77,70 +76,75 @@ export default async function BlogPostPage({ params }: PageProps) {
   ]);
 
   return (
-    <>
+    <Wrapper className="relative overflow-x-hidden py-12 lg:py-16 px-0">
       {/* Breadcrumb */}
-      <Wrapper className="pt-24 lg:pt-24">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <Link href="/" className="hover:text-foreground transition-colors">
+      <div className="px-4 lg:px-0">
+        <nav className="mx-auto mt-12 md:mt-0 flex max-w-6xl flex-wrap items-center justify-center gap-2 text-xs md:justify-start md:text-sm">
+          <Link
+            href="/"
+            className="group inline-flex items-center gap-2 rounded-full border border-border bg-background/70 px-3 py-1.5 text-muted-foreground backdrop-blur transition-colors hover:text-foreground"
+          >
+            <Home className="h-3.5 w-3.5 text-muted-foreground transition-colors group-hover:text-foreground" />
             Home
           </Link>
-          <ChevronRight className="h-4 w-4" />
+          <ChevronRight className="h-4 w-4 text-muted-foreground" />
           <Link
             href="/blog"
-            className="hover:text-foreground transition-colors"
+            className="inline-flex items-center rounded-full border border-border bg-background/70 px-3 py-1.5 text-muted-foreground backdrop-blur transition-colors hover:text-foreground"
           >
             Blog
           </Link>
-          <ChevronRight className="h-4 w-4" />
-          <span className="text-foreground truncate">{post.title}</span>
+          <ChevronRight className="h-4 w-4 text-muted-foreground" />
+          <span className="inline-flex max-w-full items-center rounded-full border border-border bg-muted/40 px-3 py-1.5 text-foreground">
+            <span className="truncate">{post.title}</span>
+          </span>
+        </nav>
+      </div>
+
+      {/* Header */}
+      <div className="mt-6 px-4 lg:px-0">
+        <div className="mx-auto max-w-6xl">
+          <BlogPostHeader post={post} />
         </div>
-      </Wrapper>
+      </div>
+      <div className="my-8 md:my-10 h-px bg-border/60" />
 
-      <Wrapper className="relative py-8 lg:py-12 px-0">
-        {/* Header */}
-        <BlogPostHeader post={post} />
-        <Separator className="my-8 md:my-12" />
-
-        {/* Mobile TOC - visible on small screens */}
-        <div className="lg:hidden mb-8 px-4 lg:px-0">
-          <details className="group cursor-pointer">
-            <summary className="flex items-center justify-between px-4 py-2 rounded-lg border border-border hover:bg-muted/50 transition-colors">
-              <span className="font-semibold text-foreground">
-                Table of Contents
-              </span>
-              <span className="text-muted-foreground group-open:rotate-180 transition-transform">
-                ▼
-              </span>
-            </summary>
-            <div className="mt-4 border-l border-border pl-6">
-              <TableOfContents blocks={post.content} />
-            </div>
-          </details>
-        </div>
-
-        {/* Two-column layout */}
-        <div className="grid grid-cols-1 gap-4 md:gap-8 lg:grid-cols-4 px-4 lg:px-0">
-          {/* Main Content - 3 cols */}
-          <div className="lg:col-span-3 overflow-hidden">
-            <BlogContent blocks={post.content} />
+      {/* Mobile TOC - visible on small screens */}
+      <div className="lg:hidden mb-8 px-4 lg:px-0">
+        <details className="group mx-auto max-w-6xl">
+          <summary className="flex items-center justify-between rounded-md border border-border bg-background/70 px-4 py-2.5 backdrop-blur transition-colors hover:bg-muted/40">
+            <span className="text-sm font-semibold text-foreground">
+              Table of Contents
+            </span>
+            <ChevronDown className="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180" />
+          </summary>
+          <div className="mt-3">
+            <TableOfContents blocks={post.content} />
           </div>
+        </details>
+      </div>
 
-          {/* Sidebar - 1 col (sticky on desktop) */}
-          <aside className="lg:col-span-1 hidden lg:block">
-            <div className="sticky top-32 space-y-12">
-              {/* Table of Contents */}
-              <div className="border-l border-border pl-6">
-                <TableOfContents blocks={post.content} />
-              </div>
-            </div>
-          </aside>
+      {/* Two-column layout */}
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:gap-10 lg:grid-cols-4 px-4 lg:px-0">
+        {/* Main Content - 3 cols */}
+        <div className="lg:col-span-3 overflow-hidden">
+          <BlogContent blocks={post.content} />
         </div>
 
-        {/* Article Navigation */}
-        <div className="px-4 lg:px-0">
+        {/* Sidebar - 1 col (sticky on desktop) */}
+        <aside className="lg:col-span-1 hidden lg:block">
+          <div className="sticky top-24">
+            <TableOfContents blocks={post.content} />
+          </div>
+        </aside>
+      </div>
+
+      {/* Article Navigation */}
+      <div className="px-4 lg:px-0">
+        <div className="mx-auto max-w-6xl">
           <ArticleNav previousPost={previousPost} nextPost={nextPost} />
         </div>
-      </Wrapper>
-    </>
+      </div>
+    </Wrapper>
   );
 }

@@ -34,12 +34,12 @@ const TableOfContents = ({ blocks }: Props) => {
   if (!headings.length) return null;
 
   return (
-    <nav className="sticky top-8 rounded-md border border-border overflow-hidden">
-      <div className="border-b border-dashed border-border p-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-        On this page
+    <nav className="rounded-md border border-border bg-background/70 backdrop-blur overflow-hidden">
+      <div className="border-b border-dashed border-border px-3 py-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+        Contents
       </div>
 
-      <ul className="p-3 space-y-1">
+      <ul className="p-3 space-y-1.5">
         {headings.map((heading) => (
           <li
             key={heading.id}
@@ -48,11 +48,18 @@ const TableOfContents = ({ blocks }: Props) => {
             <Link
               href={`#${heading.id}`}
               className={cn(
-                "block px-2 py-1 rounded-md text-muted-foreground hover:text-foreground transition",
-                activeId === heading.id && "text-primary font-medium",
+                "flex items-start gap-2 rounded-md px-2 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground",
+                activeId === heading.id &&
+                  "bg-muted/40 text-foreground font-medium",
               )}
             >
-              {heading.text}
+              <span
+                className={cn(
+                  "mt-2 h-1.5 w-1.5 rounded-full bg-muted-foreground/60 transition-colors",
+                  activeId === heading.id && "bg-primary",
+                )}
+              />
+              <span className="leading-snug">{heading.text}</span>
             </Link>
           </li>
         ))}

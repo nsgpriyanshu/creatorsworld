@@ -18,7 +18,7 @@ const BlogPostHeader = ({ post }: Props) => {
   }, [post.published_at]);
 
   return (
-    <header className="mx-auto mb-8 md:mb-10 max-w-4xl rounded-md border border-border overflow-hidden">
+    <header className="mb-8 md:mb-10 w-full rounded-md border border-border overflow-hidden">
       {/* Tags */}
       <div className="flex flex-wrap justify-center gap-2 border-b border-dashed border-border p-4">
         {post.tags.map((tag) => (

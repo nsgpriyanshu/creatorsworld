@@ -21,7 +21,7 @@ type Props = {
 
 const BlogContent = ({ blocks }: Props) => {
   return (
-    <div className="mx-auto max-w-4xl rounded-md border border-border overflow-hidden">
+    <div className="w-full rounded-md border border-border overflow-hidden">
       {/* Back Button */}
       <div className="border-b border-dashed border-border p-4">
         <Link href="/blog" className="inline-block group">
