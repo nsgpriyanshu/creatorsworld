@@ -56,7 +56,12 @@ const BlogPostHeader = ({ post }: Props) => {
             height={28}
             className="rounded-full border border-border"
           />
-          <span>{post.author.name}</span>
+          <div className="flex flex-col leading-tight">
+            <span className="text-foreground">{post.author.name}</span>
+            <span className="text-xs text-muted-foreground">
+              {post.author.role}
+            </span>
+          </div>
         </div>
 
         <div className="flex items-center gap-1">
