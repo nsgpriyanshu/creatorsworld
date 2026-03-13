@@ -36,7 +36,7 @@ const LogosShowcase: React.FC<LogosShowcaseProps> = ({ logos }) => {
 
   return (
     <motion.div
-      className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 overflow-hidden"
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 overflow-hidden rounded-md border border-dashed border-border"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -46,10 +46,10 @@ const LogosShowcase: React.FC<LogosShowcaseProps> = ({ logos }) => {
         <motion.div
           key={index}
           variants={itemVariants}
-          className="overflow-hidden rounded-lg border border-border/50 bg-background/50 backdrop-blur-sm transition-all duration-300 hover:border-border hover:bg-background/80 hover:shadow-lg flex flex-col min-w-0"
+          className="overflow-hidden border-b border-dashed border-border bg-background/70 backdrop-blur transition-all duration-300 hover:bg-muted/30 hover:shadow-lg flex flex-col min-w-0 sm:border-b-0 sm:border-r sm:border-dashed sm:border-border"
         >
           {/* Logo Preview */}
-          <div className="flex items-center justify-center bg-background/30 px-4 py-8 flex-grow">
+          <div className="flex items-center justify-center bg-background/50 px-4 py-8 flex-grow">
             <div className="relative h-24 w-full">
               <Image
                 src={logo.path}
@@ -61,7 +61,7 @@ const LogosShowcase: React.FC<LogosShowcaseProps> = ({ logos }) => {
           </div>
 
           {/* Logo Details */}
-          <div className="space-y-3 border-t border-border/30 bg-background/60 p-4 min-w-0">
+          <div className="space-y-3 border-t border-dashed border-border bg-background/70 p-4 min-w-0">
             <div className="min-w-0">
               <h3 className="text-sm font-semibold text-foreground line-clamp-2 break-words">
                 {logo.name}
@@ -81,7 +81,7 @@ const LogosShowcase: React.FC<LogosShowcaseProps> = ({ logos }) => {
                     key={variantIndex}
                     href={`/assets/brand/${variant}`}
                     download
-                    className="inline-flex items-center gap-1 rounded-md bg-primary px-2.5 py-1.5 text-xs font-medium text-primary-foreground transition-all hover:opacity-90"
+                    className="inline-flex items-center gap-1 rounded-md border border-border bg-background/80 px-2.5 py-1.5 text-xs font-medium text-foreground transition-all hover:bg-muted/40"
                     title={`Download ${variant}`}
                   >
                     <Download className="h-3 w-3" />

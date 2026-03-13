@@ -44,7 +44,7 @@ const ColorPalette: React.FC<ColorPaletteProps> = ({ colors }) => {
 
   return (
     <motion.div
-      className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 overflow-hidden"
+      className="grid grid-cols-1 sm:grid-cols-2 overflow-hidden rounded-md border border-dashed border-border"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -54,7 +54,7 @@ const ColorPalette: React.FC<ColorPaletteProps> = ({ colors }) => {
         <motion.div
           key={index}
           variants={itemVariants}
-          className="overflow-hidden rounded-lg border border-border/50 backdrop-blur-sm min-w-0"
+          className="overflow-hidden border-b border-dashed border-border bg-background/70 backdrop-blur min-w-0 sm:border-b-0 sm:border-r sm:border-dashed sm:border-border"
         >
           {/* Color Preview */}
           <div
@@ -63,7 +63,7 @@ const ColorPalette: React.FC<ColorPaletteProps> = ({ colors }) => {
           />
 
           {/* Color Details */}
-          <div className="space-y-4 bg-background/50 p-6">
+          <div className="space-y-4 bg-background/70 p-6">
             <div>
               <h3 className="text-lg font-semibold text-foreground">
                 {color.name}
@@ -87,7 +87,7 @@ const ColorPalette: React.FC<ColorPaletteProps> = ({ colors }) => {
                 </div>
                 <button
                   onClick={() => copyToClipboard(color.hex, index)}
-                  className="inline-flex items-center gap-1 sm:gap-2 rounded-md bg-background px-2 sm:px-3 py-2 text-xs font-medium transition-all hover:bg-border/50 flex-shrink-0"
+                  className="inline-flex items-center gap-1 sm:gap-2 rounded-md bg-background/80 px-2 sm:px-3 py-2 text-xs font-medium transition-all hover:bg-muted/40 flex-shrink-0"
                 >
                   {copiedIndex === index ? (
                     <Check className="h-4 w-4" />
@@ -109,7 +109,7 @@ const ColorPalette: React.FC<ColorPaletteProps> = ({ colors }) => {
                 </div>
                 <button
                   onClick={() => copyToClipboard(color.rgb, index)}
-                  className="inline-flex items-center gap-1 sm:gap-2 rounded-md bg-background px-2 sm:px-3 py-2 text-xs font-medium transition-all hover:bg-border/50 flex-shrink-0"
+                  className="inline-flex items-center gap-1 sm:gap-2 rounded-md bg-background/80 px-2 sm:px-3 py-2 text-xs font-medium transition-all hover:bg-muted/40 flex-shrink-0"
                 >
                   {copiedIndex === index ? (
                     <Check className="h-4 w-4" />

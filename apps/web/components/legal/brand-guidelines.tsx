@@ -34,7 +34,7 @@ const BrandGuidelines: React.FC<BrandGuidelinesProps> = ({ guidelines }) => {
 
   return (
     <motion.div
-      className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 overflow-hidden"
+      className="grid grid-cols-1 sm:grid-cols-2 overflow-hidden rounded-md border border-dashed border-border [&>*]:border-dashed [&>*:not(:last-child)]:border-b sm:[&>*:nth-child(odd)]:border-r sm:[&>*:not(:nth-last-child(-n+2))]:border-b"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -44,7 +44,7 @@ const BrandGuidelines: React.FC<BrandGuidelinesProps> = ({ guidelines }) => {
         <motion.div
           key={index}
           variants={itemVariants}
-          className="space-y-3 rounded-lg border border-border/50 bg-background/50 p-4 sm:p-6 backdrop-blur-sm transition-all duration-300 hover:border-border hover:bg-background/80 min-w-0"
+          className="space-y-3 bg-background/70 p-4 sm:p-6 backdrop-blur transition-all duration-300 hover:bg-muted/30 min-w-0"
         >
           <h3 className="text-lg font-semibold text-foreground">
             {guideline.title}

@@ -41,9 +41,9 @@ const LegalContent: React.FC<LegalContentProps> = ({ items, className }) => {
   };
 
   return (
-    <Wrapper className={cn("space-y-12 pb-24 overflow-hidden", className)}>
+    <Wrapper className={cn("pb-24 overflow-hidden", className)}>
       <motion.div
-        className="space-y-8 md:space-y-10"
+        className="mx-auto w-full max-w-6xl rounded-md border border-dashed border-border bg-background/70 backdrop-blur"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -53,14 +53,24 @@ const LegalContent: React.FC<LegalContentProps> = ({ items, className }) => {
           <motion.div
             key={index}
             variants={itemVariants}
-            className="space-y-3 min-w-0"
+            className={cn(
+              "grid grid-cols-1 gap-4 px-6 py-6 md:grid-cols-12 md:items-start",
+              index !== 0 && "border-t border-dashed border-border",
+            )}
           >
-            <h3 className="text-lg font-semibold text-foreground md:text-xl break-words">
-              {item.title}
-            </h3>
-            <p className="text-sm leading-relaxed text-muted-foreground md:text-base max-w-3xl break-words">
-              {item.description}
-            </p>
+            <div className="md:col-span-4 md:border-r md:border-dashed md:border-border md:pr-6">
+              <div className="text-sm font-mono text-blue-600">
+                {String(index + 1).padStart(2, "0")}
+              </div>
+              <h2 className="mt-2 text-lg font-semibold text-foreground md:text-xl break-words">
+                {item.title}
+              </h2>
+            </div>
+            <div className="md:col-span-8">
+              <p className="text-sm leading-relaxed text-muted-foreground md:text-base break-words">
+                {item.description}
+              </p>
+            </div>
           </motion.div>
         ))}
       </motion.div>
