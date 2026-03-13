@@ -49,7 +49,7 @@ const ItemDetails = ({
   const productImage = resolvedTheme === "dark" ? image.dark : image.light;
 
   return (
-    <Wrapper className="relative overflow-x-hidden py-12 lg:py-16">
+    <Wrapper className="relative overflow-x-hidden pt-24 pb-12 md:pt-24 md:pb-16">
       <AnimationContainer animation="fadeUp">
         <div className="mx-auto w-full max-w-6xl rounded-md border border-border">
           {/* Badge */}

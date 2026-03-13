@@ -66,13 +66,13 @@ export default function ProductPage() {
                 >
                   <div className="group flex h-full min-w-0 flex-col overflow-hidden rounded-md border border-border bg-background">
                     {/* Image */}
-                    <div className="relative aspect-square w-full border-b border-dashed border-border bg-muted">
+                    <div className="relative aspect-square w-full border-b border-dashed  border-border bg-muted">
                       <Image
                         src={product.image.light}
                         alt={product.image.alt}
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-contain p-6 transition-transform duration-300 group-hover:scale-[1.04]"
+                        className="object-contain p-6 transition-transform duration-300 rounded-2xl group-hover:scale-[1.04]"
                       />
                     </div>
 

@@ -3,7 +3,7 @@ import { Skeleton } from "@repo/ui/components/ui/skeleton";
 
 export default function BlogLoading() {
   return (
-    <Wrapper className="relative overflow-x-hidden py-12 lg:py-16">
+    <Wrapper className="relative overflow-x-hidden  pt-24 pb-12 md:pt-24 md:pb-16">
       <div className="mx-auto w-full max-w-6xl rounded-md border border-border">
         <div className="flex justify-center border-b border-dashed border-border p-4">
           <Skeleton className="h-6 w-28 rounded-md" />
