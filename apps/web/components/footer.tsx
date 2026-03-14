@@ -20,6 +20,7 @@ import {
   BookMarked,
   Cog,
   ShieldCheck,
+  CogIcon,
 } from "lucide-react";
 
 import { FaDiscord, FaGithub } from "react-icons/fa";
@@ -72,6 +73,29 @@ const SOCIAL_LINKS: FooterLink[] = [
   { label: "GitHub", href: "https://github.com/nsgpriyanshu", icon: FaGithub },
 ];
 
+type SystemStatus = {
+  label: string;
+  color: string;
+};
+
+const SYSTEM_STATUS: Record<"stable" | "development" | "unusable", SystemStatus> =
+  {
+    stable: {
+      label: "WEBSITE IN STABLE MODE",
+      color: "text-blue-500",
+    },
+    development: {
+      label: "WEBSITE IN DEVELOPMENT MODE",
+      color: "text-yellow-500",
+    },
+    unusable: {
+      label: "WEBSITE IN UNUSABLE MODE",
+      color: "text-red-500",
+    },
+  };
+
+const ACTIVE_STATUS: keyof typeof SYSTEM_STATUS = "development";
+
 const Footer = () => {
   const [year, setYear] = useState("");
 
@@ -86,23 +110,25 @@ const Footer = () => {
         {/* BRAND SECTION */}
         <div className="py-8 border-b border-dashed border-border">
           <AnimationContainer animation="fadeUp">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div className="flex items-center gap-2">
-                <Image
-                  src="/icons/dark/android-chrome-512x512.png"
-                  alt="CW Icon"
-                  width={28}
-                  height={28}
-                  className="dark:hidden"
-                />
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div className="flex flex-col items-start gap-3">
+                <div className="flex items-center gap-2">
+                  <Image
+                    src="/assets/brand/cw-font-light-3000x500.png"
+                    alt="CW Icon"
+                    width={250}
+                    height={250}
+                    className="dark:hidden"
+                  />
 
-                <Image
-                  src="/icons/light/android-chrome-512x512.png"
-                  alt="CW Icon"
-                  width={28}
-                  height={28}
-                  className="hidden dark:block"
-                />
+                  <Image
+                    src="/assets/brand/cw-font-light-3000x500.png"
+                    alt="CW Icon"
+                    width={250}
+                    height={250}
+                    className="hidden dark:block"
+                  />
+                </div>
               </div>
 
               <div className="flex items-center gap-4">
@@ -200,6 +226,20 @@ const Footer = () => {
                   );
                 })}
               </ul>
+            </div>
+          </AnimationContainer>
+        </div>
+
+        {/* SYSTEM STATUS */}
+        <div className="py-6 border-b border-dashed border-border">
+          <AnimationContainer animation="fadeUp">
+            <div className="flex items-center gap-2 text-xs font-semibold">
+              <CogIcon
+                className={`h-3.5 w-3.5 ${SYSTEM_STATUS[ACTIVE_STATUS].color}`}
+              />
+              <h2 className={SYSTEM_STATUS[ACTIVE_STATUS].color}>
+                {SYSTEM_STATUS[ACTIVE_STATUS].label}
+              </h2>
             </div>
           </AnimationContainer>
         </div>
