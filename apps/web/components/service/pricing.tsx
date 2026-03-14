@@ -73,15 +73,8 @@ const Pricing = () => {
   return (
     // ❌ removed overflow-hidden
     <Wrapper className="relative w-full pt-24 pb-12 md:pt-24 md:pb-16">
-      
-      {/* Grid Background */}
-      <div
-        aria-hidden
-        // ❌ replaced -z-10
-        className="pointer-events-none absolute inset-0 z-[-1] bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:64px_64px] opacity-[0.12]"
-      />
 
-      <AnimationContainer animation="fadeUp" className="w-full">
+      <AnimationContainer animation="fadeUp" className="w-full" delay={0.1}>
         <div className="mx-auto max-w-6xl rounded-md border border-border">
 
           {/* Badge */}
