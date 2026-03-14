@@ -18,7 +18,6 @@ import {
 } from "lucide-react";
 
 import Wrapper from "../global/wrapper";
-import AnimationContainer from "../global/animation-container";
 import { PRICING_PLANS, PRICING_META } from "../../constants/pricing";
 
 import { Button } from "@repo/ui/components/ui/button";
@@ -69,16 +68,14 @@ function SectionTitle({
   );
 }
 
-const Pricing = () => {
+const Pricing: React.FC = () => {
   return (
-    // ❌ removed overflow-hidden
     <Wrapper className="relative w-full pt-24 pb-12 md:pt-24 md:pb-16">
-
-      <AnimationContainer animation="fadeUp" className="w-full" delay={0.1}>
+      <div className="w-full">
         <div className="mx-auto max-w-6xl rounded-md border border-border">
 
           {/* Badge */}
-          <AnimationContainer animation="fadeDown">
+          <div>
             <div className="flex justify-center border-b border-dashed border-border p-4">
               <Badge
                 variant="outline"
@@ -93,12 +90,10 @@ const Pricing = () => {
                 </span>
               </Badge>
             </div>
-          </AnimationContainer>
-
-          {/* ---- Everything below remains EXACTLY the same ---- */}
+          </div>
 
           {/* Heading */}
-          <AnimationContainer animation="fadeUp" delay={0.15}>
+          <div>
             <div className="border-b border-dashed border-border px-6 py-10 text-center">
               <h2 className="mx-auto max-w-4xl text-balance text-3xl font-semibold tracking-tight md:text-5xl">
                 Tailored solutions for{" "}
@@ -107,32 +102,30 @@ const Pricing = () => {
                 </span>
               </h2>
             </div>
-          </AnimationContainer>
+          </div>
 
           {/* Description */}
-          <AnimationContainer animation="fadeUp" delay={0.3}>
+          <div>
             <div className="border-b border-dashed border-border px-6 py-8 text-center">
               <p className="mx-auto max-w-3xl text-muted-foreground md:text-lg">
                 We don't sell fixed packages. We provide structured solutions
                 built for clarity, scope, and long-term growth.
               </p>
             </div>
-          </AnimationContainer>
+          </div>
 
           {/* Plans */}
           <div className="border-b border-dashed border-border">
-            {PRICING_PLANS.map((plan, planIndex) => (
-              <AnimationContainer
-                key={plan.id}
-                animation="fadeUp"
-                delay={0.45 + planIndex * 0.15}
-              >
+            {PRICING_PLANS.map((plan) => (
+              <div key={plan.id}>
                 <div className="border-t border-dashed border-border px-6 py-8">
                   <div className="grid gap-8 md:grid-cols-[1.1fr_1.9fr] md:gap-0">
+
                     {/* Left summary */}
                     <div className="space-y-4 md:pr-8">
-                      <div className="flex flex-wrap items-center gap-2 ">
+                      <div className="flex flex-wrap items-center gap-2">
                         <h3 className="text-2xl font-semibold">{plan.name}</h3>
+
                         {plan.highlighted && (
                           <Badge
                             variant="outline"
@@ -170,6 +163,7 @@ const Pricing = () => {
                             className={planButtonConfig[plan.id]?.className}
                           >
                             {planButtonConfig[plan.id]?.label ?? "Get Started"}
+
                             {plan.id === "pro" ? (
                               <Rocket className="h-4 w-4" />
                             ) : plan.id === "pro-max" ? (
@@ -185,6 +179,7 @@ const Pricing = () => {
                     {/* Right details */}
                     <div className="md:border-l md:border-dashed md:border-border md:pl-8">
                       <div className="grid gap-0">
+
                         <div className="grid gap-0 border-t border-dashed border-border md:grid-cols-2">
                           <div
                             className={`space-y-3 py-4 ${
@@ -196,12 +191,11 @@ const Pricing = () => {
                             }`}
                           >
                             <SectionTitle
-                              icon={
-                                <CheckCircle2 className="h-4 w-4 text-foreground" />
-                              }
+                              icon={<CheckCircle2 className="h-4 w-4 text-foreground" />}
                               label="Features"
                               labelClassName="text-foreground"
                             />
+
                             <ul className="space-y-2 text-sm text-muted-foreground">
                               {plan.features.map((feature) => (
                                 <li key={feature}>- {feature}</li>
@@ -214,12 +208,11 @@ const Pricing = () => {
                             plan.limitations.length > 0 && (
                               <div className="space-y-3 py-4 md:pl-6">
                                 <SectionTitle
-                                  icon={
-                                    <AlertTriangle className="h-4 w-4 text-foreground" />
-                                  }
+                                  icon={<AlertTriangle className="h-4 w-4 text-foreground" />}
                                   label="Limitations"
                                   labelClassName="text-foreground"
                                 />
+
                                 <ul className="space-y-2 text-sm text-muted-foreground">
                                   {plan.limitations.map((item) => (
                                     <li key={item}>- {item}</li>
@@ -232,6 +225,7 @@ const Pricing = () => {
                         {(plan.optionalAddons?.length ||
                           plan.bestFor?.length) && (
                           <div className="grid gap-0 border-t border-dashed border-border md:grid-cols-2">
+
                             {plan.optionalAddons &&
                               plan.optionalAddons.length > 0 && (
                                 <div
@@ -242,12 +236,11 @@ const Pricing = () => {
                                   }`}
                                 >
                                   <SectionTitle
-                                    icon={
-                                      <PlusCircle className="h-4 w-4 text-foreground" />
-                                    }
+                                    icon={<PlusCircle className="h-4 w-4 text-foreground" />}
                                     label="Optional Add-ons"
                                     labelClassName="text-foreground"
                                   />
+
                                   <ul className="space-y-2 text-sm text-muted-foreground">
                                     {plan.optionalAddons.map((item) => (
                                       <li key={item}>- {item}</li>
@@ -259,12 +252,11 @@ const Pricing = () => {
                             {plan.bestFor && plan.bestFor.length > 0 && (
                               <div className="space-y-3 py-4 md:pl-6">
                                 <SectionTitle
-                                  icon={
-                                    <Users className="h-4 w-4 text-foreground" />
-                                  }
+                                  icon={<Users className="h-4 w-4 text-foreground" />}
                                   label="Best For"
                                   labelClassName="text-foreground"
                                 />
+
                                 <ul className="space-y-2 text-sm text-muted-foreground">
                                   {plan.bestFor.map((item) => (
                                     <li key={item}>- {item}</li>
@@ -281,6 +273,7 @@ const Pricing = () => {
                               icon={<Info className="h-4 w-4" />}
                               label="Notes"
                             />
+
                             <ul className="space-y-2 text-sm text-muted-foreground">
                               {plan.notes.map((note) => (
                                 <li key={note}>- {note}</li>
@@ -288,26 +281,31 @@ const Pricing = () => {
                             </ul>
                           </div>
                         )}
+
                       </div>
                     </div>
+
                   </div>
                 </div>
-              </AnimationContainer>
+              </div>
             ))}
           </div>
 
           {/* Best option */}
-          <AnimationContainer animation="fadeUp" delay={0.9}>
+          <div>
             <div className="border-t border-dashed border-border px-6 py-8 text-center">
               <div className="mx-auto max-w-3xl space-y-3">
+
                 <div className="flex items-center justify-center gap-2 text-sm font-semibold">
                   <Sparkles className="h-4 w-4 text-muted-foreground" />
                   Best option for most teams
                 </div>
+
                 <p className="text-sm text-muted-foreground">
                   We recommend the Pro plan for the best balance of performance,
                   flexibility, and long-term scalability.
                 </p>
+
                 <Link href="/contact">
                   <Button
                     size="lg"
@@ -317,11 +315,13 @@ const Pricing = () => {
                     <Headset className="h-4 w-4" />
                   </Button>
                 </Link>
+
               </div>
             </div>
-          </AnimationContainer>
+          </div>
+
         </div>
-      </AnimationContainer>
+      </div>
     </Wrapper>
   );
 };
