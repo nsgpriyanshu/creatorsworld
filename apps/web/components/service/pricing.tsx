@@ -198,10 +198,10 @@ const Pricing = () => {
                           >
                             <SectionTitle
                               icon={
-                                <CheckCircle2 className="h-4 w-4 text-blue-600" />
+                                <CheckCircle2 className="h-4 w-4 text-foreground" />
                               }
                               label="Features"
-                              labelClassName="text-blue-600"
+                              labelClassName="text-foreground"
                             />
                             <ul className="space-y-2 text-sm text-muted-foreground">
                               {plan.features.map((feature) => (
@@ -216,10 +216,10 @@ const Pricing = () => {
                               <div className="space-y-3 py-4 md:pl-6">
                                 <SectionTitle
                                   icon={
-                                    <AlertTriangle className="h-4 w-4 text-red-600" />
+                                    <AlertTriangle className="h-4 w-4 text-foreground" />
                                   }
                                   label="Limitations"
-                                  labelClassName="text-red-600"
+                                  labelClassName="text-foreground"
                                 />
                                 <ul className="space-y-2 text-sm text-muted-foreground">
                                   {plan.limitations.map((item) => (
@@ -244,10 +244,10 @@ const Pricing = () => {
                                 >
                                   <SectionTitle
                                     icon={
-                                      <PlusCircle className="h-4 w-4 text-green-600" />
+                                      <PlusCircle className="h-4 w-4 text-foreground" />
                                     }
                                     label="Optional Add-ons"
-                                    labelClassName="text-green-600"
+                                    labelClassName="text-foreground"
                                   />
                                   <ul className="space-y-2 text-sm text-muted-foreground">
                                     {plan.optionalAddons.map((item) => (
@@ -261,10 +261,10 @@ const Pricing = () => {
                               <div className="space-y-3 py-4 md:pl-6">
                                 <SectionTitle
                                   icon={
-                                    <Users className="h-4 w-4 text-pink-600" />
+                                    <Users className="h-4 w-4 text-foreground" />
                                   }
                                   label="Best For"
-                                  labelClassName="text-pink-600"
+                                  labelClassName="text-foreground"
                                 />
                                 <ul className="space-y-2 text-sm text-muted-foreground">
                                   {plan.bestFor.map((item) => (

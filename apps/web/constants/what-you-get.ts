@@ -6,29 +6,28 @@ export const WHAT_YOU_GET = [
   {
     title: "Design",
     description:
-      "Modern, clean UI crafted to match your brand and convert users effectively.",
+      "Modern, conversion-focused UI that reflects your brand and elevates trust.",
     icon: Palette,
     points: [
-      "Custom UI/UX design",
+      "Custom UI/UX design system",
       "Responsive across devices",
-      "Consistent design system",
+      "Accessible layouts & typography",
     ],
   },
   {
     title: "Development",
     description:
-      "Robust, scalable code built with performance and maintainability in mind.",
+      "Scalable, maintainable code built for speed, security, and growth.",
     icon: Code2,
     points: [
       "Modern tech stack",
       "Clean architecture",
-      "Production-ready code",
+      "Production-ready codebase",
     ],
   },
   {
     title: "Performance",
-    description:
-      "Fast-loading, optimized websites that deliver a smooth user experience.",
+    description: "Fast, optimized sites tuned for Core Web Vitals and SEO.",
     icon: Gauge,
     points: [
       "Core Web Vitals optimization",
@@ -36,15 +35,15 @@ export const WHAT_YOU_GET = [
       "Asset & bundle optimization",
     ],
   },
-  // {
-  //   title: "Support",
-  //   description:
-  //     "Ongoing support to keep your website running smoothly post-launch.",
-  //   icon: LifeBuoy,
-  //   points: [
-  //     "Post-launch assistance",
-  //     "Bug fixes & improvements",
-  //     "Guided maintenance",
-  //   ],
-  // },
+  {
+    title: "Management",
+    description:
+      "Reliable post-launch care so your site stays secure, fast, and up to date.",
+    icon: LifeBuoy,
+    points: [
+      "Ongoing maintenance",
+      "Security & uptime monitoring",
+      "Content updates on request",
+    ],
+  },
 ] as const;

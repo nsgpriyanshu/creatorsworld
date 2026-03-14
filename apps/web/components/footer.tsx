@@ -78,21 +78,23 @@ type SystemStatus = {
   color: string;
 };
 
-const SYSTEM_STATUS: Record<"stable" | "development" | "unusable", SystemStatus> =
-  {
-    stable: {
-      label: "WEBSITE IN STABLE MODE",
-      color: "text-blue-500",
-    },
-    development: {
-      label: "WEBSITE IN DEVELOPMENT MODE",
-      color: "text-yellow-500",
-    },
-    unusable: {
-      label: "WEBSITE IN UNUSABLE MODE",
-      color: "text-red-500",
-    },
-  };
+const SYSTEM_STATUS: Record<
+  "stable" | "development" | "unusable",
+  SystemStatus
+> = {
+  stable: {
+    label: "WEBSITE IN STABLE MODE",
+    color: "text-blue-500",
+  },
+  development: {
+    label: "WEBSITE IN DEVELOPMENT MODE",
+    color: "text-yellow-500",
+  },
+  unusable: {
+    label: "WEBSITE IN UNUSABLE MODE",
+    color: "text-red-500",
+  },
+};
 
 const ACTIVE_STATUS: keyof typeof SYSTEM_STATUS = "development";
 
