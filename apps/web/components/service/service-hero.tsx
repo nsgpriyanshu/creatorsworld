@@ -58,9 +58,9 @@ export default function ServiceHero() {
               <AnimationContainer animation="fadeUp" delay={0.3}>
                 <div className="border-b border-dashed border-border px-6 py-8 text-left">
                   <p className="max-w-2xl text-base text-muted-foreground md:text-lg">
-                    From web development to scalable backend systems,
-                    we craft digital products designed for performance,
-                    reliability, and modern user experiences.
+                    From web development to scalable backend systems, we craft
+                    digital products designed for performance, reliability, and
+                    modern user experiences.
                   </p>
                 </div>
               </AnimationContainer>
@@ -68,7 +68,10 @@ export default function ServiceHero() {
               <AnimationContainer animation="fadeUp" delay={0.45}>
                 <div className="px-6 py-8">
                   <Link href="/contact">
-                    <Button size="lg" className="gap-2 rounded-md px-8">
+                    <Button
+                      size="lg"
+                      className="gap-2 rounded-md px-8 bg-rose-600 hover:bg-rose-700"
+                    >
                       Get a Demo
                       <Presentation className="h-4 w-4" />
                     </Button>
