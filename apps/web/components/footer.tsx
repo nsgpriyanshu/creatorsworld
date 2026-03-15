@@ -116,7 +116,7 @@ const Footer = () => {
               <div className="flex flex-col items-start gap-3">
                 <div className="flex items-center gap-2">
                   <Image
-                    src="/assets/brand/cw-font-light-3000x500.png"
+                    src="/assets/brand/cw-font-dark-3000x500.png"
                     alt="CW Icon"
                     width={250}
                     height={250}
