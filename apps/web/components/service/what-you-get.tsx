@@ -26,6 +26,7 @@ import { Button } from "@repo/ui/components/ui/button";
 import { AnimatedList } from "@repo/ui/components/ui/animated-list";
 import { cn } from "@repo/ui/lib/utils";
 import { WHAT_YOU_GET } from "../../constants/what-you-get";
+import { ICChip } from "./ic-chip";
 
 type CircleProps = {
   className?: string;
@@ -404,8 +405,8 @@ const WhatYouGet = () => {
                 </Circle>
               </div>
               <div className="p-6 md:border-l md:border-dashed md:border-border md:p-8">
-                <div className="rounded-xl border border-dashed border-border bg-muted/30 px-4 py-6 text-center text-xs text-muted-foreground">
-                  Some visual ideas
+                <div className="aspect-[4/3] rounded-xl border border-dashed border-border bg-muted/30 p-3">
+                  <ICChip className="h-full w-full" />
                 </div>
               </div>
             </div>
