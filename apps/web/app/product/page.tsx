@@ -97,15 +97,14 @@ export default function ProductPage() {
 
                     {/* CTA */}
                     <div className="mt-auto p-5">
-                      <Link href={`/product/${product.slug}`}>
-                        <Button
-                          variant="default"
-                          className="group w-full rounded-md border border-border"
-                        >
-                          View Product
-                          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                        </Button>
-                      </Link>
+                      <Button
+                        variant="default"
+                        className="group w-full rounded-md border border-border"
+                        render={<Link href={`/product/${product.slug}`} />}
+                      >
+                        View Product
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Button>
                     </div>
                   </div>
                 </AnimationContainer>

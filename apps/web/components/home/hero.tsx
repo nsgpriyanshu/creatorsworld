@@ -73,19 +73,20 @@ const Hero: React.FC = () => {
         <AnimationContainer animation="fadeUp" delay={0.45}>
           <div className="grid md:grid-cols-2 border-b border-dashed border-border">
             <div className="flex items-center justify-center border-r border-dashed border-border p-6">
-              <Link
-                href="https://discord.gg/VUMVuArkst"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Button
+                size="lg"
+                className="h-11 gap-2 rounded-md px-8 text-base md:h-12"
+                render={
+                  <Link
+                    href="https://discord.gg/VUMVuArkst"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  />
+                }
               >
-                <Button
-                  size="lg"
-                  className="h-11 gap-2 rounded-md px-8 text-base md:h-12"
-                >
-                  <Compass className="h-4 w-4" />
-                  Explore Community
-                </Button>
-              </Link>
+                <Compass className="h-4 w-4" />
+                Explore Community
+              </Button>
             </div>
 
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground p-6">

@@ -67,12 +67,10 @@ export default function NotFound() {
         {/* CTA */}
         <AnimationContainer animation="scaleUp" delay={0.6}>
           <div className="mt-10">
-            <Link href="/">
-              <Button size="lg" className="gap-2 px-8 py-6">
-                <Home className="h-5 w-5" />
-                Go Back Home
-              </Button>
-            </Link>
+            <Button size="lg" className="gap-2 px-8 py-6" render={<Link href="/" />}>
+              <Home className="h-5 w-5" />
+              Go Back Home
+            </Button>
           </div>
         </AnimationContainer>
       </div>

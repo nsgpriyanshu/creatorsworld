@@ -75,12 +75,20 @@ const Milestones = () => {
                 Become part of the community shaping the future of our platform.
               </p>
 
-              <Link href="https://discord.gg/VUMVuArkst" target="_blank">
-                <Button size="lg" className="gap-2">
-                  <Building2 className="h-5 w-5" />
-                  Join Community
-                </Button>
-              </Link>
+              <Button
+                size="lg"
+                className="gap-2"
+                render={
+                  <Link
+                    href="https://discord.gg/VUMVuArkst"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  />
+                }
+              >
+                <Building2 className="h-5 w-5" />
+                Join Community
+              </Button>
             </div>
           </AnimationContainer>
 

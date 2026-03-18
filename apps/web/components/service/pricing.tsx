@@ -160,23 +160,22 @@ const Pricing: React.FC = () => {
                     </div>
 
                     <div className="pt-2">
-                      <Link href="/contact">
-                        <Button
-                          size="lg"
-                          variant={planButtonConfig[plan.id]?.variant}
-                          className={planButtonConfig[plan.id]?.className}
-                        >
-                          {planButtonConfig[plan.id]?.label ?? "Get Started"}
+                      <Button
+                        size="lg"
+                        variant={planButtonConfig[plan.id]?.variant}
+                        className={planButtonConfig[plan.id]?.className}
+                        render={<Link href="/contact" />}
+                      >
+                        {planButtonConfig[plan.id]?.label ?? "Get Started"}
 
-                          {plan.id === "pro" ? (
-                            <Rocket className="h-4 w-4" />
-                          ) : plan.id === "pro-max" ? (
-                            <Presentation className="h-4 w-4" />
-                          ) : (
-                            <ArrowRight className="h-4 w-4" />
-                          )}
-                        </Button>
-                      </Link>
+                        {plan.id === "pro" ? (
+                          <Rocket className="h-4 w-4" />
+                        ) : plan.id === "pro-max" ? (
+                          <Presentation className="h-4 w-4" />
+                        ) : (
+                          <ArrowRight className="h-4 w-4" />
+                        )}
+                      </Button>
                     </div>
                   </div>
 
@@ -313,15 +312,14 @@ const Pricing: React.FC = () => {
                 flexibility, and long-term scalability.
               </p>
 
-              <Link href="/contact">
-                <Button
-                  size="lg"
-                  className="gap-2 rounded-md px-8 bg-green-600 hover:bg-green-700"
-                >
-                  Talk to Us
-                  <Headset className="h-4 w-4" />
-                </Button>
-              </Link>
+              <Button
+                size="lg"
+                className="gap-2 rounded-md bg-green-600 px-8 hover:bg-green-700"
+                render={<Link href="/contact" />}
+              >
+                Talk to Us
+                <Headset className="h-4 w-4" />
+              </Button>
             </div>
           </div>
         </AnimationContainer>

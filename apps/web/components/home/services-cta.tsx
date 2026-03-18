@@ -94,25 +94,23 @@ const ServicesCta = () => {
 
               <AnimationContainer animation="fadeUp" delay={0.55}>
                 <div className="mt-10 flex items-center justify-center gap-3">
-                  <Link href="/service">
-                    <Button
-                      size="lg"
-                      className="gap-2 bg-white text-black hover:bg-white/90"
-                    >
-                      <Cog className="h-5 w-5" />
-                      Explore Services
-                    </Button>
-                  </Link>
+                  <Button
+                    size="lg"
+                    className="gap-2 bg-white text-black hover:bg-white/90"
+                    render={<Link href="/service" />}
+                  >
+                    <Cog className="h-5 w-5" />
+                    Explore Services
+                  </Button>
 
-                  <Link href="/service">
-                    <Button
-                      size="icon"
-                      variant="outline"
-                      className="group border-white/30 text-white hover:bg-white/10"
-                    >
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 text-white" />
-                    </Button>
-                  </Link>
+                  <Button
+                    size="icon"
+                    variant="outline"
+                    className="group border-white/30 text-white hover:bg-white/10"
+                    render={<Link href="/service" aria-label="Explore services" />}
+                  >
+                    <ArrowRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
+                  </Button>
                 </div>
               </AnimationContainer>
             </div>

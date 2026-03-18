@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { type ReactNode } from "react";
 
 interface AnimationContainerProps {
@@ -33,10 +33,12 @@ const AnimationContainer = ({
   animation = "fadeUp",
   delay = 0,
 }: AnimationContainerProps) => {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <motion.div
       className={className}
-      initial={getAnimationVariants(animation)}
+      initial={prefersReducedMotion ? false : getAnimationVariants(animation)}
       whileInView={{
         opacity: 1,
         y: 0,
@@ -45,8 +47,8 @@ const AnimationContainer = ({
       }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{
-        duration: 0.35,
-        delay: delay * 0.15,
+        duration: prefersReducedMotion ? 0 : 0.35,
+        delay: prefersReducedMotion ? 0 : delay * 0.15,
         ease: "easeOut",
       }}
     >

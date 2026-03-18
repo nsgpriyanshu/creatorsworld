@@ -89,17 +89,21 @@ const BookCallCta = () => {
 
           <AnimationContainer animation="fadeUp" delay={0.55}>
             <div className="mt-6 md:mt-10 flex items-center justify-center gap-2">
-              <Link href="/contact">
-                <Button size="lg" className="gap-2">
-                  <PhoneCall className="h-5 w-5" />
-                  Book a Call
-                </Button>
-              </Link>
+              <Button
+                size="lg"
+                className="gap-2"
+                render={<Link href="/contact" />}
+              >
+                <PhoneCall className="h-5 w-5" />
+                Book a Call
+              </Button>
 
-              <Button size="icon" className="group border-border">
-                <Link href="/contact">
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+              <Button
+                size="icon"
+                className="group border-border"
+                render={<Link href="/contact" aria-label="Book a call" />}
+              >
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </div>
           </AnimationContainer>

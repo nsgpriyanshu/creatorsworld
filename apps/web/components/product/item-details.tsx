@@ -94,7 +94,7 @@ const ItemDetails = ({
                 <p className="text-base font-medium md:text-lg">
                   Price:{" "}
                   <span className="text-xl font-semibold text-foreground">
-                    ?{price}
+                    Rs. {price}
                   </span>
                 </p>
               </div>
@@ -104,14 +104,16 @@ const ItemDetails = ({
               <div className="p-6">
                 <div className="flex flex-wrap gap-4">
                   <AlertDialog>
-                    <AlertDialogTrigger>
-                      <Button
-                        size="lg"
-                        variant="default"
-                        className="rounded-md border border-border"
-                      >
-                        Buy Now
-                      </Button>
+                    <AlertDialogTrigger
+                      render={
+                        <Button
+                          size="lg"
+                          variant="default"
+                          className="rounded-md border border-border"
+                        />
+                      }
+                    >
+                      Buy Now
                     </AlertDialogTrigger>
 
                     <AlertDialogContent>
@@ -130,7 +132,11 @@ const ItemDetails = ({
                         <AlertDialogCancel>Close</AlertDialogCancel>
 
                         <AlertDialogAction>
-                          <Link href={discordLink} target="_blank">
+                          <Link
+                            href={discordLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             Contact on Discord
                           </Link>
                         </AlertDialogAction>
@@ -138,16 +144,21 @@ const ItemDetails = ({
                     </AlertDialogContent>
                   </AlertDialog>
 
-                  <Link href={discordLink} target="_blank">
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="group rounded-md border border-border"
-                    >
-                      Discord
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </Link>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="group rounded-md border border-border"
+                    render={
+                      <Link
+                        href={discordLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      />
+                    }
+                  >
+                    Discord
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
                 </div>
               </div>
             </AnimationContainer>

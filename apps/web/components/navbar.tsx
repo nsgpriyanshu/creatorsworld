@@ -38,8 +38,11 @@ const HamburgerButton = ({
 }) => {
   return (
     <button
+      type="button"
       onClick={onClick}
       aria-label="Toggle menu"
+      aria-expanded={open}
+      aria-controls="mobile-navigation"
       className="relative h-6 w-6 text-foreground"
     >
       <motion.span
@@ -99,17 +102,17 @@ const Navbar = () => {
       >
         <Wrapper className="flex items-center justify-between lg:px-4 py-3">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2" aria-label="Creator's World home">
             <Image
               src="/icons/dark/android-chrome-512x512.png"
-              alt="Logo"
+              alt="Creator's World logo"
               width={26}
               height={26}
               className="dark:hidden"
             />
             <Image
               src="/icons/light/android-chrome-512x512.png"
-              alt="Logo"
+              alt="Creator's World logo"
               width={26}
               height={26}
               className="hidden dark:block"
@@ -117,7 +120,10 @@ const Navbar = () => {
           </Link>
 
           {/* Nav Links */}
-          <div className="absolute inset-0 mx-auto hidden w-max items-center gap-1 text-sm font-medium text-muted-foreground lg:flex">
+          <nav
+            aria-label="Primary"
+            className="absolute inset-0 mx-auto hidden w-max items-center gap-1 text-sm font-medium text-muted-foreground lg:flex"
+          >
             <AnimatePresence>
               {NAV_LINKS.map((link, index) => {
                 const isActive =
@@ -151,18 +157,27 @@ const Navbar = () => {
                 );
               })}
             </AnimatePresence>
-          </div>
+          </nav>
 
           {/* Right Actions */}
           <div className="flex items-center gap-3">
             <ModeToggle />
 
-            <Link href="https://discord.gg/VUMVuArkst">
-              <Button size="sm" variant="default" className="gap-2 rounded-md">
-                <HandHeart className="h-4 w-4" />
-                Join
-              </Button>
-            </Link>
+            <Button
+              size="sm"
+              variant="default"
+              className="gap-2 rounded-md"
+              render={
+                <Link
+                  href="https://discord.gg/VUMVuArkst"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                />
+              }
+            >
+              <HandHeart className="h-4 w-4" />
+              Join
+            </Button>
           </div>
         </Wrapper>
       </motion.div>
@@ -179,17 +194,17 @@ const Navbar = () => {
         )}
       >
         <Wrapper className="flex items-center justify-between px-4 py-3">
-          <Link href="/">
+          <Link href="/" aria-label="Creator's World home">
             <Image
               src="/icons/dark/android-chrome-512x512.png"
-              alt="Logo"
+              alt="Creator's World logo"
               width={26}
               height={26}
               className="dark:hidden"
             />
             <Image
               src="/icons/light/android-chrome-512x512.png"
-              alt="Logo"
+              alt="Creator's World logo"
               width={26}
               height={26}
               className="hidden dark:block"
@@ -199,12 +214,21 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             <ModeToggle />
 
-            <Link href="https://discord.gg/VUMVuArkst">
-              <Button size="sm" variant="default" className="gap-2 rounded-md">
-                <HandHeart className="h-4 w-4" />
-                Join
-              </Button>
-            </Link>
+            <Button
+              size="sm"
+              variant="default"
+              className="gap-2 rounded-md"
+              render={
+                <Link
+                  href="https://discord.gg/VUMVuArkst"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                />
+              }
+            >
+              <HandHeart className="h-4 w-4" />
+              Join
+            </Button>
 
             <HamburgerButton open={open} onClick={() => setOpen(!open)} />
           </div>
@@ -213,6 +237,7 @@ const Navbar = () => {
         <AnimatePresence>
           {open && (
             <motion.div
+              id="mobile-navigation"
               ref={mobileMenuRef}
               initial={{ opacity: 0, y: -6 }}
               animate={{ opacity: 1, y: 0 }}
@@ -220,7 +245,7 @@ const Navbar = () => {
               transition={{ duration: 0.2 }}
               className="px-3 pb-5"
             >
-              <div className="mt-3 flex flex-col gap-1">
+              <nav aria-label="Mobile primary" className="mt-3 flex flex-col gap-1">
                 {NAV_LINKS.map((link, idx) => {
                   const isActive =
                     pathname === link.link ||
@@ -246,7 +271,7 @@ const Navbar = () => {
                     </Link>
                   );
                 })}
-              </div>
+              </nav>
             </motion.div>
           )}
         </AnimatePresence>

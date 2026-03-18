@@ -117,7 +117,7 @@ const Footer = () => {
                 <div className="flex items-center gap-2">
                   <Image
                     src="/assets/brand/cw-font-dark-3000x500.png"
-                    alt="CW Icon"
+                    alt="Creator's World wordmark"
                     width={250}
                     height={250}
                     className="dark:hidden"
@@ -125,7 +125,7 @@ const Footer = () => {
 
                   <Image
                     src="/assets/brand/cw-font-light-3000x500.png"
-                    alt="CW Icon"
+                    alt="Creator's World wordmark"
                     width={250}
                     height={250}
                     className="hidden dark:block"
@@ -142,6 +142,8 @@ const Footer = () => {
                       key={index}
                       href={social.href}
                       target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
                       className="text-muted-foreground transition-colors hover:text-foreground"
                     >
                       <Icon className="h-5 w-5" />
@@ -167,6 +169,8 @@ const Footer = () => {
                     <li key={index}>
                       <Link
                         href={link.href}
+                        rel="noopener noreferrer"
+                        target="_blank"
                         className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                       >
                         <Icon className="h-4 w-4" />
@@ -239,9 +243,9 @@ const Footer = () => {
               <CogIcon
                 className={`h-3.5 w-3.5 ${SYSTEM_STATUS[ACTIVE_STATUS].color}`}
               />
-              <h2 className={SYSTEM_STATUS[ACTIVE_STATUS].color}>
+              <p className={SYSTEM_STATUS[ACTIVE_STATUS].color}>
                 {SYSTEM_STATUS[ACTIVE_STATUS].label}
-              </h2>
+              </p>
             </div>
           </AnimationContainer>
         </div>

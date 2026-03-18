@@ -149,38 +149,57 @@ export function ContactForm() {
               {/* Name */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label className="text-sm font-medium flex items-center gap-2">
+                  <label
+                    htmlFor="firstName"
+                    className="text-sm font-medium flex items-center gap-2"
+                  >
                     <User2 className="h-4 w-4 text-muted-foreground" />
                     First Name
                   </label>
 
                   <Input
+                    id="firstName"
                     {...register("firstName")}
                     placeholder="Prakriti"
                     disabled={isSubmitting}
+                    aria-invalid={!!errors.firstName}
+                    aria-describedby={
+                      errors.firstName ? "firstName-error" : undefined
+                    }
                   />
 
                   {errors.firstName && (
-                    <p className="text-xs text-destructive">
+                    <p
+                      id="firstName-error"
+                      className="text-xs text-destructive"
+                    >
                       {errors.firstName.message}
                     </p>
                   )}
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-sm font-medium flex items-center gap-2">
+                  <label
+                    htmlFor="lastName"
+                    className="text-sm font-medium flex items-center gap-2"
+                  >
                     <User2 className="h-4 w-4 text-muted-foreground" />
                     Last Name
                   </label>
 
                   <Input
+                    id="lastName"
                     {...register("lastName")}
                     placeholder="Lisaa"
                     disabled={isSubmitting}
+                    aria-invalid={!!errors.lastName}
+                    aria-describedby={
+                      errors.lastName ? "lastName-error" : undefined
+                    }
                   />
 
                   {errors.lastName && (
-                    <p className="text-xs text-destructive">
+                    <p id="lastName-error" className="text-xs text-destructive">
                       {errors.lastName.message}
                     </p>
                   )}
@@ -189,20 +208,26 @@ export function ContactForm() {
 
               {/* Email */}
               <div className="space-y-1.5">
-                <label className="text-sm font-medium flex items-center gap-2">
+                <label
+                  htmlFor="email"
+                  className="text-sm font-medium flex items-center gap-2"
+                >
                   <Mail className="h-4 w-4 text-muted-foreground" />
                   Email
                 </label>
 
                 <Input
+                  id="email"
                   {...register("email")}
                   type="email"
                   placeholder="prakritilisaa@cw.com.com"
                   disabled={isSubmitting}
+                  aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? "email-error" : undefined}
                 />
 
                 {errors.email && (
-                  <p className="text-xs text-destructive">
+                  <p id="email-error" className="text-xs text-destructive">
                     {errors.email.message}
                   </p>
                 )}
@@ -210,19 +235,25 @@ export function ContactForm() {
 
               {/* Phone */}
               <div className="space-y-1.5">
-                <label className="text-sm font-medium flex items-center gap-2">
+                <label
+                  htmlFor="phone"
+                  className="text-sm font-medium flex items-center gap-2"
+                >
                   <Phone className="h-4 w-4 text-muted-foreground" />
                   Phone
                 </label>
 
                 <Input
+                  id="phone"
                   {...register("phone")}
                   placeholder="+91 1234567890"
                   disabled={isSubmitting}
+                  aria-invalid={!!errors.phone}
+                  aria-describedby={errors.phone ? "phone-error" : undefined}
                 />
 
                 {errors.phone && (
-                  <p className="text-xs text-destructive">
+                  <p id="phone-error" className="text-xs text-destructive">
                     {errors.phone.message}
                   </p>
                 )}
@@ -230,19 +261,25 @@ export function ContactForm() {
 
               {/* Country */}
               <div className="space-y-1.5">
-                <label className="text-sm font-medium flex items-center gap-2">
+                <label
+                  htmlFor="country"
+                  className="text-sm font-medium flex items-center gap-2"
+                >
                   <Globe className="h-4 w-4 text-muted-foreground" />
                   Country
                 </label>
 
                 <Input
+                  id="country"
                   {...register("country")}
                   placeholder="India"
                   disabled={isSubmitting}
+                  aria-invalid={!!errors.country}
+                  aria-describedby={errors.country ? "country-error" : undefined}
                 />
 
                 {errors.country && (
-                  <p className="text-xs text-destructive">
+                  <p id="country-error" className="text-xs text-destructive">
                     {errors.country.message}
                   </p>
                 )}
@@ -250,19 +287,30 @@ export function ContactForm() {
 
               {/* Company */}
               <div className="space-y-1.5">
-                <label className="text-sm font-medium flex items-center gap-2">
+                <label
+                  htmlFor="companySize"
+                  className="text-sm font-medium flex items-center gap-2"
+                >
                   <Globe className="h-4 w-4 text-muted-foreground" />
                   Company Size
                 </label>
 
                 <Input
+                  id="companySize"
                   {...register("companySize")}
                   placeholder="1-10 employees"
                   disabled={isSubmitting}
+                  aria-invalid={!!errors.companySize}
+                  aria-describedby={
+                    errors.companySize ? "companySize-error" : undefined
+                  }
                 />
 
                 {errors.companySize && (
-                  <p className="text-xs text-destructive">
+                  <p
+                    id="companySize-error"
+                    className="text-xs text-destructive"
+                  >
                     {errors.companySize.message}
                   </p>
                 )}
@@ -271,7 +319,10 @@ export function ContactForm() {
               {/* Message */}
               <div className="space-y-1.5">
                 <div className="flex justify-between">
-                  <label className="text-sm font-medium flex items-center gap-2">
+                  <label
+                    htmlFor="message"
+                    className="text-sm font-medium flex items-center gap-2"
+                  >
                     <MessageSquare className="h-4 w-4 text-muted-foreground" />
                     Message
                   </label>
@@ -282,15 +333,18 @@ export function ContactForm() {
                 </div>
 
                 <textarea
+                  id="message"
                   {...register("message")}
                   rows={5}
                   placeholder="Tell us about your project..."
                   disabled={isSubmitting}
+                  aria-invalid={!!errors.message}
+                  aria-describedby={errors.message ? "message-error" : undefined}
                   className="w-full resize-none rounded-md border border-border bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 />
 
                 {errors.message && (
-                  <p className="text-xs text-destructive">
+                  <p id="message-error" className="text-xs text-destructive">
                     {errors.message.message}
                   </p>
                 )}

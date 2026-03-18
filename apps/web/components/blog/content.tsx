@@ -25,16 +25,15 @@ const BlogContent = ({ blocks }: Props) => {
       <div className="w-full rounded-md border border-border overflow-hidden">
         {/* Back Button */}
         <div className="border-b border-dashed border-border p-4">
-          <Link href="/blog" className="inline-block group">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-              Back to Blog
-            </Button>
-          </Link>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="group text-muted-foreground hover:text-foreground"
+            render={<Link href="/blog" className="inline-flex" />}
+          >
+            <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
+            Back to Blog
+          </Button>
         </div>
 
         <div className="p-6 md:p-8">

@@ -66,15 +66,14 @@ export default function ServiceHero() {
 
             <AnimationContainer animation="fadeUp" delay={0.45}>
               <div className="px-6 py-8">
-                <Link href="/contact">
-                  <Button
-                    size="lg"
-                    className="gap-2 rounded-md px-8 bg-rose-600 hover:bg-rose-700"
-                  >
-                    Get a Demo
-                    <Presentation className="h-4 w-4" />
-                  </Button>
-                </Link>
+                <Button
+                  size="lg"
+                  className="gap-2 rounded-md bg-rose-600 px-8 hover:bg-rose-700"
+                  render={<Link href="/contact" />}
+                >
+                  Get a Demo
+                  <Presentation className="h-4 w-4" />
+                </Button>
               </div>
             </AnimationContainer>
           </div>
