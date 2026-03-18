@@ -60,11 +60,7 @@ const FAQ = () => {
           </div>
 
           {/* Right side label */}
-          <div className="flex items-center justify-center border-l border-dashed border-border border-b">
-            <span className="text-xs font-semibold tracking-[0.25em] text-muted-foreground">
-              We hope this helps you!
-            </span>
-          </div>
+          <div className="border-l border-dashed border-border border-b" />
 
           {/* Description */}
           <div className="border-b border-dashed border-border px-6 py-8">

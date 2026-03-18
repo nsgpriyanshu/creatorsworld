@@ -275,7 +275,9 @@ export function ContactForm() {
                   placeholder="India"
                   disabled={isSubmitting}
                   aria-invalid={!!errors.country}
-                  aria-describedby={errors.country ? "country-error" : undefined}
+                  aria-describedby={
+                    errors.country ? "country-error" : undefined
+                  }
                 />
 
                 {errors.country && (
@@ -339,7 +341,9 @@ export function ContactForm() {
                   placeholder="Tell us about your project..."
                   disabled={isSubmitting}
                   aria-invalid={!!errors.message}
-                  aria-describedby={errors.message ? "message-error" : undefined}
+                  aria-describedby={
+                    errors.message ? "message-error" : undefined
+                  }
                   className="w-full resize-none rounded-md border border-border bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 />
 

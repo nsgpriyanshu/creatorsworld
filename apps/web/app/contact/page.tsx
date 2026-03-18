@@ -3,7 +3,7 @@ import { ContactForm } from "../../components/contact/contact-form";
 
 const ContactPage = () => {
   return (
-    <div className="relative flex w-full flex-col">
+    <div className="relative flex w-full flex-col overflow-x-hidden">
       <section className="w-full">
         <ContactHero />
       </section>

@@ -8,7 +8,7 @@ import Reviews from "../../components/service/testimonial";
 
 const ServicePage = () => {
   return (
-    <div className="relative flex w-full flex-col">
+    <div className="relative flex w-full flex-col overflow-x-hidden">
       <section className="w-full">
         <ServiceHero />
       </section>

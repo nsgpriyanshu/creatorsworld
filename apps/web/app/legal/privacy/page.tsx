@@ -8,7 +8,7 @@ import { policies } from "../../../constants/legal";
 
 export default function PrivacyPage(): JSX.Element {
   return (
-    <div className="relative flex w-full flex-col">
+    <div className="relative flex w-full flex-col overflow-x-hidden">
       <LegalHero
         icon={<Lock />}
         badge="Your Privacy Matters"

@@ -10,21 +10,25 @@ import { cn } from "@repo/ui/lib/utils";
 
 type CursorTag = {
   label: string;
-  className: string;
+  mobileClassName: string;
+  desktopClassName: string;
 };
 
 const CURSOR_TAGS: CursorTag[] = [
   {
     label: "web-development",
-    className: "lg:left-[14%] lg:top-[26%] left-6 top-14",
+    mobileClassName: "left-[10%] top-16",
+    desktopClassName: "lg:left-[14%] lg:top-[26%]",
   },
   {
     label: "ui/ux-design",
-    className: "lg:right-[16%] lg:top-[40%] right-6 top-28",
+    mobileClassName: "right-[10%] top-28",
+    desktopClassName: "lg:right-[16%] lg:top-[40%]",
   },
   {
     label: "discord-bot-development",
-    className: "lg:left-[20%] lg:bottom-[28%] left-4 bottom-20",
+    mobileClassName: "left-[8%] bottom-24",
+    desktopClassName: "lg:left-[20%] lg:bottom-[28%]",
   },
 ];
 
@@ -45,7 +49,7 @@ const ServicesCta = () => {
       </div>
 
       <Wrapper className="relative">
-        <section className="relative">
+        <section className="relative overflow-hidden">
           {/* Floating tags */}
           {CURSOR_TAGS.map((tag, index) => {
             const Icon = index === 0 ? Code2 : index === 1 ? Palette : Bot;
@@ -58,12 +62,13 @@ const ServicesCta = () => {
               >
                 <div
                   className={cn(
-                    "absolute z-30 flex items-center gap-2 rounded-md border border-white/15 bg-white/[0.06] px-3 py-1.5 text-xs font-medium backdrop-blur-2xl text-white shadow-[0_0_20px_rgba(255,255,255,0.05)]",
-                    tag.className,
+                    "absolute z-30 flex max-w-[10rem] items-center gap-2 rounded-md border border-white/15 bg-white/[0.06] px-2.5 py-1 text-[10px] font-medium text-white shadow-[0_0_20px_rgba(255,255,255,0.05)] backdrop-blur-2xl sm:max-w-none sm:px-3 sm:py-1.5 sm:text-xs",
+                    tag.mobileClassName,
+                    tag.desktopClassName,
                   )}
                 >
-                  <Icon className="h-4 w-4 text-white/80" />
-                  {tag.label}
+                  <Icon className="h-3.5 w-3.5 shrink-0 text-white/80 sm:h-4 sm:w-4" />
+                  <span className="truncate">{tag.label}</span>
                 </div>
               </AnimationContainer>
             );
@@ -71,7 +76,7 @@ const ServicesCta = () => {
 
           {/* CTA CARD */}
           <AnimationContainer animation="fadeUp" delay={0.25}>
-            <div className="relative z-10 mx-auto max-w-4xl rounded-2xl border border-white/10 bg-white/[0.05] backdrop-blur-3xl px-8 py-14 text-center md:px-14 shadow-[0_10px_60px_rgba(0,0,0,0.4)]">
+            <div className="relative z-10 mx-auto max-w-4xl overflow-hidden rounded-2xl border border-white/10 bg-white/[0.05] px-6 py-14 text-center shadow-[0_10px_60px_rgba(0,0,0,0.4)] backdrop-blur-3xl md:px-14">
               {/* subtle top shine */}
               <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/30 to-transparent" />
 
@@ -107,7 +112,9 @@ const ServicesCta = () => {
                     size="icon"
                     variant="outline"
                     className="group border-white/30 text-white hover:bg-white/10"
-                    render={<Link href="/service" aria-label="Explore services" />}
+                    render={
+                      <Link href="/service" aria-label="Explore services" />
+                    }
                   >
                     <ArrowRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
                   </Button>

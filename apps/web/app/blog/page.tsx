@@ -46,7 +46,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
     : filteredPosts;
 
   return (
-    <div className="relative flex w-full flex-col">
+    <div className="relative flex w-full flex-col overflow-x-hidden">
       {/* Hero */}
       <section className="w-full pt-12 pb-6 md:pt-8 md:pb-8">
         <BlogHero />

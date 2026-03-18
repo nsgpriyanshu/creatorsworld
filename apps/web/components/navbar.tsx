@@ -102,7 +102,11 @@ const Navbar = () => {
       >
         <Wrapper className="flex items-center justify-between lg:px-4 py-3">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2" aria-label="Creator's World home">
+          <Link
+            href="/"
+            className="flex items-center gap-2"
+            aria-label="Creator's World home"
+          >
             <Image
               src="/icons/dark/android-chrome-512x512.png"
               alt="Creator's World logo"
@@ -245,7 +249,10 @@ const Navbar = () => {
               transition={{ duration: 0.2 }}
               className="px-3 pb-5"
             >
-              <nav aria-label="Mobile primary" className="mt-3 flex flex-col gap-1">
+              <nav
+                aria-label="Mobile primary"
+                className="mt-3 flex flex-col gap-1"
+              >
                 {NAV_LINKS.map((link, idx) => {
                   const isActive =
                     pathname === link.link ||
