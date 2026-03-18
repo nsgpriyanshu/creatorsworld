@@ -10,9 +10,8 @@ import AnimationContainer from "../global/animation-container";
 const ContactHero: React.FC = () => {
   return (
     <Wrapper className="relative w-full overflow-x-hidden pt-24 pb-12 md:pt-24 md:pb-16">
-      <AnimationContainer animation="fadeUp">
-        <div className="w-full rounded-md border border-border">
-          {/* Badge */}
+      <section className="w-full rounded-md border border-border">
+        <AnimationContainer animation="fadeDown">
           <div className="flex justify-center border-b border-dashed border-border p-4 md:p-5">
             <Badge
               variant="outline"
@@ -28,28 +27,26 @@ const ContactHero: React.FC = () => {
               </span>
             </Badge>
           </div>
+        </AnimationContainer>
 
-          {/* Heading */}
-          <div className="border-b border-dashed border-border px-6 py-8 md:py-10 text-center">
-            <AnimationContainer animation="fadeUp" delay={0.15}>
-              <h1 className="mx-auto max-w-3xl text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground">
-                Let’s Talk
-              </h1>
-            </AnimationContainer>
+        <AnimationContainer animation="fadeUp" delay={0.15}>
+          <div className="border-b border-dashed border-border px-6 py-8 text-center md:py-10">
+            <h1 className="mx-auto max-w-3xl text-5xl font-semibold tracking-tight text-foreground md:text-6xl">
+              Let&apos;s Talk
+            </h1>
           </div>
+        </AnimationContainer>
 
-          {/* Description */}
-          <div className="px-6 py-6 md:py-8 text-center">
-            <AnimationContainer animation="fadeUp" delay={0.3}>
-              <p className="mx-auto max-w-2xl text-sm md:text-base leading-relaxed text-muted-foreground">
-                Have questions, feedback, or collaboration opportunities? We'd
-                love to hear from you. Reach out and let's build something
-                meaningful together.
-              </p>
-            </AnimationContainer>
+        <AnimationContainer animation="fadeUp" delay={0.3}>
+          <div className="px-6 py-6 text-center md:py-8">
+            <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              Have questions, feedback, or collaboration opportunities?
+              We&apos;d love to hear from you. Reach out and let&apos;s build
+              something meaningful together.
+            </p>
           </div>
-        </div>
-      </AnimationContainer>
+        </AnimationContainer>
+      </section>
     </Wrapper>
   );
 };

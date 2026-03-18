@@ -10,8 +10,8 @@ type Props = {
 
 const BlogList = ({ posts }: Props) => {
   return (
-    <AnimationContainer animation="fadeUp">
-      <section className="overflow-x-hidden">
+    <section className="overflow-x-hidden">
+      <AnimationContainer animation="fadeUp">
         <div className="w-full rounded-md border border-border p-4 sm:p-6 md:p-8">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => (
@@ -19,8 +19,8 @@ const BlogList = ({ posts }: Props) => {
             ))}
           </div>
         </div>
-      </section>
-    </AnimationContainer>
+      </AnimationContainer>
+    </section>
   );
 };
 

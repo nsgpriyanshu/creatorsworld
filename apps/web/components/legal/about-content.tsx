@@ -77,7 +77,7 @@ const AboutContent: React.FC<AboutContentProps> = ({ description }) => {
         {/* Story Section */}
         <section className="grid gap-8 lg:grid-cols-3">
           <AnimationContainer animation="fadeUp" className="lg:col-span-1">
-            <h2 className="text-3xl font-semibold md:text-4xl">Our Story</h2>
+            <h2 className="text-5xl font-semibold md:text-6xl">Our Story</h2>
           </AnimationContainer>
 
           <AnimationContainer
@@ -94,10 +94,10 @@ const AboutContent: React.FC<AboutContentProps> = ({ description }) => {
         {/* Stats Section */}
         <section className="grid gap-8 lg:grid-cols-3">
           <AnimationContainer animation="fadeUp" className="lg:col-span-1">
-            <h2 className="text-3xl font-semibold md:text-4xl">
+            <h2 className="text-5xl font-semibold md:text-6xl">
               By The Numbers
             </h2>
-            <p className="mt-3 text-sm text-muted-foreground md:text-base">
+            <p className="mt-3 text-base text-muted-foreground md:text-lg">
               A quick snapshot of our scale and community reach.
             </p>
           </AnimationContainer>
@@ -135,8 +135,8 @@ const AboutContent: React.FC<AboutContentProps> = ({ description }) => {
         {/* Values Section */}
         <section className="grid gap-8 lg:grid-cols-3">
           <AnimationContainer animation="fadeUp" className="lg:col-span-1">
-            <h2 className="text-3xl font-semibold md:text-4xl">Our Values</h2>
-            <p className="mt-3 text-sm text-muted-foreground md:text-base">
+            <h2 className="text-5xl font-semibold md:text-6xl">Our Values</h2>
+            <p className="mt-3 text-base text-muted-foreground md:text-lg">
               The principles that guide how we build and serve the community.
             </p>
           </AnimationContainer>
@@ -163,7 +163,7 @@ const AboutContent: React.FC<AboutContentProps> = ({ description }) => {
                     {feature.icon}
                   </div>
 
-                  <h3 className="relative text-lg font-semibold tracking-tight text-foreground">
+                  <h3 className="relative text-xl font-semibold tracking-tight text-foreground">
                     {feature.title}
                   </h3>
 
@@ -179,7 +179,7 @@ const AboutContent: React.FC<AboutContentProps> = ({ description }) => {
         {/* CTA Section */}
         <section className="grid gap-6 rounded-2xl border border-dashed border-border bg-background/70 px-10 py-14 text-center backdrop-blur lg:grid-cols-3 lg:text-left">
           <AnimationContainer animation="fadeUp" className="lg:col-span-2">
-            <h2 className="text-2xl font-semibold md:text-3xl">
+            <h2 className="text-5xl font-semibold md:text-6xl">
               Join Our Community
             </h2>
 

@@ -127,18 +127,18 @@ export function ContactForm() {
 
   return (
     <Wrapper className="w-full pb-24 overflow-x-hidden">
-      <AnimationContainer animation="fadeUp">
+      <AnimationContainer animation="fadeUp" delay={0.45}>
         {isSubmitting ? (
           <ContactFormSkeleton />
         ) : (
           <div className="w-full rounded-md border border-border overflow-hidden">
             {/* Header */}
             <div className="border-b border-dashed border-border px-6 py-4">
-              <h2 className="text-lg font-semibold text-foreground">
+              <h2 className="text-xl font-semibold text-foreground md:text-2xl">
                 Send us a message
               </h2>
-              <p className="text-sm text-muted-foreground">
-                Fill out the form below and we'll get back to you.
+              <p className="text-base text-muted-foreground md:text-lg">
+                Fill out the form below and we&apos;ll get back to you.
               </p>
             </div>
 

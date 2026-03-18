@@ -28,83 +28,82 @@ const FAQ = () => {
         opacity-[0.12]"
       />
 
-      <AnimationContainer animation="fadeUp" className="w-full">
-        <div className="mx-auto max-w-6xl rounded-md border border-border bg-background/60 backdrop-blur-sm">
-          {/* GRID HEADER LAYOUT */}
-          <div className="grid md:grid-cols-[1fr_220px]">
-            {/* Badge Row */}
-            <div className="border-b border-dashed border-border p-4 md:px-6">
-              <AnimationContainer animation="fadeDown">
-                <Badge
-                  variant="outline"
-                  className="group inline-flex items-center gap-2 border-border bg-background/70 px-3 py-1 md:px-4 md:py-1.5 backdrop-blur text-xs md:text-sm"
-                >
-                  <FileQuestion className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
-                  FAQs
-                </Badge>
-              </AnimationContainer>
-            </div>
-
-            {/* Right empty column */}
-            <div className="border-l border-dashed border-border border-b" />
-
-            {/* Heading */}
-            <div className="border-b border-dashed border-border px-6 py-10">
-              <AnimationContainer animation="fadeUp" delay={0.15}>
-                <h2 className="max-w-3xl text-balance text-3xl font-semibold tracking-tight md:text-5xl">
-                  Frequently asked{" "}
-                  <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                    questions
-                  </span>
-                </h2>
-              </AnimationContainer>
-            </div>
-
-            {/* Right side label */}
-            <div className="flex items-center justify-center border-l border-dashed border-border border-b">
-              <span className="text-xs font-semibold tracking-[0.25em] text-muted-foreground">
-                We hope this helps you!
-              </span>
-            </div>
-
-            {/* Description */}
-            <div className="border-b border-dashed border-border px-6 py-8">
-              <AnimationContainer animation="fadeUp" delay={0.3}>
-                <p className="max-w-2xl text-xs leading-relaxed text-muted-foreground sm:text-sm md:text-base lg:text-lg">
-                  Answers to common questions about our product, security,
-                  integrations, and workflow. If you need more details feel free
-                  to reach out to our team anytime.
-                </p>
-              </AnimationContainer>
-            </div>
-
-            {/* Right empty column */}
-            <div className="border-l border-dashed border-border border-b" />
+      <section className="mx-auto w-full max-w-6xl rounded-md border border-border bg-background/60 backdrop-blur-sm">
+        {/* GRID HEADER LAYOUT */}
+        <div className="grid md:grid-cols-[1fr_220px]">
+          {/* Badge Row */}
+          <div className="border-b border-dashed border-border p-4 md:px-6">
+            <AnimationContainer animation="fadeDown">
+              <Badge
+                variant="outline"
+                className="group inline-flex items-center gap-2 border-border bg-background/70 px-3 py-1 md:px-4 md:py-1.5 backdrop-blur text-xs md:text-sm"
+              >
+                <FileQuestion className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
+                FAQs
+              </Badge>
+            </AnimationContainer>
           </div>
 
-          {/* Accordion Section */}
-          <AnimationContainer animation="fadeUp" delay={0.45}>
-            <div className="px-6 py-8">
-              <Accordion className="w-full overflow-hidden border-t border-dashed border-border">
-                {FAQS.map((faq) => (
-                  <AccordionItem
-                    key={faq.id}
-                    value={faq.id}
-                    className="group border-b border-dashed border-border transition-colors"
-                  >
-                    <AccordionTrigger
-                      className="
+          {/* Right empty column */}
+          <div className="border-l border-dashed border-border border-b" />
+
+          {/* Heading */}
+          <div className="border-b border-dashed border-border px-6 py-10">
+            <AnimationContainer animation="fadeUp" delay={0.15}>
+              <h2 className="max-w-3xl text-balance text-5xl font-semibold tracking-tight md:text-6xl">
+                Frequently asked{" "}
+                <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                  questions
+                </span>
+              </h2>
+            </AnimationContainer>
+          </div>
+
+          {/* Right side label */}
+          <div className="flex items-center justify-center border-l border-dashed border-border border-b">
+            <span className="text-xs font-semibold tracking-[0.25em] text-muted-foreground">
+              We hope this helps you!
+            </span>
+          </div>
+
+          {/* Description */}
+          <div className="border-b border-dashed border-border px-6 py-8">
+            <AnimationContainer animation="fadeUp" delay={0.3}>
+              <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                Answers to common questions about our product, security,
+                integrations, and workflow. If you need more details feel free
+                to reach out to our team anytime.
+              </p>
+            </AnimationContainer>
+          </div>
+
+          {/* Right empty column */}
+          <div className="border-l border-dashed border-border border-b" />
+        </div>
+
+        {/* Accordion Section */}
+        <AnimationContainer animation="fadeUp" delay={0.45}>
+          <div className="px-6 py-8">
+            <Accordion className="w-full overflow-hidden border-t border-dashed border-border">
+              {FAQS.map((faq) => (
+                <AccordionItem
+                  key={faq.id}
+                  value={faq.id}
+                  className="group border-b border-dashed border-border transition-colors"
+                >
+                  <AccordionTrigger
+                    className="
                         py-4 md:py-5 text-left text-xs sm:text-sm md:text-base font-medium
                         transition-all duration-300 ease-out
                         hover:opacity-80
                         [&[data-state=open]>svg]:rotate-180
                       "
-                    >
-                      {faq.question}
-                    </AccordionTrigger>
+                  >
+                    {faq.question}
+                  </AccordionTrigger>
 
-                    <AccordionContent
-                      className="
+                  <AccordionContent
+                    className="
                         overflow-hidden
                         pb-4 md:pb-5 pr-2
                         text-xs sm:text-sm md:text-base
@@ -113,16 +112,15 @@ const FAQ = () => {
                         data-[state=closed]:animate-accordion-up
                         transition-[height,opacity] duration-300
                       "
-                    >
-                      <div className="pt-1">{faq.answer}</div>
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          </AnimationContainer>
-        </div>
-      </AnimationContainer>
+                  >
+                    <div className="pt-1">{faq.answer}</div>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </AnimationContainer>
+      </section>
     </Wrapper>
   );
 };

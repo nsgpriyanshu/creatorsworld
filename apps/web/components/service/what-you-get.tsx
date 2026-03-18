@@ -312,117 +312,115 @@ const WhatYouGet = () => {
         className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:64px_64px] opacity-[0.12]"
       />
 
-      <AnimationContainer animation="fadeUp" className="w-full">
-        <div className="mx-auto max-w-6xl rounded-md border border-border">
-          {/* Header */}
-          <AnimationContainer animation="fadeDown">
-            <div className="flex justify-center border-b border-dashed border-border p-4">
-              <Badge
-                variant="outline"
-                className="group relative overflow-hidden border-border bg-background/70 px-3 py-1 md:px-4 md:py-1.5 backdrop-blur-md text-xs md:text-sm"
-              >
-                <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
-                <span className="relative flex items-center gap-2">
-                  <CirclePlus className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
-                  <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                    What You Get
-                  </span>
-                </span>
-              </Badge>
-            </div>
-          </AnimationContainer>
-
-          <AnimationContainer animation="fadeUp" delay={0.15}>
-            <div className="border-b border-dashed border-border px-6 py-10 text-center">
-              <h2 className="mx-auto max-w-4xl text-balance text-3xl font-semibold leading-tight tracking-tight md:text-5xl">
-                Everything you need to{" "}
+      <section className="mx-auto w-full max-w-6xl rounded-md border border-border">
+        {/* Header */}
+        <AnimationContainer animation="fadeDown">
+          <div className="flex justify-center border-b border-dashed border-border p-4">
+            <Badge
+              variant="outline"
+              className="group relative overflow-hidden border-border bg-background/70 px-3 py-1 md:px-4 md:py-1.5 backdrop-blur-md text-xs md:text-sm"
+            >
+              <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-linear-to-r from-transparent via-muted/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+              <span className="relative flex items-center gap-2">
+                <CirclePlus className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
                 <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                  launch & scale
+                  What You Get
+                </span>
+              </span>
+            </Badge>
+          </div>
+        </AnimationContainer>
+
+        <AnimationContainer animation="fadeUp" delay={0.15}>
+          <div className="border-b border-dashed border-border px-6 py-10 text-center">
+            <h2 className="mx-auto max-w-4xl text-balance text-5xl font-semibold leading-tight tracking-tight md:text-6xl">
+              Everything you need to{" "}
+              <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                launch & scale
+              </span>
+            </h2>
+          </div>
+        </AnimationContainer>
+
+        <AnimationContainer animation="fadeUp" delay={0.3}>
+          <div className="border-b border-dashed border-border px-6 py-8 text-center">
+            <p className="mx-auto max-w-3xl text-balance text-base leading-relaxed text-muted-foreground md:text-lg">
+              From design to deployment and beyond, we cover every step so you
+              can focus on growing your business.
+            </p>
+          </div>
+        </AnimationContainer>
+
+        {/* Structured Layout */}
+        <section className="border-b border-dashed border-border">
+          <div className="grid border-t border-dashed border-border md:grid-cols-2">
+            <div>{renderCard(design)}</div>
+            <div className="md:border-l md:border-dashed md:border-border">
+              {renderCard(development)}
+            </div>
+          </div>
+
+          <div className="grid border-t border-dashed border-border md:grid-cols-2">
+            <div>{renderCard(performance)}</div>
+            <div className="md:border-l md:border-dashed md:border-border">
+              {renderCard(management)}
+            </div>
+          </div>
+
+          <div className="grid border-t border-dashed border-border md:grid-cols-2">
+            <div className="p-6 md:p-8">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-5xl">
+                Built on a{" "}
+                <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                  modern & scalable web stack
                 </span>
               </h2>
             </div>
-          </AnimationContainer>
+            <div className="hidden md:block md:border-l md:border-dashed md:border-border" />
+          </div>
 
-          <AnimationContainer animation="fadeUp" delay={0.3}>
-            <div className="border-b border-dashed border-border px-6 py-8 text-center">
-              <p className="mx-auto max-w-3xl text-balance text-xs leading-relaxed text-muted-foreground sm:text-sm md:text-base lg:text-lg">
-                From design to deployment and beyond, we cover every step so you
-                can focus on growing your business.
-              </p>
+          <div className="grid md:grid-cols-2">
+            <div className="flex flex-wrap items-center gap-3 border-t border-dashed border-border p-6 md:p-8">
+              <Circle>
+                <SiNextdotjs className="h-4 w-4 text-muted-foreground" />
+              </Circle>
+              <Circle>
+                <SiReact className="h-4 w-4 text-muted-foreground" />
+              </Circle>
+              <Circle>
+                <SiVercel className="h-4 w-4 text-muted-foreground" />
+              </Circle>
+              <Circle>
+                <SiTypescript className="h-4 w-4 text-muted-foreground" />
+              </Circle>
+              <Circle>
+                <SiTailwindcss className="h-4 w-4 text-muted-foreground" />
+              </Circle>
+              <Circle>
+                <SiFramer className="h-4 w-4 text-muted-foreground" />
+              </Circle>
+              <Circle>
+                <SiSupabase className="h-4 w-4 text-muted-foreground" />
+              </Circle>
             </div>
-          </AnimationContainer>
-
-          {/* Structured Layout */}
-          <div className="border-b border-dashed border-border">
-            <div className="grid border-t border-dashed border-border md:grid-cols-2">
-              <div>{renderCard(design)}</div>
-              <div className="md:border-l md:border-dashed md:border-border">
-                {renderCard(development)}
+            <div className="p-6 md:border-l md:border-dashed md:border-border md:p-8">
+              <div className="aspect-[4/3] rounded-xl border border-dashed border-border bg-muted/30 p-3">
+                <ICChip className="h-full w-full" />
               </div>
-            </div>
-
-            <div className="grid border-t border-dashed border-border md:grid-cols-2">
-              <div>{renderCard(performance)}</div>
-              <div className="md:border-l md:border-dashed md:border-border">
-                {renderCard(management)}
-              </div>
-            </div>
-
-            <div className="grid border-t border-dashed border-border md:grid-cols-2">
-              <div className="p-6 md:p-8">
-                <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-5xl">
-                  Built on a{" "}
-                  <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                    modern & scalable web stack
-                  </span>
-                </h2>
-              </div>
-              <div className="hidden md:block md:border-l md:border-dashed md:border-border" />
-            </div>
-
-            <div className="grid md:grid-cols-2">
-              <div className="flex flex-wrap items-center gap-3 border-t border-dashed border-border p-6 md:p-8">
-                <Circle>
-                  <SiNextdotjs className="h-4 w-4 text-muted-foreground" />
-                </Circle>
-                <Circle>
-                  <SiReact className="h-4 w-4 text-muted-foreground" />
-                </Circle>
-                <Circle>
-                  <SiVercel className="h-4 w-4 text-muted-foreground" />
-                </Circle>
-                <Circle>
-                  <SiTypescript className="h-4 w-4 text-muted-foreground" />
-                </Circle>
-                <Circle>
-                  <SiTailwindcss className="h-4 w-4 text-muted-foreground" />
-                </Circle>
-                <Circle>
-                  <SiFramer className="h-4 w-4 text-muted-foreground" />
-                </Circle>
-                <Circle>
-                  <SiSupabase className="h-4 w-4 text-muted-foreground" />
-                </Circle>
-              </div>
-              <div className="p-6 md:border-l md:border-dashed md:border-border md:p-8">
-                <div className="aspect-[4/3] rounded-xl border border-dashed border-border bg-muted/30 p-3">
-                  <ICChip className="h-full w-full" />
-                </div>
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-2">
-              <div className="border-t border-dashed border-border p-6 md:p-8">
-                <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm md:text-base">
-                  A refined ecosystem delivering performance, elegant UI, smooth
-                  animation, strict type safety, and seamless deployment.
-                </p>
-              </div>
-              <div className="hidden md:block md:border-l md:border-dashed md:border-border" />
             </div>
           </div>
-        </div>
-      </AnimationContainer>
+
+          <div className="grid md:grid-cols-2">
+            <div className="border-t border-dashed border-border p-6 md:p-8">
+              <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm md:text-base">
+                A refined ecosystem delivering performance, elegant UI, smooth
+                animation, strict type safety, and seamless deployment.
+              </p>
+            </div>
+            <div className="hidden md:block md:border-l md:border-dashed md:border-border" />
+          </div>
+        </section>
+      </section>
     </Wrapper>
   );
 };

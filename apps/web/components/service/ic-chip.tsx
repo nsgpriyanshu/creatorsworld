@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
 interface ICChipProps {
   highlightPin?: number;
@@ -10,7 +10,10 @@ interface ICChipProps {
 export function ICChip({ highlightPin = 4, className = "" }: ICChipProps) {
   const pinCount = 12;
   const topPins = Array.from({ length: pinCount / 2 }, (_, i) => i);
-  const bottomPins = Array.from({ length: pinCount / 2 }, (_, i) => pinCount / 2 + i);
+  const bottomPins = Array.from(
+    { length: pinCount / 2 },
+    (_, i) => pinCount / 2 + i,
+  );
 
   const svgWidth = 600;
   const svgHeight = 500;
@@ -25,8 +28,10 @@ export function ICChip({ highlightPin = 4, className = "" }: ICChipProps) {
   const pinSpacing = chipWidth / (pinCount / 2 + 1);
   const leftPinX = centerX - chipWidth / 2;
 
-  const getTopPinX = (index: number) => centerX - chipWidth / 2 + pinSpacing * (index + 1);
-  const getBottomPinX = (index: number) => centerX - chipWidth / 2 + pinSpacing * (index + 1);
+  const getTopPinX = (index: number) =>
+    centerX - chipWidth / 2 + pinSpacing * (index + 1);
+  const getBottomPinX = (index: number) =>
+    centerX - chipWidth / 2 + pinSpacing * (index + 1);
 
   return (
     <svg

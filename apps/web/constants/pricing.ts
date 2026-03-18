@@ -157,4 +157,3 @@ export const PRICING_META = {
       "Features from higher plans can be implemented in lower plans with additional cost. Plans mainly define the baseline scope and pricing boundaries.",
   },
 } as const;
-

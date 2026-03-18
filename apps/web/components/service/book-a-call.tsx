@@ -72,7 +72,7 @@ const BookCallCta = () => {
           <div className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-linear-to-br from-primary/10 via-transparent to-transparent" />
 
           <AnimationContainer animation="fadeUp" delay={0.35}>
-            <h2 className="text-balance text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
+            <h2 className="text-balance text-5xl font-semibold tracking-tight md:text-6xl">
               Book a Free{" "}
               <span className="bg-linear-to-r from-foreground to-primary bg-clip-text text-transparent">
                 Strategy Call
@@ -81,7 +81,7 @@ const BookCallCta = () => {
           </AnimationContainer>
 
           <AnimationContainer animation="fadeUp" delay={0.45}>
-            <p className="mx-auto mt-4 md:mt-6 max-w-xl text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground">
+            <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground md:mt-6 md:text-lg">
               Let's discuss your idea, goals, and challenges — and see how we
               can build a scalable solution tailored for you.
             </p>

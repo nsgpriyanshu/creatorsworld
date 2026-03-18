@@ -46,10 +46,10 @@ const BrandGuidelines: React.FC<BrandGuidelinesProps> = ({ guidelines }) => {
           variants={itemVariants}
           className="space-y-3 bg-background/70 p-4 sm:p-6 backdrop-blur transition-all duration-300 hover:bg-muted/30 min-w-0"
         >
-          <h3 className="text-lg font-semibold text-foreground">
+          <h3 className="text-xl font-semibold text-foreground">
             {guideline.title}
           </h3>
-          <p className="text-sm leading-relaxed text-muted-foreground">
+          <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
             {guideline.description}
           </p>
         </motion.div>

@@ -14,7 +14,6 @@ import {
 import { Button } from "@repo/ui/components/ui/button";
 import { BlogBlock } from "../../lib/db/types";
 import CodeBlock from "./code-block";
-import AnimationContainer from "../global/animation-container";
 
 type Props = {
   blocks: BlogBlock[];
@@ -22,7 +21,7 @@ type Props = {
 
 const BlogContent = ({ blocks }: Props) => {
   return (
-    <AnimationContainer animation="fadeUp">
+    <section>
       <div className="w-full rounded-md border border-border overflow-hidden">
         {/* Back Button */}
         <div className="border-b border-dashed border-border p-4">
@@ -155,7 +154,7 @@ const BlogContent = ({ blocks }: Props) => {
                   </div>
                 );
 
-              case "callout":
+              case "callout": {
                 const icons = {
                   info: <Info className="h-5 w-5" />,
                   warning: <AlertCircle className="h-5 w-5" />,
@@ -174,6 +173,7 @@ const BlogContent = ({ blocks }: Props) => {
                     <p className="text-muted-foreground">{block.text}</p>
                   </div>
                 );
+              }
 
               default:
                 return null;
@@ -181,7 +181,7 @@ const BlogContent = ({ blocks }: Props) => {
           })}
         </div>
       </div>
-    </AnimationContainer>
+    </section>
   );
 };
 

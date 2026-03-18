@@ -63,10 +63,10 @@ const LogosShowcase: React.FC<LogosShowcaseProps> = ({ logos }) => {
           {/* Logo Details */}
           <div className="space-y-3 border-t border-dashed border-border bg-background/70 p-4 min-w-0">
             <div className="min-w-0">
-              <h3 className="text-sm font-semibold text-foreground line-clamp-2 break-words">
+              <h3 className="text-base font-semibold text-foreground line-clamp-2 break-words md:text-xl">
                 {logo.name}
               </h3>
-              <p className="mt-1 text-xs text-muted-foreground line-clamp-2 break-words">
+              <p className="mt-1 text-sm text-muted-foreground line-clamp-2 break-words md:text-base">
                 {logo.description}
               </p>
             </div>
