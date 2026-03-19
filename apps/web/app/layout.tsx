@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import { ThemeProvider } from "../components/global/theme-provider";
-import { generateMetadata } from "../utils/metadata";
+import { absoluteUrl, generateMetadata, siteConfig } from "../utils/metadata";
 import "@repo/ui/globals.css";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
@@ -22,6 +23,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: siteConfig.siteName,
+    url: siteConfig.siteUrl,
+    logo: absoluteUrl("/icons/light/android-chrome-512x512.png"),
+    sameAs: [siteConfig.discordUrl, siteConfig.githubUrl],
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.siteName,
+    url: siteConfig.siteUrl,
+    inLanguage: "en-US",
+  };
+
   return (
     <html
       lang="en"
@@ -37,6 +55,20 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Script
+            id="organization-jsonld"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(organizationJsonLd),
+            }}
+          />
+          <Script
+            id="website-jsonld"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(websiteJsonLd),
+            }}
+          />
           <a
             href="#main-content"
             className="sr-only z-[100] rounded-md bg-background px-4 py-2 text-sm font-medium text-foreground focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:border focus:border-border"

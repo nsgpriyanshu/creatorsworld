@@ -3,6 +3,11 @@ import type { Metadata } from "next";
 
 import { products } from "../../../lib/products";
 import ItemDetails from "../../../components/product/item-details";
+import {
+  absoluteUrl,
+  createMetadata,
+  siteConfig,
+} from "../../../utils/metadata";
 
 type ItemPageProps = {
   params: Promise<{
@@ -17,33 +22,29 @@ export async function generateMetadata({
   const product = products[item];
 
   if (!product) {
-    return {
-      title: "Product Not Found | Creator’s World",
-    };
+    return createMetadata({
+      title: "Product Not Found | Creator's World",
+      description: "The requested product page could not be found.",
+      path: `/product/${item}`,
+      noIndex: true,
+    });
   }
 
   const title = `${product.title} ${product.highlight ?? ""}`.trim();
 
-  return {
-    title: `${title} | Creator’s World`,
+  return createMetadata({
+    title: `${title} | Creator's World`,
     description: product.description,
-    openGraph: {
-      title,
-      description: product.description,
-      images: [
-        {
-          url: product.image.dark,
-          alt: product.image.alt,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description: product.description,
-      images: [product.image.dark],
-    },
-  };
+    path: `/product/${item}`,
+    image: product.image.dark,
+    keywords: [
+      product.title,
+      ...(product.highlight ? [product.highlight] : []),
+      "digital product",
+      "creator tools",
+      "discord products",
+    ],
+  });
 }
 
 const ItemPage = async ({ params }: ItemPageProps) => {
@@ -54,8 +55,37 @@ const ItemPage = async ({ params }: ItemPageProps) => {
     notFound();
   }
 
+  const title = `${product.title} ${product.highlight ?? ""}`.trim();
+  const productUrl = absoluteUrl(`/product/${item}`);
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: title,
+    description: product.description,
+    image: [absoluteUrl(product.image.dark)],
+    brand: {
+      "@type": "Brand",
+      name: siteConfig.siteName,
+    },
+    offers: {
+      "@type": "Offer",
+      url: productUrl,
+      priceCurrency: "INR",
+      price: product.price.toString(),
+      availability: "https://schema.org/InStock",
+      seller: {
+        "@type": "Organization",
+        name: siteConfig.siteName,
+      },
+    },
+  };
+
   return (
     <div className="relative flex w-full flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <section className="w-full">
         <ItemDetails {...product} />
       </section>

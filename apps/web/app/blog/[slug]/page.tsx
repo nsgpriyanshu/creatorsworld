@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import BlogContent from "../../../components/blog/content";
 import BlogPostHeader from "../../../components/blog/post-header";
 import TableOfContents from "../../../components/blog/table-of-contents";
@@ -12,6 +12,11 @@ import {
 import Wrapper from "../../../components/global/wrapper";
 import Link from "next/link";
 import { ChevronDown, ChevronRight, Home } from "lucide-react";
+import {
+  absoluteUrl,
+  createMetadata,
+  siteConfig,
+} from "../../../utils/metadata";
 
 type PageProps = {
   params: Promise<{
@@ -26,38 +31,25 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug);
 
   if (!post) {
-    return {
-      title: "Post not found",
-    };
+    return createMetadata({
+      title: "Post Not Found | Creator's World",
+      description: "The article you are looking for could not be found.",
+      path: `/blog/${slug}`,
+      noIndex: true,
+    });
   }
 
-  return {
-    title: post.seo_title || `${post.title} | Creators World`,
+  return createMetadata({
+    title: post.seo_title || `${post.title} | Creator's World`,
     description: post.seo_description || post.excerpt,
-    keywords: post.tags.join(", "),
+    path: `/blog/${slug}`,
+    image: post.seo_image || post.thumbnail_url,
+    keywords: post.tags,
+    type: "article",
+    publishedTime: post.published_at,
+    modifiedTime: post.updated_at || post.published_at,
     authors: [{ name: post.author.name }],
-    openGraph: {
-      title: post.seo_title || `${post.title} | Creators World`,
-      description: post.seo_description || post.excerpt,
-      type: "article",
-      publishedTime: post.published_at,
-      authors: [post.author.name],
-      images: [
-        {
-          url: post.seo_image || post.thumbnail_url,
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.seo_title || post.title,
-      description: post.seo_description || post.excerpt,
-      images: [post.seo_image || post.thumbnail_url],
-    },
-  };
+  });
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
@@ -74,9 +66,66 @@ export default async function BlogPostPage({ params }: PageProps) {
     getPreviousPost(post.published_at),
     getNextPost(post.published_at),
   ]);
+  const articleUrl = absoluteUrl(`/blog/${slug}`);
+  const articleImage = absoluteUrl(post.seo_image || post.thumbnail_url);
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.seo_description || post.excerpt,
+    image: [articleImage],
+    datePublished: post.published_at,
+    dateModified: post.updated_at || post.published_at,
+    author: {
+      "@type": "Person",
+      name: post.author.name,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.siteName,
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl("/icons/light/android-chrome-512x512.png"),
+      },
+    },
+    mainEntityOfPage: articleUrl,
+    keywords: post.tags.join(", "),
+  };
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: absoluteUrl("/"),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: absoluteUrl("/blog"),
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: articleUrl,
+      },
+    ],
+  };
 
   return (
     <Wrapper className="relative overflow-x-hidden py-12 lg:py-16 px-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Breadcrumb */}
       <div className="px-4 lg:px-0">
         <nav className="mx-auto mt-12 md:mt-0 flex max-w-6xl flex-wrap items-center justify-center gap-2 text-xs md:justify-start md:text-sm">

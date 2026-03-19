@@ -1,14 +1,18 @@
-import { Metadata } from "next";
+import { createMetadata } from "../../utils/metadata";
 
-export const metadata: Metadata = {
-  title: "Product – Creators World",
-  description: "Explore premium developer products built for real communities.",
-  openGraph: {
-    title: "Creators World Products",
-    description: "High-quality digital products for creators and developers.",
-    type: "website",
-  },
-};
+export const metadata = createMetadata({
+  title: "Products - Creator's World",
+  description:
+    "Explore digital products, assets, and tools built for creators, developers, and modern online communities.",
+  path: "/product",
+  image: "/assets/brand/logo-main-dark-1024x1024.png",
+  keywords: [
+    "digital products",
+    "creator tools",
+    "Discord assets",
+    "developer products",
+  ],
+});
 
 export default function ProductLayout({
   children,

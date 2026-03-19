@@ -1,45 +1,19 @@
-import { Metadata } from "next";
+import { createMetadata } from "../../utils/metadata";
 
-export const metadata: Metadata = {
-  title: "Blog – Creators World",
+export const metadata = createMetadata({
+  title: "Blog - Creator's World",
   description:
-    "Explore insightful articles, tutorials, and stories from the Creators World blog. Learn about Discord apps, development tips, and community insights.",
+    "Read articles on Discord apps, creator tools, product thinking, development workflows, and community growth.",
+  path: "/blog",
+  image: "/assets/brand/logo-main-dark-1024x1024.png",
   keywords: [
-    "Discord Blog",
-    "Discord Tutorials",
-    "Web Development",
-    "Discord Apps Guide",
-    "Creator Stories",
-    "Tech Articles",
-    "Development Tips",
+    "Discord blog",
+    "developer blog",
+    "creator economy",
+    "Discord development",
+    "technical articles",
   ],
-  openGraph: {
-    title: "Blog – Creators World",
-    description:
-      "Read the latest articles and insights from Creators World community.",
-    url: `${process.env.NEXT_PUBLIC_SITE_URL}/blog`,
-    siteName: process.env.NEXT_PUBLIC_APP_NAME,
-    images: [
-      {
-        url: "og/og-blog.png",
-        width: 1200,
-        height: 630,
-        alt: "Creators World Blog – Open Graph Image",
-        type: "image/png",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Blog – Creators World",
-    description: "Discover articles, guides, and insights on our blog.",
-    site: "@creatorsworld",
-    creator: "@creatorsworld",
-    images: ["og/og-blog.png"],
-  },
-};
+});
 
 export default function BlogLayout({
   children,
