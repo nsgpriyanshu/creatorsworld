@@ -3,20 +3,20 @@
 import Link from "next/link";
 import {
   ArrowLeft,
-  Compass,
   Home,
-  SearchX,
+  PackageSearch,
+  ShoppingBag,
   Sparkles,
-  Terminal,
+  WandSparkles,
 } from "lucide-react";
 
 import { Badge } from "@repo/ui/components/ui/badge";
 import { Button } from "@repo/ui/components/ui/button";
 
-import AnimationContainer from "../components/global/animation-container";
-import Wrapper from "../components/global/wrapper";
+import AnimationContainer from "../../components/global/animation-container";
+import Wrapper from "../../components/global/wrapper";
 
-export default function NotFound() {
+export default function ProductNotFound() {
   return (
     <Wrapper className="relative w-full overflow-hidden pt-24 pb-12 md:pt-24 md:pb-16">
       <div
@@ -35,7 +35,7 @@ export default function NotFound() {
               <span className="relative flex items-center gap-2">
                 <Sparkles className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:rotate-12" />
                 <span className="bg-linear-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                  Error 404
+                  Product Error 404
                 </span>
               </span>
             </Badge>
@@ -46,12 +46,12 @@ export default function NotFound() {
           <div className="border-b border-dashed border-border px-6 py-10 text-center">
             <div className="mx-auto flex max-w-3xl flex-col items-center gap-4">
               <div className="rounded-md border border-dashed border-border bg-background/70 p-4 backdrop-blur">
-                <SearchX className="h-8 w-8 text-muted-foreground" />
+                <PackageSearch className="h-8 w-8 text-muted-foreground" />
               </div>
               <h1 className="text-balance text-5xl font-semibold leading-tight tracking-tight md:text-6xl">
-                Page not found,
+                Product not found,
                 <span className="block text-muted-foreground">
-                  route unavailable
+                  this listing is unavailable
                 </span>
               </h1>
             </div>
@@ -61,9 +61,9 @@ export default function NotFound() {
         <AnimationContainer animation="fadeUp" delay={0.3}>
           <div className="border-b border-dashed border-border px-6 py-8 text-center">
             <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
-              The page you requested does not exist, may have moved, or is no
-              longer publicly available. Use one of the routes below to get back
-              into the main flow.
+              The product you requested may have been removed, renamed, or is
+              not currently available. Use the product catalog or return to the
+              homepage.
             </p>
           </div>
         </AnimationContainer>
@@ -74,10 +74,10 @@ export default function NotFound() {
               <Button
                 size="lg"
                 className="h-11 gap-2 rounded-md px-8 text-base md:h-12"
-                render={<Link href="/" />}
+                render={<Link href="/product" />}
               >
-                <Home className="h-4 w-4" />
-                Back to Home
+                <ShoppingBag className="h-4 w-4" />
+                View Products
               </Button>
             </div>
             <div className="flex items-center justify-center p-6">
@@ -85,10 +85,10 @@ export default function NotFound() {
                 size="lg"
                 variant="outline"
                 className="h-11 gap-2 rounded-md px-8 text-base md:h-12"
-                render={<Link href="/service" />}
+                render={<Link href="/" />}
               >
-                <Compass className="h-4 w-4" />
-                Explore Services
+                <Home className="h-4 w-4" />
+                Back to Home
               </Button>
             </div>
           </div>
@@ -97,19 +97,19 @@ export default function NotFound() {
         <AnimationContainer animation="fadeUp" delay={0.6}>
           <div className="grid grid-cols-1 md:grid-cols-3">
             <div className="border-b border-dashed border-border p-6 transition-colors hover:bg-muted/30 md:border-b-0 md:border-r md:border-dashed md:border-border">
-              <Terminal className="mb-3 h-5 w-5 text-muted-foreground" />
-              <p className="text-sm text-muted-foreground">Status</p>
-              <h3 className="text-xl font-semibold">Route Missing</h3>
+              <PackageSearch className="mb-3 h-5 w-5 text-muted-foreground" />
+              <p className="text-sm text-muted-foreground">Catalog Status</p>
+              <h3 className="text-xl font-semibold">Item Missing</h3>
             </div>
             <div className="border-b border-dashed border-border p-6 transition-colors hover:bg-muted/30 md:border-b-0 md:border-r md:border-dashed md:border-border">
               <ArrowLeft className="mb-3 h-5 w-5 text-muted-foreground" />
-              <p className="text-sm text-muted-foreground">Suggested Action</p>
-              <h3 className="text-xl font-semibold">Return to a valid page</h3>
+              <p className="text-sm text-muted-foreground">Best Next Step</p>
+              <h3 className="text-xl font-semibold">Open the product index</h3>
             </div>
             <div className="p-6 transition-colors hover:bg-muted/30">
-              <Compass className="mb-3 h-5 w-5 text-muted-foreground" />
-              <p className="text-sm text-muted-foreground">Recommended Path</p>
-              <h3 className="text-xl font-semibold">Home or Services</h3>
+              <WandSparkles className="mb-3 h-5 w-5 text-muted-foreground" />
+              <p className="text-sm text-muted-foreground">Recommended Route</p>
+              <h3 className="text-xl font-semibold">/product</h3>
             </div>
           </div>
         </AnimationContainer>
