@@ -8,7 +8,7 @@ import { Badge } from "@repo/ui/components/ui/badge";
 import { Button } from "@repo/ui/components/ui/button";
 import { BlogPost } from "../../lib/db/types";
 import { Calendar, Clock2, ArrowRight } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import AnimationContainer from "../global/animation-container";
 
 type Props = {
@@ -23,11 +23,12 @@ const BlogCard = ({ post }: Props) => {
       ? post.thumbnail_url
       : FALLBACK_IMAGE,
   );
-  const [formattedDate, setFormattedDate] = useState("");
-
-  useEffect(() => {
-    setFormattedDate(new Date(post.published_at).toLocaleDateString());
-  }, [post.published_at]);
+  const formattedDate = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(post.published_at));
 
   return (
     <AnimationContainer animation="fadeUp">

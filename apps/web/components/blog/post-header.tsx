@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Badge } from "@repo/ui/components/ui/badge";
 import { BlogPost } from "../../lib/db/types";
 import { Calendar, Clock2 } from "lucide-react";
-import { useState, useEffect } from "react";
 import AnimationContainer from "../global/animation-container";
 
 type Props = {
@@ -12,11 +11,12 @@ type Props = {
 };
 
 const BlogPostHeader = ({ post }: Props) => {
-  const [formattedDate, setFormattedDate] = useState("");
-
-  useEffect(() => {
-    setFormattedDate(new Date(post.published_at).toLocaleDateString());
-  }, [post.published_at]);
+  const formattedDate = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(post.published_at));
 
   return (
     <header className="mb-8 md:mb-10 w-full rounded-md border border-border overflow-hidden">

@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Badge } from "@repo/ui/components/ui/badge";
 import { BlogPost } from "../../lib/db/types";
 import { Calendar, Clock2, Star } from "lucide-react";
-import { useState, useEffect } from "react";
 import Wrapper from "../global/wrapper";
 import AnimationContainer from "../global/animation-container";
 
@@ -14,11 +13,12 @@ type Props = {
 };
 
 const FeaturedBlogCard = ({ post }: Props) => {
-  const [formattedDate, setFormattedDate] = useState("");
-
-  useEffect(() => {
-    setFormattedDate(new Date(post.published_at).toLocaleDateString());
-  }, [post.published_at]);
+  const formattedDate = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(post.published_at));
 
   return (
     <Wrapper className="relative pb-12 lg:pb-16">
