@@ -143,72 +143,39 @@ export default function CrystalCursor() {
 
   return (
     <>
+      {/* Outer ring */}
       <div
         aria-hidden
         className={cn(
-          "pointer-events-none fixed left-0 top-0 z-[9998] hidden rounded-full transition-[width,height,opacity,transform,background-color,border-color,border-radius,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:block",
-          "mix-blend-difference backdrop-blur-md",
+          "pointer-events-none fixed left-0 top-0 z-[9998] hidden rounded-full transition-[width,height,opacity,border-color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] md:block",
+          "mix-blend-difference",
           visible ? "opacity-100" : "opacity-0",
-          scrolling
-            ? "h-16 w-10 rounded-[54%_54%_78%_78%/34%_34%_100%_100%]"
-            : "",
           interactive
-            ? "h-16 w-16 border border-white/35 bg-white/16 shadow-[0_0_50px_rgba(255,255,255,0.18)]"
-            : "h-10 w-10 border border-white/20 bg-white/10 shadow-[0_0_28px_rgba(255,255,255,0.12)]",
-          pressed &&
-            "opacity-85 border-white/25 bg-white/12 shadow-[0_0_24px_rgba(255,255,255,0.10)]",
+            ? "h-9 w-9 border border-white/50"
+            : "h-6 w-6 border border-white/30",
+          pressed && "opacity-70 h-5 w-5",
         )}
         style={{
           transform: `translate3d(${haloPosition.x}px, ${haloPosition.y}px, 0) translate(-50%, -50%)`,
         }}
-      >
-        <span className="absolute inset-[10%] rounded-full border border-white/15" />
-        <span
-          className={cn(
-            "absolute bg-white/8",
-            scrolling
-              ? "left-[28%] right-[28%] top-[16%] bottom-[14%] rounded-[52%_52%_76%_76%/32%_32%_100%_100%]"
-              : "inset-[28%] rounded-full",
-          )}
-        />
-      </div>
+      />
 
+      {/* Inner dot */}
       <div
         aria-hidden
         className={cn(
-          "pointer-events-none fixed left-0 top-0 z-[9999] hidden rounded-full transition-[width,height,opacity,transform,background-color,border-color,border-radius,box-shadow] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)] md:block",
+          "pointer-events-none fixed left-0 top-0 z-[9999] hidden rounded-full transition-[width,height,opacity] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] md:block",
           "mix-blend-difference",
           visible ? "opacity-100" : "opacity-0",
-          scrolling
-            ? "h-12 w-7 rounded-[54%_54%_80%_80%/28%_28%_100%_100%]"
-            : "",
           interactive
-            ? "h-12 w-12 border border-white/70 bg-white/85 shadow-[0_0_28px_rgba(255,255,255,0.28)]"
-            : "h-7 w-7 border border-white/60 bg-white/65 shadow-[0_0_20px_rgba(255,255,255,0.18)]",
-          pressed &&
-            "opacity-90 border-white/55 bg-white/70 shadow-[0_0_12px_rgba(255,255,255,0.12)]",
+            ? "h-2 w-2 bg-white/90"
+            : "h-1.5 w-1.5 bg-white/80",
+          pressed && "opacity-70 h-1 w-1",
         )}
         style={{
           transform: `translate3d(${corePosition.x}px, ${corePosition.y}px, 0) translate(-50%, -50%)`,
         }}
-      >
-        <span
-          className={cn(
-            "absolute border border-black/10",
-            scrolling
-              ? "inset-x-[24%] bottom-[12%] top-[18%] rounded-[54%_54%_80%_80%/28%_28%_100%_100%]"
-              : "inset-[22%] rounded-full",
-          )}
-        />
-        <span
-          className={cn(
-            "absolute bg-white/80",
-            scrolling
-              ? "left-[34%] top-[16%] h-[20%] w-[32%] rounded-full"
-              : "inset-[38%] rounded-full",
-          )}
-        />
-      </div>
+      />
     </>
   );
 }
