@@ -83,7 +83,7 @@ export default function ServiceHero() {
             <div className="relative h-[240px] md:h-full">
               {/* Dark Mode Image */}
               <Image
-                src="/assets/cw-stone.png"
+                src="/assets/cw-stone-dark.png"
                 alt="Service visual dark"
                 fill
                 priority
