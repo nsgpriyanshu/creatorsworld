@@ -212,3 +212,8 @@
     cursor: text;
   }
 }
+
+::selection {
+  background-color: var(--secondary);
+  color: #f10a0a;
+}

@@ -167,9 +167,7 @@ export default function CrystalCursor() {
           "pointer-events-none fixed left-0 top-0 z-[9999] hidden rounded-full transition-[width,height,opacity] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] md:block",
           "mix-blend-difference",
           visible ? "opacity-100" : "opacity-0",
-          interactive
-            ? "h-2 w-2 bg-white/90"
-            : "h-1.5 w-1.5 bg-white/80",
+          interactive ? "h-2 w-2 bg-white/90" : "h-1.5 w-1.5 bg-white/80",
           pressed && "opacity-70 h-1 w-1",
         )}
         style={{

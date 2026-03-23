@@ -68,7 +68,7 @@ export default function ServiceHero() {
               <div className="px-6 py-8">
                 <Button
                   size="lg"
-                  className="gap-2 rounded-md bg-rose-600 px-8 hover:bg-rose-700"
+                  className="gap-2 rounded-md "
                   render={<Link href="/contact" />}
                 >
                   Get a Demo
@@ -81,13 +81,23 @@ export default function ServiceHero() {
           {/* Right */}
           <AnimationContainer animation="fadeUp" delay={0.6}>
             <div className="relative h-[240px] md:h-full">
+              {/* Dark Mode Image */}
               <Image
-                src="/backgrounds/cw-hand.png"
-                alt="Service visual"
+                src="/assets/cw-stone.png"
+                alt="Service visual dark"
                 fill
                 priority
                 className="object-cover"
               />
+
+              {/* Light Mode Image
+              <Image
+                src="/assets/cw-stone-light.png" 
+                alt="Service visual light"
+                fill
+                priority
+                className="object-cover block dark:hidden"
+              /> */}
             </div>
           </AnimationContainer>
         </div>
