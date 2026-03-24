@@ -161,6 +161,7 @@ const Pricing: React.FC = () => {
 
                     <div className="pt-2">
                       <Button
+                        nativeButton={false}
                         size="lg"
                         variant={planButtonConfig[plan.id]?.variant}
                         className={planButtonConfig[plan.id]?.className}
@@ -313,6 +314,7 @@ const Pricing: React.FC = () => {
               </p>
 
               <Button
+                nativeButton={false}
                 size="lg"
                 className="gap-2 rounded-md bg-green-600 px-8 hover:bg-green-700"
                 render={<Link href="/contact" />}

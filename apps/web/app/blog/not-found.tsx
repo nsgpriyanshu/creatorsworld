@@ -71,6 +71,7 @@ export default function BlogNotFound() {
           <div className="grid border-b border-dashed border-border md:grid-cols-2">
             <div className="flex items-center justify-center border-b border-dashed border-border p-6 md:border-b-0 md:border-r md:border-dashed md:border-border">
               <Button
+                nativeButton={false}
                 size="lg"
                 className="h-11 gap-2 rounded-md px-8 text-base md:h-12"
                 render={<Link href="/blog" />}
@@ -81,6 +82,7 @@ export default function BlogNotFound() {
             </div>
             <div className="flex items-center justify-center p-6">
               <Button
+                nativeButton={false}
                 size="lg"
                 variant="outline"
                 className="h-11 gap-2 rounded-md px-8 text-base md:h-12"

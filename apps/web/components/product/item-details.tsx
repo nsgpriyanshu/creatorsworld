@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useTheme } from "next-themes";
 import { ArrowRight, Package2 } from "lucide-react";
 
 import Wrapper from "../global/wrapper";
@@ -43,10 +42,6 @@ const ItemDetails = ({
   image,
   discordLink,
 }: ItemDetailsProps) => {
-  const { resolvedTheme } = useTheme();
-
-  const productImage = resolvedTheme === "dark" ? image.dark : image.light;
-
   return (
     <Wrapper className="relative overflow-x-hidden pt-24 pb-12 md:pt-24 md:pb-16">
       <section className="mx-auto w-full max-w-6xl rounded-md border border-border">
@@ -169,12 +164,20 @@ const ItemDetails = ({
               <AnimationContainer animation="scaleUp" delay={0.25}>
                 <div className="relative w-full max-w-sm rounded-md border border-border bg-muted/40 p-4">
                   <Image
-                    src={productImage}
+                    src={image.light}
                     alt={image.alt}
                     width={600}
                     height={600}
                     priority
-                    className="w-full rounded-md object-contain"
+                    className="w-full rounded-md object-contain dark:hidden"
+                  />
+                  <Image
+                    src={image.dark}
+                    alt={image.alt}
+                    width={600}
+                    height={600}
+                    priority
+                    className="hidden w-full rounded-md object-contain dark:block"
                   />
                 </div>
               </AnimationContainer>

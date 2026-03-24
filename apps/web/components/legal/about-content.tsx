@@ -178,6 +178,7 @@ const AboutContent: React.FC<AboutContentProps> = ({ description }) => {
             className="flex flex-col items-center justify-center gap-4 border-b border-dashed border-border p-6 sm:flex-row md:border-b-0 md:p-8"
           >
             <Button
+              nativeButton={false}
               size="lg"
               className="h-11 gap-2 rounded-md px-8 text-base md:h-12"
               render={
@@ -192,6 +193,7 @@ const AboutContent: React.FC<AboutContentProps> = ({ description }) => {
             </Button>
 
             <Button
+              nativeButton={false}
               size="lg"
               variant="outline"
               className="h-11 gap-2 rounded-md px-8 text-base md:h-12"

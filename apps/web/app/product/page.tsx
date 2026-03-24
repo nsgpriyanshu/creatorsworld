@@ -98,6 +98,7 @@ export default function ProductPage() {
                     {/* CTA */}
                     <div className="mt-auto p-5">
                       <Button
+                        nativeButton={false}
                         variant="default"
                         className="group w-full rounded-md border border-border"
                         render={<Link href={`/product/${product.slug}`} />}

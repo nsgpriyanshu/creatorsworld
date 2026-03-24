@@ -253,7 +253,7 @@ const Footer = () => {
         {/* COPYRIGHT */}
         <div className="py-6 text-center">
           <p className="text-xs text-muted-foreground">
-            © {year} Creator's World. All rights reserved.
+            &copy; {year} Creator's World. All rights reserved.
           </p>
         </div>
       </Wrapper>

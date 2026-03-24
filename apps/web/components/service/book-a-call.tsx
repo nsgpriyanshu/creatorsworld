@@ -90,6 +90,7 @@ const BookCallCta = () => {
           <AnimationContainer animation="fadeUp" delay={0.55}>
             <div className="mt-6 md:mt-10 flex items-center justify-center gap-2">
               <Button
+                nativeButton={false}
                 size="lg"
                 className="gap-2"
                 render={<Link href="/contact" />}
@@ -99,6 +100,7 @@ const BookCallCta = () => {
               </Button>
 
               <Button
+                nativeButton={false}
                 size="icon"
                 className="group border-border"
                 render={<Link href="/contact" aria-label="Book a call" />}

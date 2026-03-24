@@ -74,6 +74,7 @@ const Hero: React.FC = () => {
           <div className="grid md:grid-cols-2 border-b border-dashed border-border">
             <div className="flex items-center justify-center border-r border-dashed border-border p-6">
               <Button
+                nativeButton={false}
                 size="lg"
                 className="h-11 gap-2 rounded-md px-8 text-base md:h-12"
                 render={

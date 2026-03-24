@@ -26,6 +26,7 @@ const BlogContent = ({ blocks }: Props) => {
         {/* Back Button */}
         <div className="border-b border-dashed border-border p-4">
           <Button
+            nativeButton={false}
             variant="ghost"
             size="sm"
             className="group text-muted-foreground hover:text-foreground"

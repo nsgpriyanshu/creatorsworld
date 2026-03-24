@@ -100,6 +100,7 @@ const ServicesCta = () => {
               <AnimationContainer animation="fadeUp" delay={0.55}>
                 <div className="mt-10 flex items-center justify-center gap-3">
                   <Button
+                    nativeButton={false}
                     size="lg"
                     className="gap-2 bg-white text-black hover:bg-white/90"
                     render={<Link href="/service" />}
@@ -109,6 +110,7 @@ const ServicesCta = () => {
                   </Button>
 
                   <Button
+                    nativeButton={false}
                     size="icon"
                     variant="outline"
                     className="group border-white/30 text-white hover:bg-white/10"

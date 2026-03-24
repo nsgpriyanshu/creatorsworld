@@ -5,39 +5,8 @@ import { Badge } from "@repo/ui/components/ui/badge";
 import AnimationContainer from "../global/animation-container";
 import { Newspaper } from "lucide-react";
 import Wrapper from "../global/wrapper";
-import { Skeleton } from "@repo/ui/components/ui/skeleton";
 
 const BlogHero: React.FC = () => {
-  const [isLoading, setIsLoading] = React.useState(true);
-
-  React.useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 700);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return (
-      <Wrapper className="relative overflow-x-hidden py-12 lg:py-16">
-        <section className="mx-auto w-full max-w-6xl rounded-md border border-border">
-          {/* Badge Skeleton */}
-          <div className="flex justify-center border-b border-dashed border-border p-4">
-            <Skeleton className="h-6 w-32 rounded-md" />
-          </div>
-          {/* Heading Skeleton */}
-          <div className="border-b border-dashed border-border px-6 py-8 text-center space-y-3">
-            <Skeleton className="h-8 w-full max-w-xl mx-auto rounded-md" />
-            <Skeleton className="h-8 w-3/4 mx-auto rounded-md" />
-          </div>
-          {/* Paragraph Skeleton */}
-          <div className="px-6 py-6 text-center space-y-2">
-            <Skeleton className="h-4 w-full max-w-lg mx-auto rounded-md" />
-            <Skeleton className="h-4 w-3/4 mx-auto rounded-md" />
-          </div>
-        </section>
-      </Wrapper>
-    );
-  }
-
   return (
     <Wrapper className="relative overflow-x-hidden py-12 lg:py-16">
       <section className="mx-auto w-full max-w-6xl rounded-md border border-border">

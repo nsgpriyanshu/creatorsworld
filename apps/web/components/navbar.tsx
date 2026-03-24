@@ -168,6 +168,7 @@ const Navbar = () => {
             <ModeToggle />
 
             <Button
+              nativeButton={false}
               size="sm"
               variant="default"
               className="gap-2 rounded-md"
@@ -219,6 +220,7 @@ const Navbar = () => {
             <ModeToggle />
 
             <Button
+              nativeButton={false}
               size="sm"
               variant="default"
               className="gap-2 rounded-md"

@@ -67,6 +67,7 @@ export default function ServiceHero() {
             <AnimationContainer animation="fadeUp" delay={0.45}>
               <div className="px-6 py-8">
                 <Button
+                  nativeButton={false}
                   size="lg"
                   className="gap-2 rounded-md "
                   render={<Link href="/contact" />}
