@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { absoluteUrl, createMetadata, siteConfig } from "../utils/metadata";
 import robots from "../app/robots";
+import { resolveHapticInput } from "../components/global/app-haptics";
 
 const getOgImageUrl = (image: unknown) => {
   if (!image || typeof image !== "object") return undefined;
@@ -65,5 +66,18 @@ describe("robots metadata route", () => {
         }),
       ]),
     );
+  });
+});
+
+describe("app haptics", () => {
+  it("resolves explicit presets and supports opting out", () => {
+    expect(resolveHapticInput({ explicit: "success" })).toBe("success");
+    expect(resolveHapticInput({ explicit: "off" })).toBeNull();
+  });
+
+  it("uses sensible defaults for summaries and buttons", () => {
+    expect(resolveHapticInput({ isSummary: true })).toBe("selection");
+    expect(resolveHapticInput({ isButtonSlot: true })).toBe("nudge");
+    expect(resolveHapticInput({})).toBe("light");
   });
 });

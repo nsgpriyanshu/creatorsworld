@@ -3,6 +3,7 @@ import Script from "next/script";
 import { ThemeProvider } from "../components/global/theme-provider";
 import { absoluteUrl, generateMetadata, siteConfig } from "../utils/metadata";
 import "@repo/ui/globals.css";
+import AppHaptics from "../components/global/app-haptics";
 import CrystalCursor from "../components/global/crystal-cursor";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
@@ -56,6 +57,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <AppHaptics />
           <CrystalCursor />
           <Script
             id="organization-jsonld"
