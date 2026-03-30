@@ -32,7 +32,6 @@ export default function CrystalCursor() {
   const [interactive, setInteractive] = useState(false);
   const [isTextInput, setIsTextInput] = useState(false);
   const [pressed, setPressed] = useState(false);
-  const [scrolling, setScrolling] = useState(false);
   const [corePosition, setCorePosition] = useState({ x: 0, y: 0 });
   const [haloPosition, setHaloPosition] = useState({ x: 0, y: 0 });
 
@@ -95,16 +94,20 @@ export default function CrystalCursor() {
       setIsTextInput(Boolean(textInputTarget));
     };
 
-    const handleLeave = () => setVisible(false);
+    const handleLeave = (event: MouseEvent) => {
+      if (event.relatedTarget === null) {
+        setVisible(false);
+      }
+    };
     const handleDown = () => setPressed(true);
     const handleUp = () => setPressed(false);
     const handleScroll = () => {
-      setScrolling(true);
+      setVisible(true);
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
       }
       scrollTimeoutRef.current = setTimeout(() => {
-        setScrolling(false);
+        setVisible(true);
       }, 220);
     };
 
