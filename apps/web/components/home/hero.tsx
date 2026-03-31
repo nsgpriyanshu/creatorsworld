@@ -84,7 +84,7 @@ const Hero: React.FC = () => {
 
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground p-6">
               <Terminal className="h-4 w-4" />
-              creator-network.console
+              creatorworlds
             </div>
           </div>
         </AnimationContainer>
@@ -96,7 +96,7 @@ const Hero: React.FC = () => {
               <CobeGlobe />
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Terminal className="h-4 w-4" />
-                creator-network.india
+                creatorsworldserver
               </div>
             </div>
           </div>

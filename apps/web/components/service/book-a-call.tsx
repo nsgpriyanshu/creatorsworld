@@ -33,6 +33,79 @@ const CURSOR_TAGS: CursorTag[] = [
   },
 ];
 
+const DOTTED_MAP_POINTS = [
+  [12, 30],
+  [16, 28],
+  [20, 26],
+  [24, 24],
+  [28, 24],
+  [32, 26],
+  [36, 30],
+  [18, 34],
+  [22, 32],
+  [26, 32],
+  [30, 34],
+  [34, 36],
+  [24, 38],
+  [28, 40],
+  [56, 24],
+  [60, 22],
+  [64, 22],
+  [68, 24],
+  [72, 26],
+  [76, 28],
+  [62, 28],
+  [66, 30],
+  [70, 32],
+  [74, 34],
+  [78, 36],
+  [64, 36],
+  [68, 38],
+  [72, 40],
+  [76, 42],
+  [58, 44],
+  [62, 46],
+  [66, 48],
+  [70, 50],
+  [74, 52],
+  [68, 56],
+  [72, 58],
+  [80, 44],
+  [84, 46],
+  [88, 48],
+  [92, 50],
+];
+
+function DottedMap() {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 100 64"
+      className="h-full w-full text-foreground/20"
+    >
+      {DOTTED_MAP_POINTS.map(([cx, cy], index) => (
+        <circle
+          key={`${cx}-${cy}-${index}`}
+          cx={cx}
+          cy={cy}
+          r="0.9"
+          fill="currentColor"
+        />
+      ))}
+
+      <g transform="translate(66 39)">
+        <circle
+          r="6.5"
+          fill="rgb(249 115 22 / 0.12)"
+          className="animate-ping"
+        />
+        <circle r="3.8" fill="rgb(249 115 22 / 0.22)" />
+        <circle r="1.6" fill="rgb(249 115 22)" />
+      </g>
+    </svg>
+  );
+}
+
 const BookCallCta = () => {
   return (
     <Wrapper className="relative py-12 md:py-24 overflow-hidden border-t-2">
@@ -70,6 +143,12 @@ const BookCallCta = () => {
         <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-border bg-card/60 px-4 py-8 md:px-8 md:py-12 lg:px-16 lg:py-14 text-center backdrop-blur">
           {/* Subtle inner glow */}
           <div className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-linear-to-br from-primary/10 via-transparent to-transparent" />
+          <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-3xl">
+            <div className="absolute inset-y-0 right-[-3%] w-[88%] opacity-95 md:right-0 md:w-[68%]">
+              <DottedMap />
+            </div>
+            <div className="absolute inset-0 bg-linear-to-r from-card via-card/82 to-card/28" />
+          </div>
 
           <AnimationContainer animation="fadeUp" delay={0.35}>
             <h2 className="text-balance text-5xl font-semibold tracking-tight md:text-6xl">
