@@ -1,13 +1,7 @@
 "use client";
 
-import {
-  History,
-  Users,
-  Rocket,
-  Globe,
-  ShieldCheck,
-  Sparkles,
-} from "lucide-react";
+import Image from "next/image";
+import { History, Users, Rocket, Globe, ShieldCheck } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 import { ABOUT } from "../../constants/about";
@@ -23,6 +17,28 @@ const ICON_MAP: Record<
   growth: Rocket,
   global: Globe,
   trust: ShieldCheck,
+};
+
+const IMAGE_MAP: Record<
+  "community" | "growth" | "global" | "trust",
+  { light: string; dark: string }
+> = {
+  community: {
+    light: "/icons/largest-discord-app-server-light.svg",
+    dark: "/icons/largest-discord-app-server-dark.svg",
+  },
+  growth: {
+    light: "/icons/open-source-powerhouse-light.svg",
+    dark: "/icons/open-source-powerhouse-dark.svg",
+  },
+  global: {
+    light: "/icons/thriving-community-light.svg",
+    dark: "/icons/thriving-community-dark.svg",
+  },
+  trust: {
+    light: "/icons/more-light.svg",
+    dark: "/icons/more-dark.svg",
+  },
 };
 
 export default function WhoWeAre() {
@@ -73,9 +89,10 @@ export default function WhoWeAre() {
         </AnimationContainer>
 
         {/* Feature Grid */}
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <section className="grid grid-cols-1 md:grid-cols-2">
           {ABOUT.map((item, index) => {
-            const Icon = ICON_MAP[item.icon] ?? Sparkles;
+            const Icon = ICON_MAP[item.icon];
+            const image = IMAGE_MAP[item.icon];
 
             return (
               <AnimationContainer
@@ -83,25 +100,40 @@ export default function WhoWeAre() {
                 animation="fadeUp"
                 delay={0.45 + index * 0.08}
               >
-                <div
-                  className="
-                      border-dashed
-                      p-6
-                      transition-colors
-                      hover:bg-muted/30
-                      md:border
-                      md:border-border
-                      md:border-r
-                      md:border-b
-                    "
-                >
-                  <Icon className="mb-3 h-5 w-5 text-muted-foreground" />
+                <div className="flex min-h-52 items-center justify-between overflow-hidden border-dashed p-6 md:border md:border-border md:border-r md:border-b">
+                  <div className="min-w-0 flex-1">
+                    <Icon className="mb-3 h-5 w-5 text-muted-foreground" />
 
-                  <h3 className="text-xl font-semibold">{item.title}</h3>
+                    <h3 className="text-xl font-semibold">{item.title}</h3>
 
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">
-                    {item.description}
-                  </p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  <div
+                    aria-hidden
+                    className="mx-4 h-20 w-px shrink-0 bg-transparent md:mx-5"
+                  />
+
+                  <div className="pointer-events-none relative h-32 w-32 shrink-0 opacity-95 md:h-40 md:w-40">
+                    <Image
+                      src={image.light}
+                      alt={`${item.title} visual`}
+                      fill
+                      sizes="160px"
+                      className="object-contain dark:hidden"
+                      priority={index === 0}
+                    />
+                    <Image
+                      src={image.dark}
+                      alt={`${item.title} visual`}
+                      fill
+                      sizes="160px"
+                      className="hidden object-contain dark:block"
+                      priority={index === 0}
+                    />
+                  </div>
                 </div>
               </AnimationContainer>
             );

@@ -91,8 +91,8 @@ const ServicesCta = () => {
           <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-foreground/[0.02] via-transparent to-transparent" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[46%]">
             <DottedBase />
-            <div className="absolute inset-x-[18%] bottom-[-18%] h-32 rounded-full bg-purple-500/28 blur-[80px] md:h-40 dark:bg-purple-400/24" />
-            <div className="absolute inset-x-[34%] bottom-[-26%] h-24 rounded-full bg-purple-400/14 blur-[90px] md:h-28 dark:bg-purple-300/12" />
+            <div className="absolute inset-x-[18%] bottom-[-18%] h-32 rounded-full bg-white/50 blur-[80px] md:h-40" />
+            <div className="absolute inset-x-[34%] bottom-[-26%] h-24 rounded-full bg-white/30 blur-[90px] md:h-28" />
             <div className="absolute inset-0 bg-linear-to-t from-background/82 via-background/24 to-transparent" />
           </div>
 
