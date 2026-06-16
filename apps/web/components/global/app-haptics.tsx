@@ -36,9 +36,9 @@ export const resolveHapticInput = ({
   }
 
   if (isSummary) return "selection";
-  if (isButtonSlot) return "nudge";
+  if (isButtonSlot) return "selection";
 
-  return "light";
+  return "selection";
 };
 
 const INTERACTIVE_SELECTOR = [

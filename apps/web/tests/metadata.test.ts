@@ -77,7 +77,7 @@ describe("app haptics", () => {
 
   it("uses sensible defaults for summaries and buttons", () => {
     expect(resolveHapticInput({ isSummary: true })).toBe("selection");
-    expect(resolveHapticInput({ isButtonSlot: true })).toBe("nudge");
-    expect(resolveHapticInput({})).toBe("light");
+    expect(resolveHapticInput({ isButtonSlot: true })).toBe("selection");
+    expect(resolveHapticInput({})).toBe("selection");
   });
 });
