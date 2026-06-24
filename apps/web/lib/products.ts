@@ -25,6 +25,6 @@ export const products: Record<string, Product> = {
       dark: "/product/emo-pack.png",
       alt: "Emo Pack Preview",
     },
-    discordLink: "https://discord.gg/your-server",
+    discordLink: "https://discord.gg/eG34B6JVtM",
   },
 };
