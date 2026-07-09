@@ -17,6 +17,24 @@ export const REVIEWS = [
     body: "Omg its so cool",
     img: "/icons/supporter_three.webp",
   },
+   {
+    name: "Adrash",
+    userrole: "Youtuber",
+    body: "Overall the UI looks neat.",
+    img: "/icons/supporter_one.webp",
+  },
+  {
+    name: "Azza",
+    userrole: "Early Supporter",
+    body: "Omg its so cool",
+    img: "/icons/supporter_three.webp",
+  },
+  {
+    name: "Mimma",
+    userrole: "Early Supporter",
+    body: "Amaizing website, I love the design and the user experience is fantastic. The layout is intuitive and easy to navigate, making it a pleasure to use.",
+    img: "/icons/supporter_four.webp",
+  },
   // {
   //   name: "Tapashi",
   //   userrole: "Client",
