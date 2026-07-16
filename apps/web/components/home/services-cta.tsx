@@ -163,8 +163,8 @@ const ServicesCta = () => {
                   <div className="mt-8 flex items-center gap-4">
                     <div className="flex h-11 w-11 items-center justify-center rounded-full border border-border/40 bg-background/65 text-sm font-semibold text-foreground">
                       <Image
-                        src="/icons/ca.png"
-                        alt="Mimma Avatar"
+                        src="/icons/coo.webp"
+                        alt="Mritul Avatar"
                         width={34}
                         height={34}
                         className="rounded-full"
@@ -172,10 +172,10 @@ const ServicesCta = () => {
                     </div>
                     <div>
                       <p className="text-base font-semibold text-foreground">
-                        Mimma
+                        Mritul
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        Chief Administrative Officer, Creators World
+                        COO, Creators World
                       </p>
                     </div>
                   </div>

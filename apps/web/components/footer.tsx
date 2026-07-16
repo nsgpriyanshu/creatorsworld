@@ -96,7 +96,7 @@ const SYSTEM_STATUS: Record<
   },
 };
 
-const ACTIVE_STATUS: keyof typeof SYSTEM_STATUS = "development";
+const ACTIVE_STATUS: keyof typeof SYSTEM_STATUS = "stable";
 
 const Footer = () => {
   const [year, setYear] = useState("");

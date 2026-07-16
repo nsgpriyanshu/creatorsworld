@@ -33,7 +33,7 @@ export const REVIEWS = [
     name: "Mimma",
     userrole: "Early Supporter",
     body: "Amaizing website, I love the design and the user experience is fantastic. The layout is intuitive and easy to navigate, making it a pleasure to use.",
-    img: "/icons/supporter_four.webp",
+    img: "/icons/ca.png",
   },
   // {
   //   name: "Tapashi",
