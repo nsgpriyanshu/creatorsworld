@@ -9,9 +9,6 @@ import AnimationContainer from "./global/animation-container";
 
 import {
   Package,
-  Sword,
-  PlayCircle,
-  Network,
   Info,
   Mail,
   Lock,
@@ -36,24 +33,6 @@ const QUICK_LINKS: FooterLink[] = [
   { label: "Services", href: "/service", icon: Cog },
   { label: "Blog", href: "/blog", icon: BookMarked },
   { label: "Contact", href: "/contact", icon: Mail },
-];
-
-const PARTNER_LINKS: FooterLink[] = [
-  {
-    label: "Shadow fight fanclub",
-    href: "https://discord.gg/CEgXHFZSM9",
-    icon: Sword,
-  },
-  {
-    label: "Shadow Fighter's",
-    href: "https://www.youtube.com/@shadow_fighters_3",
-    icon: PlayCircle,
-  },
-  {
-    label: "Nexus",
-    href: "https://discord.gg/M24WCrSbkg",
-    icon: Network,
-  },
 ];
 
 const COMPANY_LINKS: FooterLink[] = [
@@ -156,7 +135,7 @@ const Footer = () => {
         </div>
 
         {/* LINKS GRID */}
-        <div className="py-10 border-b border-dashed border-border grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 xl:gap-12">
+        <div className="py-10 border-b border-dashed border-border grid grid-cols-2 gap-8 md:gap-10 xl:gap-12">
           <AnimationContainer animation="fadeUp">
             <div>
               <h3 className="text-sm font-semibold">Quick Links</h3>
@@ -195,34 +174,6 @@ const Footer = () => {
                     <li key={index}>
                       <Link
                         href={link.href}
-                        className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        <Icon className="h-4 w-4" />
-                        {link.label}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </AnimationContainer>
-        </div>
-
-        {/* PARTNERS SECTION */}
-        <div className="py-10 border-b border-dashed border-border">
-          <AnimationContainer animation="fadeUp">
-            <div>
-              <h3 className="text-sm font-semibold">Partners</h3>
-
-              <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
-                {PARTNER_LINKS.map((link, index) => {
-                  const Icon = link.icon;
-
-                  return (
-                    <li key={index}>
-                      <Link
-                        href={link.href}
-                        target="_blank"
                         className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                       >
                         <Icon className="h-4 w-4" />
