@@ -133,10 +133,10 @@ const ServicesCta = () => {
                   <Button
                     nativeButton={false}
                     className="h-11 rounded-xl bg-primary px-6 text-primary-foreground hover:bg-primary/90 md:h-12"
-                    render={<Link href="/service" />}
+                    render={<Link href="/" />}
                   >
                     <Cog className="h-4 w-4" />
-                    Services
+                    Web Services
                   </Button>
                 </div>
               </AnimationContainer>

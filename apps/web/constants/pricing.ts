@@ -3,7 +3,8 @@ export const PRICING_PLANS = [
     id: "base",
     name: "Base",
     type: "starter",
-    price: "₹5,000 – ₹10,000",
+    price: "₹7,500 – ₹12,000",
+    usdEstimate: "$90 – $145 USD",
     payment: "50% upfront, 50% after delivery",
     description:
       "Affordable entry-level website for individuals, startups, or small businesses that need a simple and modern online presence.",
@@ -54,7 +55,8 @@ export const PRICING_PLANS = [
     id: "pro",
     name: "Pro",
     type: "business",
-    price: "₹20,000 – ₹40,000",
+    price: "₹25,000 – ₹45,000",
+    usdEstimate: "$300 – $540 USD",
     payment: "50% upfront, 50% after delivery",
     description:
       "Professional website solution for growing businesses that need better performance, improved SEO, and more customization.",
@@ -102,8 +104,9 @@ export const PRICING_PLANS = [
     id: "pro-max",
     name: "Pro Max",
     type: "enterprise",
-    price: "₹XX,XXX",
-    payment: "50% upfront, 50% after delivery",
+    price: "Custom Quote",
+    usdEstimate: "Bespoke Scope",
+    payment: "Milestone-based billing",
     description:
       "Fully custom, high-performance web solutions designed for businesses that need advanced features, integrations, and scalable architecture.",
 

@@ -12,7 +12,10 @@ import {
   MessageSquare,
   CirclePlus,
   Globe,
+  Sparkles,
 } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { Badge } from "@repo/ui/components/ui/badge";
 
 import {
   contactSchema,
@@ -77,12 +80,21 @@ const ContactFormSkeleton = () => {
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const searchParams = useSearchParams();
+  const planParam = searchParams.get("plan") || "";
+
+  const planLabels: Record<string, string> = {
+    base: "Base Plan (₹7,500 – ₹12,000)",
+    pro: "Pro Plan (₹25,000 – ₹45,000)",
+    "pro-max": "Pro Max Plan (Custom Quote)",
+  };
 
   const {
     register,
     handleSubmit,
     watch,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
@@ -94,8 +106,15 @@ export function ContactForm() {
       message: "",
       country: "",
       companySize: "",
+      plan: planParam,
     },
   });
+
+  React.useEffect(() => {
+    if (planParam) {
+      setValue("plan", planParam);
+    }
+  }, [planParam, setValue]);
 
   const messageValue = watch("message");
 
@@ -142,10 +161,26 @@ export function ContactForm() {
               </p>
             </div>
 
+            {planParam && (
+              <div className="border-b border-dashed border-border bg-muted/30 px-6 py-3 flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-2 text-sm text-foreground">
+                  <Sparkles className="h-4 w-4 text-primary" />
+                  <span>
+                    Selected Package:{" "}
+                    <strong>{planLabels[planParam] || planParam}</strong>
+                  </span>
+                </div>
+                <Badge variant="outline" className="text-xs">
+                  Inquiry Attached
+                </Badge>
+              </div>
+            )}
+
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="px-6 py-6 space-y-6"
             >
+              <input type="hidden" {...register("plan")} value={planParam} />
               {/* Name */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1.5">

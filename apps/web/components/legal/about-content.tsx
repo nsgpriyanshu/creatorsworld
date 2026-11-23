@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Heart, Users, Zap } from "lucide-react";
+import { Heart, Users, Zap, PhoneCall, Sparkles } from "lucide-react";
 
 import { Button } from "@repo/ui/components/ui/button";
 
@@ -26,28 +26,30 @@ interface AboutContentProps {
 
 const AboutContent: React.FC<AboutContentProps> = ({ description }) => {
   const stats: Stat[] = [
-    { value: "1000+", label: "Discord Bots" },
-    { value: "#1", label: "Verified Bot Server" },
+    { value: "99.9%", label: "Uptime & Delivery Rate" },
+    { value: "< 1.2s", label: "Avg Page Load Speed" },
+    { value: "100%", label: "Code Ownership Transferred" },
+    { value: "24/7", label: "Architecture Reliability" },
   ];
 
   const features: Feature[] = [
     {
       icon: <Zap className="h-5 w-5 text-muted-foreground" />,
-      title: "Innovation First",
+      title: "Performance Engineering",
       description:
-        "We continuously explore better tooling, stronger systems, and more thoughtful ways to serve the community.",
+        "Every web application is engineered with Next.js, TypeScript, and modern edge runtimes tuned for lightning-fast Core Web Vitals.",
     },
     {
       icon: <Users className="h-5 w-5 text-muted-foreground" />,
-      title: "Community Driven",
+      title: "Community Heritage",
       description:
-        "The platform evolves with community feedback so the work stays useful, relevant, and grounded in real needs.",
+        "Rooted in an active developer ecosystem, we bring real-world testing, battle-tested components, and engineering rigor to every client deployment.",
     },
     {
       icon: <Heart className="h-5 w-5 text-muted-foreground" />,
-      title: "Long-Term Care",
+      title: "Long-Term Partnership",
       description:
-        "We focus on reliability, support, and steady iteration instead of shipping quickly and leaving gaps behind.",
+        "We focus on clean architecture, documentation, and continuous maintenance so your systems scale smoothly as your business grows.",
     },
   ];
 
@@ -164,11 +166,12 @@ const AboutContent: React.FC<AboutContentProps> = ({ description }) => {
             className="border-b border-dashed border-border p-6 text-center md:col-span-2 md:border-r md:p-8 md:text-left"
           >
             <h2 className="text-5xl font-semibold tracking-tight md:text-6xl">
-              Join Our Community
+              Build With Us
             </h2>
             <p className="mt-4 text-base text-muted-foreground md:text-lg">
-              Be part of something bigger. Whether you are a developer, creator,
-              or enthusiast, there is a place for you at Creator's World.
+              Whether you need a high-converting marketing website, a custom
+              fullstack web application, or ongoing technical management, our
+              studio is ready to build.
             </p>
           </AnimationContainer>
 
@@ -181,15 +184,10 @@ const AboutContent: React.FC<AboutContentProps> = ({ description }) => {
               nativeButton={false}
               size="lg"
               className="h-11 gap-2 rounded-md px-8 text-base md:h-12"
-              render={
-                <Link
-                  href="https://discord.gg/VUMVuArkst"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                />
-              }
+              render={<Link href="/contact" />}
             >
-              Join Discord
+              <PhoneCall className="h-4 w-4" />
+              Book a Call
             </Button>
 
             <Button
@@ -197,9 +195,10 @@ const AboutContent: React.FC<AboutContentProps> = ({ description }) => {
               size="lg"
               variant="outline"
               className="h-11 gap-2 rounded-md px-8 text-base md:h-12"
-              render={<Link href="/contact" />}
+              render={<Link href="/archive" />}
             >
-              Get in Touch
+              <Sparkles className="h-4 w-4" />
+              Community Roots
             </Button>
           </AnimationContainer>
         </div>

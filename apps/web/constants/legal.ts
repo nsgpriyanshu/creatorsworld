@@ -56,7 +56,7 @@ export const terms: Term[] = [
   {
     title: "Refund Policy",
     description:
-      "Refunds are subject to specific conditions. The base fare is non-refundable. If 50% of the total payment has been made and cancellation is requested after project completion (between 1–5 days before the deadline), only 25% of the paid amount may be refunded. Clients must inform us within 5 days from receiving their unique PNR number. No service qualifies for a 100% refund.",
+      "Refunds are evaluated against defined milestone deliverables. The initial project deposit covers discovery, UI/UX architecture, and sprint allocation, and is non-refundable once development has commenced. In the event of an early termination before project sign-off, eligible prorated amounts are assessed according to work completed. All cancellation requests must reference your official Project Agreement or Invoice Number.",
   },
   {
     title: "Service Packages",

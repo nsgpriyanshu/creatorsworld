@@ -30,6 +30,8 @@ export const contactSchema = z.object({
 
   companySize: z.string().min(1, "Company size is required").optional(),
 
+  plan: z.string().optional(),
+
   message: z
     .string()
     .min(10, "Message must be at least 10 characters")

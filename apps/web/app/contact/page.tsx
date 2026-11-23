@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import ContactHero from "../../components/contact/contact-hero";
 import { ContactForm } from "../../components/contact/contact-form";
 
@@ -8,7 +9,9 @@ const ContactPage = () => {
         <ContactHero />
       </section>
       <section className="w-full">
-        <ContactForm />
+        <Suspense fallback={null}>
+          <ContactForm />
+        </Suspense>
       </section>
     </div>
   );

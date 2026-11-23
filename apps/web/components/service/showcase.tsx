@@ -60,10 +60,10 @@ const Showcase = () => {
 
         {/* Showcase Grid */}
         <div className="border-b border-dashed border-border p-6 md:p-8">
-          <div className="grid gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-8">
+          <div className="grid gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-2 lg:gap-8">
             {SHOWCASE.map((project, index) => (
               <AnimationContainer
-                key={project.url}
+                key={project.url + index}
                 animation="scaleUp"
                 delay={0.45 + index * 0.08}
               >
@@ -87,9 +87,7 @@ const Showcase = () => {
                       src={project.image}
                       alt={project.name}
                       fill
-                      sizes="(max-width: 768px) 100vw,
-                               (max-width: 1200px) 50vw,
-                               33vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
 
@@ -97,16 +95,23 @@ const Showcase = () => {
                   </div>
 
                   {/* Footer */}
-                  <div className="mt-3 flex items-center justify-between md:mt-4">
-                    <h3 className="text-base font-semibold md:text-xl">
-                      {project.name}
-                    </h3>
+                  <div className="mt-3 flex items-start justify-between gap-2 md:mt-4">
+                    <div>
+                      <h3 className="text-base font-semibold md:text-lg">
+                        {project.name}
+                      </h3>
+                      {project.category && (
+                        <p className="text-xs text-muted-foreground mt-0.5">
+                          {project.category}
+                        </p>
+                      )}
+                    </div>
 
                     <Link
                       href={project.url}
                       target="_blank"
                       className={cn(
-                        "flex items-center gap-1 rounded-md border border-dashed border-border px-2 py-1 text-xs md:gap-1.5 md:px-3 md:py-1.5",
+                        "flex shrink-0 items-center gap-1 rounded-md border border-dashed border-border px-2 py-1 text-xs md:gap-1.5 md:px-3 md:py-1.5",
                         "transition-all duration-300",
                         "hover:bg-muted",
                         "hover:gap-2",

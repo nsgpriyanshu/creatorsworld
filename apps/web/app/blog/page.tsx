@@ -5,6 +5,8 @@ import CategoryFilter from "../../components/blog/category-filter";
 import Wrapper from "../../components/global/wrapper";
 import { getFeaturedPost, getAllPosts } from "../../lib/db/queries";
 
+import { BlogPost } from "../../lib/db/types";
+
 interface BlogPageProps {
   searchParams?: {
     category?: string;
@@ -14,10 +16,19 @@ interface BlogPageProps {
 export default async function BlogPage({ searchParams }: BlogPageProps) {
   const category = searchParams?.category;
 
-  const [featured, posts] = await Promise.all([
-    getFeaturedPost(),
-    getAllPosts(),
-  ]);
+  let featured: BlogPost | null = null;
+  let posts: BlogPost[] = [];
+
+  try {
+    const [fetchedFeatured, fetchedPosts] = await Promise.all([
+      getFeaturedPost(),
+      getAllPosts(),
+    ]);
+    featured = fetchedFeatured;
+    posts = fetchedPosts || [];
+  } catch (err) {
+    console.warn("Could not retrieve blog posts:", err);
+  }
 
   // apply category filter if one is specified (and not "all")
   let filteredPosts = posts;
@@ -76,7 +87,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 No Blogs Yet
               </h2>
               <p className="text-sm md:text-base text-muted-foreground max-w-md mx-auto">
-                We're working on some great content. Check back soon for
+                We&apos;re working on some great content. Check back soon for
                 insightful articles and stories!
               </p>
             </div>

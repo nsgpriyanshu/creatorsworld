@@ -9,7 +9,7 @@ export const FAQS: FAQItem[] = [
     id: "refund-policy",
     question: "Is the amount refundable?",
     answer:
-      "Yes, refunds are available under specific conditions. The base fare is non-refundable. If you have paid 50% of the total amount and request cancellation after completion of all work—between 1 to 5 days before the deadline—only 25% of the paid amount will be refunded. You must inform us within 5 days from the date you receive your unique PNR number. Please note, there is no 100% refund policy.",
+      "Yes, refunds are available under specific project milestone conditions. The initial 50% project deposit covers discovery, UI/UX architecture, and sprint kickoff, and is non-refundable once development execution has begun. If a cancellation request is submitted before milestone deliverables are finalized, eligible prorated refunds (up to 25% of paid amounts) are assessed on a case-by-case basis. Cancellation requests must reference your official Project Agreement or Invoice Number.",
   },
   {
     id: "free-consultation",

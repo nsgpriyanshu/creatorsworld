@@ -49,9 +49,20 @@ export default function ProductPage() {
           <AnimationContainer animation="fadeUp" delay={0.3}>
             <div className="border-b border-dashed border-border px-6 py-8 text-center">
               <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
-                Carefully crafted digital products built for creators,
-                communities, and modern Discord ecosystems.
+                Carefully crafted digital assets, templates, and utilities built
+                for creators and developer communities.
               </p>
+              <div className="mt-4 flex items-center justify-center gap-2 text-xs text-muted-foreground">
+                <span>
+                  Looking for bespoke web development or engineering services?
+                </span>
+                <Link
+                  href="/"
+                  className="underline font-medium text-foreground hover:text-primary"
+                >
+                  Explore Agency Services →
+                </Link>
+              </div>
             </div>
           </AnimationContainer>
 

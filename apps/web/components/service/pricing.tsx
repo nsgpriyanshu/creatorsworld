@@ -13,13 +13,12 @@ import {
   Info,
   Wallet,
   Headset,
-  Presentation,
   Rocket,
 } from "lucide-react";
 
 import Wrapper from "../global/wrapper";
 import AnimationContainer from "../global/animation-container";
-import { PRICING_PLANS, PRICING_META } from "../../constants/pricing";
+import { PRICING_PLANS } from "../../constants/pricing";
 
 import { Button } from "@repo/ui/components/ui/button";
 import { Badge } from "@repo/ui/components/ui/badge";
@@ -41,12 +40,12 @@ const planButtonConfig: Record<
     className: "gap-2 rounded-md px-8",
   },
   pro: {
-    label: "Upgrade Now",
+    label: "Choose Pro",
     variant: "secondary",
     className: "gap-2 rounded-md px-8",
   },
   "pro-max": {
-    label: "Get Demo",
+    label: "Request Quote",
     variant: "default",
     className: "gap-2 rounded-md px-8 bg-blue-600 hover:bg-blue-700",
   },
@@ -154,9 +153,16 @@ const Pricing: React.FC = () => {
                     </div>
 
                     <div className="border-t border-dashed border-border pt-4">
-                      <span className="text-2xl md:text-3xl font-semibold">
-                        {plan.price}
-                      </span>
+                      <div className="flex flex-col">
+                        <span className="text-2xl md:text-3xl font-semibold">
+                          {plan.price}
+                        </span>
+                        {"usdEstimate" in plan && plan.usdEstimate && (
+                          <span className="text-xs text-muted-foreground mt-0.5">
+                            Approx. {plan.usdEstimate}
+                          </span>
+                        )}
+                      </div>
                     </div>
 
                     <div className="pt-2">
@@ -165,14 +171,14 @@ const Pricing: React.FC = () => {
                         size="lg"
                         variant={planButtonConfig[plan.id]?.variant}
                         className={planButtonConfig[plan.id]?.className}
-                        render={<Link href="/contact" />}
+                        render={<Link href={`/contact?plan=${plan.id}`} />}
                       >
                         {planButtonConfig[plan.id]?.label ?? "Get Started"}
 
                         {plan.id === "pro" ? (
                           <Rocket className="h-4 w-4" />
                         ) : plan.id === "pro-max" ? (
-                          <Presentation className="h-4 w-4" />
+                          <ArrowRight className="h-4 w-4" />
                         ) : (
                           <ArrowRight className="h-4 w-4" />
                         )}
@@ -317,7 +323,7 @@ const Pricing: React.FC = () => {
                 nativeButton={false}
                 size="lg"
                 className="gap-2 rounded-md bg-green-600 px-8 hover:bg-green-700"
-                render={<Link href="/contact" />}
+                render={<Link href="/contact?plan=pro" />}
               >
                 Talk to Us
                 <Headset className="h-4 w-4" />

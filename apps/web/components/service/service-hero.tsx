@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Presentation, CogIcon } from "lucide-react";
+import { ArrowRight, CogIcon, Sparkles } from "lucide-react";
 
 import Wrapper from "../global/wrapper";
 import AnimationContainer from "../global/animation-container";
@@ -69,11 +69,11 @@ export default function ServiceHero() {
                 <Button
                   nativeButton={false}
                   size="lg"
-                  className="gap-2 rounded-md "
+                  className="gap-2 rounded-md"
                   render={<Link href="/contact" />}
                 >
-                  Get a Demo
-                  <Presentation className="h-4 w-4" />
+                  Start Your Project
+                  <ArrowRight className="h-4 w-4" />
                 </Button>
               </div>
             </AnimationContainer>
@@ -85,20 +85,20 @@ export default function ServiceHero() {
               {/* Dark Mode Image */}
               <Image
                 src="/assets/cw-stone-dark.png"
-                alt="Service visual dark"
+                alt="Creator's World Studio"
                 fill
                 priority
-                className="object-cover"
+                className="object-cover hidden dark:block"
               />
 
-              {/* Light Mode Image
+              {/* Light Mode Image */}
               <Image
-                src="/assets/cw-stone-light.png" 
-                alt="Service visual light"
+                src="/assets/cw-stone-light.png"
+                alt="Creator's World Studio"
                 fill
                 priority
                 className="object-cover block dark:hidden"
-              /> */}
+              />
             </div>
           </AnimationContainer>
         </div>
@@ -108,19 +108,22 @@ export default function ServiceHero() {
           <div className="border-t border-dashed border-border py-6">
             <Marquee pauseOnHover className="[--duration:32s] [--gap:2.5rem]">
               {[
-                "Web Development",
-                "Brand Systems",
-                "UI/UX Design",
-                "APIs & Integrations",
-                "Performance",
-                "Security",
-                "Automation",
-                "Scalability",
+                "Next.js 16",
+                "React 19",
+                "TypeScript",
+                "Tailwind CSS",
+                "Supabase",
+                "UI/UX Design Systems",
+                "PostgreSQL",
+                "Core Web Vitals 99+",
+                "Fullstack Engineering",
+                "API Integrations",
               ].map((item) => (
                 <div
                   key={item}
-                  className="text-sm font-medium text-muted-foreground"
+                  className="flex items-center gap-2 text-sm font-medium text-muted-foreground"
                 >
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary/60" />
                   {item}
                 </div>
               ))}

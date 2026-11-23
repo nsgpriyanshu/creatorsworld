@@ -17,7 +17,7 @@ export const REVIEWS = [
     body: "Omg its so cool",
     img: "/icons/supporter_three.webp",
   },
-   {
+  {
     name: "Adrash",
     userrole: "Youtuber",
     body: "Overall the UI looks neat.",
