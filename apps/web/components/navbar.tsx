@@ -9,7 +9,7 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "framer-motion";
-import { Package, Cog, BookMarked, Mail, HandHeart } from "lucide-react";
+import { Package, Cog, BookMarked, Mail, PhoneCall } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -132,7 +132,7 @@ const Navbar = () => {
               {NAV_LINKS.map((link, index) => {
                 const isActive =
                   pathname === link.link ||
-                  pathname.startsWith(`${link.link}/`);
+                  (link.link !== "/" && pathname.startsWith(`${link.link}/`));
                 const IconComponent = ICON_MAP[link.icon];
 
                 return (
@@ -172,16 +172,10 @@ const Navbar = () => {
               size="sm"
               variant="default"
               className="gap-2 rounded-md"
-              render={
-                <Link
-                  href="https://discord.gg/VUMVuArkst"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                />
-              }
+              render={<Link href="/contact" />}
             >
-              <HandHeart className="h-4 w-4" />
-              Join
+              <PhoneCall className="h-4 w-4" />
+              Book a Call
             </Button>
           </div>
         </Wrapper>
@@ -224,16 +218,10 @@ const Navbar = () => {
               size="sm"
               variant="default"
               className="gap-2 rounded-md"
-              render={
-                <Link
-                  href="https://discord.gg/VUMVuArkst"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                />
-              }
+              render={<Link href="/contact" />}
             >
-              <HandHeart className="h-4 w-4" />
-              Join
+              <PhoneCall className="h-4 w-4" />
+              Book a Call
             </Button>
 
             <HamburgerButton open={open} onClick={() => setOpen(!open)} />
@@ -258,7 +246,7 @@ const Navbar = () => {
                 {NAV_LINKS.map((link, idx) => {
                   const isActive =
                     pathname === link.link ||
-                    pathname.startsWith(`${link.link}/`);
+                    (link.link !== "/" && pathname.startsWith(`${link.link}/`));
                   const Icon = ICON_MAP[link.icon];
 
                   return (

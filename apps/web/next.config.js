@@ -78,6 +78,16 @@ const nextConfig = {
     ]
   },
 
+  async redirects() {
+    return [
+      {
+        source: '/service',
+        destination: '/',
+        permanent: true,
+      },
+    ]
+  },
+
   compress: true,
   poweredByHeader: false,
   generateEtags: true,

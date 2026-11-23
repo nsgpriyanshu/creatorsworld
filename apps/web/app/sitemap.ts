@@ -6,10 +6,10 @@ import { absoluteUrl } from "../utils/metadata";
 
 const staticRoutes = [
   { path: "/", priority: 1, changeFrequency: "weekly" as const },
-  { path: "/service", priority: 0.95, changeFrequency: "weekly" as const },
   { path: "/product", priority: 0.9, changeFrequency: "weekly" as const },
   { path: "/blog", priority: 0.9, changeFrequency: "daily" as const },
   { path: "/contact", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/archive", priority: 0.7, changeFrequency: "monthly" as const },
   { path: "/legal/about", priority: 0.6, changeFrequency: "monthly" as const },
   { path: "/legal/brand", priority: 0.5, changeFrequency: "monthly" as const },
   {

@@ -18,6 +18,7 @@ import {
   Cog,
   ShieldCheck,
   CogIcon,
+  Archive,
 } from "lucide-react";
 
 import { FaDiscord, FaGithub } from "react-icons/fa";
@@ -29,14 +30,15 @@ type FooterLink = {
 };
 
 const QUICK_LINKS: FooterLink[] = [
+  { label: "Services", href: "/", icon: Cog },
   { label: "Products", href: "/product", icon: Package },
-  { label: "Services", href: "/service", icon: Cog },
   { label: "Blog", href: "/blog", icon: BookMarked },
   { label: "Contact", href: "/contact", icon: Mail },
 ];
 
 const COMPANY_LINKS: FooterLink[] = [
   { label: "About Us", href: "/legal/about", icon: Info },
+  { label: "Community Archive", href: "/archive", icon: Archive },
   { label: "Privacy Policy", href: "/legal/privacy", icon: Lock },
   { label: "Terms of Service", href: "/legal/terms", icon: Scale },
   {

@@ -1,34 +1,34 @@
-import About from "../../components/home/about";
-import Feature from "../../components/home/features";
-import Hero from "../../components/home/hero";
-import Milestones from "../../components/home/milestone";
-import Regents from "../../components/home/regents";
-import Reviews from "../../components/home/review";
-import ServicesCta from "../../components/home/services-cta";
+import BookCallCta from "../../components/service/book-a-call";
+import FAQ from "../../components/service/faq";
+import Pricing from "../../components/service/pricing";
+import ServiceHero from "../../components/service/service-hero";
+import WhatYouGet from "../../components/service/what-you-get";
+import Showcase from "../../components/service/showcase";
+import Reviews from "../../components/service/testimonial";
 
 const HomePage = () => {
   return (
-    <div className="relative flex w-full flex-col">
+    <div className="relative flex w-full flex-col overflow-x-hidden">
       <section className="w-full">
-        <Hero />
+        <ServiceHero />
       </section>
       <section className="w-full">
-        <About />
+        <Pricing />
       </section>
       <section className="w-full">
-        <Feature />
+        <WhatYouGet />
       </section>
       <section className="w-full">
-        <Milestones />
+        <Showcase />
       </section>
       <section className="w-full">
         <Reviews />
       </section>
-      {/* <section className="w-full">
-        <Regents />
-      </section> */}
       <section className="w-full">
-        <ServicesCta />
+        <FAQ />
+      </section>
+      <section className="w-full">
+        <BookCallCta />
       </section>
     </div>
   );

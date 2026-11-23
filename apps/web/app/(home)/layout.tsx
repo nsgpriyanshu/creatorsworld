@@ -1,17 +1,20 @@
 import { createMetadata } from "../../utils/metadata";
 
 export const metadata = createMetadata({
-  title: "Creator's World - Discord Apps, Creator Tools, and Services",
+  title: "Creator's World | Web Development Studio & Technical Solutions",
   description:
-    "Explore Discord apps, creator tools, digital products, and technical services built for communities, creators, and developers.",
+    "We build modern, high-performance websites, scalable web applications, and digital experiences for businesses, founders, and creators.",
   path: "/",
   image: "/assets/brand/logo-main-dark-1024x1024.png",
   keywords: [
-    "Discord app hub",
-    "Discord bot marketplace",
-    "creator tools",
-    "Discord tools",
-    "technical services",
+    "web development services",
+    "web design agency",
+    "Next.js development",
+    "React development",
+    "frontend engineering",
+    "custom web apps",
+    "performance optimization",
+    "technical consulting",
   ],
 });
 

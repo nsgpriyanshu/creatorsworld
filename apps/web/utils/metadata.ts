@@ -18,7 +18,7 @@ const normalizeUrl = (url: string) => url.replace(/\/+$/, "");
 export const siteConfig = {
   siteName: process.env.NEXT_PUBLIC_APP_NAME || "Creator's World",
   siteDescription:
-    "Creator's World is a premium platform for Discord apps, creator tools, web products, and technical services built for communities, founders, and developers.",
+    "Creator's World is a high-performance web development studio crafting modern web applications, scalable technical solutions, and digital products for businesses and founders.",
   siteUrl: normalizeUrl(
     process.env.NEXT_PUBLIC_SITE_URL || "https://creatorsworld.vercel.app",
   ),
@@ -59,10 +59,12 @@ export const createMetadata = ({
   const uniqueKeywords = Array.from(
     new Set([
       "Creators World",
-      "Discord apps",
-      "Discord bots",
-      "creator tools",
       "web development",
+      "web development services",
+      "Next.js agency",
+      "React development",
+      "custom software engineering",
+      "creator tools",
       ...keywords,
     ]),
   );
