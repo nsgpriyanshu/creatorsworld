@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
-import { products } from "../lib/products";
-import { getAllPosts } from "../lib/db/queries";
+import { products } from "../features/product/data/products";
+import { getAllPosts } from "../features/blog/server/queries";
 import { absoluteUrl } from "../utils/metadata";
 
 const staticRoutes = [
@@ -10,7 +10,6 @@ const staticRoutes = [
   { path: "/product", priority: 0.9, changeFrequency: "weekly" as const },
   { path: "/blog", priority: 0.9, changeFrequency: "daily" as const },
   { path: "/contact", priority: 0.8, changeFrequency: "monthly" as const },
-  { path: "/archive", priority: 0.7, changeFrequency: "monthly" as const },
   { path: "/legal/about", priority: 0.6, changeFrequency: "monthly" as const },
   { path: "/legal/brand", priority: 0.5, changeFrequency: "monthly" as const },
   {

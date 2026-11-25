@@ -2,9 +2,9 @@
 
 import type { JSX } from "react";
 import { Lock } from "lucide-react";
-import LegalContent from "../../../components/legal/legal-content";
-import LegalHero from "../../../components/legal/legal-hero";
-import { policies } from "../../../constants/legal";
+import LegalContent from "../../../features/legal/components/legal-content";
+import LegalHero from "../../../features/legal/components/legal-hero";
+import { policies } from "../../../features/legal/data/legal";
 
 export default function PrivacyPage(): JSX.Element {
   return (

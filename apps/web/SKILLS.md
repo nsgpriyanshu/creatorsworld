@@ -9,12 +9,11 @@ Agents working on the Creator's World web app should preserve the existing struc
 
 ## App Shape
 
-- Routes live in `app/`.
-- Shared page sections live in `components/<area>/`.
-- Home sections live in `components/home/`.
-- Service sections live in `components/service/`.
-- Reusable layout helpers live in `components/global/`.
-- Data/constants live in `constants/`.
+- Routes and route composition live in `app/`.
+- Feature-owned UI and content live in `features/<feature>/components/` and `features/<feature>/data/`.
+- Shared layout helpers live in `components/global/`.
+- Cross-feature constants live in `constants/`.
+- Domain-specific UI and data live in `features/<feature>/`; service, product, blog, contact, legal, and legacy community code follow this pattern.
 - Static assets live in `public/`.
 - Use shared UI primitives from `@repo/ui/components/ui/*`.
 
@@ -94,16 +93,21 @@ When editing an existing section, preserve row borders and spacing unless the us
 
 ## Home Page Notes
 
-- `hero.tsx` defines the strongest visual pattern: grid background, bordered section, badge, heading, description, CTA/content rows.
-- `about.tsx` uses a two-by-two grid with text, Lucide icons, and SVG visuals from `public/icons`.
-- `services-cta.tsx` is more atmospheric than the standard grid sections, but its layout should remain stable when only colors are requested.
-- `review.tsx`, `features.tsx`, `milestone.tsx`, and `regents.tsx` use the same bordered-section vocabulary.
+- The active root route is intentionally a minimal “Creators World” placeholder.
+- `features/community/components/` contains sections from the former homepage and is intentionally not mounted on a route. Reuse them only when restoring that content is explicitly requested.
 
 ## Service Page Notes
 
-- `service-hero.tsx` uses a split layout inside the same bordered section pattern.
-- `what-you-get.tsx` is more complex and should be edited carefully; preserve its internal interaction and layout assumptions.
+- Service components and content are under `features/service/`.
+- `features/service/components/service-hero.tsx` uses a split layout inside the same bordered section pattern.
+- `features/service/components/what-you-get.tsx` is more complex and should be edited carefully; preserve its internal interaction and layout assumptions.
 - Pricing, FAQ, testimonials, and showcase sections should stay visually aligned with the same border/token system.
+
+## Product Page Notes
+
+- Product catalog and item detail UI live in `features/product/components/`.
+- Product definitions and their `Product` type live in `features/product/data/products.ts`.
+- Route metadata stays in the App Router; update sitemap generation when indexable products change.
 
 ## Verification
 

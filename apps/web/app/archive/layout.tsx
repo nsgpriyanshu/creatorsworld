@@ -1,17 +1,12 @@
 import { createMetadata } from "../../utils/metadata";
 
 export const metadata = createMetadata({
-  title: "Community Archive - Creator's World",
-  description:
-    "Explore the founding Discord bot server, creator community milestones, and bot hub heritage of Creator's World.",
+  title: "Community Archive - Coming Soon",
+  description: "The Creator's World community archive is being rebuilt.",
   path: "/archive",
   image: "/assets/brand/logo-main-dark-1024x1024.png",
-  keywords: [
-    "Discord bot archive",
-    "bot server",
-    "creator community",
-    "Creator's World archive",
-  ],
+  keywords: ["Creator's World archive"],
+  noIndex: true,
 });
 
 export default function ArchiveLayout({

@@ -2,9 +2,9 @@
 
 import type { JSX } from "react";
 import { Scale } from "lucide-react";
-import LegalContent from "../../../components/legal/legal-content";
-import LegalHero from "../../../components/legal/legal-hero";
-import { terms } from "../../../constants/legal";
+import LegalContent from "../../../features/legal/components/legal-content";
+import LegalHero from "../../../features/legal/components/legal-hero";
+import { terms } from "../../../features/legal/data/legal";
 
 export default function TermsPage(): JSX.Element {
   return (

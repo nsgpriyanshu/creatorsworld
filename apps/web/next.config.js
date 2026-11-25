@@ -78,16 +78,6 @@ const nextConfig = {
     ]
   },
 
-  async redirects() {
-    return [
-      {
-        source: '/archive',
-        destination: '/community',
-        permanent: true,
-      },
-    ]
-  },
-
   compress: true,
   poweredByHeader: false,
   generateEtags: true,

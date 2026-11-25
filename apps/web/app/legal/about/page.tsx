@@ -2,9 +2,9 @@
 
 import type { JSX } from "react";
 import { Info } from "lucide-react";
-import AboutContent from "../../../components/legal/about-content";
-import LegalHero from "../../../components/legal/legal-hero";
-import { aboutDescription } from "../../../constants/legal";
+import AboutContent from "../../../features/legal/components/about-content";
+import LegalHero from "../../../features/legal/components/legal-hero";
+import { aboutDescription } from "../../../features/legal/data/legal";
 
 export default function AboutPage(): JSX.Element {
   return (

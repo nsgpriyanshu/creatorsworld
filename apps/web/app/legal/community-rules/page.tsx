@@ -2,9 +2,9 @@
 
 import type { JSX } from "react";
 import { ShieldCheck } from "lucide-react";
-import LegalContent from "../../../components/legal/legal-content";
-import LegalHero from "../../../components/legal/legal-hero";
-import { rules } from "../../../constants/legal";
+import LegalContent from "../../../features/legal/components/legal-content";
+import LegalHero from "../../../features/legal/components/legal-hero";
+import { rules } from "../../../features/legal/data/legal";
 
 export default function CRPage(): JSX.Element {
   return (

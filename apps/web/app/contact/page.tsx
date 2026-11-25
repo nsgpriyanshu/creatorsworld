@@ -1,6 +1,6 @@
 import { Suspense } from "react";
-import ContactHero from "../../components/contact/contact-hero";
-import { ContactForm } from "../../components/contact/contact-form";
+import ContactHero from "../../features/contact/components/contact-hero";
+import { ContactForm } from "../../features/contact/components/contact-form";
 
 const ContactPage = () => {
   return (

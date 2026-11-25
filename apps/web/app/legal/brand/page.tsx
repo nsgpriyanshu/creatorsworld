@@ -5,15 +5,15 @@ import { CheckCircle2, Palette, XCircle } from "lucide-react";
 import { Button } from "@repo/ui/components/ui/button";
 import Wrapper from "../../../components/global/wrapper";
 import AnimationContainer from "../../../components/global/animation-container";
-import ColorPalette from "../../../components/legal/color-palette";
-import LogosShowcase from "../../../components/legal/logos-showcase";
-import BrandGuidelines from "../../../components/legal/brand-guidelines";
-import LegalHero from "../../../components/legal/legal-hero";
+import ColorPalette from "../../../features/legal/components/color-palette";
+import LogosShowcase from "../../../features/legal/components/logos-showcase";
+import BrandGuidelines from "../../../features/legal/components/brand-guidelines";
+import LegalHero from "../../../features/legal/components/legal-hero";
 import {
   brandColors,
   brandLogos,
   brandGuidelines,
-} from "../../../constants/legal";
+} from "../../../features/legal/data/legal";
 
 export default function BrandPage(): JSX.Element {
   return (

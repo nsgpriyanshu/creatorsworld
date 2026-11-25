@@ -1,11 +1,14 @@
-import BlogHero from "../../components/blog/blog-hero";
-import FeaturedBlogCard from "../../components/blog/featured-card";
-import BlogList from "../../components/blog/list";
-import CategoryFilter from "../../components/blog/category-filter";
+import BlogHero from "../../features/blog/components/blog-hero";
+import FeaturedBlogCard from "../../features/blog/components/featured-card";
+import BlogList from "../../features/blog/components/list";
+import CategoryFilter from "../../features/blog/components/category-filter";
 import Wrapper from "../../components/global/wrapper";
-import { getFeaturedPost, getAllPosts } from "../../lib/db/queries";
+import {
+  getFeaturedPost,
+  getAllPosts,
+} from "../../features/blog/server/queries";
 
-import { BlogPost } from "../../lib/db/types";
+import type { BlogPost } from "../../features/blog/types";
 
 interface BlogPageProps {
   searchParams?: {

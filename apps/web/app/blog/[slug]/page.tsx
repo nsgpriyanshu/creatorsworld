@@ -1,14 +1,14 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import BlogContent from "../../../components/blog/content";
-import BlogPostHeader from "../../../components/blog/post-header";
-import TableOfContents from "../../../components/blog/table-of-contents";
-import ArticleNav from "../../../components/blog/article-nav";
+import BlogContent from "../../../features/blog/components/content";
+import BlogPostHeader from "../../../features/blog/components/post-header";
+import TableOfContents from "../../../features/blog/components/table-of-contents";
+import ArticleNav from "../../../features/blog/components/article-nav";
 import {
   getPostBySlug,
   getPreviousPost,
   getNextPost,
-} from "../../../lib/db/queries";
+} from "../../../features/blog/server/queries";
 import Wrapper from "../../../components/global/wrapper";
 import Link from "next/link";
 import { ChevronDown, ChevronRight, Home } from "lucide-react";

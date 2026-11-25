@@ -1,9 +1,9 @@
-import BookCallCta from "../../components/service/book-a-call";
-import FAQ from "../../components/service/faq";
-import Pricing from "../../components/service/pricing";
-import ServiceHero from "../../components/service/service-hero";
-import Showcase from "../../components/service/showcase";
-import WhatYouGet from "../../components/service/what-you-get";
+import BookCallCta from "../../features/service/components/book-a-call";
+import FAQ from "../../features/service/components/faq";
+import Pricing from "../../features/service/components/pricing";
+import ServiceHero from "../../features/service/components/service-hero";
+import Showcase from "../../features/service/components/showcase";
+import WhatYouGet from "../../features/service/components/what-you-get";
 
 const ServicePage = () => {
   return (

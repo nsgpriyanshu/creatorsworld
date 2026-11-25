@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
-import { products } from "../../../lib/products";
-import ItemDetails from "../../../components/product/item-details";
+import { products } from "../../../features/product/data/products";
+import ItemDetails from "../../../features/product/components/item-details";
 import {
   absoluteUrl,
   createMetadata,
