@@ -41,9 +41,9 @@ const Showcase = () => {
         <AnimationContainer animation="fadeUp" delay={0.15}>
           <div className="border-b border-dashed border-border px-6 py-10 text-center">
             <h2 className="mx-auto max-w-4xl text-balance text-5xl font-semibold tracking-tight md:text-6xl">
-              Real-world{" "}
+              A{" "}
               <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                production websites
+                personal portfolio
               </span>
             </h2>
           </div>
@@ -52,8 +52,8 @@ const Showcase = () => {
         <AnimationContainer animation="fadeUp" delay={0.3}>
           <div className="border-b border-dashed border-border px-6 py-8 text-center">
             <p className="mx-auto max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Carefully crafted web experiences built with performance,
-              scalability, elegant UI, and modern development standards.
+              A carefully crafted portfolio showcasing personal work and
+              professional experience.
             </p>
           </div>
         </AnimationContainer>

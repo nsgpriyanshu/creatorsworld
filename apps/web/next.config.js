@@ -81,11 +81,6 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/service',
-        destination: '/',
-        permanent: true,
-      },
-      {
         source: '/archive',
         destination: '/community',
         permanent: true,

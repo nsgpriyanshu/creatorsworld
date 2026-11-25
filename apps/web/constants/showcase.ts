@@ -12,22 +12,4 @@ export const SHOWCASE: ShowcaseItem[] = [
     image: "/showcase/portfolio.png",
     category: "Portfolio & Personal Brand",
   },
-  {
-    name: "Pulse Analytics Platform",
-    url: "https://creatorsworld.vercel.app",
-    image: "/showcase/saas-platform.svg",
-    category: "SaaS & Global Telemetry",
-  },
-  {
-    name: "Vertex Creative Studio",
-    url: "https://creatorsworld.vercel.app",
-    image: "/showcase/apex-studio.svg",
-    category: "Agency & Design Systems",
-  },
-  {
-    name: "Nexus Headless Commerce",
-    url: "https://creatorsworld.vercel.app",
-    image: "/showcase/nexus-commerce.svg",
-    category: "E-Commerce & High Conversion",
-  },
 ];

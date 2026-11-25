@@ -57,7 +57,7 @@ export default function ProductPage() {
                   Looking for bespoke web development or engineering services?
                 </span>
                 <Link
-                  href="/"
+                  href="/service"
                   className="underline font-medium text-foreground hover:text-primary"
                 >
                   Explore Agency Services →
