@@ -93,7 +93,7 @@ When editing an existing section, preserve row borders and spacing unless the us
 
 ## Home Page Notes
 
-- The active root route is intentionally a minimal “Creators World” placeholder.
+- The active root route is intentionally a minimal “Creator's World” placeholder with a decorative `GradientASCII` background.
 - `features/community/components/` contains sections from the former homepage and is intentionally not mounted on a route. Reuse them only when restoring that content is explicitly requested.
 
 ## Service Page Notes
