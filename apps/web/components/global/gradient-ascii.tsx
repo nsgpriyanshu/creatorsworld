@@ -1,13 +1,21 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, type CSSProperties, type HTMLAttributes } from 'react';
-import styles from './gradient-ascii.module.css';
+import {
+  useEffect,
+  useRef,
+  type CSSProperties,
+  type HTMLAttributes,
+} from "react";
+import styles from "./gradient-ascii.module.css";
 
-export type GradientASCIIShape = 'horizon' | 'pinch' | 'rise' | 'eclipse';
+export type GradientASCIIShape = "horizon" | "pinch" | "rise" | "eclipse";
 
-export type GradientASCIIClickEffect = 'wave' | 'burst' | 'none';
+export type GradientASCIIClickEffect = "wave" | "burst" | "none";
 
-export interface GradientASCIIProps extends Omit<HTMLAttributes<HTMLDivElement>, 'style'> {
+export interface GradientASCIIProps extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  "style"
+> {
   colors?: string[];
   shape?: GradientASCIIShape;
   characters?: string;
@@ -60,9 +68,12 @@ type Settings = {
   dpr?: number;
 };
 
-type Program = { program: WebGLProgram; uniforms: Record<string, WebGLUniformLocation | null> };
+type Program = {
+  program: WebGLProgram;
+  uniforms: Record<string, WebGLUniformLocation | null>;
+};
 
-const uniform = (uniforms: Program['uniforms'], name: string) =>
+const uniform = (uniforms: Program["uniforms"], name: string) =>
   uniforms[name] ?? null;
 
 type Target = {
@@ -72,7 +83,11 @@ type Target = {
   height: number;
 };
 
-type Atlas = { texture: WebGLTexture | null; count: number; grid: [number, number] };
+type Atlas = {
+  texture: WebGLTexture | null;
+  count: number;
+  grid: [number, number];
+};
 
 type Point = { x: number; y: number; age: number };
 
@@ -87,10 +102,16 @@ const ATLAS_CELL_W = 60;
 const ATLAS_CELL_H = 100;
 const ATLAS_COLUMNS = 16;
 const FONT_SCALE = 0.78;
-const DEFAULT_COLORS = ['#1e3fd8', '#f6f8ff', '#a5d8ff', '#38bdf8'];
-const DEFAULT_CHARACTERS = ' =+xX0S8#@';
-const DEFAULT_FONT = '"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
-const SHAPES: Record<string, number> = { horizon: 0, pinch: 1, rise: 2, eclipse: 3 };
+const DEFAULT_COLORS = ["#1e3fd8", "#f6f8ff", "#a5d8ff", "#38bdf8"];
+const DEFAULT_CHARACTERS = " =+xX0S8#@";
+const DEFAULT_FONT =
+  '"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
+const SHAPES: Record<string, number> = {
+  horizon: 0,
+  pinch: 1,
+  rise: 2,
+  eclipse: 3,
+};
 const CLICK_EFFECTS: Record<string, number> = { none: 0, wave: 1, burst: 2 };
 
 const VERTEX = `#version 300 es
@@ -383,9 +404,11 @@ void main() {
   outColor = color;
 }`;
 
-const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
+const clamp = (value: number, min: number, max: number) =>
+  Math.min(max, Math.max(min, value));
 
-const toLinear = (value: number) => (value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4);
+const toLinear = (value: number) =>
+  value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
 
 type RGB = [number, number, number];
 
@@ -393,13 +416,19 @@ const toLab = ([r, g, b]: RGB): RGB => {
   const lr = toLinear(r);
   const lg = toLinear(g);
   const lb = toLinear(b);
-  const l = Math.cbrt(0.4122214708 * lr + 0.5363325363 * lg + 0.0514459929 * lb);
-  const m = Math.cbrt(0.2119034982 * lr + 0.6806995451 * lg + 0.1073969566 * lb);
-  const s = Math.cbrt(0.0883024619 * lr + 0.2817188376 * lg + 0.6299787005 * lb);
+  const l = Math.cbrt(
+    0.4122214708 * lr + 0.5363325363 * lg + 0.0514459929 * lb,
+  );
+  const m = Math.cbrt(
+    0.2119034982 * lr + 0.6806995451 * lg + 0.1073969566 * lb,
+  );
+  const s = Math.cbrt(
+    0.0883024619 * lr + 0.2817188376 * lg + 0.6299787005 * lb,
+  );
   return [
     0.2104542553 * l + 0.793617785 * m - 0.0040720468 * s,
     1.9779984951 * l - 2.428592205 * m + 0.4505937099 * s,
-    0.0259040371 * l + 0.7827717662 * m - 0.808675766 * s
+    0.0259040371 * l + 0.7827717662 * m - 0.808675766 * s,
   ];
 };
 
@@ -411,7 +440,10 @@ const compile = (gl: WebGL2RenderingContext, type: number, source: string) => {
   return shader;
 };
 
-const link = (gl: WebGL2RenderingContext, fragmentSource: string): Program | null => {
+const link = (
+  gl: WebGL2RenderingContext,
+  fragmentSource: string,
+): Program | null => {
   const vertex = compile(gl, gl.VERTEX_SHADER, VERTEX);
   const fragment = compile(gl, gl.FRAGMENT_SHADER, fragmentSource);
   const program = gl.createProgram();
@@ -430,13 +462,14 @@ const resolve = (gl: WebGL2RenderingContext, item: Program) => {
   for (let i = 0; i < count; i++) {
     const info = gl.getActiveUniform(item.program, i);
     if (!info) continue;
-    const name = info.name.replace(/\[0\]$/, '');
+    const name = info.name.replace(/\[0\]$/, "");
     item.uniforms[name] = gl.getUniformLocation(item.program, name);
   }
   return true;
 };
 
-const targetTexture = (target: Target, index: number) => target.textures[index] ?? null;
+const targetTexture = (target: Target, index: number) =>
+  target.textures[index] ?? null;
 
 const createTarget = (gl: WebGL2RenderingContext, count: number): Target => {
   const textures = Array.from({ length: count }, () => {
@@ -451,38 +484,71 @@ const createTarget = (gl: WebGL2RenderingContext, count: number): Target => {
   return { textures, framebuffer: gl.createFramebuffer(), width: 0, height: 0 };
 };
 
-const sizeTarget = (gl: WebGL2RenderingContext, target: Target, width: number, height: number) => {
+const sizeTarget = (
+  gl: WebGL2RenderingContext,
+  target: Target,
+  width: number,
+  height: number,
+) => {
   if (target.width === width && target.height === height) return;
   target.width = width;
   target.height = height;
   gl.bindFramebuffer(gl.FRAMEBUFFER, target.framebuffer);
   target.textures.forEach((texture, i) => {
     gl.bindTexture(gl.TEXTURE_2D, texture);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, width, height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
-    gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0 + i, gl.TEXTURE_2D, texture, 0);
+    gl.texImage2D(
+      gl.TEXTURE_2D,
+      0,
+      gl.RGBA8,
+      width,
+      height,
+      0,
+      gl.RGBA,
+      gl.UNSIGNED_BYTE,
+      null,
+    );
+    gl.framebufferTexture2D(
+      gl.FRAMEBUFFER,
+      gl.COLOR_ATTACHMENT0 + i,
+      gl.TEXTURE_2D,
+      texture,
+      0,
+    );
   });
   gl.bindFramebuffer(gl.FRAMEBUFFER, null);
 };
 
-const buildAtlas = (gl: WebGL2RenderingContext, characters: string, fontFamily: string): Atlas => {
-  const list = [...new Set([...characters].filter(char => char !== '\n' && char !== '\r'))];
-  if (!list.length) list.push(' ');
+const buildAtlas = (
+  gl: WebGL2RenderingContext,
+  characters: string,
+  fontFamily: string,
+): Atlas => {
+  const list = [
+    ...new Set(
+      [...characters].filter((char) => char !== "\n" && char !== "\r"),
+    ),
+  ];
+  if (!list.length) list.push(" ");
   const font = `300 ${Math.round(ATLAS_CELL_H * FONT_SCALE)}px ${fontFamily}`;
   const columns = Math.min(ATLAS_COLUMNS, list.length);
   const rows = Math.ceil(list.length / columns);
-  const canvas = document.createElement('canvas');
+  const canvas = document.createElement("canvas");
   canvas.width = ATLAS_CELL_W * columns;
   canvas.height = ATLAS_CELL_H * rows;
-  const context = canvas.getContext('2d');
+  const context = canvas.getContext("2d");
   if (context) {
     context.font = font;
-    context.textAlign = 'center';
-    context.textBaseline = 'middle';
-    context.fillStyle = '#fff';
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+    context.fillStyle = "#fff";
     list.forEach((char, index) => {
       const column = index % columns;
       const row = Math.floor(index / columns);
-      context.fillText(char, column * ATLAS_CELL_W + ATLAS_CELL_W / 2, row * ATLAS_CELL_H + ATLAS_CELL_H / 2 + 3);
+      context.fillText(
+        char,
+        column * ATLAS_CELL_W + ATLAS_CELL_W / 2,
+        row * ATLAS_CELL_H + ATLAS_CELL_H / 2 + 3,
+      );
     });
   }
   const texture = gl.createTexture();
@@ -490,7 +556,11 @@ const buildAtlas = (gl: WebGL2RenderingContext, characters: string, fontFamily: 
   gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
   gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, gl.RGBA, gl.UNSIGNED_BYTE, canvas);
   gl.generateMipmap(gl.TEXTURE_2D);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
+  gl.texParameteri(
+    gl.TEXTURE_2D,
+    gl.TEXTURE_MIN_FILTER,
+    gl.LINEAR_MIPMAP_LINEAR,
+  );
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
@@ -499,7 +569,7 @@ const buildAtlas = (gl: WebGL2RenderingContext, characters: string, fontFamily: 
 
 const GradientASCII = ({
   colors = DEFAULT_COLORS,
-  shape = 'horizon',
+  shape = "horizon",
   characters = DEFAULT_CHARACTERS,
   cellSize = 18,
   density = 0.8,
@@ -516,20 +586,22 @@ const GradientASCII = ({
   variation = 0,
   mouseInteraction = true,
   scrambleRadius = 0.1,
-  clickEffect = 'wave',
+  clickEffect = "wave",
   intro = true,
   lightMode = false,
   fontFamily = DEFAULT_FONT,
   dpr,
-  className = '',
+  className = "",
   style,
   ...rest
 }: GradientASCIIProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wakeRef = useRef<(() => void) | null>(null);
-  const palette = (Array.isArray(colors) && colors.length ? colors : DEFAULT_COLORS).slice(0, MAX_COLORS);
-  const firstColor = palette[0] ?? '#1e3fd8';
+  const palette = (
+    Array.isArray(colors) && colors.length ? colors : DEFAULT_COLORS
+  ).slice(0, MAX_COLORS);
+  const firstColor = palette[0] ?? "#1e3fd8";
   const settings: Settings = {
     colors: palette.length > 1 ? palette : [firstColor, firstColor],
     shape: SHAPES[shape] ?? 0,
@@ -553,7 +625,7 @@ const GradientASCII = ({
     intro,
     lightMode,
     fontFamily: fontFamily || DEFAULT_FONT,
-    dpr
+    dpr,
   };
   const settingsRef = useRef(settings);
   settingsRef.current = settings;
@@ -561,24 +633,24 @@ const GradientASCII = ({
   useEffect(() => {
     const container = containerRef.current;
     const canvas = canvasRef.current;
-    const gl = canvas?.getContext('webgl2', {
+    const gl = canvas?.getContext("webgl2", {
       alpha: true,
       premultipliedAlpha: true,
       antialias: false,
       depth: false,
-      stencil: false
+      stencil: false,
     });
     if (!container || !canvas || !gl) return undefined;
 
-    const parallel = gl.getExtension('KHR_parallel_shader_compile');
+    const parallel = gl.getExtension("KHR_parallel_shader_compile");
     const field = link(gl, FIELD);
     const halo = link(gl, HALO);
     const blur = link(gl, BLUR);
     const composite = link(gl, COMPOSITE);
     if (!field || !halo || !blur || !composite) return undefined;
     const programs = [field, halo, blur, composite];
-    if (!parallel && !programs.every(item => resolve(gl, item))) {
-      programs.forEach(item => gl.deleteProgram(item.program));
+    if (!parallel && !programs.every((item) => resolve(gl, item))) {
+      programs.forEach((item) => gl.deleteProgram(item.program));
       return undefined;
     }
     const vao = gl.createVertexArray();
@@ -586,7 +658,9 @@ const GradientASCII = ({
     const haloA = createTarget(gl, 1);
     const haloB = createTarget(gl, 1);
 
-    const probe = document.createElement('canvas').getContext('2d', { willReadFrequently: true });
+    const probe = document
+      .createElement("canvas")
+      .getContext("2d", { willReadFrequently: true });
     const colorCache = new Map<string, RGB>();
     const parse = (value: string): RGB => {
       const key = String(value);
@@ -595,7 +669,7 @@ const GradientASCII = ({
       let rgb: RGB = [0, 0, 0];
       if (probe) {
         probe.clearRect(0, 0, 1, 1);
-        probe.fillStyle = '#000000';
+        probe.fillStyle = "#000000";
         probe.fillStyle = key;
         probe.fillRect(0, 0, 1, 1);
         const pixels = probe.getImageData(0, 0, 1, 1).data;
@@ -609,7 +683,8 @@ const GradientASCII = ({
       return rgb;
     };
 
-    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+    const reduce =
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
     const view = { width: 1, height: 1, ratio: 1 };
     const ramp = new Float32Array(MAX_COLORS * 3);
     const clickData = new Float32Array(MAX_CLICKS * 4);
@@ -618,8 +693,8 @@ const GradientASCII = ({
     const trail: Point[] = [];
     const pointer = { x: 0, y: 0, inside: false };
     let atlas: Atlas | null = null;
-    let atlasKey = '';
-    let paletteKey = '';
+    let atlasKey = "";
+    let paletteKey = "";
     let time = 0;
     let glyphTime = 0;
     let introClock = settingsRef.current.intro && !reduce ? 0 : 1;
@@ -632,7 +707,10 @@ const GradientASCII = ({
     let ready = !parallel;
 
     const linked = () =>
-      !parallel || programs.every(item => gl.getProgramParameter(item.program, parallel.COMPLETION_STATUS_KHR));
+      !parallel ||
+      programs.every((item) =>
+        gl.getProgramParameter(item.program, parallel.COMPLETION_STATUS_KHR),
+      );
 
     const release = () => {
       if (gl.isContextLost()) return;
@@ -640,7 +718,7 @@ const GradientASCII = ({
         requestAnimationFrame(release);
         return;
       }
-      programs.forEach(item => gl.deleteProgram(item.program));
+      programs.forEach((item) => gl.deleteProgram(item.program));
     };
 
     const syncAtlas = () => {
@@ -657,13 +735,13 @@ const GradientASCII = ({
           atlas = buildAtlas(gl, s.characters, s.fontFamily);
           draw();
         },
-        () => {}
+        () => {},
       );
     };
 
     const syncPalette = () => {
       const s = settingsRef.current;
-      const key = s.colors.join(',');
+      const key = s.colors.join(",");
       if (key === paletteKey) return;
       paletteKey = key;
       s.colors.forEach((color, i) => ramp.set(toLab(parse(color)), i * 3));
@@ -677,29 +755,29 @@ const GradientASCII = ({
       const cellW = cellH * (ATLAS_CELL_W / ATLAS_CELL_H);
       gl.activeTexture(gl.TEXTURE0);
       gl.bindTexture(gl.TEXTURE_2D, targetTexture(fieldTarget, 0));
-      gl.uniform1i(uniform(u, 'uField'), 0);
+      gl.uniform1i(uniform(u, "uField"), 0);
       gl.activeTexture(gl.TEXTURE1);
       gl.bindTexture(gl.TEXTURE_2D, targetTexture(fieldTarget, 1));
-      gl.uniform1i(uniform(u, 'uAux'), 1);
+      gl.uniform1i(uniform(u, "uAux"), 1);
       gl.activeTexture(gl.TEXTURE2);
       gl.bindTexture(gl.TEXTURE_2D, atlas.texture);
-      gl.uniform1i(uniform(u, 'uAtlas'), 2);
-      gl.uniform2f(uniform(u, 'uResolution'), width, height);
-      gl.uniform2f(uniform(u, 'uCell'), cellW, cellH);
+      gl.uniform1i(uniform(u, "uAtlas"), 2);
+      gl.uniform2f(uniform(u, "uResolution"), width, height);
+      gl.uniform2f(uniform(u, "uCell"), cellW, cellH);
       gl.uniform2f(
-        uniform(u, 'uOffset'),
+        uniform(u, "uOffset"),
         (width - Math.ceil(width / cellW) * cellW) / 2,
-        (height - Math.ceil(height / cellH) * cellH) / 2
+        (height - Math.ceil(height / cellH) * cellH) / 2,
       );
-      gl.uniform2f(uniform(u, 'uAtlasGrid'), atlas.grid[0], atlas.grid[1]);
-      gl.uniform1f(uniform(u, 'uCount'), atlas.count);
-      gl.uniform1f(uniform(u, 'uDensity'), s.density);
-      gl.uniform1f(uniform(u, 'uOpacity'), s.glyphOpacity);
-      gl.uniform1f(uniform(u, 'uFlicker'), reduce ? 0 : s.flicker);
-      gl.uniform1f(uniform(u, 'uDepth'), s.depthOfField);
-      gl.uniform1f(uniform(u, 'uGlyphTime'), glyphTime);
-      gl.uniform1f(uniform(u, 'uSeedValue'), s.variation);
-      gl.uniform1f(uniform(u, 'uLight'), s.lightMode ? 1 : 0);
+      gl.uniform2f(uniform(u, "uAtlasGrid"), atlas.grid[0], atlas.grid[1]);
+      gl.uniform1f(uniform(u, "uCount"), atlas.count);
+      gl.uniform1f(uniform(u, "uDensity"), s.density);
+      gl.uniform1f(uniform(u, "uOpacity"), s.glyphOpacity);
+      gl.uniform1f(uniform(u, "uFlicker"), reduce ? 0 : s.flicker);
+      gl.uniform1f(uniform(u, "uDepth"), s.depthOfField);
+      gl.uniform1f(uniform(u, "uGlyphTime"), glyphTime);
+      gl.uniform1f(uniform(u, "uSeedValue"), s.variation);
+      gl.uniform1f(uniform(u, "uLight"), s.lightMode ? 1 : 0);
     };
 
     const draw = () => {
@@ -716,21 +794,25 @@ const GradientASCII = ({
       gl.viewport(0, 0, fieldTarget.width, fieldTarget.height);
       gl.useProgram(field.program);
       const fu = field.uniforms;
-      gl.uniform1f(uniform(fu, 'uAspect'), aspect);
-      gl.uniform1f(uniform(fu, 'uTime'), time);
-      gl.uniform1i(uniform(fu, 'uShape'), s.shape);
-      gl.uniform3fv(uniform(fu, 'uRamp'), ramp);
-      gl.uniform1i(uniform(fu, 'uCount'), s.colors.length);
-      gl.uniform1f(uniform(fu, 'uScale'), s.scale);
-      gl.uniform1f(uniform(fu, 'uSoftness'), s.softness);
-      gl.uniform1f(uniform(fu, 'uFlow'), s.flow);
-      gl.uniform2f(uniform(fu, 'uSeed'), s.variation * 3.17, s.variation * 1.91);
-      gl.uniform4fv(uniform(fu, 'uTrail'), trailData);
-      gl.uniform1f(uniform(fu, 'uRadius'), s.scrambleRadius);
-      gl.uniform4fv(uniform(fu, 'uClicks'), clickData);
-      gl.uniform1i(uniform(fu, 'uClickEffect'), s.clickEffect);
-      gl.uniform1f(uniform(fu, 'uIntro'), introClock);
-      gl.uniform1f(uniform(fu, 'uFrame'), frameSeed);
+      gl.uniform1f(uniform(fu, "uAspect"), aspect);
+      gl.uniform1f(uniform(fu, "uTime"), time);
+      gl.uniform1i(uniform(fu, "uShape"), s.shape);
+      gl.uniform3fv(uniform(fu, "uRamp"), ramp);
+      gl.uniform1i(uniform(fu, "uCount"), s.colors.length);
+      gl.uniform1f(uniform(fu, "uScale"), s.scale);
+      gl.uniform1f(uniform(fu, "uSoftness"), s.softness);
+      gl.uniform1f(uniform(fu, "uFlow"), s.flow);
+      gl.uniform2f(
+        uniform(fu, "uSeed"),
+        s.variation * 3.17,
+        s.variation * 1.91,
+      );
+      gl.uniform4fv(uniform(fu, "uTrail"), trailData);
+      gl.uniform1f(uniform(fu, "uRadius"), s.scrambleRadius);
+      gl.uniform4fv(uniform(fu, "uClicks"), clickData);
+      gl.uniform1i(uniform(fu, "uClickEffect"), s.clickEffect);
+      gl.uniform1f(uniform(fu, "uIntro"), introClock);
+      gl.uniform1f(uniform(fu, "uFrame"), frameSeed);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
 
       const glowing = s.glow > 0.001;
@@ -740,19 +822,22 @@ const GradientASCII = ({
         gl.viewport(0, 0, haloA.width, haloA.height);
         gl.useProgram(halo.program);
         bindGlyphs(halo, canvas.width, canvas.height);
-        gl.uniform1f(uniform(halo.uniforms, 'uDownscale'), canvas.width / haloA.width);
+        gl.uniform1f(
+          uniform(halo.uniforms, "uDownscale"),
+          canvas.width / haloA.width,
+        );
         gl.drawArrays(gl.TRIANGLES, 0, 3);
 
         gl.useProgram(blur.program);
         gl.activeTexture(gl.TEXTURE0);
-        gl.uniform1i(uniform(blur.uniforms, 'uSource'), 0);
+        gl.uniform1i(uniform(blur.uniforms, "uSource"), 0);
         gl.bindFramebuffer(gl.FRAMEBUFFER, haloB.framebuffer);
         gl.bindTexture(gl.TEXTURE_2D, targetTexture(haloA, 0));
-        gl.uniform2f(uniform(blur.uniforms, 'uStep'), 1 / haloA.width, 0);
+        gl.uniform2f(uniform(blur.uniforms, "uStep"), 1 / haloA.width, 0);
         gl.drawArrays(gl.TRIANGLES, 0, 3);
         gl.bindFramebuffer(gl.FRAMEBUFFER, haloA.framebuffer);
         gl.bindTexture(gl.TEXTURE_2D, targetTexture(haloB, 0));
-        gl.uniform2f(uniform(blur.uniforms, 'uStep'), 0, 1 / haloA.height);
+        gl.uniform2f(uniform(blur.uniforms, "uStep"), 0, 1 / haloA.height);
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       }
 
@@ -763,11 +848,11 @@ const GradientASCII = ({
       const cu = composite.uniforms;
       gl.activeTexture(gl.TEXTURE3);
       gl.bindTexture(gl.TEXTURE_2D, targetTexture(haloA, 0));
-      gl.uniform1i(uniform(cu, 'uHalo'), 3);
-      gl.uniform1f(uniform(cu, 'uGlow'), glowing ? s.glow : 0);
-      gl.uniform1f(uniform(cu, 'uGradient'), s.gradientOpacity);
-      gl.uniform1f(uniform(cu, 'uGrain'), s.grain);
-      gl.uniform1f(uniform(cu, 'uFrame'), frameSeed);
+      gl.uniform1i(uniform(cu, "uHalo"), 3);
+      gl.uniform1f(uniform(cu, "uGlow"), glowing ? s.glow : 0);
+      gl.uniform1f(uniform(cu, "uGradient"), s.gradientOpacity);
+      gl.uniform1f(uniform(cu, "uGrain"), s.grain);
+      gl.uniform1f(uniform(cu, "uFrame"), frameSeed);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     };
 
@@ -782,7 +867,7 @@ const GradientASCII = ({
         gl,
         fieldTarget,
         Math.max(1, Math.round(canvas.width / 2)),
-        Math.max(1, Math.round(canvas.height / 2))
+        Math.max(1, Math.round(canvas.height / 2)),
       );
       const haloWidth = Math.max(1, Math.round(canvas.width / 4));
       const haloHeight = Math.max(1, Math.round(canvas.height / 4));
@@ -793,7 +878,7 @@ const GradientASCII = ({
     };
 
     const updateInput = (dt: number) => {
-      trail.forEach(point => {
+      trail.forEach((point) => {
         point.age += dt;
       });
       while ((trail[trail.length - 1]?.age ?? 0) > TRAIL_LIFE) trail.pop();
@@ -806,7 +891,7 @@ const GradientASCII = ({
         const k = 1 - point.age / TRAIL_LIFE;
         trailData.set([point.x, point.y, k * k, 0], i * 4);
       }
-      clicks.forEach(click => {
+      clicks.forEach((click) => {
         click.age += dt;
       });
       while ((clicks[clicks.length - 1]?.age ?? 0) > CLICK_LIFE) clicks.pop();
@@ -830,7 +915,7 @@ const GradientASCII = ({
           raf = requestAnimationFrame(frame);
           return;
         }
-        if (!programs.every(item => resolve(gl, item))) {
+        if (!programs.every((item) => resolve(gl, item))) {
           dispose();
           return;
         }
@@ -843,7 +928,8 @@ const GradientASCII = ({
         time += dt * s.speed * 0.5;
         glyphTime += dt * Math.max(s.speed, 0.15);
       }
-      if (introClock < 1) introClock = Math.min(1, introClock + dt / INTRO_SECONDS);
+      if (introClock < 1)
+        introClock = Math.min(1, introClock + dt / INTRO_SECONDS);
       grainClock += dt;
       if (!reduce && grainClock > 1 / 24) {
         grainClock = 0;
@@ -851,13 +937,15 @@ const GradientASCII = ({
       }
       updateInput(dt);
       draw();
-      const busy = !reduce || introClock < 1 || clicks.length > 0 || trail.length > 0;
+      const busy =
+        !reduce || introClock < 1 || clicks.length > 0 || trail.length > 0;
       if (busy) raf = requestAnimationFrame(frame);
       else last = 0;
     };
 
     function wake() {
-      if (!raf && !disposed && visible && !document.hidden) raf = requestAnimationFrame(frame);
+      if (!raf && !disposed && visible && !document.hidden)
+        raf = requestAnimationFrame(frame);
     }
 
     const locate = (event: PointerEvent) => {
@@ -875,13 +963,19 @@ const GradientASCII = ({
       const s = settingsRef.current;
       if (!pointer.inside || !s.mouseInteraction || reduce) return;
       const head = trail[0];
-      const gap = head ? Math.hypot(pointer.x - head.x, pointer.y - head.y) : Infinity;
+      const gap = head
+        ? Math.hypot(pointer.x - head.x, pointer.y - head.y)
+        : Infinity;
       if (gap < TRAIL_STEP) return;
       if (head && head.age < 0.1) {
         const steps = Math.min(6, Math.floor(gap / (TRAIL_STEP * 2)));
         for (let i = 1; i <= steps; i++) {
           const k = i / (steps + 1);
-          trail.unshift({ x: head.x + (pointer.x - head.x) * k, y: head.y + (pointer.y - head.y) * k, age: 0 });
+          trail.unshift({
+            x: head.x + (pointer.x - head.x) * k,
+            y: head.y + (pointer.y - head.y) * k,
+            age: 0,
+          });
         }
       }
       trail.unshift({ x: pointer.x, y: pointer.y, age: 0 });
@@ -905,17 +999,17 @@ const GradientASCII = ({
 
     const resizeObserver = new ResizeObserver(resize);
     resizeObserver.observe(container);
-    const intersection = new IntersectionObserver(entries => {
-      visible = entries.some(entry => entry.isIntersecting);
+    const intersection = new IntersectionObserver((entries) => {
+      visible = entries.some((entry) => entry.isIntersecting);
       if (visible) {
         last = 0;
         wake();
       }
     });
     intersection.observe(container);
-    window.addEventListener('pointermove', onPointerMove, { passive: true });
-    window.addEventListener('pointerdown', onPointerDown, { passive: true });
-    document.addEventListener('visibilitychange', onVisibility);
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    window.addEventListener("pointerdown", onPointerDown, { passive: true });
+    document.addEventListener("visibilitychange", onVisibility);
     resize();
     wakeRef.current = wake;
 
@@ -926,11 +1020,11 @@ const GradientASCII = ({
       wakeRef.current = null;
       resizeObserver.disconnect();
       intersection.disconnect();
-      window.removeEventListener('pointermove', onPointerMove);
-      window.removeEventListener('pointerdown', onPointerDown);
-      document.removeEventListener('visibilitychange', onVisibility);
-      [fieldTarget, haloA, haloB].forEach(target => {
-        target.textures.forEach(texture => gl.deleteTexture(texture));
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("visibilitychange", onVisibility);
+      [fieldTarget, haloA, haloB].forEach((target) => {
+        target.textures.forEach((texture) => gl.deleteTexture(texture));
         gl.deleteFramebuffer(target.framebuffer);
       });
       if (atlas) gl.deleteTexture(atlas.texture);
@@ -938,8 +1032,8 @@ const GradientASCII = ({
       if (canvas.isConnected) {
         release();
       } else {
-        programs.forEach(item => gl.deleteProgram(item.program));
-        gl.getExtension('WEBGL_lose_context')?.loseContext();
+        programs.forEach((item) => gl.deleteProgram(item.program));
+        gl.getExtension("WEBGL_lose_context")?.loseContext();
       }
     };
 

@@ -31,9 +31,26 @@ const HomePage = () => {
             />
           </div>
           <AnimationContainer animation="fadeUp">
-            <h1 className="relative z-10 text-balance text-5xl font-semibold tracking-tight md:text-6xl">
-              Creator&apos;s World
-            </h1>
+            <div className="relative z-10 flex flex-col items-center gap-4">
+              <h1 className="text-balance text-5xl font-semibold tracking-tight md:text-6xl">
+                Creator&apos;s World
+              </h1>
+              <ul
+                aria-label="Build, manage, and ship"
+                className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2"
+              >
+                {["Build", "Manage", "Ship"].map((label, index) => (
+                  <li key={label} className="flex items-center gap-2">
+                    <span className="font-mono text-[10px] text-muted-foreground">
+                      0{index + 1}
+                    </span>
+                    <span className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground">
+                      {label}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </AnimationContainer>
         </section>
       </Wrapper>
