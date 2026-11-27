@@ -1,6 +1,7 @@
-import AnimationContainer from "../../components/global/animation-container";
-import GradientASCII from "../../components/global/gradient-ascii";
 import Wrapper from "../../components/global/wrapper";
+import { ClientShowcase } from "../../components/home/client-showcase";
+import { HomeHero } from "../../components/home/home-hero";
+import { ServicesPreview } from "../../components/home/services-preview";
 
 const HomePage = () => {
   return (
@@ -12,47 +13,9 @@ const HomePage = () => {
         >
           <div className="h-full w-full bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:64px_64px]" />
         </div>
-
-        <section className="relative isolate mx-auto flex min-h-[55vh] w-full max-w-6xl items-center justify-center overflow-hidden rounded-md border border-border px-6 py-16 text-center">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 opacity-80"
-          >
-            <GradientASCII
-              className="h-full w-full"
-              colors={["#1e3fd8", "#f6f8ff", "#a5d8ff", "#38bdf8"]}
-              shape="horizon"
-              characters=" =+xX0S8#@"
-              cellSize={18}
-              density={0.65}
-              speed={0.5}
-              mouseInteraction={false}
-              clickEffect="none"
-            />
-          </div>
-          <AnimationContainer animation="fadeUp">
-            <div className="relative z-10 flex flex-col items-center gap-4">
-              <h1 className="text-balance text-5xl font-semibold tracking-tight md:text-6xl">
-                Creator&apos;s World
-              </h1>
-              <ul
-                aria-label="Build, manage, and ship"
-                className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2"
-              >
-                {["Build", "Manage", "Ship"].map((label, index) => (
-                  <li key={label} className="flex items-center gap-2">
-                    <span className="font-mono text-[10px] text-muted-foreground">
-                      0{index + 1}
-                    </span>
-                    <span className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground">
-                      {label}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </AnimationContainer>
-        </section>
+        <HomeHero />
+        <ServicesPreview />
+        <ClientShowcase />
       </Wrapper>
     </div>
   );
