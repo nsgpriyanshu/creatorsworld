@@ -9,19 +9,9 @@ import AnimationContainer from "../../../components/global/animation-container";
 
 import { Badge } from "@repo/ui/components/ui/badge";
 import { Button } from "@repo/ui/components/ui/button";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@repo/ui/components/ui/alert-dialog";
 
 export type ItemDetailsProps = {
+  slug: string;
   title: string;
   highlight?: string;
   description: string;
@@ -35,6 +25,7 @@ export type ItemDetailsProps = {
 };
 
 const ItemDetails = ({
+  slug,
   title,
   highlight,
   description,
@@ -98,46 +89,15 @@ const ItemDetails = ({
             <AnimationContainer animation="fadeUp" delay={0.6}>
               <div className="p-6">
                 <div className="flex flex-wrap gap-4">
-                  <AlertDialog>
-                    <AlertDialogTrigger
-                      render={
-                        <Button
-                          size="lg"
-                          variant="default"
-                          className="rounded-md border border-border"
-                        />
-                      }
-                    >
-                      Buy Now
-                    </AlertDialogTrigger>
-
-                    <AlertDialogContent>
-                      <AlertDialogHeader>
-                        <AlertDialogTitle>
-                          Payments Coming Soon
-                        </AlertDialogTitle>
-                        <AlertDialogDescription>
-                          Our payment gateway is currently under deployment. To
-                          purchase this product, please contact us directly on
-                          Discord and we&apos;ll assist you manually.
-                        </AlertDialogDescription>
-                      </AlertDialogHeader>
-
-                      <AlertDialogFooter>
-                        <AlertDialogCancel>Close</AlertDialogCancel>
-
-                        <AlertDialogAction>
-                          <Link
-                            href={discordLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Contact on Discord
-                          </Link>
-                        </AlertDialogAction>
-                      </AlertDialogFooter>
-                    </AlertDialogContent>
-                  </AlertDialog>
+                  <Button
+                    nativeButton={false}
+                    size="lg"
+                    variant="default"
+                    className="rounded-md border border-border"
+                    render={<Link href={`/product/${slug}/checkout`} />}
+                  >
+                    Buy Now
+                  </Button>
 
                   <Button
                     size="lg"
