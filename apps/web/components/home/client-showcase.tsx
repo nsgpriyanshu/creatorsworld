@@ -11,7 +11,7 @@ export function ClientShowcase() {
       <div className="flex items-end justify-between gap-4">
         <div>
           <p className="font-mono text-[10px] tracking-wider text-muted-foreground">
-            SELECTED CLIENTS
+            CLIENTS
           </p>
           <h2
             id="companies-heading"

@@ -49,7 +49,7 @@ export function HomeHero() {
             render={<Link href="/contact" />}
             className="mt-2 gap-2"
           >
-            Get in touch
+            Start Building
             <ArrowUpRight aria-hidden="true" className="size-4" />
           </Button>
         </div>
